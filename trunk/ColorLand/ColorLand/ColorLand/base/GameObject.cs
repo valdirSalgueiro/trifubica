@@ -22,7 +22,6 @@ namespace ColorLand
 
         private bool mHold;
 
-
         public float mX;
         public float mY;
 

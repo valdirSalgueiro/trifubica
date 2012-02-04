@@ -178,6 +178,11 @@ namespace ColorLand
             }
         }
 
+        /*public void releaseContent()
+        {
+
+        }*/
+
         public void update()
         {
             if (!mOneFrameMode)

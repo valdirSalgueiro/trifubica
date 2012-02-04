@@ -74,6 +74,8 @@ namespace ColorLand
 
         private MainCharacter mMainCharacter;
 
+        private EnemySimpleFlying mTestEnemy;
+
         //private Test mTest;
         //private GameObjectsGroup<Enemy> mGroupEnemies = new GameObjectsGroup<Enemy>();
         // private GameObjectsGroup<Enemy> mGroupEnemiesToCheckCollision = new GameObjectsGroup<Enemy>();
@@ -116,10 +118,16 @@ namespace ColorLand
 
             mMainCharacter = new MainCharacter();
             mMainCharacter.loadContent(Game1.getInstance().getScreenManager().getContent());
-            mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 400); 
-            
+            mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 400);
+
+            mTestEnemy = new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED);
+            mTestEnemy.loadContent(Game1.getInstance().getScreenManager().getContent());
+
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
+            mCursor.changeColor(Color.Green);
+
+
 
             /*SoundManager.getInstance().stop();
 
@@ -231,6 +239,11 @@ namespace ColorLand
 
         private void checkCollisions()
         {
+            if (mCursor.collidesWith(mTestEnemy))
+            { 
+                //Console.WriteLine("COLIDIU");
+            }
+
            /* if (mCurrentProjectile != null)
             {
                 //checa destruicao da pedra apos saida 
@@ -348,17 +361,17 @@ namespace ColorLand
             //blue01 red23 green45
             if (mProjectileIndex == 0 || mProjectileIndex == 1)
             {
-                mCursor.changeColor(Cursor.sSTATE_BLUE);
+                mCursor.changeColor(Color.Blue);
             }
 
             if (mProjectileIndex == 2 || mProjectileIndex == 3)
             {
-                mCursor.changeColor(Cursor.sSTATE_RED);
+                mCursor.changeColor(Color.Red);
             }
 
             if (mProjectileIndex == 4 || mProjectileIndex == 5)
             {
-                mCursor.changeColor(Cursor.sSTATE_GREEN);
+                mCursor.changeColor(Color.Green);
             }
 
             /*mProjectileIndex++;
@@ -409,6 +422,7 @@ namespace ColorLand
             mBackground.update();
 
             mMainCharacter.update(gameTime);
+            mTestEnemy.update(gameTime);
 
             updateTimers();
 
@@ -453,6 +467,7 @@ namespace ColorLand
             mBackground.draw(mSpriteBatch);
 
             mMainCharacter.draw(mSpriteBatch);
+            mTestEnemy.draw(mSpriteBatch);
 
             mCursor.draw(mSpriteBatch);
 

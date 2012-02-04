@@ -1,2 +1,10 @@
 Content\gameplay\backgrounds\bgteste.xnb
 Content\gameplay\cursors\cursor.xnb
+Content\test\m1.xnb
+Content\test\m2.xnb
+Content\gameplay\cursors\cursorblue.xnb
+Content\gameplay\cursors\cursorgreen.xnb
+Content\gameplay\cursors\cursorred.xnb
+Content\test\eblue.xnb
+Content\test\egreen.xnb
+Content\test\ered.xnb

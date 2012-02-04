@@ -37,6 +37,60 @@
       <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\m2.xnb</Output>
       <Time>2012-02-04T16:42:00.333-02:00</Time>
     </Item>
+    <Item>
+      <Source>gameplay\cursors\cursorblue.png</Source>
+      <Name>gameplay\cursors\cursorblue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\gameplay\cursors\cursorblue.xnb</Output>
+      <Time>2011-12-07T03:53:27.8674-02:00</Time>
+    </Item>
+    <Item>
+      <Source>gameplay\cursors\cursorgreen.png</Source>
+      <Name>gameplay\cursors\cursorgreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\gameplay\cursors\cursorgreen.xnb</Output>
+      <Time>2011-12-07T03:53:27.7884-02:00</Time>
+    </Item>
+    <Item>
+      <Source>gameplay\cursors\cursorred.png</Source>
+      <Name>gameplay\cursors\cursorred</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\gameplay\cursors\cursorred.xnb</Output>
+      <Time>2011-12-07T03:53:27.7264-02:00</Time>
+    </Item>
+    <Item>
+      <Source>test\eblue.png</Source>
+      <Name>test\eblue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\eblue.xnb</Output>
+      <Time>2011-11-15T15:24:46-02:00</Time>
+    </Item>
+    <Item>
+      <Source>test\egreen.png</Source>
+      <Name>test\egreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\egreen.xnb</Output>
+      <Time>2011-11-15T15:38:28-02:00</Time>
+    </Item>
+    <Item>
+      <Source>test\ered.png</Source>
+      <Name>test\ered</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\ered.xnb</Output>
+      <Time>2011-11-15T15:36:38-02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{82E9FD01-18F4-40C1-BB5A-5E6592B930D1}</ContentProjectGUID>
