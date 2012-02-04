@@ -72,6 +72,8 @@ namespace ColorLand
          *******************/
         private Background mBackground;
 
+        private MainCharacter mMainCharacter;
+
         //private Test mTest;
         //private GameObjectsGroup<Enemy> mGroupEnemies = new GameObjectsGroup<Enemy>();
         // private GameObjectsGroup<Enemy> mGroupEnemiesToCheckCollision = new GameObjectsGroup<Enemy>();
@@ -112,6 +114,10 @@ namespace ColorLand
             mBackground = new Background("gameplay\\backgrounds\\bgteste");
             mBackground.loadContent(Game1.getInstance().getScreenManager().getContent());
 
+            mMainCharacter = new MainCharacter();
+            mMainCharacter.loadContent(Game1.getInstance().getScreenManager().getContent());
+            mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 400); 
+            
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
@@ -402,6 +408,8 @@ namespace ColorLand
         {
             mBackground.update();
 
+            mMainCharacter.update(gameTime);
+
             updateTimers();
 
             
@@ -443,8 +451,9 @@ namespace ColorLand
 
             mSpriteBatch.Begin();
             mBackground.draw(mSpriteBatch);
-           
-            
+
+            mMainCharacter.draw(mSpriteBatch);
+
             mCursor.draw(mSpriteBatch);
 
             int total = 0;

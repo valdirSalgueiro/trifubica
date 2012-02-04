@@ -80,6 +80,8 @@
     <Compile Include="base\GameObjectsGroup.cs" />
     <Compile Include="base\PaperObject.cs" />
     <Compile Include="base\Sprite.cs" />
+    <Compile Include="game\MainCharacter.cs" />
+    <Compile Include="game\MainCharacterData.cs" />
     <Compile Include="managers\InputState.cs" />
     <Compile Include="managers\JoystickManager.cs" />
     <Compile Include="managers\KeyboardManager.cs" />

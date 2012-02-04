@@ -156,6 +156,12 @@ namespace ColorLand
             //}
         }
 
+        public void setCenter(float x, float y)
+        {
+            this.mX = x - getCurrentSprite().getWidth() / 2;
+            this.mY = y - getCurrentSprite().getHeight() / 2;
+        }
+
         public void setLocation(float x, float y)
         {
             this.mX = x;
