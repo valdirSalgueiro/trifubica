@@ -1,0 +1,8 @@
+C:\Users\Andre\documents\visual studio 2010\Projects\ColorLand\ColorLand\ColorLand\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Andre\documents\visual studio 2010\Projects\ColorLand\ColorLand\ColorLand\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Andre\Documents\Visual Studio 2010\Projects\ColorLand\ColorLand\ColorLand\bin\x86\Debug\ColorLand.exe
+C:\Users\Andre\Documents\Visual Studio 2010\Projects\ColorLand\ColorLand\ColorLand\bin\x86\Debug\ColorLand.pdb
+C:\Users\Andre\Documents\Visual Studio 2010\Projects\ColorLand\ColorLand\ColorLand\obj\x86\Debug\ColorLand.exe
+C:\Users\Andre\Documents\Visual Studio 2010\Projects\ColorLand\ColorLand\ColorLand\obj\x86\Debug\ColorLand.pdb
+C:\Users\Andre\documents\visual studio 2010\Projects\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\gameplay\backgrounds\bgteste.xnb
+C:\Users\Andre\documents\visual studio 2010\Projects\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\gameplay\cursors\cursor.xnb
