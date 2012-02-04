@@ -17,6 +17,8 @@ namespace ColorLand
           //INDEXES
         public const int sSTATE_NORMAL = 0;
 
+        private Color mCurrentColor;
+
         public const int sSTATE_BLUE = 1;
         public const int sSTATE_GREEN = 2;
         public const int sSTATE_RED = 3;
@@ -30,15 +32,15 @@ namespace ColorLand
         public Cursor()
         {
             mSpriteNormal = new Sprite(1, "gameplay\\cursors\\cursor", new int[] { 0 }, 10, 32, 32);
-            /*mSpriteBlue   = new Sprite(1, "cursorblue", new int[] { 0 }, 10, 32, 32);
-            mSpriteGreen  = new Sprite(1, "cursorgreen", new int[] { 0 }, 10, 32, 32);
-            mSpriteRed    = new Sprite(1, "cursorred", new int[] { 0 }, 10, 32, 32);
-            */
+            mSpriteBlue   = new Sprite(1, "gameplay\\cursors\\cursorblue", new int[] { 0 }, 10, 32, 32);
+            mSpriteGreen  = new Sprite(1, "gameplay\\cursors\\cursorgreen", new int[] { 0 }, 10, 32, 32);
+            mSpriteRed    = new Sprite(1, "gameplay\\cursors\\cursorred", new int[] { 0 }, 10, 32, 32);
+            
             addSprite(mSpriteNormal, sSTATE_NORMAL);
-            /*addSprite(mSpriteBlue,   sSTATE_BLUE);
+            addSprite(mSpriteBlue,   sSTATE_BLUE);
             addSprite(mSpriteGreen, sSTATE_GREEN);
             addSprite(mSpriteRed, sSTATE_RED);
-            */
+            
             changeToSprite(sSTATE_NORMAL);
 
             setCollisionRect(32, 32);
@@ -67,12 +69,13 @@ namespace ColorLand
         }
 
 
-        public void changeColor(int color)
+        public void changeColor(Color color)
         {
 
-            if (color == sSTATE_BLUE) changeToSprite(sSTATE_BLUE);
-            if (color == sSTATE_GREEN) changeToSprite(sSTATE_GREEN);
-            if (color == sSTATE_RED) changeToSprite(sSTATE_RED);
+            mCurrentColor = color;
+            if (color == Color.Blue) changeToSprite(sSTATE_BLUE);
+            if (color == Color.Green) changeToSprite(sSTATE_GREEN);
+            if (color == Color.Red) changeToSprite(sSTATE_RED);
             
         }
 
