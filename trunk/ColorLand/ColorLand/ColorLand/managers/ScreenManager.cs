@@ -55,6 +55,12 @@ namespace ColorLand
             
         }
 
+        public void UnloadContent()
+        {
+            mContentManager.Unload();
+            mContentManager = Game.Content;
+        }
+
         public override void Update(GameTime gameTime) {
             base.Update(gameTime);
             

@@ -94,6 +94,8 @@
     <Compile Include="Game1.cs" />
     <Compile Include="screens\BaseScreen.cs" />
     <Compile Include="screens\GamePlayScreen.cs" />
+    <Compile Include="util\Camera.cs" />
+    <Compile Include="util\Fade.cs" />
     <Compile Include="util\Timer.cs" />
   </ItemGroup>
   <ItemGroup>
