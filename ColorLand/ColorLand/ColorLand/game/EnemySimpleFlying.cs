@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace ColorLand
 {
-    class EnemySimpleFlying : PaperObject {
+    class EnemySimpleFlying : BaseEnemy {
 
         //SpriteFont mFontDebug = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("debug");
 
@@ -26,11 +26,10 @@ namespace ColorLand
         private int mInitX;
         private int mInitY;
         private const int cHORIZONTAL_MARGIN = 40;
-        private Boolean mMovingRight = true;
-
+        
         //TODO Construir mecanismo de chamar um delegate method when finish animation
 
-        public EnemySimpleFlying(int type)
+        public EnemySimpleFlying(int type) : base(type)
         {
 
             this.mType = type;
@@ -39,10 +38,10 @@ namespace ColorLand
                 case BaseEnemy.sTYPE_SIMPLE_FLYING_RED:
             
                     String[] imagesStopped = new String[1];
-                    imagesStopped[0] = "test\\ered";
+                    imagesStopped[0] = "test\\eblue";
                 
                     String[] imagesDestroyed = new String[1];
-                    imagesDestroyed[0] = "test\\ered";
+                    imagesDestroyed[0] = "test\\eblue";
                 
                     mSpriteNormal    = new Sprite(imagesStopped, new int[] { 0 }, 7, 40, 40, false, false);
                     mSpriteExploding = new Sprite(imagesDestroyed, new int[] { 0 }, 3, 40, 40, true, true);
@@ -82,12 +81,12 @@ namespace ColorLand
         }
 
         public override void draw(SpriteBatch spriteBatch) {
-            if (isActive())
-            {
+            //if (isActive())
+            //{
                 base.draw(spriteBatch);//getCurrentSprite().draw(spriteBatch);
 
                // spriteBatch.DrawString(mFontDebug, /*" ATE: " + mAlreadyAte + " ColEnabled: " + collisionEnabled() +*/" Rect: " + getCollisionRect(), new Vector2(0, 150), Color.Yellow);
-            }
+            //}
             //getCurrentSprite().draw(spriteBatch);
         }
 

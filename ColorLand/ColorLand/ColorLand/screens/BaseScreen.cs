@@ -14,6 +14,10 @@ namespace ColorLand
 
         //private GestureType mEnabledGestures;
 
+        //fade rect image
+        private Texture2D mFadeImage;
+        private int mAlpha;
+
         private bool mChangeMe = false;
         private bool mReleaseMe;
         private int mNextScreenId;
@@ -37,16 +41,15 @@ namespace ColorLand
         public virtual void update(GameTime gameTime) { }
         public virtual void draw(GameTime gameTime) { }
         public virtual void handleInput(InputState input) { }
+        public virtual void executeFade(Fade fadeObject) { }
 
-        public void releaseScreenResources() {
-          //  this.mContentManager.Dispose();
+        public virtual void unload()
+        {
+            Game1.getInstance().getScreenManager().UnloadContent();
         }
 
-        //public ContentManager getContentManager() {
-            //return mContentManager;
-        //}
-
-        public void setChangeMe(bool changeMe, int toScreenId, bool releaseMe) {
+        
+        /*public void setChangeMe(bool changeMe, int toScreenId, bool releaseMe) {
             this.mChangeMe = changeMe;
             this.mNextScreenId = toScreenId;
             this.mReleaseMe = releaseMe;
@@ -63,7 +66,7 @@ namespace ColorLand
         public bool shouldReleaseMe() {
             return this.mReleaseMe;
         }
-
+        */
 
 
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Audio;
 using System.IO.IsolatedStorage;
 using System.IO;
@@ -49,17 +50,6 @@ namespace ColorLand
         //private Timer mTimerSucesso = new Timer();
         //private Timer mTimerDerrota= new Timer();
 
-        private bool mAlertMessageVisible = true;
-
-        private String[] cALERT_MESSAGES  = { "TURNO ", "PRONTO?", "VAI!", "DESCANSO", "OHHHHHHHH" };
-        private const int cALERT_MESSAGE_ONDA       = 0;
-        private const int cALERT_MESSAGE_PRONTO     = 1;
-        private const int cALERT_MESSAGE_VAI        = 2;
-        private const int cALERT_MESSAGE_MUITO_BOM  = 3;
-        private const int cALERT_MESSAGE_OHHHHH     = 4;
-
-        private int mCurrentAlertMessageIndex;
-        
         private int mGameState;
 
         private const int GAME_STATE_PREPARANDO = 0;
@@ -70,35 +60,26 @@ namespace ColorLand
         /*******************
          * GAME
          *******************/
+        public const int sWORLD_1 = 0;
+        public const int sWORLD_2 = 1;
+        
+        private int mCurrentWorld;
+
+
+
         private Background mBackground;
 
         private MainCharacter mMainCharacter;
 
         private EnemySimpleFlying mTestEnemy;
 
-        //private Test mTest;
-        //private GameObjectsGroup<Enemy> mGroupEnemies = new GameObjectsGroup<Enemy>();
-        // private GameObjectsGroup<Enemy> mGroupEnemiesToCheckCollision = new GameObjectsGroup<Enemy>();
-        //private GameObjectsGroup<Fruit> mGroupFruits = new GameObjectsGroup<Fruit>();
-
-        private int mTotalOfActiveEnemies;
-        private int mTotalofRemaningFruits;
-
-        /*private Monster mMonster;
-        private Projectile[] mProjectiles;
-        private Projectile   mCurrentProjectile;
-        private Projectile   mProjectileToBeTackled; //projetil la no chao, preparado pra levar lapada
-        */
-        private int mProjectileIndex;
-
-        //private Enemy mEnemy;
+        private Fade mFadeIn;
+        private Fade mFadeOut;
 
         private Cursor mCursor;
 
-        //WAVES
-        private const int cWAVE1_ENEMIES_COUNT = 10;
-        private int mCurrentWave = 0;
-
+        private Camera mCamera;
+        
 
         public GamePlayScreen()
         {
@@ -106,13 +87,28 @@ namespace ColorLand
            // mGameState = GAME_STATE_PREPARANDO;
             mGameState = GAME_STATE_SUCESSO;
 
+            mCamera = new Camera();
+
+            loadWorld1();
+
             mKeyboard = KeyboardManager.getInstance();
+        }
+
+        private void loadWorld1()
+        {
+
+            mCurrentWorld = sWORLD_1;
+
+            mFadeIn  = new Fade(Fade.sFADE_IN_EFFECT_GRADATIVE, "fades\\blackfade");
+            mFadeOut = new Fade(Fade.sFADE_OUT_EFFECT_GRADATIVE,"fades\\blackfade");
+
+            //setAndLoadFadeImage("fades\\blackfade", Game1.getInstance().getScreenManager().getContent());
 
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
             //mFontDebug = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("debug");
             //mFontAlert = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("alerts");
-            
+
             mBackground = new Background("gameplay\\backgrounds\\bgteste");
             mBackground.loadContent(Game1.getInstance().getScreenManager().getContent());
 
@@ -122,30 +118,22 @@ namespace ColorLand
 
             mTestEnemy = new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED);
             mTestEnemy.loadContent(Game1.getInstance().getScreenManager().getContent());
+            mTestEnemy.setCenter(100, 100);
 
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
             mCursor.changeColor(Color.Green);
+            mCursor.setCenter(20, 20);
 
-
-
-            /*SoundManager.getInstance().stop();
-
-            SoundManager.getInstance().playMusic(SoundManager.MUSIC_GAME);
-
-            SoundManager.getInstance().stopFX(SoundManager.FX_NARRACAO);
-            */
+            //executeFade(mFadeOut);
         }
 
-        /*private void manageWaves()
+        private void unloadWorld1()
         {
-            if (mTotalOfActiveEnemies == 0)
-            {
-                //vou botar um timer pra melhorar isso
-                nextWave();
-            }
-
-        }*/
+            unload();
+            loadWorld1();
+            //executeFade(mFadeIn);
+        }
 
 
         private void setGameState(int gameState)
@@ -157,28 +145,8 @@ namespace ColorLand
             {
 
                 case GAME_STATE_PREPARANDO:
-                    mAlertMessageVisible = true;
-                    mTimerMessages.start();
-                    break;
-                
-                case GAME_STATE_EM_JOGO:
-                    mAlertMessageVisible = false;
-                    mTimerMessages.stop();
-                    //mTimerSucesso.stop();
                     break;
 
-                case GAME_STATE_SUCESSO:
-                    mAlertMessageVisible = true;
-                    mCurrentAlertMessageIndex = cALERT_MESSAGE_MUITO_BOM;
-                    mTimerMessages.start();
-                    break;
-                
-                case GAME_STATE_DERROTA:
-                    mAlertMessageVisible = true;
-                    mCurrentAlertMessageIndex = cALERT_MESSAGE_OHHHHH;
-                    //mTimerDerrota.start();
-                    mTimerMessages.start();
-                    break;
             }
 
         }
@@ -192,27 +160,7 @@ namespace ColorLand
 
                 if (mGameState == GAME_STATE_PREPARANDO)
                 {
-                    if (!mTimerMessages.isBusyForNumber(0) && mTimerMessages.getTimeInt() == 0)
-                    {
-                        mTimerMessages.setBusyWithNumber(0);
-                        mCurrentAlertMessageIndex = cALERT_MESSAGE_ONDA;
-                    }
-                    if (!mTimerMessages.isBusyForNumber(3) && mTimerMessages.getTimeInt() == 3)
-                    {
-                        mTimerMessages.setBusyWithNumber(3);
-                        mCurrentAlertMessageIndex = cALERT_MESSAGE_PRONTO;
-                    }
-                    if (!mTimerMessages.isBusyForNumber(5) && mTimerMessages.getTimeInt() == 5)
-                    {
-                        mTimerMessages.setBusyWithNumber(5);
-                        mCurrentAlertMessageIndex = cALERT_MESSAGE_VAI;
-                    }
-                    if (!mTimerMessages.isBusyForNumber(6) && mTimerMessages.getTimeInt() == 6)
-                    {
-                        mTimerMessages.setBusyWithNumber(6);
-                        setGameState(GAME_STATE_EM_JOGO);
-                        mCurrentAlertMessageIndex = 0;
-                    }
+                    
                 }else
                 if (mGameState == GAME_STATE_SUCESSO)
                 {
@@ -239,217 +187,74 @@ namespace ColorLand
 
         private void checkCollisions()
         {
-            if (mCursor.collidesWith(mTestEnemy))
+            if (mCursor.collidesWith(mMainCharacter))
             { 
                 //Console.WriteLine("COLIDIU");
+                unloadWorld1();
             }
-
-           /* if (mCurrentProjectile != null)
-            {
-                //checa destruicao da pedra apos saida 
-                if (mCurrentProjectile.getX() < -30 || mCurrentProjectile.getX() > 640 ||
-                    mCurrentProjectile.getY() < -20 || mCurrentProjectile.getY() > 470)
-                {
-                    mCurrentProjectile.explode();
-                }else
-                if (mGroupEnemies.checkCollisionWith(mCurrentProjectile))
-                {
-                    Enemy e = (Enemy)mGroupEnemies.getCollidedObject();
-
-                    if (e.getType() == Enemy.sTYPE_BLUE)
-                    {
-                        if (mCurrentProjectile.getType() == Projectile.sTYPE_BLUE)
-                        {
-                            ((Enemy)mGroupEnemies.getCollidedObject()).explode();
-                            //TODO ta na beirada
-                            //((Enemy)mGroupEnemies.getCollidedObject()).setActive(false);
-                        }
-                        else
-                        {
-                            //some action?
-                        }
-
-                        mCurrentProjectile.explode();
-                    }
-                    if (e.getType() == Enemy.sTYPE_RED)
-                    {
-                        if (mCurrentProjectile.getType() == Projectile.sTYPE_RED)
-                        {
-                            ((Enemy)mGroupEnemies.getCollidedObject()).explode();
-                            //((Enemy)mGroupEnemies.getCollidedObject()).setActive(false);
-                        }
-                        else
-                        {
-                            //some action?
-                        }
-
-                        mCurrentProjectile.explode();
-                    }
-                    if (e.getType() == Enemy.sTYPE_GREEN)
-                    {
-                        if (mCurrentProjectile.getType() == Projectile.sTYPE_GREEN)
-                        {
-                            ((Enemy)mGroupEnemies.getCollidedObject()).explode();
-                           // ((Enemy)mGroupEnemies.getCollidedObject()).setActive(false);
-                        }
-                        else
-                        {
-                            //some action?
-                        }
-
-                        mCurrentProjectile.explode();
-                    }
-                    
-                }
-
-
-                mUniversalTEXT = "MGRP: " + mGroupEnemies.getSize() + " Monster: " + mGroupEnemies.getGameObject(0).getCollisionRect();
-                mUniversalTEXT2 = "Fruit: " + mGroupFruits.getSize() + " FRUIT: " + mGroupFruits.getGameObject(0).getCollisionRect();
-
-                if (mGroupFruits.checkCollisionWith<Enemy>(mGroupEnemies))
-                {
-                    
-                    Fruit fruit = ((Fruit)mGroupFruits.getCollidedObject());
-                    Enemy enemy = ((Enemy)mGroupFruits.getCollidedPassiveObject());
-
-                    enemy.setLocation(enemy.getX(), enemy.getY());
-
-                    if (!enemy.getAlreadyAte())
-                    {
-                        enemy.eatFruit();
-                        enemy.setX(fruit.getX() + 2);
-                        enemy.setY(fruit.getY());
-                        mGroupEnemies.deactivateGameObject((Enemy)mGroupEnemies.getCollidedObject());
-
-                        //mGroupEnemies.remove();
-                        //Se der pau foi aqui, eu juro
-                        //mGroupEnemies.remove((Enemy)mGroupEnemiesToCheckCollision.getCollidedObject());
-                        fruit.changeState(Fruit.sSTATE_EATEN);
-                        fruit.enableCollision(false);
-                    }
-                }
-                
-            }*/
         }
 
-        private int nextProjectileIndex()
-        {
-
-            int indiceAtual = mProjectileIndex;
-
-            Random r = new Random();
-            
-            int count = 0;
-
-            do{
-            
-                if(mCurrentWave == 1) mProjectileIndex = r.Next(0, 2);
-                else
-                if(mCurrentWave == 2) mProjectileIndex = r.Next(0, 4);
-                //else
-                //mProjectileIndex = r.Next(mProjectiles.Length);
-
-                count++;
-
-                if(count > 5){
-                    break;
-                }
-
-            } while( indiceAtual == mProjectileIndex);
-            
-
-            //blue01 red23 green45
-            if (mProjectileIndex == 0 || mProjectileIndex == 1)
-            {
-                mCursor.changeColor(Color.Blue);
-            }
-
-            if (mProjectileIndex == 2 || mProjectileIndex == 3)
-            {
-                mCursor.changeColor(Color.Red);
-            }
-
-            if (mProjectileIndex == 4 || mProjectileIndex == 5)
-            {
-                mCursor.changeColor(Color.Green);
-            }
-
-            /*mProjectileIndex++;
-
-            if (mProjectileIndex > mProjectiles.Length -1)
-            {
-                mProjectileIndex = 0;
-            }
-            */
-            //randomize color TODO
-            return mProjectileIndex;
-        }
+       
 
         private void checkGameOverCondition()
         {
-            //FRUITS
-            /*mTotalofRemaningFruits = 0;
-            for (int x = 0; x < mGroupFruits.getSize(); x++)
-            {
-                if (mGroupFruits.getGameObject(x).getState() == Fruit.sSTATE_STOPPED)
-                {
-                    mTotalofRemaningFruits++;
-                }
-            }
-
-            if (mTotalofRemaningFruits == 0 && mTotalOfActiveEnemies == 0 && mGameState == GAME_STATE_EM_JOGO)
-            {
-                setGameState(GAME_STATE_DERROTA);
-            }
-            */
+           
         }
 
         private void checkVictoryCondition()
         {
-            //mUniversalTEXT = "MEU CACETE VOADOR VICTORY CONDIGITION ACIVATED: " + mTotalOfActiveEnemies + " / " + mTotalofRemaningFruits;
-            //FRUITS
-           /* if (mTotalOfActiveEnemies == 0 && mTotalofRemaningFruits > 0)
-            {
-                //mUniversalTEXT = ;
-                setGameState(GAME_STATE_SUCESSO);
-                //setGameState(GAME_STATE_PREPARANDO);
-            }
-            */
+          
         }
+
+        public override void executeFade(Fade fadeObject)
+        {
+            base.executeFade(fadeObject);
+
+            fadeObject.activate();
+        }
+
 
         public override void update(GameTime gameTime)
         {
-            mBackground.update();
-
-            mMainCharacter.update(gameTime);
-            mTestEnemy.update(gameTime);
-
-            updateTimers();
-
-            
-            if (mGameState == GAME_STATE_EM_JOGO)
+            if (mCurrentWorld == sWORLD_1)
             {
-            //    mGroupEnemies.update(gameTime);
+                mCamera.update();
+
+                mBackground.update();
+
+                mMainCharacter.update(gameTime);
+                mTestEnemy.update(gameTime);
+
+                updateTimers();
+
+
+                if (mGameState == GAME_STATE_EM_JOGO)
+                {
+                    //    mGroupEnemies.update(gameTime);
+                }
+
+                mTimerMessages.update(gameTime);
+
+
+
+                if (mGameState == GAME_STATE_EM_JOGO)
+                {
+                    checkVictoryCondition();
+                    checkGameOverCondition();
+                }
+
+                //mEnemy.update(gameTime);
+                checkCollisions();
+
+                mCursor.update(gameTime);
+                MouseState mouseState = Mouse.GetState();
+
+                mFadeIn.update(gameTime);
+                mFadeOut.update(gameTime);
+
+               // if(mFade.isFadeComplete()
+
             }
-
-            mTimerMessages.update(gameTime);
-
-            mTotalOfActiveEnemies = 0;
-           
-
-            if (mGameState == GAME_STATE_EM_JOGO)
-            {
-                checkVictoryCondition();
-                checkGameOverCondition();
-            }
-
-           
-            //mEnemy.update(gameTime);
-            checkCollisions();
-
-            mCursor.update(gameTime);
-            MouseState mouseState = Mouse.GetState();
-
             
             /*
             if (KeyboardState.pressed(Keys.A))
@@ -463,39 +268,50 @@ namespace ColorLand
         public override void draw(GameTime gameTime)
         {
 
-            mSpriteBatch.Begin();
-            mBackground.draw(mSpriteBatch);
-
-            mMainCharacter.draw(mSpriteBatch);
-            mTestEnemy.draw(mSpriteBatch);
-
-            mCursor.draw(mSpriteBatch);
-
-            int total = 0;
-
-            /*for (int x = 0; x < mGroupEnemies.getSize(); x++)
+            if (mCurrentWorld == sWORLD_1)
             {
-                if (!mGroupEnemies.getGameObject(x).isActive())
-                {
-                    total++;
-                }
-            }*/
+
+                //mSpriteBatch.Begin();
+                mSpriteBatch.Begin(
+                        SpriteSortMode.Immediate,
+                        BlendState.AlphaBlend,
+                        null,
+                        null,
+                        null,
+                        null,
+                        mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
 
 
-            //mSpriteBatch.DrawString(mFontDebug, ""+mUniversalTEXT, new Vector2(10, 100), Color.Red);
-            //mSpriteBatch.DrawString(mFontDebug, "" + mUniversalTEXT2, new Vector2(10, 140), Color.Red);
-            if (mAlertMessageVisible)
-            {
-                String text = cALERT_MESSAGES[mCurrentAlertMessageIndex];
-                if (mCurrentAlertMessageIndex == cALERT_MESSAGE_ONDA)
+                mBackground.draw(mSpriteBatch);
+
+                mMainCharacter.draw(mSpriteBatch);
+
+                mTestEnemy.draw(mSpriteBatch);
+
+                mCursor.draw(mSpriteBatch);
+
+                //mSpriteBatch.Draw(getFadeImage(), new Rectangle(0, 0, 600, 500), new Color(0, 0, 0, 0.6f));
+                mFadeIn.draw(mSpriteBatch);
+                mFadeOut.draw(mSpriteBatch);
+
+                
+                /*for (int x = 0; x < mGroupEnemies.getSize(); x++)
                 {
-                    text += " " + mCurrentWave;
-                }
-                //mSpriteBatch.DrawString(mFontAlert, text, new Vector2(120, 140), Color.White);
+                    if (!mGroupEnemies.getGameObject(x).isActive())
+                    {
+                        total++;
+                    }
+                }*/
+
+
+                //mSpriteBatch.DrawString(mFontDebug, ""+mUniversalTEXT, new Vector2(10, 100), Color.Red);
+                //mSpriteBatch.DrawString(mFontDebug, "" + mUniversalTEXT2, new Vector2(10, 140), Color.Red);
+               
+                mSpriteBatch.End();
+                //System.Diagnostics.Debug.WriteLine("loca");
             }
-            mSpriteBatch.End();
-            //System.Diagnostics.Debug.WriteLine("loca");
 
+   
         }
 
         public override void handleInput(InputState input)
@@ -508,6 +324,7 @@ namespace ColorLand
                 if (mouseState.LeftButton == ButtonState.Pressed)
                 {
                     //mBullet.goToXY(new Vector2(300, 300));
+                    //mCamera.centerCamTo(100, 100);
                     
                 }
             }

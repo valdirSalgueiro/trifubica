@@ -22,3 +22,4 @@ C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\gameplay\cursor
 C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\eblue.xnb
 C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\egreen.xnb
 C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\ered.xnb
+C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\fades\blackfade.xnb

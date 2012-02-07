@@ -91,6 +91,15 @@
       <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\ered.xnb</Output>
       <Time>2011-11-15T15:36:38-02:00</Time>
     </Item>
+    <Item>
+      <Source>fades\blackfade.png</Source>
+      <Name>fades\blackfade</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\fades\blackfade.xnb</Output>
+      <Time>2012-02-05T19:06:39.436-02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{82E9FD01-18F4-40C1-BB5A-5E6592B930D1}</ContentProjectGUID>

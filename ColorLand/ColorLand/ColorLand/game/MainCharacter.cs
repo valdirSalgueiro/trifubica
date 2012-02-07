@@ -46,16 +46,16 @@ namespace ColorLand
 
         }
 
-        public void loadContent(ContentManager content) {
+        public override void loadContent(ContentManager content) {
             base.loadContent(content);
         }
 
-        public void update(GameTime gameTime) {
+        public override void update(GameTime gameTime) {
             base.update(gameTime);//getCurrentSprite().update();
 
         }
 
-        public void draw(SpriteBatch spriteBatch) {
+        public override void draw(SpriteBatch spriteBatch) {
             base.draw(spriteBatch);//getCurrentSprite().draw(spriteBatch);
             //getCurrentSprite().draw(spriteBatch);
         }

@@ -29,10 +29,10 @@ namespace ColorLand
         {
 
             this.mType = type;
-
+            
         }
 
-        public void loadContent(ContentManager content) {
+        public override void loadContent(ContentManager content) {
             base.loadContent(content);
         }
 
