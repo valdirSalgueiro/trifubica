@@ -9,3 +9,9 @@ Content\test\eblue.xnb
 Content\test\egreen.xnb
 Content\test\ered.xnb
 Content\fades\blackfade.xnb
+Content\test\rgb1.xnb
+Content\test\rgb2.xnb
+Content\test\rgb3.xnb
+Content\test\head.xnb
+Content\test\backbar.xnb
+Content\test\frontbar.xnb

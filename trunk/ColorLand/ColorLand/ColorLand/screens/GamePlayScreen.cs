@@ -18,6 +18,8 @@ namespace ColorLand
     public class GamePlayScreen : BaseScreen
     {
 
+        int energy = 1000;
+
         //debug
         public bool DEBUG = true;
         //private PaperObject mCurrentDebugPaperObject;
@@ -79,7 +81,27 @@ namespace ColorLand
         private Cursor mCursor;
 
         private Camera mCamera;
-        
+
+        private ColorChoiceBar mColorChoiceBar;
+        private int mColorCount;
+
+
+        public void manageColorCount()
+        {
+            mColorCount++;
+
+            if (mColorCount > 2)
+            {
+                mColorCount = 0;
+            }
+
+            mColorChoiceBar.changeState(mColorCount);
+
+            if (mColorCount == 0) mCursor.changeColor(Color.Red);
+            if (mColorCount == 1) mCursor.changeColor(Color.Green);
+            if (mColorCount == 2) mCursor.changeColor(Color.Blue);
+
+        }
 
         public GamePlayScreen()
         {
@@ -119,13 +141,18 @@ namespace ColorLand
             mTestEnemy = new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED);
             mTestEnemy.loadContent(Game1.getInstance().getScreenManager().getContent());
             mTestEnemy.setCenter(100, 100);
-
+            
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
             mCursor.changeColor(Color.Green);
             mCursor.setCenter(20, 20);
 
+            mColorChoiceBar = new ColorChoiceBar();
+            mColorChoiceBar.loadContent(Game1.getInstance().getScreenManager().getContent());
+            mColorChoiceBar.setCenter(200, 200);
             //executeFade(mFadeOut);
+
+            HUD.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
         }
 
         private void unloadWorld1()
@@ -227,6 +254,7 @@ namespace ColorLand
 
                 updateTimers();
 
+                mColorChoiceBar.update(gameTime);
 
                 if (mGameState == GAME_STATE_EM_JOGO)
                 {
@@ -253,7 +281,7 @@ namespace ColorLand
                 mFadeOut.update(gameTime);
 
                // if(mFade.isFadeComplete()
-
+                HUD.getInstance().update(gameTime);
             }
             
             /*
@@ -294,6 +322,7 @@ namespace ColorLand
                 mFadeIn.draw(mSpriteBatch);
                 mFadeOut.draw(mSpriteBatch);
 
+                mColorChoiceBar.draw(mSpriteBatch);
                 
                 /*for (int x = 0; x < mGroupEnemies.getSize(); x++)
                 {
@@ -306,12 +335,37 @@ namespace ColorLand
 
                 //mSpriteBatch.DrawString(mFontDebug, ""+mUniversalTEXT, new Vector2(10, 100), Color.Red);
                 //mSpriteBatch.DrawString(mFontDebug, "" + mUniversalTEXT2, new Vector2(10, 140), Color.Red);
-               
+
+                HUD.getInstance().draw(mSpriteBatch);
+
                 mSpriteBatch.End();
                 //System.Diagnostics.Debug.WriteLine("loca");
             }
 
    
+        }
+
+        public void damage()
+        {
+            //energy -= 10   sobrou 90
+            energy -= 13;
+            float porcentagemRestante = ExtraFunctions.valueToPercent(energy, 1000);
+
+            int larguraDaBarraDoHud = 200;
+            int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
+
+            HUD.getInstance().setPlayerBarLevel(novoValor);
+
+        }
+
+        public Vector2 getPlayerLocation()
+        {
+            if (mMainCharacter != null)
+            {
+                return mMainCharacter.getLocation();
+            }
+
+            return new Vector2(0, 0);
         }
 
         public override void handleInput(InputState input)
@@ -323,6 +377,8 @@ namespace ColorLand
                 MouseState mouseState = Mouse.GetState();
                 if (mouseState.LeftButton == ButtonState.Pressed)
                 {
+                    damage();
+                    manageColorCount();
                     //mBullet.goToXY(new Vector2(300, 300));
                     //mCamera.centerCamTo(100, 100);
                     

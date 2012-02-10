@@ -23,3 +23,9 @@ C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\eblue.xnb
 C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\egreen.xnb
 C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\ered.xnb
 C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\fades\blackfade.xnb
+C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\rgb1.xnb
+C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\rgb2.xnb
+C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\rgb3.xnb
+C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\head.xnb
+C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\backbar.xnb
+C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\frontbar.xnb

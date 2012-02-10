@@ -60,7 +60,7 @@ namespace ColorLand
             }
             else
             {
-                setLocation(Game1.sMAIN_HAND_COORD.X, Game1.sMAIN_HAND_COORD.Y);
+                setLocation(KinectManager.sMAIN_HAND_COORD.X, KinectManager.sMAIN_HAND_COORD.Y);
             }
         }
 

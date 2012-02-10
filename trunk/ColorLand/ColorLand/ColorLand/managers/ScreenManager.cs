@@ -96,11 +96,7 @@ namespace ColorLand
 
         }
 
-        //TODO deixar isso generico futuramente
-        public void changeToLetteringScreen(int param)
-        {
-            //mCurrentScreen = new ScreenLettering(param);
-        }
+      
 
         public SpriteBatch getSpriteBatch() {
 

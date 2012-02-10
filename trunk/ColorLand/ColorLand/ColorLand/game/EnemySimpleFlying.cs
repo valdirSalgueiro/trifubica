@@ -83,9 +83,13 @@ namespace ColorLand
             destAngle = 0;
 
             //descomente abaixo para que ele ande perseguindo uma posicao(aqui hardcoded para 100,100) ao mesmo tempo que faz o movimento
-            //destAngle = Math.Atan2(100, 100);
+            destAngle = Math.Atan2(100, 10);
+            
+
             
         }
+
+
 
         public override void loadContent(ContentManager content)
         {
@@ -133,7 +137,7 @@ namespace ColorLand
 
 
             base.update(gameTime);//getCurrentSprite().update();
-
+            //LOGICA 
         }
 
         public void explode()
@@ -170,6 +174,18 @@ namespace ColorLand
 
             }
 
+        }
+
+
+        public Vector2 getPlayerPosition()
+        {
+            BaseScreen currentScreen = Game1.getInstance().getScreenManager().getCurrentScreen();
+            if (currentScreen is GamePlayScreen)
+            {
+                return ((GamePlayScreen)currentScreen).getPlayerLocation();
+            }
+
+            return new Vector2();
         }
 
 

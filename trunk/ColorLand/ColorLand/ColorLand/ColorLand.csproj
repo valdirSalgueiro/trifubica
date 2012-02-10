@@ -81,12 +81,15 @@
     <Compile Include="base\PaperObject.cs" />
     <Compile Include="base\Sprite.cs" />
     <Compile Include="game\BaseEnemy.cs" />
+    <Compile Include="game\ColorChoiceBar.cs" />
     <Compile Include="game\EnemySimpleFlying.cs" />
+    <Compile Include="game\hud\HUD.cs" />
     <Compile Include="game\MainCharacter.cs" />
     <Compile Include="game\MainCharacterData.cs" />
     <Compile Include="managers\InputState.cs" />
     <Compile Include="managers\JoystickManager.cs" />
     <Compile Include="managers\KeyboardManager.cs" />
+    <Compile Include="managers\KinectManager.cs" />
     <Compile Include="managers\ScreenManager.cs" />
     <Compile Include="managers\SoundManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,6 +98,7 @@
     <Compile Include="screens\BaseScreen.cs" />
     <Compile Include="screens\GamePlayScreen.cs" />
     <Compile Include="util\Camera.cs" />
+    <Compile Include="util\ExtraFunctions.cs" />
     <Compile Include="util\Fade.cs" />
     <Compile Include="util\Timer.cs" />
   </ItemGroup>
