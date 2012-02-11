@@ -49,14 +49,17 @@ namespace ColorLand
             {
                 case BaseEnemy.sTYPE_SIMPLE_FLYING_RED:
 
-                    String[] imagesStopped = new String[1];
-                    imagesStopped[0] = "test\\eblue";
+                    String[] imagesStopped = new String[4];
+                    imagesStopped[0] = "test\\0009";
+                    imagesStopped[1] = "test\\0015";
+                    imagesStopped[2] = "test\\0019";
+                    imagesStopped[3] = "test\\0024";
 
                     String[] imagesDestroyed = new String[1];
                     imagesDestroyed[0] = "test\\eblue";
 
-                    mSpriteNormal = new Sprite(imagesStopped, new int[] { 0 }, 7, 40, 40, false, false);
-                    mSpriteExploding = new Sprite(imagesDestroyed, new int[] { 0 }, 3, 40, 40, true, true);
+                    mSpriteNormal = new Sprite(imagesStopped, new int[] { 0,1,2,3 }, 7, 90, 90, false, false);
+                    mSpriteExploding = new Sprite(imagesDestroyed, new int[] { 0 }, 3, 90, 90, true, true);
                     break;
                 case BaseEnemy.sTYPE_SIMPLE_FLYING_GREEN:
 

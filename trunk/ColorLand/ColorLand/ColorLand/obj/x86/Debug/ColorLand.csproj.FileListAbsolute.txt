@@ -29,3 +29,7 @@ C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\rgb3.xnb
 C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\head.xnb
 C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\backbar.xnb
 C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\frontbar.xnb
+C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\0009.xnb
+C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\0015.xnb
+C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\0019.xnb
+C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\0024.xnb
