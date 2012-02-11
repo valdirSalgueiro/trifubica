@@ -154,6 +154,42 @@
       <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\frontbar.xnb</Output>
       <Time>2012-02-09T13:00:21.1586-02:00</Time>
     </Item>
+    <Item>
+      <Source>test\0009.png</Source>
+      <Name>test\0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\0009.xnb</Output>
+      <Time>2012-02-10T23:16:37.6882-02:00</Time>
+    </Item>
+    <Item>
+      <Source>test\0015.png</Source>
+      <Name>test\0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\0015.xnb</Output>
+      <Time>2012-02-10T23:16:38.6352-02:00</Time>
+    </Item>
+    <Item>
+      <Source>test\0019.png</Source>
+      <Name>test\0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\0019.xnb</Output>
+      <Time>2012-02-10T23:16:39.3302-02:00</Time>
+    </Item>
+    <Item>
+      <Source>test\0024.png</Source>
+      <Name>test\0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\0024.xnb</Output>
+      <Time>2012-02-10T23:16:39.9652-02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{82E9FD01-18F4-40C1-BB5A-5E6592B930D1}</ContentProjectGUID>
