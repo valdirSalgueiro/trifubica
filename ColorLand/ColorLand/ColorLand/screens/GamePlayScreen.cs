@@ -75,6 +75,8 @@ namespace ColorLand
 
         private EnemySimpleFlying mTestEnemy;
 
+        private EnemySimpleWalking mTestEnemy2;
+
         private Fade mFadeIn;
         private Fade mFadeOut;
 
@@ -141,6 +143,10 @@ namespace ColorLand
             mTestEnemy = new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED);
             mTestEnemy.loadContent(Game1.getInstance().getScreenManager().getContent());
             mTestEnemy.setCenter(100, 100);
+
+            mTestEnemy2 = new EnemySimpleWalking(BaseEnemy.sTYPE_SIMPLE_FLYING_RED);
+            mTestEnemy2.loadContent(Game1.getInstance().getScreenManager().getContent());
+            mTestEnemy2.setCenter(100, 100);
             
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
@@ -251,6 +257,7 @@ namespace ColorLand
 
                 mMainCharacter.update(gameTime);
                 mTestEnemy.update(gameTime);
+                mTestEnemy2.update(gameTime);
 
                 updateTimers();
 
@@ -315,6 +322,8 @@ namespace ColorLand
                 mMainCharacter.draw(mSpriteBatch);
 
                 mTestEnemy.draw(mSpriteBatch);
+
+                mTestEnemy2.draw(mSpriteBatch);
 
                 mCursor.draw(mSpriteBatch);
 
