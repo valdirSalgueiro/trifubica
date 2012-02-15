@@ -57,7 +57,7 @@ namespace ColorLand
                     String[] imagesDestroyed = new String[1];
                     imagesDestroyed[0] = "test\\eblue";
 
-                    mSpriteNormal = new Sprite(imagesStopped, new int[] { 0,1,2,3 }, 7, 90, 90, false, false);
+                    mSpriteNormal = new Sprite(imagesStopped, new int[] { 0, 1, 2, 3 }, 7, 90, 90, false, false);
                     mSpriteExploding = new Sprite(imagesDestroyed, new int[] { 0 }, 3, 90, 90, true, true);
                     break;
                 case BaseEnemy.sTYPE_SIMPLE_FLYING_GREEN:
@@ -76,7 +76,7 @@ namespace ColorLand
 
             setCollisionRect(40, 40);
 
-            pos=new Vector2(0, 0);            
+            pos = new Vector2(0, 0);
         }
 
 
@@ -88,24 +88,35 @@ namespace ColorLand
 
         public override void update(GameTime gameTime)
         {
-            pos = oldPosition;
-            //altere aqui para fazer a onda do seno mais rapidamente/devagarmente :p
-            x += 0.1f;
-            
-            destAngle = Math.Atan2(getPlayerPosition().Y - pos.Y, getPlayerPosition().X - pos.X);
-            //altere "1.0f" para fazer com que ele se desloque mais rapidamente
-            pos.X += 1.0f * (float)Math.Cos(destAngle);
-            pos.Y += 1.0f * (float)Math.Sin(destAngle);
+            float distance;
+            Vector2 playerPosition = getPlayerPosition();
+            Vector2.Distance(ref playerPosition, ref spritePos, out distance);
+            if (distance > 20)
+            {
+                pos = oldPosition;
+                //altere aqui para fazer a onda do seno mais rapidamente/devagarmente :p
+                x += 0.1f;
 
-            Vector2 direction = getPlayerPosition() - oldPosition;
+                destAngle = Math.Atan2(getPlayerPosition().Y - pos.Y, getPlayerPosition().X - pos.X);
+                //altere "1.0f" para fazer com que ele se desloque mais rapidamente
+                pos.X += 5.0f * (float)Math.Cos(destAngle);
+                pos.Y += 5.0f * (float)Math.Sin(destAngle);
 
-            Vector2 perpendicular = new Vector2(direction.Y, -direction.X);
-            perpendicular.Normalize();
+                Vector2 direction = getPlayerPosition() - oldPosition;
 
-            //faz um seno de "75 pixels"
-            float offset = 75.0f * (float)Math.Sin(x);
-            spritePos = pos + (offset * perpendicular);
-            oldPosition = pos;
+                Vector2 perpendicular = new Vector2(direction.Y, -direction.X);
+                perpendicular.Normalize();
+
+                //faz um seno de "75 pixels"
+                float offset = 75.0f * (float)Math.Sin(x);
+
+                spritePos = pos + (offset * perpendicular);
+                oldPosition = pos;
+            }
+            else { 
+                //colidiu..
+            }
+
 
             setLocation(spritePos);
 
