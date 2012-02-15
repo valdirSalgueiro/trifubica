@@ -29,12 +29,10 @@ namespace ColorLand
         private const int cHORIZONTAL_MARGIN = 40;
 
 
-        //spline
-        private List<Vector2> points=new List<Vector2>();
+        //sine movement
         private Vector2 oldPosition;
         private Vector2 pos;
         private Vector2 spritePos;
-        private int pathIter = 0;
         private float x = 0;
         private double destAngle = 0;
 
@@ -78,12 +76,7 @@ namespace ColorLand
 
             setCollisionRect(40, 40);
 
-            pos=new Vector2(0, 0);
-
-            points.Add(new Vector2(32, 32));
-            points.Add(new Vector2(32, -32));    
-
-            
+            pos=new Vector2(0, 0);            
         }
 
 
@@ -95,40 +88,6 @@ namespace ColorLand
 
         public override void update(GameTime gameTime)
         {
-            //if (x > 1.0f)
-            //{
-            //    //x = x-1.0f;
-            //    x = 0;
-            //    //Console.WriteLine(" " + x);
-            //    oldPosition = pos;
-            //    pathIter++;
-            //    if (pathIter >= points.Count())
-            //        pathIter = 0;
-            //}
-            //else
-            //{
-            //    Vector2 a;
-            //    a.X = points.ElementAt(pathIter).X * (float)Math.Cos(destAngle) - points.ElementAt(pathIter).Y * (float)Math.Sin(destAngle);
-            //    a.Y = points.ElementAt(pathIter).X * (float)Math.Sin(destAngle) + points.ElementAt(pathIter).Y * (float)Math.Cos(destAngle);
-            //    Vector2 nextPos = oldPosition + a;
-            //    pos = Vector2.CatmullRom(oldPosition, oldPosition, nextPos, nextPos, x);
-            //}
-
-            ////x += 1*gameTime.ElapsedGameTime.Milliseconds/1000.0f;
-            //x += 0.05f;
-            //setLocation(pos);
-
-            //descomente para andar em circulos de raio 100
-            //x += 0.05f;
-            //pos=new Vector2((float)Math.Cos(x) * 100, (float)Math.Sin(x) * 100);
-            //pos += new Vector2(100, 100);
-            //setLocation(pos);
-
-            //descomente para andar em seno de largura 20 e altura 100
-            //x += 0.5f;
-            //pos = new Vector2((float)Math.Sin(x) * 100, x * 10);
-
-
             pos = oldPosition;
             //altere aqui para fazer a onda do seno mais rapidamente/devagarmente :p
             x += 0.1f;
@@ -149,9 +108,6 @@ namespace ColorLand
             oldPosition = pos;
 
             setLocation(spritePos);
-
-            
-
 
             base.update(gameTime);//getCurrentSprite().update();
             //LOGICA 
