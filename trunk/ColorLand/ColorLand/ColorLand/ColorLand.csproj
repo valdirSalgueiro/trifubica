@@ -82,6 +82,7 @@
     <Compile Include="base\Sprite.cs" />
     <Compile Include="game\BaseEnemy.cs" />
     <Compile Include="game\ColorChoiceBar.cs" />
+    <Compile Include="game\EnemySimpleShooting.cs" />
     <Compile Include="game\EnemySimpleWalking.cs" />
     <Compile Include="game\EnemySimpleFlying.cs" />
     <Compile Include="game\hud\HUD.cs" />
