@@ -106,7 +106,7 @@ namespace ColorLand
             float distance;
             Vector2 playerPosition = getPlayerPosition();
             Vector2.Distance(ref playerPosition, ref pos, out distance);
-            if (distance > 200)
+            if (distance > 400)
             {
                 destAngle = Math.Atan2(getPlayerPosition().Y - pos.Y, getPlayerPosition().X - pos.X);
                 //altere "1.0f" para fazer com que ele se desloque mais rapidamente
@@ -116,17 +116,37 @@ namespace ColorLand
             }
             else {
                 shootingFrame++;
-                if (shootingFrame % 5 == 0) {
+                if (shootingFrame % 20 == 0) {
                     for (int i = 0; i < 5; i++)
                     {
                         if (!bullet[i].active) {
                             bullet[i].active = true;
+                            bullet[i].pos.X = pos.X;
+                            bullet[i].pos.Y = pos.Y;
+                            break;
                         }
                     }
                 }
             }
 
-
+            for (int i = 0; i < 5; i++)
+            {
+                if (bullet[i].active)
+                {
+                    playerPosition = getPlayerPosition();
+                    Vector2.Distance(ref playerPosition, ref bullet[i].pos, out distance);
+                    if (distance > 20)
+                    {
+                        destAngle = Math.Atan2(getPlayerPosition().Y - bullet[i].pos.Y, getPlayerPosition().X - bullet[i].pos.X);
+                        bullet[i].pos.X += 1.0f * (float)Math.Cos(destAngle);
+                        bullet[i].pos.Y += 1.0f * (float)Math.Sin(destAngle);
+                    }
+                    else
+                    {
+                        bullet[i].active = false;
+                    }
+                }
+            }
 
 
             setLocation(pos);
@@ -148,7 +168,7 @@ namespace ColorLand
             for (int i = 0; i < 5; i++)
             {
                 if (bullet[i].active)
-                    spriteBatch.Draw(bullet[i].texture, new Rectangle((int)bullet[i].pos.X, (int)bullet[i].pos.Y, bullet[i].texture.Width, bullet[i].texture.Height), Color.White);
+                    spriteBatch.Draw(bullet[i].texture, new Rectangle((int)bullet[i].pos.X + bullet[i].texture.Width / 2, (int)bullet[i].pos.Y + bullet[i].texture.Height / 2, bullet[i].texture.Width, bullet[i].texture.Height), Color.White);
             }
         }
 
