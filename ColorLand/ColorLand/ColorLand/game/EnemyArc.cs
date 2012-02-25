@@ -89,11 +89,10 @@ namespace ColorLand
             float distance;
             Vector2 playerPosition = getPlayerPosition();
             Vector2.Distance(ref playerPosition, ref pos, out distance);
-            float radius = 100;
+            float radius = 100; //raio
 
             if (distance > 20)
             {
-                // Calculate the points to be drawn on circle boundary
                 float max = 0;
 
                 if (theta < max)
