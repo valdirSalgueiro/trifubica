@@ -334,6 +334,24 @@
       <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\e9.xnb</Output>
       <Time>2012-02-26T14:01:22.1412-03:00</Time>
     </Item>
+    <Item>
+      <Source>test\iniciar.wav</Source>
+      <Name>test\iniciar</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\iniciar.xnb</Output>
+      <Time>2011-12-04T19:39:10.5632-02:00</Time>
+    </Item>
+    <Item>
+      <Source>test\narracao.wav</Source>
+      <Name>test\narracao</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\narracao.xnb</Output>
+      <Time>2011-12-05T00:20:12.0892-02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{82E9FD01-18F4-40C1-BB5A-5E6592B930D1}</ContentProjectGUID>
