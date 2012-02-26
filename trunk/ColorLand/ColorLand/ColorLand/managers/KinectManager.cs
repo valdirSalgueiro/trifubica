@@ -14,8 +14,8 @@ namespace ColorLand
         private static KinectManager instance;
 
         //For - Resolution640x480
-        private const float SkeletonMaxX = 0.6f;//0.8f;
-        private const float SkeletonMaxY = 0.4f;//0.4f;
+        private const float SkeletonMaxX = 1.2f;//0.8f;
+        private const float SkeletonMaxY = 1.0f;//0.4f;
 
         Runtime kinectSensor;
 
@@ -28,6 +28,7 @@ namespace ColorLand
         public static Vector2 sMAIN_HAND_COORD = new Vector2();
         public static Vector2 sSECONDARY_HAND_COORD = new Vector2();
 
+        public static Vector2 sCenter_Position = new Vector2();
 
         private KinectManager(){
 

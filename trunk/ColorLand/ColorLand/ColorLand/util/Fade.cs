@@ -11,6 +11,8 @@ namespace ColorLand
     public class Fade
     {
 
+        BaseScreen mContext;
+
         public const int sFADE_IN_EFFECT_GRADATIVE = 0;
 
         public const int sFADE_OUT_EFFECT_GRADATIVE = 10;
@@ -23,17 +25,19 @@ namespace ColorLand
         private float mAlphaLevel;
 
         private bool mActive;
-        private bool mFadeComplete;
+        
 
-        public Fade(int effect, String fadeImagePath)
+        private bool mRunning;
+
+        public Fade(BaseScreen context, String fadeImagePath)
         {
-            mCurrentEffect = effect;
+            mContext = context;
+
             mFadeImage = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>(fadeImagePath);
 
-            restartEffect(effect);
         }
 
-        private void restartEffect(int effect)
+        private void initEffect()
         {
             switch(mCurrentEffect){
                 case sFADE_IN_EFFECT_GRADATIVE:
@@ -49,65 +53,71 @@ namespace ColorLand
             }
         }
 
+        public void execute(int effect)
+        {
+
+            mCurrentEffect = effect;
+
+            mRunning = true;
+            initEffect();
+        }
+
+
         public void update(GameTime gametime)
         {
-            if (mActive)
+            if (mRunning)
             {
                 switch (mCurrentEffect)
                 {
                     case sFADE_IN_EFFECT_GRADATIVE:
-                        if (!mFadeComplete)
-                        {
                             mAlphaLevel -= 0.02f;
 
                             if (mAlphaLevel <= 0.0f)
                             {
-                                mFadeComplete = true;
+                                mRunning = false;
                             }
-                        }
+                        
                         break;
                     case sFADE_OUT_EFFECT_GRADATIVE:
-                        if (!mFadeComplete)
-                        {
                             mAlphaLevel += 0.02f;
 
                             if (mAlphaLevel >= 1.0f)
                             {
-                                mFadeComplete = true;
+                                mRunning = false;
                             }
-                        }
+                        
                         break;
                 }
+        
+                if(mRunning == false){
+                    mContext.fadeFinished(this);
+                }
+
             }
+        }
+
+        public int getEffect()
+        {
+            return mCurrentEffect;
         }
 
         public void draw(SpriteBatch spriteBatch)
         {
-            if (mActive)
-            {
                 switch (mCurrentEffect)
                 {
                     case sFADE_IN_EFFECT_GRADATIVE:
+
+                        if(mRunning){
+                            spriteBatch.Draw(mFadeImage, mRectangle, new Color(0, 0, 0, mAlphaLevel));
+                        }
+                        break;
                     case sFADE_OUT_EFFECT_GRADATIVE:
-                        spriteBatch.Draw(mFadeImage, mRectangle, new Color(0, 0, 0, mAlphaLevel));
+                        //if (mRunning)
+                        //{
+                            spriteBatch.Draw(mFadeImage, mRectangle, new Color(0, 0, 0, mAlphaLevel));
+                        //}
                         break;
                 }
-            }
-        }
-
-        public void activate()
-        {
-            this.mActive = true;
-        }
-
-        public void deactivate()
-        {
-            this.mActive = false;
-        }
-
-        public bool isFadeComplete()
-        {
-            return this.mFadeComplete;
         }
 
     }

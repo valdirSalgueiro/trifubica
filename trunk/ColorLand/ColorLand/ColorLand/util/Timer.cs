@@ -6,7 +6,8 @@ using Microsoft.Xna.Framework;
 
 namespace ColorLand
 {
-    public class Timer
+    //Manual Timer
+    public class MTimer
     {
 
         private double mCurrentTime;

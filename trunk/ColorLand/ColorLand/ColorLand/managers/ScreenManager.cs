@@ -24,11 +24,11 @@ namespace ColorLand
         
         private SpriteFont mFont;
 
-        bool isInitialized;
-
-
+        
         //indexes
-        public const int SCREEN_ID_GAMEPLAY        = 0;
+        public const int SCREEN_ID_LOGOS_SCREEN    = 0;
+        public const int SCREEN_ID_MAIN_MENU       = 1;
+        public const int SCREEN_ID_GAMEPLAY        = 2;
         //public const int SCREEN_ID_MAIN_MENU     = 1;
         //public const int SCREEN_ID_HISTORY       = 2;
         
@@ -42,7 +42,6 @@ namespace ColorLand
         {
             base.Initialize();
 
-            isInitialized = true;
         }
 
         protected override void LoadContent() {
@@ -51,6 +50,7 @@ namespace ColorLand
 
             mSpriteBatch = new SpriteBatch(GraphicsDevice);
 
+            //changeScreen(SCREEN_ID_LOGOS_SCREEN, false);
             changeScreen(SCREEN_ID_GAMEPLAY, false);
             
         }
@@ -83,20 +83,25 @@ namespace ColorLand
 
         public void changeScreen(int id, bool releaseCurrentScreen) {
 
-            /*if (releaseCurrentScreen) {
-                //mCurrentScreen.releaseScreenResources();
-                mContentManager = new ContentManager(Game.Services, "Content");
-            }*/
-
             switch (id) {
+
+                case SCREEN_ID_LOGOS_SCREEN:
+                    mCurrentScreen = new LogosScreen();
+                    break;
+
+                case SCREEN_ID_MAIN_MENU:
+                    mCurrentScreen = new MainMenuScreen();
+                    break;
+
                 case SCREEN_ID_GAMEPLAY:
                    mCurrentScreen = new GamePlayScreen();
                    break;
+
             }
 
         }
 
-      
+        
 
         public SpriteBatch getSpriteBatch() {
 

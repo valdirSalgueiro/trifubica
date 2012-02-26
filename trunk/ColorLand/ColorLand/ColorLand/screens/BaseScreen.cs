@@ -41,7 +41,8 @@ namespace ColorLand
         public virtual void update(GameTime gameTime) { }
         public virtual void draw(GameTime gameTime) { }
         public virtual void handleInput(InputState input) { }
-        public virtual void executeFade(Fade fadeObject) { }
+        public virtual void executeFade(Fade fadeObject, int effect) {}
+        public virtual void fadeFinished(Fade fadeObject) { }
 
         public virtual void unload()
         {

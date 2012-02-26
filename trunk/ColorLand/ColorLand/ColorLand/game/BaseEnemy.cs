@@ -8,28 +8,23 @@ using Microsoft.Xna.Framework.Content;
 
 namespace ColorLand
 {
-    class BaseEnemy : PaperObject {
+    class BaseEnemy : GameObject {
 
-        //SpriteFont mFontDebug = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("debug");
+        public const int sTYPE_SIMPLE_FLYING_RED = 0;
+        public const int sTYPE_SIMPLE_FLYING_BLUE = 1;
+        public const int sTYPE_SIMPLE_FLYING_GREEN = 2;
 
-        public const int sTYPE_SIMPLE_FLYING_RED        = 0;
-        public const int sTYPE_SIMPLE_FLYING_GREEN      = 1;
-        public const int sTYPE_SIMPLE_FLYING_BLUE       = 2;
-
-        public const int sTYPE_SIMPLE_GROUND_RED        = 3;
-        public const int sTYPE_SIMPLE_GROUND_GREEN      = 4;
-        public const int sTYPE_SIMPLE_GROUND_BLUE       = 5;
+        private Color mColor;
         
-
-        //Specific
-        private int mType;
-        
-        
-        public BaseEnemy(int type)
+        public BaseEnemy(Color color)
         {
+            mColor = color;
+        }
 
-            this.mType = type;
-            
+        public BaseEnemy(Color color, Vector2 origin)
+        {
+            mColor = color;
+            setLocation(origin);
         }
 
         public override void loadContent(ContentManager content) {
@@ -50,14 +45,15 @@ namespace ColorLand
             }
         }
 
-        public void setType(int type)
+        public Vector2 getPlayerPosition()
         {
-            this.mType = type;
-        }
+            BaseScreen currentScreen = Game1.getInstance().getScreenManager().getCurrentScreen();
+            if (currentScreen is GamePlayScreen)
+            {
+                return ((GamePlayScreen)currentScreen).getPlayerLocation();
+            }
 
-        public int getType()
-        {
-            return this.mType;
+            return new Vector2();
         }
 
     }

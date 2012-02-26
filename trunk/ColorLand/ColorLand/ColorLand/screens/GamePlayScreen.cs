@@ -10,7 +10,7 @@ using System.IO.IsolatedStorage;
 using System.IO;
 using Microsoft.Xna.Framework.Input;
 //using Microsoft.Xna.Framework.Input.Touch;
-
+using System.Timers;
 
 
 namespace ColorLand
@@ -18,7 +18,12 @@ namespace ColorLand
     public class GamePlayScreen : BaseScreen
     {
 
+        private Effect desaturateEffect;
+
+
         int energy = 1000;
+
+        int pulse = 0;
 
         //debug
         public bool DEBUG = true;
@@ -42,13 +47,12 @@ namespace ColorLand
         /*******************
          * ALERTS MESSAGES AND ATTRIBUTES
          *******************/
-
-        
+                
         String mUniversalTEXT;
         String mUniversalTEXT2;
 
 
-        private Timer mTimerMessages = new Timer();
+        private MTimer mTimerMessages = new MTimer();
         //private Timer mTimerSucesso = new Timer();
         //private Timer mTimerDerrota= new Timer();
 
@@ -59,14 +63,21 @@ namespace ColorLand
         private const int GAME_STATE_SUCESSO    = 2;
         private const int GAME_STATE_DERROTA    = 3;
 
+        private int mFlagTimer;
+        private const int FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START = 0;
+
         /*******************
          * GAME
          *******************/
-        public const int sWORLD_1 = 0;
-        public const int sWORLD_2 = 1;
-        
-        private int mCurrentWorld;
+        public const int sWORLD_1 = 1;
+        public const int sWORLD_2 = 2;
 
+        public const int sPART_1 = 10;
+        public const int sPART_2 = 11;
+        
+
+        private int mCurrentWorld;
+        private int mCurrentPart;
 
 
         private Background mBackground;
@@ -79,6 +90,8 @@ namespace ColorLand
         private EnemySimpleShooting mTestEnemy3;
         private EnemyArc mTestEnemy4;
 
+        private GameObjectsGroup<BaseEnemy> mGroup = new GameObjectsGroup<BaseEnemy>();
+
         private Fade mFadeIn;
         private Fade mFadeOut;
 
@@ -89,7 +102,10 @@ namespace ColorLand
         private ColorChoiceBar mColorChoiceBar;
         private int mColorCount;
 
+        private static Timer mTimer;
 
+        Explosion mExplosion;
+        
         public void manageColorCount()
         {
             mColorCount++;
@@ -115,66 +131,80 @@ namespace ColorLand
 
             mCamera = new Camera();
 
-            loadWorld1();
+            loadWorld1(sWORLD_1);
+
+            //setGameState(GAME_STATE_PREPARANDO);
+            setGameState(GAME_STATE_EM_JOGO);
+
 
             mKeyboard = KeyboardManager.getInstance();
         }
 
-        private void loadWorld1()
+        private void loadWorld1(int part)
         {
 
-            mCurrentWorld = sWORLD_1;
+            mCurrentWorld = 1;
+            mCurrentPart  = part;
 
-            mFadeIn  = new Fade(Fade.sFADE_IN_EFFECT_GRADATIVE, "fades\\blackfade");
-            mFadeOut = new Fade(Fade.sFADE_OUT_EFFECT_GRADATIVE,"fades\\blackfade");
+            switch (part)
+            {
 
-            //setAndLoadFadeImage("fades\\blackfade", Game1.getInstance().getScreenManager().getContent());
+                case 1:
 
-            mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
+                    mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
-            //mFontDebug = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("debug");
-            //mFontAlert = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("alerts");
+                    desaturateEffect = Game1.getInstance().getScreenManager().getContent().Load<Effect>("effects\\desaturate");
 
-            mBackground = new Background("gameplay\\backgrounds\\bgteste");
-            mBackground.loadContent(Game1.getInstance().getScreenManager().getContent());
+                    //mFontDebug = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("debug");
+                    //mFontAlert = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("alerts");
 
-            mMainCharacter = new MainCharacter();
-            mMainCharacter.loadContent(Game1.getInstance().getScreenManager().getContent());
-            mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 400);
+                    mBackground = new Background("test\\fase1_4");
+                    mBackground.loadContent(Game1.getInstance().getScreenManager().getContent());
+                    mBackground.setLocation(0, 0);
 
-            mTestEnemy = new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED);
-            mTestEnemy.loadContent(Game1.getInstance().getScreenManager().getContent());
-            mTestEnemy.setCenter(100, 100);
+                    mMainCharacter = new MainCharacter();
+                    mMainCharacter.loadContent(Game1.getInstance().getScreenManager().getContent());
+                    mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 400);
 
-            mTestEnemy2 = new EnemySimpleWalking(BaseEnemy.sTYPE_SIMPLE_FLYING_RED);
-            mTestEnemy2.loadContent(Game1.getInstance().getScreenManager().getContent());
-            mTestEnemy2.setCenter(100, 100);
+                    mGroup.addGameObject(new EnemyCrabCrab(Color.Red, new Vector2(300, 20)));
+                    mGroup.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mTestEnemy3 = new EnemySimpleShooting(BaseEnemy.sTYPE_SIMPLE_FLYING_RED);
-            mTestEnemy3.loadContent(Game1.getInstance().getScreenManager().getContent());
-            mTestEnemy3.setCenter(100, 100);
+                    mCursor = new Cursor();
+                    mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
+                    mCursor.changeColor(Color.Green);
+                    mCursor.setCenter(20, 20);
 
-            mTestEnemy4 = new EnemyArc(BaseEnemy.sTYPE_SIMPLE_FLYING_RED);
-            mTestEnemy4.loadContent(Game1.getInstance().getScreenManager().getContent());
-            mTestEnemy4.setCenter(100, 100);
-            
-            mCursor = new Cursor();
-            mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
-            mCursor.changeColor(Color.Green);
-            mCursor.setCenter(20, 20);
+                    mTestEnemy3 = new EnemySimpleShooting(BaseEnemy.sTYPE_SIMPLE_FLYING_RED);
+                    mTestEnemy3.loadContent(Game1.getInstance().getScreenManager().getContent());
+                    mTestEnemy3.setCenter(100, 100);
 
-            mColorChoiceBar = new ColorChoiceBar();
-            mColorChoiceBar.loadContent(Game1.getInstance().getScreenManager().getContent());
-            mColorChoiceBar.setCenter(200, 200);
-            //executeFade(mFadeOut);
+                    mTestEnemy4 = new EnemyArc();
+                    mTestEnemy4.loadContent(Game1.getInstance().getScreenManager().getContent());
+                    mTestEnemy4.setCenter(100, 100);
 
-            HUD.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    HUD.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    mExplosion = new Explosion();
+                    mExplosion.loadContent(Game1.getInstance().getScreenManager().getContent());
+                    //mCamera.zoomIn(2.4f);
+
+                    /*
+                     * mColorChoiceBar = new ColorChoiceBar();
+                        mColorChoiceBar.loadContent(Game1.getInstance().getScreenManager().getContent());
+                        mColorChoiceBar.setCenter(200, 200);*/
+
+                    break;
+
+            }
+
+
         }
+
 
         private void unloadWorld1()
         {
             unload();
-            loadWorld1();
             //executeFade(mFadeIn);
         }
 
@@ -188,6 +218,9 @@ namespace ColorLand
             {
 
                 case GAME_STATE_PREPARANDO:
+
+                    mCamera.setZoom(2.4f);
+                    Game1.print("FUCK ME");
                     break;
 
             }
@@ -233,7 +266,7 @@ namespace ColorLand
             if (mCursor.collidesWith(mMainCharacter))
             { 
                 //Console.WriteLine("COLIDIU");
-                unloadWorld1();
+                //unloadWorld1();
             }
         }
 
@@ -249,11 +282,11 @@ namespace ColorLand
           
         }
 
-        public override void executeFade(Fade fadeObject)
+        public override void executeFade(Fade fadeObject, int effect)
         {
-            base.executeFade(fadeObject);
+            base.executeFade(fadeObject, effect);
 
-            fadeObject.activate();
+            //fadeObject.activate();
         }
 
 
@@ -263,44 +296,42 @@ namespace ColorLand
             {
                 mCamera.update();
 
-                mBackground.update();
+                switch (mGameState)
+                {
+                    case GAME_STATE_PREPARANDO:
 
-                mMainCharacter.update(gameTime);
-                mTestEnemy.update(gameTime);
-                mTestEnemy2.update(gameTime);
-                mTestEnemy3.update(gameTime);
+                        mCamera.zoomOut(0.01f);
                 mTestEnemy4.update(gameTime);
 
-                updateTimers();
+                        if (mCamera.getZoomLevel() == 1)
+                        {
+                            mFlagTimer = FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START;
+                            restartTimer(3);
+                        }
 
-                mColorChoiceBar.update(gameTime);
+                        break;
 
-                if (mGameState == GAME_STATE_EM_JOGO)
-                {
-                    //    mGroupEnemies.update(gameTime);
+                    case GAME_STATE_EM_JOGO:
+                        mBackground.update();
+
+                        mMainCharacter.update(gameTime);
+
+                        mGroup.update(gameTime);
+
+                        checkVictoryCondition();
+                        checkGameOverCondition();
+                        checkCollisions();
+                        updatePlayerBody();
+                        mCursor.update(gameTime);
+                        MouseState mouseState = Mouse.GetState();
+
+                        HUD.getInstance().update(gameTime);
+
+                        mExplosion.update(gameTime);
+                        break;
                 }
 
-                mTimerMessages.update(gameTime);
 
-
-
-                if (mGameState == GAME_STATE_EM_JOGO)
-                {
-                    checkVictoryCondition();
-                    checkGameOverCondition();
-                }
-
-                //mEnemy.update(gameTime);
-                checkCollisions();
-
-                mCursor.update(gameTime);
-                MouseState mouseState = Mouse.GetState();
-
-                mFadeIn.update(gameTime);
-                mFadeOut.update(gameTime);
-
-               // if(mFade.isFadeComplete()
-                HUD.getInstance().update(gameTime);
             }
             
             /*
@@ -312,11 +343,43 @@ namespace ColorLand
             */
         }
 
+        private void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            mTimer.Stop();
+            mTimer.Enabled = false;
+
+            switch (mGameState)
+            {
+                case GAME_STATE_PREPARANDO:
+
+                    if (mFlagTimer == FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START)
+                    {
+                        this.setGameState(GAME_STATE_EM_JOGO);
+                    }
+
+                    break;
+            }
+
+            
+        }
+
+        private void restartTimer(int seconds)
+        {
+            mTimer = new Timer();
+            mTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            mTimer.Interval = seconds * 1000;
+            mTimer.Enabled = true;
+        }
+
+
         public override void draw(GameTime gameTime)
         {
 
             if (mCurrentWorld == sWORLD_1)
             {
+
+
+                DrawDesaturate(gameTime);
 
                 //mSpriteBatch.Begin();
                 mSpriteBatch.Begin(
@@ -327,24 +390,30 @@ namespace ColorLand
                         null,
                         null,
                         mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
+                
 
+                
+                //mSpriteBatch.Begin();
 
-                mBackground.draw(mSpriteBatch);
+                //mBackground.draw(mSpriteBatch);
 
                 mMainCharacter.draw(mSpriteBatch);
-
-                mTestEnemy.draw(mSpriteBatch);
-                mTestEnemy2.draw(mSpriteBatch);
-                mTestEnemy3.draw(mSpriteBatch);
+                
                 mTestEnemy4.draw(mSpriteBatch);
+
+                mGroup.draw(mSpriteBatch);
+
+
 
                 mCursor.draw(mSpriteBatch);
 
+                mExplosion.draw(mSpriteBatch);
+                
                 //mSpriteBatch.Draw(getFadeImage(), new Rectangle(0, 0, 600, 500), new Color(0, 0, 0, 0.6f));
-                mFadeIn.draw(mSpriteBatch);
-                mFadeOut.draw(mSpriteBatch);
+                //mFadeIn.draw(mSpriteBatch);
+                //mFadeOut.draw(mSpriteBatch);
 
-                mColorChoiceBar.draw(mSpriteBatch);
+                //mColorChoiceBar.draw(mSpriteBatch);
                 
                 /*for (int x = 0; x < mGroupEnemies.getSize(); x++)
                 {
@@ -380,6 +449,33 @@ namespace ColorLand
 
         }
 
+        public void updatePlayerBody()
+        {
+            Vector2 directionRightHand = mCursor.getLocation() - new Vector2(mMainCharacter.getX(), mMainCharacter.getY());//mVectorCenterOfScreen;
+            float angleHandCursor = (float)(Math.Atan2(directionRightHand.Y, directionRightHand.X));
+
+            mMainCharacter.updateHand(angleHandCursor);
+
+            if (mCursor.getX() < mMainCharacter.getX() && mCursor.getY() < mMainCharacter.getY())
+            {
+                mMainCharacter.setBodyState(MainCharacter.BODYSTATE.UP_LEFT);
+            }else
+            if (mCursor.getX() > mMainCharacter.getX() && mCursor.getY() < mMainCharacter.getY())
+            {
+                mMainCharacter.setBodyState(MainCharacter.BODYSTATE.UP_RIGHT);
+            }else
+            if (mCursor.getX() < mMainCharacter.getX() && mCursor.getY() > mMainCharacter.getY())
+            {
+                mMainCharacter.setBodyState(MainCharacter.BODYSTATE.DOWN_LEFT);
+            }else
+            if (mCursor.getX() > mMainCharacter.getX() && mCursor.getY() > mMainCharacter.getY())
+            {
+                mMainCharacter.setBodyState(MainCharacter.BODYSTATE.DOWN_RIGHT);
+            }
+
+
+        }
+
         public Vector2 getPlayerLocation()
         {
             if (mMainCharacter != null)
@@ -399,19 +495,75 @@ namespace ColorLand
                 MouseState mouseState = Mouse.GetState();
                 if (mouseState.LeftButton == ButtonState.Pressed)
                 {
-                    damage();
-                    manageColorCount();
+                    //damage();
+                    //manageColorCount();
                     //mBullet.goToXY(new Vector2(300, 300));
                     //mCamera.centerCamTo(100, 100);
+
+                    mExplosion.explode(140, 140);
+
                     
                 }
+
+                KeyboardState newState = Keyboard.GetState();
+
+                if (newState.IsKeyDown(Keys.Down))
+                {
+                    pulse--;
+                    mCamera.zoomOut(0.1f);
+                }
+
+                if (newState.IsKeyDown(Keys.Up))
+                {
+                    pulse++;
+                    mCamera.zoomIn(0.1f);
+                }
+
+                //Game1.print("Z:" + mCamera.getZoomLevel());
+
             }
             else
             {
-             
+               
             }
+        }//sabe uma notificação que fizeram ontem. Brinco formal demais
+
+     
+        ///////////////////////
+        void DrawDesaturate(GameTime gameTime)
+        {
+            // Begin the sprite batch, using our custom effect.
+            mSpriteBatch.Begin(0, null, null, null, null, desaturateEffect, mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
+
+            // Draw four copies of the same sprite with different saturation levels.
+            // The saturation amount is passed into the effect using the alpha of the
+            // SpriteBatch.Draw color parameter. This isn't as flexible as using a
+            // regular effect parameter, but makes it easy to draw many sprites with
+            // a different saturation amount for each. If we had used an effect
+            // parameter for this, we would have to end the sprite batch, then begin
+            // a new one, each time we wanted to change the saturation setting.
+
+            byte pulsate = (byte)Pulsate(gameTime, 4, 0, 255);
+
+            mSpriteBatch.Draw(mBackground.getTexture(),
+                             mBackground.getRectangle(),
+                                //new Rectangle(0,0,Game1.sSCREEN_RESOLUTION_WIDTH,Game1.sSCREEN_RESOLUTION_HEIGHT),
+                             new Color(255, 255, 255, pulse));
+
+            // End the sprite batch.
+            mSpriteBatch.End();
         }
 
-       
+        /// <summary>
+        /// Helper computes a value that oscillates over time.
+        /// </summary>
+        static float Pulsate(GameTime gameTime, float speed, float min, float max)
+        {
+            double time = gameTime.TotalGameTime.TotalSeconds * speed;
+
+            return min + ((float)Math.Sin(time) + 1) / 2 * (max - min);
+        }
+
+      
     }
 }
