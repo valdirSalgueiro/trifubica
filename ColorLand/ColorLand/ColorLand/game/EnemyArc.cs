@@ -36,11 +36,11 @@ namespace ColorLand
 
         //TODO Construir mecanismo de chamar um delegate method when finish animation
 
-        public EnemyArc(int type)
-            : base(type)
+        public EnemyArc()
+            : base(Color.Red)
         {
 
-            this.mType = type;
+            //this.mType = type;
 
             switch (mType)
             {

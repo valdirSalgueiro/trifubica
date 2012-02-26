@@ -15,14 +15,14 @@ namespace ColorLand
         private const int CAMERA_START_POS_X = 0;
         private const int CAMERA_START_POS_Y = 0;
 
-        private const int CAMERA_START_DESTINY_X = 320;
-        private const int CAMERA_START_DESTINY_Y = 240;
+        private const int CAMERA_START_DESTINY_X = 400;//320;
+        private const int CAMERA_START_DESTINY_Y = 300;//240;
 
-        private const float MIN_ZOOM_INT = 0.16f;
-        private const float MAX_ZOOM_INT = 1f;
+        private const float MIN_ZOOM_INT = 1f;
+        private const float MAX_ZOOM_INT = 2f;
 
 
-        private const int CAMERA_SPEED = 5;
+        private const int CAMERA_SPEED = 4;
 
         protected float _zoom; // Camera Zoom
         public Matrix _transform; // Matrix Transform

@@ -39,7 +39,7 @@ namespace ColorLand
         //TODO Construir mecanismo de chamar um delegate method when finish animation
 
         public EnemySimpleFlying(int type)
-            : base(type)
+            : base(Color.Black,new Vector2(10,10))
         {
 
             this.mType = type;

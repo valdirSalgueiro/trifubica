@@ -12,6 +12,9 @@ namespace ColorLand
     public abstract class GameObject
     {
 
+        private Direction mDirection;
+        private float mSpeed;
+
         public bool isHoldable = true;
 
         public String nome;
@@ -25,6 +28,7 @@ namespace ColorLand
         public float mX;
         public float mY;
 
+      
         private Rectangle mCollisionRect;
         private bool mCollisionEnabled = true;
 
@@ -351,6 +355,35 @@ namespace ColorLand
             return this.mCollisionEnabled;
         }
 
+        public void moveLeft(int pixels)
+        {
+            mX -= pixels;
+        }
+
+        public void moveRight(int pixels)
+        {
+            mX += pixels;
+        }
+
+        public void setDirection(Direction direction)
+        {
+            mDirection = direction;
+        }
+
+        public Direction getDirection()
+        {
+            return this.mDirection;
+        }
+
+        public void setSpeed(float speed)
+        {
+            mSpeed = speed;
+        }
+
+        public float getSpeed()
+        {
+            return this.mSpeed;
+        }
 
         /*public enum enumMoveDirection
         {
@@ -369,6 +402,14 @@ namespace ColorLand
         {
 
         }*/
+
+        public enum Direction
+        {
+            LEFT,
+            RIGHT,
+            UP,
+            DOWN
+        }
 
     }
 }

@@ -24,6 +24,8 @@ namespace ColorLand
 
         private float mX;
         private float mY;
+        private int mWidth;
+        private int mHeight;
         private Vector2 mLocationVector;
 
         public Background(String imagePath)
@@ -49,7 +51,8 @@ namespace ColorLand
         {
 
             mImage = content.Load<Texture2D>(mImagePath);
-            
+            mWidth = mImage.Width;
+            mHeight = mImage.Height;
         }
 
         public void update()
@@ -77,6 +80,16 @@ namespace ColorLand
             {
                 return false;
             }
+        }
+
+        public Texture2D getTexture()
+        {
+            return this.mImage;
+        }
+
+        public Rectangle getRectangle()
+        {
+            return new Rectangle((int)mX, (int)mY, mWidth, mHeight);
         }
 
     }
