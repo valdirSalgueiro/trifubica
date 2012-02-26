@@ -49,3 +49,5 @@ C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\e6.xnb
 C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\e7.xnb
 C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\e8.xnb
 C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\e9.xnb
+C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\iniciar.xnb
+C:\ColorLand\ColorLand\ColorLand\ColorLand\bin\x86\Debug\Content\test\narracao.xnb

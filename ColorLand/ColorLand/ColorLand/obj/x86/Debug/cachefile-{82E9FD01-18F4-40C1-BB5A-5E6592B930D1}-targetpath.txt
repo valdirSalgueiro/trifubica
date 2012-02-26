@@ -35,3 +35,5 @@ Content\test\e6.xnb
 Content\test\e7.xnb
 Content\test\e8.xnb
 Content\test\e9.xnb
+Content\test\iniciar.xnb
+Content\test\narracao.xnb
