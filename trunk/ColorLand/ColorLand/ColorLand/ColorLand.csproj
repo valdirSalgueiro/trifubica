@@ -92,6 +92,7 @@
     <Compile Include="game\hud\HUD.cs" />
     <Compile Include="game\MainCharacter.cs" />
     <Compile Include="game\MainCharacterData.cs" />
+    <Compile Include="managers\EnemyManager.cs" />
     <Compile Include="managers\InputState.cs" />
     <Compile Include="managers\JoystickManager.cs" />
     <Compile Include="managers\KeyboardManager.cs" />

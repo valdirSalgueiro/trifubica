@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace ColorLand
 {
-    class BaseEnemy : GameObject {
+    public class BaseEnemy : GameObject {
 
         public const int sTYPE_SIMPLE_FLYING_RED = 0;
         public const int sTYPE_SIMPLE_FLYING_BLUE = 1;

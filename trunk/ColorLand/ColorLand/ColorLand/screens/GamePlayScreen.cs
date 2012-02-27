@@ -11,6 +11,7 @@ using System.IO;
 using Microsoft.Xna.Framework.Input;
 //using Microsoft.Xna.Framework.Input.Touch;
 using System.Timers;
+using ColorLand.managers;
 
 
 namespace ColorLand
@@ -83,12 +84,6 @@ namespace ColorLand
         private Background mBackground;
 
         private MainCharacter mMainCharacter;
-
-        private EnemySimpleFlying mTestEnemy;
-
-        private EnemySimpleWalking mTestEnemy2;
-        private EnemySimpleShooting mTestEnemy3;
-        private EnemyArc mTestEnemy4;
 
         private GameObjectsGroup<BaseEnemy> mGroup = new GameObjectsGroup<BaseEnemy>();
 
@@ -176,6 +171,11 @@ namespace ColorLand
                     mCursor.changeColor(Color.Green);
                     mCursor.setCenter(20, 20);
 
+                    EnemySimpleFlying mTestEnemy;
+                    EnemySimpleWalking mTestEnemy2;
+                    EnemySimpleShooting mTestEnemy3;
+                    EnemyArc mTestEnemy4;
+
                     mTestEnemy3 = new EnemySimpleShooting(BaseEnemy.sTYPE_SIMPLE_FLYING_RED);
                     mTestEnemy3.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mTestEnemy3.setCenter(100, 100);
@@ -183,6 +183,9 @@ namespace ColorLand
                     mTestEnemy4 = new EnemyArc();
                     mTestEnemy4.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mTestEnemy4.setCenter(100, 100);
+
+                    EnemyManager.addEnemy(mTestEnemy3);
+                    EnemyManager.addEnemy(mTestEnemy4);
 
 
                     HUD.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
@@ -303,7 +306,7 @@ namespace ColorLand
                     case GAME_STATE_PREPARANDO:
 
                         mCamera.zoomOut(0.01f);
-                mTestEnemy4.update(gameTime);
+                        EnemyManager.update(gameTime);
 
                         if (mCamera.getZoomLevel() == 1)
                         {
@@ -400,8 +403,8 @@ namespace ColorLand
                 //mBackground.draw(mSpriteBatch);
 
                 mMainCharacter.draw(mSpriteBatch);
-                
-                mTestEnemy4.draw(mSpriteBatch);
+
+                EnemyManager.draw(mSpriteBatch);
 
                 mGroup.draw(mSpriteBatch);
 
