@@ -52,6 +52,7 @@ namespace ColorLand
             Components.Add(mScreenManager);
 
             instance = this;
+            SoundManager.Initialize(this);
 
         }
 
@@ -72,7 +73,7 @@ namespace ColorLand
 
             base.Initialize();
 
-            SoundManager.Initialize(this);
+            
 
         }
 
