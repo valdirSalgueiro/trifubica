@@ -106,7 +106,7 @@ namespace ColorLand
             float distance;
             Vector2 playerPosition = getPlayerPosition();
             Vector2.Distance(ref playerPosition, ref pos, out distance);
-            if (distance > 400)
+            if (distance > 300)
             {
                 destAngle = Math.Atan2(getPlayerPosition().Y - pos.Y, getPlayerPosition().X - pos.X);
                 //altere "1.0f" para fazer com que ele se desloque mais rapidamente
@@ -116,7 +116,7 @@ namespace ColorLand
             }
             else {
                 shootingFrame++;
-                if (shootingFrame % 20 == 0) {
+                if (shootingFrame % 40 == 0) {
                     for (int i = 0; i < 5; i++)
                     {
                         if (!bullet[i].active) {
