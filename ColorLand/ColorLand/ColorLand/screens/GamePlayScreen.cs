@@ -146,6 +146,8 @@ namespace ColorLand
             mCurrentWorld = 1;
             mCurrentPart  = part;
 
+            SoundManager.LoadSound("test\\iniciar");
+
             switch (part)
             {
 
@@ -517,6 +519,11 @@ namespace ColorLand
                 {
                     pulse++;
                     mCamera.zoomIn(0.1f);
+                }
+
+                if (newState.IsKeyDown(Keys.Space))
+                {
+                    SoundManager.PlaySound("test\\iniciar");
                 }
 
                 //Game1.print("Z:" + mCamera.getZoomLevel());
