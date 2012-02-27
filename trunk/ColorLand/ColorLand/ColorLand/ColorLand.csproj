@@ -97,7 +97,6 @@
     <Compile Include="managers\KeyboardManager.cs" />
     <Compile Include="managers\KinectManager.cs" />
     <Compile Include="managers\ScreenManager.cs" />
-    <Compile Include="managers\SoundManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
@@ -108,6 +107,7 @@
     <Compile Include="util\Camera.cs" />
     <Compile Include="util\ExtraFunctions.cs" />
     <Compile Include="util\Fade.cs" />
+    <Compile Include="managers\SoundManager.cs" />
     <Compile Include="util\Timer.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -72,6 +72,8 @@ namespace ColorLand
 
             base.Initialize();
 
+            SoundManager.Initialize(this);
+
         }
 
         protected override void LoadContent()

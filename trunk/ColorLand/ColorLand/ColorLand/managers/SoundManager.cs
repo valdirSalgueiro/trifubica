@@ -2,204 +2,104 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 namespace ColorLand
 {
-    public class SoundManager
+    public static class SoundManager
     {
+        //the sound effects for our game
+        static Dictionary<string, SoundEffect> sounds =
+            new Dictionary<string, SoundEffect>();
 
-        /**
-         * MUSIC
-         */
-        public const int MUSIC_HISTORY = 0;
-        public const int MUSIC_GAME    = 1;
-        
-        public static int mCURRENT_MUSIC = -1;
+        //the music for our game
+        static Song currentSong;
 
-        /**
-         * FX
-         * */
-        
-        private ContentManager mContent;
-        
-        private static SoundManager instance;
+        //a content manager for later loading sound effects
+        static ContentManager content;
 
-        private Song mMusicHistory;
-        private Song mMusicGame;
+        //we now store the sound volume in here
+        static float soundVolume = 1f;
 
-        //private SoundEffectInstance mGameMusicInstance;
-
-
-        public const int FX_NARRACAO = 0;
-        public const int FX_INICIAR = 1;
-
-        private const int FX_MAX_COUNT = 2;
-
-        private SoundEffect[] mEffects;// = new SoundEffect[MAX_FX_COUNT];
-
-
-        private SoundManager()
+        /// <summary>
+        /// Initializes the manager.
+        /// </summary>
+        /// <param name="game">The game instance.</param>
+        public static void Initialize(Game game)
         {
-            obtainContent();
-            loadSounds();
+            content = game.Content;
         }
 
-
-        private void obtainContent()
+        /// <summary>
+        /// Plays a sound with a given name.
+        /// </summary>
+        /// <param name="name">The name of the sound to play.</param>
+        public static void PlaySound(string name)
         {
-            mContent = Game1.getInstance().getScreenManager().getContent();
-            MediaPlayer.Volume = 0.5f;
-
+            SoundEffect effect;
+            if (sounds.TryGetValue(name, out effect))
+                effect.Play(soundVolume, 0.0f, 0.0f);
         }
 
-        public void loadSounds()
+        /// <summary>
+        /// Sets the background music to the sound with the given name.
+        /// </summary>
+        /// <param name="name">The name of the music to play.</param>
+        public static void PlayMusic(string name)
         {
+            currentSong = null;
 
-            this.obtainContent();
-
-            //mMusicHeroiSertao = mContent.Load<Song>("musictest");//vilarejo");//Stage1.getInstance().getCurrentScene().getContent().Load<Song>("sounds\\music1");
-            //Game1.print("LOADING MUSIC ROOM SOUNDS");
-
-            /*mMusicHistory =  mContent.Load<Song>("history_love");
-            mMusicGame    =  mContent.Load<Song>("theme");
-
-            mEffects = new SoundEffect[2];
-            mEffects[0] = mContent.Load<SoundEffect>("narracao");
-            mEffects[1] = mContent.Load<SoundEffect>("iniciar");
-            */
-        }
-
-        public void loadMainMenuSounds()
-        {
-           // mEffects = new SoundEffect[FX_MAX_COUNT];
-           // mEffects[FX_INICIAR] = mContent.Load<SoundEffect>("iniciar");
-        }
-
-        public void playMusic(String resourceName)
-        {
-            //mMusicHeroiSertao = mContent.Load<Song>(resourceName);//vilarejo");//Stage1.getInstance().getCurrentScene().getContent().Load<Song>("sounds\\music1");
-            //MediaPlayer.Play(mMusicHeroiSertao);
-            //MediaPlayer.IsRepeating = true;
-        }
-
-        public void releaseSounds()
-        {
-            //mEffects[0].Dispose();
-            //mEffects[1].Dispose();
-        }
-
-        private void diminuiVolume()
-        {
-            for (float x = 1; x > 0; x -= 0.01f)
-                MediaPlayer.Volume -= x;
-        }
-
-        private void aumentaVolume()
-        {
-            for (float x = 0; x < 1; x += 0.0001f)
-                MediaPlayer.Volume += x;
-        }
-
-
-        public void playFX(int soundId)
-        {
-
-           // if (mEffects[soundId].IsDisposed)
-             //   mEffects[FX_STAR] = mContent.Load<SoundEffect>("BoulderHit");
-
-            if (mEffects[soundId].IsDisposed)
+            try
             {
-                mEffects[soundId].CreateInstance();
+                currentSong = content.Load<Song>(name);
             }
-            mEffects[soundId].Play();
-            
-        }
-
-        public void stopFX(int soundId)
-        {
-            if(mEffects[soundId].IsDisposed == false)
-            mEffects[soundId].Dispose();
-        }
-
-        public void playWAV(String name)
-        {
-            SoundEffect effect = mContent.Load<SoundEffect>(name);
-            effect.Play();
-        }
-
-
-        public void playMusic(int musicId)
-        {
-
-            switch (musicId)
+            catch (Exception e)
             {
-
-                case MUSIC_HISTORY:
-
-                    MediaPlayer.Play(mMusicHistory);
-                    MediaPlayer.IsRepeating = true;
-                    mCURRENT_MUSIC = MUSIC_HISTORY;
-                    break;
-
-                case MUSIC_GAME:
-
-                    if(mMusicGame == null ){
-                        mMusicGame = mContent.Load<Song>("theme");
-                    }
-
-                    MediaPlayer.Play(mMusicGame);
-                    MediaPlayer.IsRepeating = false;
-                    mCURRENT_MUSIC = MUSIC_GAME;
-                    break;
-
+                //if we didn't find the song, rethrow the exception
+                if (currentSong == null)
+                    throw e;
             }
 
+            MediaPlayer.Play(currentSong);
         }
 
-        public void stop()
+        /// <summary>
+        /// Loads a sound for playing
+        /// </summary>
+        /// <param name="assetName">The asset name of the sound</param>
+        public static void LoadSound(string assetName)
         {
+            //load the sound into our dictionary
+            sounds.Add(assetName, content.Load<SoundEffect>(assetName));
+        }
 
-            //switch (soundId)
-            // {
-            //  case MUSIC_HEROI_DO_SERTAO:
-
-
-
+        /// <summary>
+        /// Stops the background music.
+        /// </summary>
+        public static void StopMusic()
+        {
             MediaPlayer.Stop();
-            mCURRENT_MUSIC = -1;
-            //    break;
-            //mGameMusicInstance = mGameMusic.Play(2.0f, 0.0f, 0.0f, true);
-            /*
-          case SOUND_STAR:
-              mEffects[SOUND_STAR].Play();
-              break;
-          case SOUND_JUMP:
-              mEffects[SOUND_JUMP].Play();
-              break;
-          case SOUND_DIE:
-              mEffects[SOUND_DIE].Play();
-              break;*/
-            //}
-
         }
 
-
-        public static SoundManager getInstance()
+        /// <summary>
+        /// Sets the sound FX volume level.
+        /// </summary>
+        /// <param name="volume">A volume level in the range [0, 1].</param>
+        public static void SetSoundFXVolume(float volume)
         {
-
-            if (instance == null)
-                instance = new SoundManager();
-            return instance;
-
+            soundVolume = volume;
         }
 
+        /// <summary>
+        /// Sets the music volume level.
+        /// </summary>
+        /// <param name="volume">A volume level in the range [0, 1].</param>
+        public static void SetMusicVolume(float volume)
+        {
+            MediaPlayer.Volume = volume;
+        }
     }
 }
