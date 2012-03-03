@@ -25,15 +25,8 @@ namespace ColorLand
 
         public Button(String imgNormal, String imgPressed, Rectangle rectArea)
         {
-
-            String[] imagesNormal = new String[1];
-            imagesNormal[0] = imgNormal;
-
-            String[] imagesPressed = new String[1];
-            imagesPressed[0] = imgPressed;
-
-            mSpriteNormal = new Sprite(imagesNormal, new int[] { 0,0 }, 7, rectArea.Width, rectArea.Height, false, false);
-            mSpritePressed = new Sprite(imagesPressed, new int[] { 0,0 }, 7, rectArea.Width, rectArea.Height, false, false);
+            mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(1,imgNormal), new int[] { 0 }, 7, rectArea.Width, rectArea.Height, false, false);
+            mSpritePressed = new Sprite(ExtraFunctions.fillArrayWithImages(1, imgPressed), new int[] { 0 }, 7, rectArea.Width, rectArea.Height, false, false);
                         
             addSprite(mSpriteNormal, sSTATE_NORMAL);
             addSprite(mSpritePressed, sSTATE_PRESSED);
@@ -47,17 +40,17 @@ namespace ColorLand
         }
 
 
-        public void loadContent(ContentManager content)
+        public override void loadContent(ContentManager content)
         {
             base.loadContent(content);
         }
 
-        public void update(GameTime gameTime)
+        public override void update(GameTime gameTime)
         {
             base.update(gameTime);//getCurrentSprite().update();
         }
 
-        public void draw(SpriteBatch spriteBatch)
+        public override void draw(SpriteBatch spriteBatch)
         {
             base.draw(spriteBatch);//getCurrentSprite().draw(spriteBatch);
             //getCurrentSprite().draw(spriteBatch);

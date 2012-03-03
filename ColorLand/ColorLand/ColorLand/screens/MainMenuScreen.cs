@@ -25,17 +25,29 @@ namespace ColorLand
         private const int cMAX_BG_COUNTER = 3;
         private int mBackgroundCounter;
         
+        /***
+         * BUTTONS
+         * */
+        private Button mButtonPlay;
+        private Button mButtonSettings;
+        private Button mButtonCredits;
 
         public MainMenuScreen()
         {
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
-            mBackgroundImage = new Background("gameplay\\backgrounds\\bgteste");
+            mBackgroundImage = new Background("mainmenu\\mainmenubg");
             mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            //mList.Add(mBackgroundImage);
+            mList.Add(mBackgroundImage);
 
             mCurrentBackground = mList.ElementAt(0);
+
+            mButtonPlay = new Button("test\\m", "test\\e", new Rectangle(100, 100, 200, 100));
+
+            mButtonPlay.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+            mButtonPlay.setLocation(50, 300);
 
         }
 
@@ -43,7 +55,7 @@ namespace ColorLand
         public override void update(GameTime gameTime)
         {
             mCurrentBackground.update();
-
+            mButtonPlay.update(gameTime);
         }
 
         public override void draw(GameTime gameTime)
@@ -52,10 +64,16 @@ namespace ColorLand
 
             mCurrentBackground.draw(mSpriteBatch);
 
+            mButtonPlay.draw(mSpriteBatch);
             
             mSpriteBatch.End();
         }
 
+        private void checkCollisions()
+        {
+
+        }
+        
 
         //apenas limpar quando for para o menu principal
         private void clearAllBackgrounds()

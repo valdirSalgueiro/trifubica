@@ -79,5 +79,26 @@ namespace ColorLand
             
         }
 
+        public void nextColor()
+        {
+            if (mCurrentColor == Color.Blue)
+            {
+                mCurrentColor = Color.Red;
+                changeToSprite(sSTATE_RED);
+            }
+            else
+                if (mCurrentColor == Color.Green)
+                {
+                    mCurrentColor = Color.Blue;
+                    changeToSprite(sSTATE_BLUE);
+                }
+                else
+                    if (mCurrentColor == Color.Red)
+                    {
+                        mCurrentColor = Color.Green;
+                        changeToSprite(sSTATE_GREEN);
+                    }
+        }
+
     }
 }

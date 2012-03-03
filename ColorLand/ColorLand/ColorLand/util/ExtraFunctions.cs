@@ -31,5 +31,18 @@ namespace ColorLand
 
         }
 
+        public static String[] fillArrayWithImages(int length, String baseName)
+        {
+            String[] a = new String[length];
+
+            for (int x = 0; x < length; x++)
+            {
+                a[x] = baseName + "" + (x+1);
+            }
+
+            return a;
+        }
+
+
     }
 }
