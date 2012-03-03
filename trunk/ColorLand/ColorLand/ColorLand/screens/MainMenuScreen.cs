@@ -24,6 +24,8 @@ namespace ColorLand
 
         private const int cMAX_BG_COUNTER = 3;
         private int mBackgroundCounter;
+
+        private Cursor mCursor;
         
         /***
          * BUTTONS
@@ -43,6 +45,9 @@ namespace ColorLand
 
             mCurrentBackground = mList.ElementAt(0);
 
+            mCursor = new Cursor();
+            mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
+
             mButtonPlay = new Button("test\\m", "test\\e", new Rectangle(100, 100, 200, 100));
 
             mButtonPlay.loadContent(Game1.getInstance().getScreenManager().getContent());
@@ -56,6 +61,7 @@ namespace ColorLand
         {
             mCurrentBackground.update();
             mButtonPlay.update(gameTime);
+            mCursor.update(gameTime);
         }
 
         public override void draw(GameTime gameTime)
@@ -63,16 +69,19 @@ namespace ColorLand
             mSpriteBatch.Begin();
 
             mCurrentBackground.draw(mSpriteBatch);
-
             mButtonPlay.draw(mSpriteBatch);
-            
+            mCursor.draw(mSpriteBatch);
+
             mSpriteBatch.End();
         }
 
         private void checkCollisions()
         {
 
-            //if(mc
+            if (mCursor.collidesWith(mButtonPlay))
+            {
+                Game1.print("play");
+            }
 
         }
         
