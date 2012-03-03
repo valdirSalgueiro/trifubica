@@ -72,6 +72,8 @@ namespace ColorLand
         private void checkCollisions()
         {
 
+            //if(mc
+
         }
         
 
