@@ -12,6 +12,8 @@ namespace ColorLand
      //TODO criar qtd de vezes a repetir
     public class Sprite
     {
+        public static int sALL_FRAMES_IN_ORDER = 1000;
+
         //GAMBIARRA DO CACETO-TEMPORARIA
         private bool mOneFrameMode;
         private int mIndexOneFrameMode;
@@ -72,7 +74,9 @@ namespace ColorLand
         {
             mIndividualImages = true;
 
-            mImages = new Texture2D[sequence.Length];
+            //mImages = new Texture2D[sequence.Length];
+            mImages = new Texture2D[imagesPath.Length];
+
 
             this.mFramesTotal = imagesPath.Length;
             this.mCurrentFrame = 0;
@@ -84,6 +88,19 @@ namespace ColorLand
             this.mVisible = true;
             this.mStopMeAfterEndAnimation = stopMeAfterEnds;
             this.mMakeMeInvisibleAfterEndAnimation = makeMeInvisibleAfterEnds;
+
+            if (mAnimationSequence == null)
+            {
+                int[] a = new int[imagesPath.Length];
+
+                for (int x = 0; x < a.Length; x++)
+                {
+                    a[x] = x;
+                }
+
+                mAnimationSequence = a;
+
+            }
 
         }
 
@@ -104,6 +121,19 @@ namespace ColorLand
             this.mStopMeAfterEndAnimation = stopMeAfterEnds;
             this.mMakeMeInvisibleAfterEndAnimation = makeMeInvisibleAfterEnds;
 
+            if (mAnimationSequence == null)
+            {
+                int[] a = new int[imagesPath.Length];
+
+                for (int x = 0; x < a.Length; x++)
+                {
+                    a[x] = x;
+                }
+
+                mAnimationSequence = a;
+
+            }
+                
             if (mStopMeAfterEndAnimation)
             {
                 mMaxLoops = loops;
@@ -121,6 +151,8 @@ namespace ColorLand
             this.mWidth = width;
             this.mHeight = height;
             this.mVisible = true;
+
+           
         }
 
         public Sprite(int frames, String imagePath, int[] sequence, bool stopMeAfterEnds, bool makeMeInvisibleAfterEnds, int tickSpeed, int width, int height)
@@ -135,6 +167,7 @@ namespace ColorLand
             this.mStopMeAfterEndAnimation = stopMeAfterEnds;
             this.mMakeMeInvisibleAfterEndAnimation = makeMeInvisibleAfterEnds;
             this.mVisible = true;
+
         }
 
         public Sprite(int frames, String imagePath, int index, int width, int height)

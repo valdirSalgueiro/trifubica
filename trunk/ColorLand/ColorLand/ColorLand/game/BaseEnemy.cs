@@ -56,6 +56,11 @@ namespace ColorLand
             return new Vector2();
         }
 
+        public Color getColor()
+        {
+            return this.mColor;
+        }
+
     }
 
 }

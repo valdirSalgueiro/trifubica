@@ -36,11 +36,25 @@ namespace ColorLand
 
         //TODO Construir mecanismo de chamar um delegate method when finish animation
 
-        public EnemyArc()
-            : base(Color.Red)
+        public EnemyArc(Color color)
+            : base(color)
         {
 
             //this.mType = type;
+
+            if (color == Color.Red)
+            {
+
+            }else
+            if (color == Color.Blue)
+            {
+
+            }
+            else
+            if (color == Color.Blue)
+            {
+
+            }
 
             switch (mType)
             {
@@ -58,12 +72,7 @@ namespace ColorLand
                     mSpriteNormal = new Sprite(imagesStopped, new int[] { 0,1,2,3 }, 7, 90, 90, false, false);
                     mSpriteExploding = new Sprite(imagesDestroyed, new int[] { 0 }, 3, 90, 90, true, true);
                     break;
-                case BaseEnemy.sTYPE_SIMPLE_FLYING_GREEN:
-
-                    break;
-                case BaseEnemy.sTYPE_SIMPLE_FLYING_BLUE:
-
-                    break;
+                
             }
 
 

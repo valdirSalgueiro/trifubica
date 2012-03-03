@@ -138,13 +138,6 @@ namespace ColorLand
             updateCollisionRectLocation((int)mX, (int)mY);
         }
 
-        public void updateHold(int x, int y)
-        {
-
-            setLocation(x, y);
-
-        }
-
         public virtual void update(GameTime gameTime)
         {
             //mCurrentSprite.setLocation(mX, mY);
@@ -307,6 +300,7 @@ namespace ColorLand
 
         public int getState()
         {
+            //Game1.print("FUCK GET: " + mState);
             return this.mState;
         }
 
@@ -319,6 +313,8 @@ namespace ColorLand
         {
             //mCollisionRect = new Rectangle(0,0,0,0);
             this.mIsActive = false;
+            enableCollision(false);
+            //setLocation(1000, 1000);
         }
 
         public bool isActive()
@@ -405,6 +401,7 @@ namespace ColorLand
 
         public enum Direction
         {
+            NONE,
             LEFT,
             RIGHT,
             UP,

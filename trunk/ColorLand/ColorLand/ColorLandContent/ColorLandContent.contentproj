@@ -59,7 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="enemies\blue\" />
-    <Folder Include="gameplay\maincharacter\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gameplay\cursors\cursorblue.png">
@@ -262,6 +261,168 @@
       <Name>narracao</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="test\theme.mp3">
+      <Name>theme</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\maincharacter\blue_left_top1.png">
+      <Name>blue_left_top1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue_left_top2.png">
+      <Name>blue_left_top2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue_left_top3.png">
+      <Name>blue_left_top3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue_left_top4.png">
+      <Name>blue_left_top4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue_left_top5.png">
+      <Name>blue_left_top5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue_right_top1.png">
+      <Name>blue_right_top1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue_right_top2.png">
+      <Name>blue_right_top2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue_right_top3.png">
+      <Name>blue_right_top3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue_right_top4.png">
+      <Name>blue_right_top4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue_right_top5.png">
+      <Name>blue_right_top5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\maincharacter\feet\blue_feet_stopped1.png">
+      <Name>blue_feet_stopped1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk1.png">
+      <Name>blue_feet_walk1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk10.png">
+      <Name>blue_feet_walk10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk11.png">
+      <Name>blue_feet_walk11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk12.png">
+      <Name>blue_feet_walk12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk2.png">
+      <Name>blue_feet_walk2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk3.png">
+      <Name>blue_feet_walk3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk4.png">
+      <Name>blue_feet_walk4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk5.png">
+      <Name>blue_feet_walk5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk6.png">
+      <Name>blue_feet_walk6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk7.png">
+      <Name>blue_feet_walk7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk8.png">
+      <Name>blue_feet_walk8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk9.png">
+      <Name>blue_feet_walk9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\maincharacter\blue_stopped1.png">
+      <Name>blue_stopped1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\maincharacter\hands\HandLeft.png">
+      <Name>HandLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\hands\HandLeftBrush.png">
+      <Name>HandLeftBrush</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\hands\HandRight.png">
+      <Name>HandRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\hands\HandRightBrush.png">
+      <Name>HandRightBrush</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="mainmenu\mainmenubg.png">
+      <Name>mainmenubg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

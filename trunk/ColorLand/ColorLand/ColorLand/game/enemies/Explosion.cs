@@ -32,7 +32,7 @@ namespace ColorLand
                 imagesStopped[x] = "test\\e" + (x+1);
             }
             
-            mSpriteNormal = new Sprite(imagesStopped, new int[] { 0,1,2,3,4,5,6,7,8 }, 7, 90, 90, false, true);
+            mSpriteNormal = new Sprite(imagesStopped, new int[] { 0,1,2,3,4,5,6,7,8 }, 7, 90, 90, true, false);
             //mSpriteTackling = new Sprite(imagesTackling, new int[] { 0, 1, 2, 3, 4, 5 }, 1, 65, 80, true, false);
 
             addSprite(mSpriteNormal, sSTATE_NORMAL);
@@ -53,7 +53,7 @@ namespace ColorLand
         {
             base.update(gameTime);//getCurrentSprite().update();
 
-            if (mSpriteNormal.getAnimationEnded() == true && mWaitingAppear)
+            if (mSpriteNormal.getAnimationEnded() == true && !mWaitingAppear)
             {
                 mSpriteNormal.resetStatus();
                 mSpriteNormal.resetAnimationFlag();
@@ -77,6 +77,11 @@ namespace ColorLand
             mSpriteNormal.resetAnimationFlag();                
             mWaitingAppear = false;
             setLocation(x, y);
+        }
+
+        public bool isAvailableToExplode()
+        {
+            return mWaitingAppear;
         }
 
 

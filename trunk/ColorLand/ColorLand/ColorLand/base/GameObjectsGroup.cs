@@ -14,8 +14,10 @@ namespace ColorLand
 
         private List<T> mList;
 
-        private GameObject mCollidedObject;
-        private GameObject mCollidedPassiveObject;
+        private T mCollidedObject;
+        private T mCollidedPassiveObject;
+
+        private int mManualIndex; //only for the getNext() method. Do not touch this 
         
 
         public GameObjectsGroup() {
@@ -83,7 +85,7 @@ namespace ColorLand
             return false;
         }
 
-        public bool checkCollisionWith<T>(GameObjectsGroup<T> gameObjects) where T : PaperObject
+        /*public bool checkCollisionWith<T>(GameObjectsGroup<T> gameObjects) where T : PaperObject
         {
             for (int x = 0; x < mList.Count; x++)
             {
@@ -104,14 +106,14 @@ namespace ColorLand
             mCollidedObject = null;
             mCollidedPassiveObject = null;
             return false;
-        }
+        }*/
 
-        public GameObject getCollidedObject()
+        public T getCollidedObject()
         {
             return mCollidedObject;
         }
 
-        public GameObject getCollidedPassiveObject()
+        public T getCollidedPassiveObject()
         {
             return mCollidedPassiveObject;
         }
@@ -147,6 +149,13 @@ namespace ColorLand
                 }
             }
 
+        }
+
+        public T getNext()
+        {
+            T next = mList.ElementAt(mManualIndex);
+            mManualIndex++;
+            return next;
         }
 
         public void deactivateGameObject(GameObject gameObject)

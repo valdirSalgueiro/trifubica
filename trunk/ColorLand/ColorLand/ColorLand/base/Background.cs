@@ -28,10 +28,24 @@ namespace ColorLand
         private int mHeight;
         private Vector2 mLocationVector;
 
+        private List<Sprite> mListParts;
+
         public Background(String imagePath)
         {
 
             mImagePath = imagePath;
+
+            mListParts = new List<Sprite>();
+        }
+
+        public void addPart(String[] images, int tickspeed, int width, int height, int x, int y)
+        {
+
+            Sprite s = new Sprite(images, null, tickspeed, width, height, false, false);
+
+            s.setLocation(x, y);
+
+            mListParts.Add(s);
 
         }
 
@@ -53,17 +67,31 @@ namespace ColorLand
             mImage = content.Load<Texture2D>(mImagePath);
             mWidth = mImage.Width;
             mHeight = mImage.Height;
+
+            foreach (Sprite s in mListParts)
+            {
+                s.loadContent(content);
+            }
         }
 
         public void update()
         {
-
+            foreach (Sprite s in mListParts)
+            {
+               s.update();
+            }
         }
 
         public void draw(SpriteBatch spritebatch)
         {
             //se nÃ£o tiver aparecendo nada Ã© pq width e height nao foram setados
             spritebatch.Draw(mImage, mLocationVector, new Color(R * ALPHA / 255, G * ALPHA / 255, B * ALPHA / 255, ALPHA));
+
+            foreach (Sprite s in mListParts)
+            {
+                s.draw(spritebatch);
+            }
+
         }
 
         public bool touchedMe(int x, int y)
