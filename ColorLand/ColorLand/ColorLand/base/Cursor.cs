@@ -11,7 +11,7 @@ using System.Timers;
 
 namespace ColorLand
 {
-    class Cursor : PaperObject
+    class Cursor : GameObject
     {
 
         //how many seconds are necessary to complete an event
@@ -56,11 +56,12 @@ namespace ColorLand
             setCollisionRect(32, 32);
         }
 
-        public void loadContent(ContentManager content) {
+        public override void loadContent(ContentManager content) {
             base.loadContent(content);
         }
 
-        public void update(GameTime gameTime) {
+        public override void update(GameTime gameTime)
+        {
             base.update(gameTime);//getCurrentSprite().update();
 
             if (!Game1.sKINECT_BASED)
@@ -74,8 +75,9 @@ namespace ColorLand
             }
         }
 
-        public void draw(SpriteBatch spriteBatch) {
-           base.draw(spriteBatch);//getCurrentSprite().draw(spriteBatch);
+        public override void draw(SpriteBatch spriteBatch)
+        {
+           base.draw(spriteBatch, Color.AliceBlue); 
         }
 
 

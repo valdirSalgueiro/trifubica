@@ -196,6 +196,22 @@ namespace ColorLand
             }
         }
 
+        public virtual void draw(SpriteBatch spriteBatch, Color color)
+        {
+            if (mIsActive)
+            {
+                if (mIsVisible)
+                {
+                    //mCurrentSprite.draw(spriteBatch, angle);
+                    mCurrentSprite.draw(spriteBatch,color);
+                }
+                else
+                {
+                    //mIsActive = false;
+                }
+            }
+        }
+
         public void setHold(bool holded)
         {
 
