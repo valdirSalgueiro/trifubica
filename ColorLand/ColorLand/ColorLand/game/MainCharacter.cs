@@ -141,7 +141,7 @@ namespace ColorLand
 
             //tracers
             int count = 0;
-            if (frames % 10 == 0)
+            if (frames % 2 == 0)
             {
                 for (int i = 0; i < tracers.Length; i++)
                 {
@@ -171,7 +171,7 @@ namespace ColorLand
             {
                 if (tracers[i].alive)
                 {
-                    tracers[i].alpha -= 0.01f;
+                    tracers[i].alpha -= 0.1f;
                     if (tracers[i].alpha <= 0.0f)
                         tracers[i].alive = false;                  
                 }
@@ -276,9 +276,9 @@ namespace ColorLand
                 {
                     
                     if (leftHand)
-                        spriteBatch.Draw(mLeftHandTexture, tracers[i].pos, null, new Color(1.0f, 1.0f, 1.0f, tracers[i].alpha), tracers[i].angle, new Vector2(800, 331), 0.1f, SpriteEffects.None, 0f);
+                        spriteBatch.Draw(mLeftHandTexture, tracers[i].pos, null, Color.White*tracers[i].alpha, tracers[i].angle, new Vector2(800, 331), 0.1f, SpriteEffects.None, 0f);
                     else
-                        spriteBatch.Draw(mRightHandTexture, tracers[i].pos, null, new Color(1.0f, 1.0f, 1.0f, tracers[i].alpha), tracers[i].angle, new Vector2(0, 306), 0.1f, SpriteEffects.None, 0f);
+                        spriteBatch.Draw(mRightHandTexture, tracers[i].pos, null, Color.White * tracers[i].alpha, tracers[i].angle, new Vector2(0, 306), 0.1f, SpriteEffects.None, 0f);
                 }
             }
 
