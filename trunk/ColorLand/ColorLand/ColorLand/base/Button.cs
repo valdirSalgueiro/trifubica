@@ -35,6 +35,8 @@ namespace ColorLand
 
             setCollisionRect(rectArea.Width,rectArea.Height);
 
+            setCollisionRect(0, 0, rectArea.Width, rectArea.Height);
+
             setLocation(rectArea.X, rectArea.Y);
 
         }

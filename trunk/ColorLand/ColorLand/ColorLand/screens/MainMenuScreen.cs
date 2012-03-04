@@ -59,6 +59,7 @@ namespace ColorLand
 
         public override void update(GameTime gameTime)
         {
+            checkCollisions();
             mCurrentBackground.update();
             mButtonPlay.update(gameTime);
             mCursor.update(gameTime);
@@ -80,7 +81,7 @@ namespace ColorLand
 
             if (mCursor.collidesWith(mButtonPlay))
             {
-                Game1.print("play");
+                
             }
 
         }

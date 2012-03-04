@@ -212,7 +212,7 @@ namespace ColorLand
         public override void draw(SpriteBatch spriteBatch) {
             //getCurrentSprite().draw(spriteBatch);
             mFeet.draw(spriteBatch);
-            spriteBatch.Draw(mLeftHandTexture, new Vector2(mX + 40, mY + 40), null, Color.White, mLeftHandAngle, new Vector2(800, 331), 0.1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(mLeftHandTexture, new Vector2(mX + 40, mY + 40), null, Color.White, mLeftHandAngle - (float)Math.PI, new Vector2(800, 331), 0.1f, SpriteEffects.None, 0f);
             spriteBatch.Draw(mRightHandTexture, new Vector2(mX + 90, mY + 60), null, Color.White, mRightHandAngle, new Vector2(0, 306), 0.1f, SpriteEffects.None, 0f);
             base.draw(spriteBatch);
         }
