@@ -63,12 +63,6 @@ namespace ColorLand
 
         private Color mColor;
 
-
-        Tracer[] tracers=new Tracer[20];
-        int frames=0;
-        bool leftHand=true;
-        
-
         /**SPECIFIC: body state (for cursor) ***/
         private BODYSTATE mBodyState;
         
@@ -109,12 +103,6 @@ namespace ColorLand
 
             }
 
-            for (int i = 0; i < tracers.Length; i++)
-            {
-                tracers[i] = new Tracer();
-                tracers[i].alive = false;
-            }
-
         }
 
         public override void loadContent(ContentManager content)
@@ -130,46 +118,7 @@ namespace ColorLand
             base.update(gameTime);//getCurrentSprite().update();
             UpdateInput();
             updateJump();
-            updateFeet(gameTime);
-
-            //tracers
-            int count = 0;
-            if (frames % 2 == 0)
-            {
-                for (int i = 0; i < tracers.Length; i++)
-                {
-                    if (!tracers[i].alive)
-                    {
-                        tracers[i].alive = true;
-                        tracers[i].alpha = 1.0f;
-                        if (leftHand)
-                        {
-                            tracers[i].angle = mLeftHandAngle - (float)Math.PI;
-                            tracers[i].pos = new Vector2(mX + 40, mY + 40);
-                        }
-                        else
-                        {
-                            tracers[i].angle = mRightHandAngle;
-                            tracers[i].pos = new Vector2(mX + 90, mY + 60);
-                        }
-                        tracers[i].leftHand = leftHand;
-                        leftHand = !leftHand;
-                        count++;
-                        if (count > 1)
-                            break;
-                    }
-                }
-            }
-            for (int i = 0; i < tracers.Length; i++)
-            {
-                if (tracers[i].alive)
-                {
-                    tracers[i].alpha -= 0.1f;
-                    if (tracers[i].alpha <= 0.0f)
-                        tracers[i].alive = false;                  
-                }
-            }
-            frames++;
+            updateFeet(gameTime);            
         }
         
         private void updateJump(){
@@ -262,18 +211,6 @@ namespace ColorLand
         public override void draw(SpriteBatch spriteBatch) {
             //getCurrentSprite().draw(spriteBatch);
             mFeet.draw(spriteBatch);
-
-            for (int i = 0; i < tracers.Length; i++)
-            {
-                if (tracers[i].alive)
-                {
-                    
-                    if (leftHand)
-                        spriteBatch.Draw(mLeftHandTexture, tracers[i].pos, null, Color.White*tracers[i].alpha, tracers[i].angle, new Vector2(800, 331), 0.1f, SpriteEffects.None, 0f);
-                    else
-                        spriteBatch.Draw(mRightHandTexture, tracers[i].pos, null, Color.White * tracers[i].alpha, tracers[i].angle, new Vector2(0, 306), 0.1f, SpriteEffects.None, 0f);
-                }
-            }
 
             spriteBatch.Draw(mLeftHandTexture, new Vector2(mX + 40, mY + 40), null, Color.White, mLeftHandAngle - (float)Math.PI, new Vector2(800, 331), 0.1f, SpriteEffects.None, 0f);
             spriteBatch.Draw(mRightHandTexture, new Vector2(mX + 90, mY + 60), null, Color.White, mRightHandAngle, new Vector2(0, 306), 0.1f, SpriteEffects.None, 0f);
