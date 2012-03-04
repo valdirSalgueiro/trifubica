@@ -5,12 +5,17 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
+using System.Timers;
 
 namespace ColorLand
 {
     class Cursor : PaperObject
     {
+
+        //how many seconds are necessary to complete an event
+        private const int cEVENT_SECONDS = 3;
 
         //private bool mKinectBased = false;
 
@@ -28,6 +33,11 @@ namespace ColorLand
         private Sprite mSpriteBlue;
         private Sprite mSpriteGreen;
         private Sprite mSpriteRed;
+
+        //
+        private Timer mTimer;
+        private bool mActiveInsideButton;
+        private bool mEventCompleted;
 
         public Cursor()
         {
@@ -98,6 +108,51 @@ namespace ColorLand
                         mCurrentColor = Color.Green;
                         changeToSprite(sSTATE_GREEN);
                     }
+        }
+
+        //must be called while colliding with a button
+        public void setActiveInsideButton(bool state)
+        {
+
+            //this AND is necessary to specify if the cursor is entering in the button
+            if(mActiveInsideButton == false && state == true){
+                restartTimer(cEVENT_SECONDS);
+            }
+            
+            mActiveInsideButton = state;
+
+             mTimer.Stop();
+            mTimer.Enabled = false;
+
+        }
+
+        private void restartTimer(int seconds)
+        {
+            mTimer = new Timer();
+            mTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            mTimer.Interval = seconds * 1000;
+            mTimer.Enabled = true;
+        }
+
+        //qualquer coisa mete static aqui que funciona
+        private void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            mTimer.Stop();
+            mTimer.Enabled = false;
+
+            //if the cursor is yet over the button
+            if (mActiveInsideButton)
+            {
+                mEventCompleted = true;
+            }
+
+        }
+
+        public bool isEventCompleted()
+        {
+
+            return this.mEventCompleted;
+
         }
 
     }
