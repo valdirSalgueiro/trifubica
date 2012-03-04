@@ -19,7 +19,6 @@ Content\test\0009.xnb
 Content\test\0015.xnb
 Content\test\0019.xnb
 Content\test\0024.xnb
-Content\effects\desaturate.xnb
 Content\test\fase1_4.xnb
 Content\test\foot1.xnb
 Content\test\foot2.xnb
@@ -35,9 +34,6 @@ Content\test\e6.xnb
 Content\test\e7.xnb
 Content\test\e8.xnb
 Content\test\e9.xnb
-Content\test\iniciar.xnb
-Content\test\narracao.xnb
-Content\test\theme.xnb
 Content\gameplay\maincharacter\blue_left_top1.xnb
 Content\gameplay\maincharacter\blue_left_top2.xnb
 Content\gameplay\maincharacter\blue_left_top3.xnb
@@ -67,4 +63,8 @@ Content\gameplay\maincharacter\hands\HandLeftBrush.xnb
 Content\gameplay\maincharacter\hands\HandRight.xnb
 Content\gameplay\maincharacter\hands\HandRightBrush.xnb
 Content\mainmenu\mainmenubg.xnb
+Content\effects\desaturate.xnb
+Content\test\iniciar.xnb
+Content\test\narracao.xnb
+Content\test\theme.xnb
 Content\test\theme.wma
