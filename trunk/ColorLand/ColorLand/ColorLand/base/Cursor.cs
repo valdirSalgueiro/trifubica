@@ -112,6 +112,7 @@ namespace ColorLand
 
         public override void draw(SpriteBatch spriteBatch)
         {
+
             for (int i = 0; i < tracers.Length; i++)
             {
                 if (tracers[i].alive)
@@ -122,6 +123,7 @@ namespace ColorLand
             
             
             base.draw(spriteBatch, Color.AliceBlue); 
+
         }
 
 

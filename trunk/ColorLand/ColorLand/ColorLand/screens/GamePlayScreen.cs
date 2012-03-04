@@ -86,7 +86,8 @@ namespace ColorLand
         private int mCurrentPart;
 
 
-        private Background mBackground;
+        private Background mBackgroundBack;
+        private Background mBackgroundFront;
 
         private MainCharacter mMainCharacter;
 
@@ -162,16 +163,27 @@ namespace ColorLand
                     //mFontDebug = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("debug");
                     //mFontAlert = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("alerts");
 
-                    mBackground = new Background("test\\fase1_4");
-                    String[] imagesBG = new String[9];
-
-                    for (int x = 0; x < imagesBG.Length; x++)
+                    mBackgroundBack  = new Background("gameplay\\backgrounds\\stage1_1\\stage1_1_layer1");
+                    mBackgroundFront = new Background("gameplay\\backgrounds\\stage1_1\\stage1_1_layer3");
+                    
+                    //String[] imagesBG = new String[9];
+                    /*for (int x = 0; x < imagesBG.Length; x++)
                     {
                         imagesBG[x] = "test\\e" + (x+1);
                     }
                     mBackground.addPart(imagesBG, 2, 200, 200, 40, 500);
-                    mBackground.loadContent(Game1.getInstance().getScreenManager().getContent());
-                    mBackground.setLocation(0, 0);
+                    */
+
+                    mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\stage1_1_layer2" },1,1000,600,0,0);
+                    //mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\stage1_1_layer3" }, 1, 1000, 600, 0, 0);
+                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\stage1_1_layer4" }, 1, 1000, 600, 0, 0);
+
+                    mBackgroundBack.loadContent(Game1.getInstance().getScreenManager().getContent());
+                    mBackgroundBack.setLocation(0, 0);
+
+                    mBackgroundFront.loadContent(Game1.getInstance().getScreenManager().getContent());
+                    mBackgroundFront.setLocation(0, 0);
+
 
                     mMainCharacter = new MainCharacter(Color.Blue);
                     mMainCharacter.loadContent(Game1.getInstance().getScreenManager().getContent());
@@ -355,7 +367,8 @@ namespace ColorLand
                         break;
 
                     case GAME_STATE_EM_JOGO:
-                        mBackground.update();
+                        mBackgroundBack.update();
+                        mBackgroundFront.update();
 
                         mMainCharacter.update(gameTime);
 
@@ -422,9 +435,7 @@ namespace ColorLand
 
             if (mCurrentWorld == sWORLD_1)
             {
-
-
-                DrawDesaturate(gameTime);
+                drawDesaturation(gameTime,mBackgroundBack);
 
                 //mSpriteBatch.Begin();
                 mSpriteBatch.Begin(
@@ -436,12 +447,6 @@ namespace ColorLand
                         null,
                         mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
                 
-
-                
-                //mSpriteBatch.Begin();
-
-                mBackground.draw(mSpriteBatch);
-
                 mMainCharacter.draw(mSpriteBatch);
 
                 EnemyManager.draw(mSpriteBatch);
@@ -472,13 +477,58 @@ namespace ColorLand
                 //mSpriteBatch.DrawString(mFontDebug, ""+mUniversalTEXT, new Vector2(10, 100), Color.Red);
                 //mSpriteBatch.DrawString(mFontDebug, "" + mUniversalTEXT2, new Vector2(10, 140), Color.Red);
 
-                HUD.getInstance().draw(mSpriteBatch);
+               
 
                 mSpriteBatch.End();
-                //System.Diagnostics.Debug.WriteLine("loca");
+
+                drawDesaturation(gameTime, mBackgroundFront);
+
+                mSpriteBatch.Begin();
+                HUD.getInstance().draw(mSpriteBatch);
+                mCursor.draw(mSpriteBatch);
+                mSpriteBatch.End();
+
             }
 
    
+        }
+
+        void drawDesaturation(GameTime gameTime, Background background)
+        {
+            // Begin the sprite batch, using our custom effect.
+            mSpriteBatch.Begin(0, null, null, null, null, desaturateEffect, mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
+
+            // Draw four copies of the same sprite with different saturation levels.
+            // The saturation amount is passed into the effect using the alpha of the
+            // SpriteBatch.Draw color parameter. This isn't as flexible as using a
+            // regular effect parameter, but makes it easy to draw many sprites with
+            // a different saturation amount for each. If we had used an effect
+            // parameter for this, we would have to end the sprite batch, then begin
+            // a new one, each time we wanted to change the saturation setting.
+
+            byte pulsate = (byte)Pulsate(gameTime, 4, 0, 255);
+
+            /*mSpriteBatch.Draw(mBackgroundBack.getTexture(),
+                             mBackgroundBack.getRectangle(),
+                //new Rectangle(0,0,Game1.sSCREEN_RESOLUTION_WIDTH,Game1.sSCREEN_RESOLUTION_HEIGHT),
+                             new Color(255, 255, 255, pulse));
+            */
+            if (background == mBackgroundBack)
+            {
+                mBackgroundBack.draw(mSpriteBatch, new Color(255, 255, 255, pulse));
+            }else
+            if (background == mBackgroundFront)
+            {
+                mBackgroundFront.draw(mSpriteBatch, new Color(255, 255, 255, pulse));
+            }
+
+           /* mSpriteBatch.Draw(mBackgroundBack.getTexture(),
+                             mBackgroundBack.getRectangle(),
+                //new Rectangle(0,0,Game1.sSCREEN_RESOLUTION_WIDTH,Game1.sSCREEN_RESOLUTION_HEIGHT),
+                             new Color(255, 255, 255, pulse));
+            */
+            // End the sprite batch.
+            mSpriteBatch.End();
         }
 
         public void damage()
@@ -583,31 +633,6 @@ namespace ColorLand
             }
         }//sabe uma notificação que fizeram ontem. Brinco formal demais
 
-     
-        ///////////////////////
-        void DrawDesaturate(GameTime gameTime)
-        {
-            // Begin the sprite batch, using our custom effect.
-            mSpriteBatch.Begin(0, null, null, null, null, desaturateEffect, mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
-
-            // Draw four copies of the same sprite with different saturation levels.
-            // The saturation amount is passed into the effect using the alpha of the
-            // SpriteBatch.Draw color parameter. This isn't as flexible as using a
-            // regular effect parameter, but makes it easy to draw many sprites with
-            // a different saturation amount for each. If we had used an effect
-            // parameter for this, we would have to end the sprite batch, then begin
-            // a new one, each time we wanted to change the saturation setting.
-
-            byte pulsate = (byte)Pulsate(gameTime, 4, 0, 255);
-
-            mSpriteBatch.Draw(mBackground.getTexture(),
-                             mBackground.getRectangle(),
-                                //new Rectangle(0,0,Game1.sSCREEN_RESOLUTION_WIDTH,Game1.sSCREEN_RESOLUTION_HEIGHT),
-                             new Color(255, 255, 255, pulse));
-
-            // End the sprite batch.
-            mSpriteBatch.End();
-        }
 
         /// <summary>
         /// Helper computes a value that oscillates over time.
