@@ -38,17 +38,8 @@ namespace ColorLand
             if(color == Color.Red)
             {
                 
-                  String[] imagesWalking = new String[4];
-                  imagesWalking[0] = "test\\0009";
-                  imagesWalking[1] = "test\\0015";
-                  imagesWalking[2] = "test\\0019";
-                  imagesWalking[3] = "test\\0024";
-
-                  String[] imagesAttacking = new String[1];
-                  imagesAttacking[0] = "test\\eblue";
-
-                  mSpriteWalking   = new Sprite(imagesWalking, new int[] { 0,1,2,3 }, 7, 90, 90, false, false);
-                  mSpriteAttacking = new Sprite(imagesAttacking, new int[] { 0 }, 3, 90, 90, false, false);
+                  mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages(20, "enemies\\world1\\red\\crab_walk"), new int[] { 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 }, 2, 300, 300, false, false);
+                  mSpriteAttacking = new Sprite(ExtraFunctions.fillArrayWithImages(11, "enemies\\world1\\red\\crab_attack"), new int[] { Sprite.sALL_FRAMES_IN_ORDER,11 }, 2, 300, 300, false, false);
             }
         
             addSprite(mSpriteWalking, sSTATE_WALKING);
@@ -144,8 +135,13 @@ namespace ColorLand
                     changeToSprite(sSTATE_WALKING);
                     break;
                 case sSTATE_ATTACKING:
-                    setState(sSTATE_ATTACKING);
-                    changeToSprite(sSTATE_ATTACKING);
+                    if (getState() != sSTATE_ATTACKING)
+                    {
+                        setState(sSTATE_ATTACKING);
+                        changeToSprite(sSTATE_ATTACKING);
+                        getCurrentSprite().resetAnimationFlag();
+                        getCurrentSprite().setFlip(true);
+                    }
                     break;
 
             }

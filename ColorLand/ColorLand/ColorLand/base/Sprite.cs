@@ -12,7 +12,9 @@ namespace ColorLand
      //TODO criar qtd de vezes a repetir
     public class Sprite
     {
-        public static int sALL_FRAMES_IN_ORDER = 1000;
+        public static int sALL_FRAMES_IN_ORDER = 1234;
+
+        private bool mFlip;
 
         //GAMBIARRA DO CACETO-TEMPORARIA
         private bool mOneFrameMode;
@@ -74,6 +76,7 @@ namespace ColorLand
         {
             mIndividualImages = true;
 
+
             //mImages = new Texture2D[sequence.Length];
             mImages = new Texture2D[imagesPath.Length];
 
@@ -81,7 +84,27 @@ namespace ColorLand
             this.mFramesTotal = imagesPath.Length;
             this.mCurrentFrame = 0;
             this.mImagesPaths = imagesPath;
+
+            if (sequence != null)
+            {
+                if (sequence[0] == sALL_FRAMES_IN_ORDER)
+                {
+                    //trick 
+                    int[] seqAux = new int[sequence[1]];
+
+                    for (int x = 0; x < seqAux.Length; x++)
+                    {
+                        seqAux[x] = x;
+                    }
+
+                    sequence = seqAux;
+
+                }
+            }
+
             this.mAnimationSequence = sequence;
+            
+            
             this.mTickSpeeed = tickSpeed;
             this.mWidth = width;
             this.mHeight = height;
@@ -194,7 +217,8 @@ namespace ColorLand
             {
                 for(int x=0; x < mImagesPaths.Length; x++){
                     mImages[x] = content.Load<Texture2D>(mImagesPaths[x]);
-                }                
+                }
+                setSourceValues(0, 0, mImages[0].Width, mImages[0].Height);
             }
             else
             {
@@ -309,8 +333,19 @@ namespace ColorLand
                 //se der um caralho aqui foi culpa da cor, digo logo. Volta pra Color.WHITE
                 if (mIndividualImages)
                 {
+                    //flip effect
+                    SpriteEffects flipEffect;
+                    if (mFlip)
+                    {
+                        flipEffect = SpriteEffects.FlipHorizontally;
+                    }
+                    else
+                    {
+                        flipEffect = SpriteEffects.None;
+                    }
+
                     int imageIndex = mAnimationSequence[mCurrentFrame];
-                    spritebatch.Draw(mImages[imageIndex], destRectangle(), new Color(R, G, B));
+                    spritebatch.Draw(mImages[imageIndex], destRectangle(), srcRectangle(), new Color(R, G, B), (float)angle, Vector2.Zero, flipEffect, 0);
                 }
                 else
                 {
@@ -332,7 +367,16 @@ namespace ColorLand
                 }
                 else
                 {
-                    spritebatch.Draw(mImage, rotationPosition, new Rectangle(0, 0, 259, 247), new Color(R, G, B), (float)angle, rotationOrigin, 1, SpriteEffects.None, 1);
+
+                    //flip?
+                    SpriteEffects flipEffect;
+                    if(mFlip){
+                        flipEffect = SpriteEffects.FlipHorizontally;
+                    }else{
+                        flipEffect = SpriteEffects.None;
+                    }
+                    
+                    spritebatch.Draw(mImage, rotationPosition, new Rectangle(0, 0, 259, 247), new Color(R, G, B), (float)angle, rotationOrigin, 1, flipEffect, 1);
                 }
             }
 
@@ -342,12 +386,27 @@ namespace ColorLand
         {
             if (mIndividualImages)
             {
-                spritebatch.Draw(mImages[mCurrentFrame], destRectangle(), new Color(R, G, B));
+                spritebatch.Draw(mImages[mCurrentFrame], destRectangle(), c);//new Color(R, G, B));
             }
             else
             {
                 spritebatch.Draw(mImage, destRectangle(), c);
             }
+        }
+
+        public void setFlip(bool flip)
+        {
+            mFlip = flip;
+        }
+
+        public void flip()
+        {
+            mFlip = !mFlip;
+        }
+
+        public bool isFlipped()
+        {
+            return this.mFlip;
         }
 
         public Rectangle destRectangle()

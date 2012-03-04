@@ -11,6 +11,8 @@ namespace ColorLand
     public class Background
     {
 
+        public static int sPLAYER_LAYER = 0;
+
         public String nome;
 
         private Texture2D mImage;
@@ -29,6 +31,12 @@ namespace ColorLand
         private Vector2 mLocationVector;
 
         private List<Sprite> mListParts;
+        private int mVolatileIndexForParts;
+
+        public Background()
+        {
+            mListParts = new List<Sprite>();
+        }
 
         public Background(String imagePath)
         {
@@ -49,6 +57,11 @@ namespace ColorLand
 
         }
 
+        public void setPlayerLayer()
+        {
+            mListParts.Add(null);
+        }
+
         public void setLocation(int x, int y)
         {
             mX = x;
@@ -64,10 +77,12 @@ namespace ColorLand
         public void loadContent(ContentManager content)
         {
 
-            mImage = content.Load<Texture2D>(mImagePath);
-            mWidth = mImage.Width;
-            mHeight = mImage.Height;
-
+            if (mImagePath != null)
+            {
+                mImage = content.Load<Texture2D>(mImagePath);
+                mWidth = mImage.Width;
+                mHeight = mImage.Height;
+            }
             foreach (Sprite s in mListParts)
             {
                 s.loadContent(content);
@@ -84,12 +99,28 @@ namespace ColorLand
 
         public void draw(SpriteBatch spritebatch)
         {
-            //se nÃ£o tiver aparecendo nada Ã© pq width e height nao foram setados
-            spritebatch.Draw(mImage, mLocationVector, new Color(R * ALPHA / 255, G * ALPHA / 255, B * ALPHA / 255, ALPHA));
+            if (mImagePath != null)
+            {
+                spritebatch.Draw(mImage, mLocationVector, new Color(R * ALPHA / 255, G * ALPHA / 255, B * ALPHA / 255, ALPHA));
+            }
 
             foreach (Sprite s in mListParts)
             {
                 s.draw(spritebatch);
+            }
+
+        }
+
+        public void draw(SpriteBatch spritebatch, Color color)
+        {
+            if (mImagePath != null)
+            {
+                spritebatch.Draw(mImage, mLocationVector, color);//new Color(R * ALPHA / 255, G * ALPHA / 255, B * ALPHA / 255, ALPHA));
+            }
+
+            foreach (Sprite s in mListParts)
+            {
+                s.draw(spritebatch,color);
             }
 
         }
@@ -119,6 +150,12 @@ namespace ColorLand
         {
             return new Rectangle((int)mX, (int)mY, mWidth, mHeight);
         }
+
+        public int getTotalOfParts()
+        {
+            return mListParts.Count;
+        }
+
 
     }
 }
