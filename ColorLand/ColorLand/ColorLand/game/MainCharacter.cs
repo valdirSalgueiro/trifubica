@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 //using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Content;
+using ColorLand.game;
 
 
 namespace ColorLand
@@ -62,14 +63,6 @@ namespace ColorLand
 
         private Color mColor;
 
-
-        class Tracer {
-            public float alpha;
-            public float angle;
-            public Vector2 pos;
-            public bool alive;
-            public bool leftHand;
-        }
 
         Tracer[] tracers=new Tracer[20];
         int frames=0;
