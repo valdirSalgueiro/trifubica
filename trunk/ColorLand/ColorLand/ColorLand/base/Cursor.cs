@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
 using System.Timers;
+using ColorLand.game;
 
 namespace ColorLand
 {
@@ -39,6 +40,10 @@ namespace ColorLand
         private bool mActiveInsideButton;
         private bool mEventCompleted;
 
+        //tracers
+        Tracer[] tracers = new Tracer[5];
+        int frames = 0;
+
         public Cursor()
         {
             mSpriteNormal = new Sprite(1, "gameplay\\cursors\\cursor", new int[] { 0 }, 10, 32, 32);
@@ -54,6 +59,12 @@ namespace ColorLand
             changeToSprite(sSTATE_NORMAL);
 
             setCollisionRect(32, 32);
+
+            for (int i = 0; i < tracers.Length; i++)
+            {
+                tracers[i] = new Tracer();
+                tracers[i].alive = false;
+            }
         }
 
         public override void loadContent(ContentManager content) {
@@ -73,11 +84,44 @@ namespace ColorLand
             {
                 setLocation(KinectManager.sMAIN_HAND_COORD.X, KinectManager.sMAIN_HAND_COORD.Y);
             }
+
+             if (frames % 2 == 0)
+            {
+                for (int i = 0; i < tracers.Length; i++)
+                {
+                    if (!tracers[i].alive)
+                    {
+                        tracers[i].alive = true;
+                        tracers[i].alpha = 1.0f;
+                        tracers[i].pos = getLocation();
+                        break;
+                    }
+                }
+            }
+            for (int i = 0; i < tracers.Length; i++)
+            {
+                if (tracers[i].alive)
+                {
+                    tracers[i].alpha -= 0.1f;
+                    if (tracers[i].alpha <= 0.0f)
+                        tracers[i].alive = false;                  
+                }
+            }
+            frames++;        
         }
 
         public override void draw(SpriteBatch spriteBatch)
         {
-           base.draw(spriteBatch, Color.AliceBlue); 
+            for (int i = 0; i < tracers.Length; i++)
+            {
+                if (tracers[i].alive)
+                {
+                    spriteBatch.Draw(getCurrentSprite().getCurrentTexture2D(), new Rectangle((int)tracers[i].pos.X, (int)tracers[i].pos.Y, 32, 32), Color.White * tracers[i].alpha);
+                }
+            }
+            
+            
+            base.draw(spriteBatch, Color.AliceBlue); 
         }
 
 
