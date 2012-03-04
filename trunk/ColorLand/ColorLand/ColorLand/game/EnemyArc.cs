@@ -98,22 +98,25 @@ namespace ColorLand
             float distance;
             Vector2 playerPosition = getPlayerPosition();
             Vector2.Distance(ref playerPosition, ref pos, out distance);
-            float radius = 100; //raio
+            float radius = 200; //raio
 
-            if (distance > 20)
-            {
+            //if (distance > 20)
+            //{
                 float max = 0;
 
                 if (theta < max)
                 {
                     pos = new Vector2(radius * (float)Math.Cos((double)theta),
-                           radius * (float)Math.Sin((double)theta)) + playerPosition;
+                           radius * (float)Math.Sin((double)theta)) + new Vector2(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 440);
                     theta += 0.02f; //velocidade
                 }
                 else { 
                     //terminou movimento
+                    //por enquanto boto para reiniciar so para testar
+                    theta = (float)-Math.PI;
+
                 }
-            }
+            //}
 
 
             setLocation(pos);
