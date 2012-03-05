@@ -47,7 +47,7 @@ namespace ColorLand
 
             changeToSprite(sSTATE_WALKING);
 
-            setCollisionRect(40, 40);
+            setCollisionRect(101,187, 374, 155);
             setLocation(origin);
 
         }
@@ -64,29 +64,11 @@ namespace ColorLand
             Vector2 playerLocation = getPlayerPosition();
 
 
-            if (playerLocation.X > mX)
+            //PLAYER IS LEFT FROM CRAB
+            if (getPlayerCenter() < getCenter())
             {
-
-                if (mX > playerLocation.X - 50)
-                {
-                    if(getState() != sSTATE_ATTACKING)
-                        changeState(sSTATE_ATTACKING);
-                }
-                else
-                {
-                    if (getState() != sSTATE_WALKING)
-                        changeState(sSTATE_WALKING);
-                }
-
-                if (getState() == sSTATE_WALKING)
-                {
-                    moveRight(1);
-                }
-            }
-            else
-            {
-
-                if (mX < playerLocation.X + 50)
+                //setFlipDirection(FlipDirection.Left);
+                if (getPlayerCenter() >= getCenter() - 110)
                 {
                     if (getState() != sSTATE_ATTACKING)
                         changeState(sSTATE_ATTACKING);
@@ -101,9 +83,45 @@ namespace ColorLand
                 {
                     moveLeft(1);
                 }
+
+                getCurrentSprite().setFlip(false);
+            }
+            else
+            {
+               //PLAYER IS RIGHT FROM CRAB
+               
+                if (getPlayerCenter() <=  getCenter() + 110)
+                {
+                    if (getState() != sSTATE_ATTACKING)
+                    {
+                        changeState(sSTATE_ATTACKING);
+                    }
+                }
+                else
+                {
+                    if (getState() != sSTATE_WALKING)
+                        changeState(sSTATE_WALKING);
+                }
+
+                if (getState() == sSTATE_WALKING)
+                {
+                    moveRight(1);
+                }
+                
+                 getCurrentSprite().setFlip(true);
                 
             }
 
+            if(getState() == sSTATE_ATTACKING){
+                if (getCurrentSprite().getCurrentFrame() == 8)
+                {
+                    setAttackRectangle(86, 192, 86 + 100, 192 + 80);
+                }
+                else
+                {
+                    setAttackRectangle(0,0,0,0);
+                }
+            }
 
             base.update(gameTime);//getCurrentSprite().update();
             //LOGICA 
@@ -140,16 +158,12 @@ namespace ColorLand
                         setState(sSTATE_ATTACKING);
                         changeToSprite(sSTATE_ATTACKING);
                         getCurrentSprite().resetAnimationFlag();
-                        getCurrentSprite().setFlip(true);
                     }
                     break;
 
             }
 
         }
-
-
-        
 
 
         public void setType(int type)

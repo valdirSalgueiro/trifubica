@@ -28,7 +28,9 @@ namespace ColorLand
         public float mX;
         public float mY;
 
-      
+        private Rectangle mAttackCollisionRect;
+        private bool mAttackCollisionEnabled = true;
+
         private Rectangle mCollisionRect;
         private bool mCollisionEnabled = true;
 
@@ -47,8 +49,18 @@ namespace ColorLand
 
         private double angle = 0;
 
+        private FlipDirection mFlipDirection;
+
         /////PERMISSIONS
         private bool mAllowMovement;
+
+
+        public enum FlipDirection
+        {
+            Left,
+            Right
+        }
+
 
         public GameObject()
         {
@@ -65,6 +77,19 @@ namespace ColorLand
             }
 
         }
+
+        //provisorio para este projeto
+        public Vector2 getPlayerPosition()
+        {
+            BaseScreen currentScreen = Game1.getInstance().getScreenManager().getCurrentScreen();
+            if (currentScreen is GamePlayScreen)
+            {
+                return ((GamePlayScreen)currentScreen).getPlayerLocation();
+            }
+
+            return new Vector2();
+        }
+        //// 
 
         private void init()
         {
@@ -245,6 +270,23 @@ namespace ColorLand
             return this.mCollisionRect;
         }
 
+        public bool attackRecCollidesWith(GameObject gameObject)
+        {
+            if (mAttackCollisionEnabled)
+            {
+                if (mAttackCollisionRect.Intersects(gameObject.getCollisionRect()))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            return false;
+        }
+
         public bool collidesWith(GameObject gameObject)
         {
             if (mCollisionEnabled)
@@ -395,6 +437,36 @@ namespace ColorLand
         public float getSpeed()
         {
             return this.mSpeed;
+        }
+
+        public void setFlipDirection(FlipDirection direction)
+        {
+            mFlipDirection = direction;
+        }
+
+        public FlipDirection getFlipDirection()
+        {
+            return this.mFlipDirection;
+        }
+
+        public void setAttackRectangle(int x, int y, int width, int height)
+        {
+            mAttackCollisionRect = new Rectangle(x, y, width, height);
+        }
+
+        public void setAttackRectangle(Rectangle r)
+        {
+            mAttackCollisionRect = r;
+        }
+
+        public Rectangle getAttackRectangle()
+        {
+            return mAttackCollisionRect;
+        }
+
+        public float getCenter()
+        {
+            return mX + (getCurrentSprite().getWidth() / 2);
         }
 
         /*public enum enumMoveDirection

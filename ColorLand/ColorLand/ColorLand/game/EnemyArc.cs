@@ -162,16 +162,7 @@ namespace ColorLand
         }
 
 
-        public Vector2 getPlayerPosition()
-        {
-            BaseScreen currentScreen = Game1.getInstance().getScreenManager().getCurrentScreen();
-            if (currentScreen is GamePlayScreen)
-            {
-                return ((GamePlayScreen)currentScreen).getPlayerLocation();
-            }
-
-            return new Vector2();
-        }
+        
 
 
         public void setType(int type)
