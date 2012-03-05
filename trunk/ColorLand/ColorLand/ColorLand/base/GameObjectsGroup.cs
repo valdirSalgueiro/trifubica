@@ -85,6 +85,22 @@ namespace ColorLand
             return false;
         }
 
+        public bool checkAttackCollisionWith(GameObject gameObject)
+        {
+            for (int x = 0; x < mList.Count; x++)
+            {
+                //  Game1.print("X,Y ELEMENT: " + mList.ElementAt(x).getX() + mList.ElementAt(x).getY() + "--- X,Y BUCCET: " + gameObject.getX() + gameObject.getY());
+                if (mList.ElementAt(x).attackRecCollidesWith(gameObject))
+                {
+                    mCollidedObject = mList.ElementAt(x);
+                    return true;
+                }
+            }
+
+            mCollidedObject = null;
+            return false;
+        }
+
         /*public bool checkCollisionWith<T>(GameObjectsGroup<T> gameObjects) where T : PaperObject
         {
             for (int x = 0; x < mList.Count; x++)

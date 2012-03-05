@@ -120,7 +120,7 @@ namespace ColorLand
             int colorX, colorY;
             ImageViewArea iv = new ImageViewArea();
             //kinectSensor.NuiCamera.GetColorPixelCoordinatesFromDepthPixel(ImageResolution.Resolution640x480, iv,
-            kinectSensor.NuiCamera.GetColorPixelCoordinatesFromDepthPixel(ImageResolution.Resolution640x480, iv,
+            kinectSensor.NuiCamera.GetColorPixelCoordinatesFromDepthPixel(ImageResolution.Resolution1280x1024, iv,
                 (int)depthX, (int)depthY, (short)0, out colorX, out colorY);
             return new Point((int)(1337 * colorX / Game1.sSCREEN_RESOLUTION_WIDTH), (int)(1337 * colorY / Game1.sSCREEN_RESOLUTION_HEIGHT));
         }

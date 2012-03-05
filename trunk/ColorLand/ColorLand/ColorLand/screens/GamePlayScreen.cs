@@ -189,7 +189,7 @@ namespace ColorLand
                     mMainCharacter.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 440);
 
-                    mGroup.addGameObject(new EnemyCrabCrab(Color.Red, new Vector2(300, 20)));
+                    mGroup.addGameObject(new EnemyCrabCrab(Color.Red, new Vector2(300, 320)));
                     mGroup.addGameObject(new EnemyArc(Color.Blue));
                     mGroup.loadContent(Game1.getInstance().getScreenManager().getContent());
 
@@ -323,6 +323,14 @@ namespace ColorLand
                 c.appear(x, y);
                 
             }
+
+            if (mGroup.checkAttackCollisionWith(mMainCharacter))
+            {
+                Game1.print("AFE... bateu ````````````````````````````````````````````````````````````````````````````````````");
+                //if(!player.damaged) damageit
+
+            }
+
         }
 
        
@@ -428,7 +436,6 @@ namespace ColorLand
             mTimer.Interval = seconds * 1000;
             mTimer.Enabled = true;
         }
-
 
         public override void draw(GameTime gameTime)
         {
@@ -579,6 +586,16 @@ namespace ColorLand
             }
 
             return new Vector2(0, 0);
+        }
+
+        public float getPlayerCenter()
+        {
+            if (mMainCharacter != null)
+            {
+                return mMainCharacter.getCenter();
+            }
+
+            return 0f;
         }
 
         public override void handleInput(InputState input)

@@ -17,6 +17,8 @@ namespace ColorLand
         private MainCharacterData mData;
         private Feet mFeet;
 
+        private float mOldX;
+
         private const float cJUMP_SPEED = -.95f;
         private bool mOnGround;
 
@@ -175,35 +177,38 @@ namespace ColorLand
             else
             {*/
                 //TODO resolver futuro bug de moving e jumping simultaneos
-            if (mWalking)
+
+            if (!Game1.sKINECT_BASED)
             {
-                if (getDirection() == Direction.LEFT)
+                if (mWalking)
                 {
-                    if (mFeet.getState() != Feet.sSTATE_WALKING_FEET_LEFT)
+                    if (getDirection() == Direction.LEFT)
                     {
-                        mFeet.changeState(Feet.sSTATE_WALKING_FEET_LEFT);
+                        if (mFeet.getState() != Feet.sSTATE_WALKING_FEET_LEFT)
+                        {
+                            mFeet.changeState(Feet.sSTATE_WALKING_FEET_LEFT);
+                        }
+                    }
+
+                    if (getDirection() == Direction.RIGHT)
+                    {
+                        if (mFeet.getState() != Feet.sSTATE_WALKING_FEET_RIGHT)
+                        {
+                            mFeet.changeState(Feet.sSTATE_WALKING_FEET_RIGHT);
+                        }
                     }
                 }
-
-                if (getDirection() == Direction.RIGHT)
+                else
                 {
-                    if (mFeet.getState() != Feet.sSTATE_WALKING_FEET_RIGHT)
+
+                    if (mFeet.getState() != Feet.sSTATE_STOPPED_FEET)
                     {
-                        mFeet.changeState(Feet.sSTATE_WALKING_FEET_RIGHT);
+                        mFeet.changeState(Feet.sSTATE_STOPPED_FEET);
                     }
+
                 }
+                //}
             }
-            else
-            {
-
-                if (mFeet.getState() != Feet.sSTATE_STOPPED_FEET)
-                {
-                    mFeet.changeState(Feet.sSTATE_STOPPED_FEET);
-                }
-
-            }
-            //}
-
             mFeet.update(gametime);
         }
 
@@ -233,6 +238,7 @@ namespace ColorLand
             if (Game1.sKINECT_BASED == true)
             {
                 mX = KinectManager.getInstance().getHipCenterPosition().X;
+
                 //fazer esquema de old x = kinect.x
                 //if(mx != old x) entao moving
 

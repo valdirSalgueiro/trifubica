@@ -56,6 +56,17 @@ namespace ColorLand
             return new Vector2();
         }
 
+        public float getPlayerCenter()
+        {
+            BaseScreen currentScreen = Game1.getInstance().getScreenManager().getCurrentScreen();
+            if (currentScreen is GamePlayScreen)
+            {
+                return ((GamePlayScreen)currentScreen).getPlayerCenter();
+            }
+
+            return 0f;
+        }
+
         public Color getColor()
         {
             return this.mColor;
