@@ -105,7 +105,7 @@ namespace ColorLand
 
                 mFeet = new Feet();
 
-                //hurt();
+                hurt();
 
             }
 

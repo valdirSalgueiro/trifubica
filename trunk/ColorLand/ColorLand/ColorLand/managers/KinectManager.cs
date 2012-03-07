@@ -14,8 +14,8 @@ namespace ColorLand
         private static KinectManager instance;
 
         //For - Resolution640x480
-        private const float SkeletonMaxX = 1.2f;//0.8f;
-        private const float SkeletonMaxY = 1.0f;//0.4f;
+        private const float SkeletonMaxX = 0.8f;
+        private const float SkeletonMaxY = 0.4f;
 
         Runtime kinectSensor;
 

@@ -27,7 +27,7 @@ namespace ColorLand
         public static int sGROUND_WORLD_1_1 = 500;
 
         int energy = 0;
-        int numberEnemies = 10;
+        int numberEnemies = 4;
         int pulse = 0;
 
         //debug
@@ -41,6 +41,8 @@ namespace ColorLand
          * INPUT
          *******************/
         KeyboardManager mKeyboard;
+
+        KeyboardState oldState;
 
         /*******************
          * BASIC
@@ -568,7 +570,7 @@ namespace ColorLand
 
             float porcentagemRestante = ExtraFunctions.valueToPercent(energy, numberEnemies);
 
-            int larguraDaBarraDoHud = 200;
+            int larguraDaBarraDoHud = 100;
             int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
 
             HUD.getInstance().setPlayerBarLevel(novoValor);
@@ -660,11 +662,22 @@ namespace ColorLand
                     mCamera.zoomIn(0.1f);
                 }
 
-                if (newState.IsKeyDown(Keys.Space))
+                /*if (newState.IsKeyDown(Keys.Space))
                 {
                     incrementProgress();
                     //SoundManager.PlaySound("test\\iniciar");
+                }*/
+                if (newState.IsKeyDown(Keys.Space))
+                {
+                    // If not down last update, key has just been pressed.
+                    if (!oldState.IsKeyDown(Keys.Space))
+                    {
+                        incrementProgress();
+                    }
                 }
+
+                // Update saved state.
+                oldState = newState;
 
                 //Game1.print("Z:" + mCamera.getZoomLevel());
 
