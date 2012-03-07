@@ -37,7 +37,7 @@ namespace ColorLand
 
             mRectPlayerBarEnergy = new Rectangle(200,
                                         Game1.sSCREEN_RESOLUTION_HEIGHT - 100,
-                                        200,
+                                        0,
                                         60); 
         }
 

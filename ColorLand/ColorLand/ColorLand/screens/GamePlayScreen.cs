@@ -26,8 +26,8 @@ namespace ColorLand
          *******************/
         public static int sGROUND_WORLD_1_1 = 500;
 
-        int energy = 1000;
-
+        int energy = 0;
+        int numberEnemies = 10;
         int pulse = 0;
 
         //debug
@@ -550,16 +550,26 @@ namespace ColorLand
         public void damage()
         {
             //energy -= 10   sobrou 90
-            Console.WriteLine("*******");
-            Console.WriteLine(energy);
-            energy -= 13;
-            Console.WriteLine(energy);
+            energy -= 13;            
             float porcentagemRestante = ExtraFunctions.valueToPercent(energy, 1000);
-            Console.WriteLine(porcentagemRestante);
 
             int larguraDaBarraDoHud = 200;
             int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
-            Console.WriteLine(novoValor);
+
+            HUD.getInstance().setPlayerBarLevel(novoValor);
+
+        }
+
+        public void incrementProgress()
+        {
+            //energy -= 10   sobrou 90
+            if(energy<numberEnemies)
+                energy += 1;
+
+            float porcentagemRestante = ExtraFunctions.valueToPercent(energy, numberEnemies);
+
+            int larguraDaBarraDoHud = 200;
+            int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
 
             HUD.getInstance().setPlayerBarLevel(novoValor);
 
@@ -652,7 +662,7 @@ namespace ColorLand
 
                 if (newState.IsKeyDown(Keys.Space))
                 {
-                    damage();
+                    incrementProgress();
                     //SoundManager.PlaySound("test\\iniciar");
                 }
 
