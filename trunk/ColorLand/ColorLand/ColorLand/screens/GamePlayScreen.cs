@@ -11,7 +11,6 @@ using System.IO;
 using Microsoft.Xna.Framework.Input;
 //using Microsoft.Xna.Framework.Input.Touch;
 using System.Timers;
-using ColorLand.managers;
 
 
 namespace ColorLand
@@ -91,7 +90,7 @@ namespace ColorLand
 
         private MainCharacter mMainCharacter;
 
-        private GameObjectsGroup<BaseEnemy> mGroup = new GameObjectsGroup<BaseEnemy>();
+        //private GameObjectsGroup<BaseEnemy> mGroup = new GameObjectsGroup<BaseEnemy>();
         private GameObjectsGroup<Collectable> mGroupCollectables = new GameObjectsGroup<Collectable>();
 
         private Fade mFadeIn;
@@ -108,6 +107,10 @@ namespace ColorLand
 
         Explosion mExplosion;
         private ExplosionManager mExplosionManager;
+
+
+        private EnemyManager mManager = new EnemyManager();
+
 
         public void manageColorCount()
         {
@@ -189,14 +192,14 @@ namespace ColorLand
                     mMainCharacter.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 440);
 
-                    mGroup.addGameObject(new EnemyCrabCrab(Color.Red, new Vector2(300, 320)));
+                   /* mGroup.addGameObject(new EnemyCrabCrab(Color.Green, new Vector2(300, 320)));
                     mGroup.addGameObject(new EnemyArc(Color.Blue));
                     mGroup.loadContent(Game1.getInstance().getScreenManager().getContent());
-
-                    for (int x = 0; x < mGroup.getSize(); x++)
+                    */
+                    /*for (int x = 0; x < mGroup.getSize(); x++)
                     {
                         mGroupCollectables.addGameObject(new Collectable(Collectable.CollectableType.StagePiece));
-                    }
+                    }*/
 
                     mGroupCollectables.loadContent(Game1.getInstance().getScreenManager().getContent());
 
@@ -226,6 +229,11 @@ namespace ColorLand
                     mExplosionManager.add(new Explosion(), Game1.getInstance().getScreenManager().getContent());
                     mExplosionManager.add(new Explosion(), Game1.getInstance().getScreenManager().getContent());
 
+                    mManager.addEnemy(new EnemyCrabCrab(Color.Green),new Vector2(300, 320));
+                    mManager.addEnemy(new EnemyCrabCrab(Color.Red), new Vector2(500, 320));
+                    mManager.addEnemy(new EnemyCrabCrab(Color.Red), new Vector2(-100, 320));
+                    mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
+                    mManager.start();
                     //mCamera.zoomIn(2.4f);
 
                     /*
@@ -308,7 +316,7 @@ namespace ColorLand
                 //unloadWorld1();
             }
 
-            if (mGroup.checkCollisionWith(mCursor))
+            /*if (mGroup.checkCollisionWith(mCursor))
             {
 
                 BaseEnemy be = mGroup.getCollidedObject();
@@ -329,7 +337,7 @@ namespace ColorLand
                 Game1.print("AFE... bateu ````````````````````````````````````````````````````````````````````````````````````");
                 //if(!player.damaged) damageit
 
-            }
+            }*/
 
         }
 
@@ -364,8 +372,7 @@ namespace ColorLand
                     case GAME_STATE_PREPARANDO:
 
                         mCamera.zoomOut(0.01f);
-                        EnemyManager.update(gameTime);
-
+                        
                         if (mCamera.getZoomLevel() == 1)
                         {
                             mFlagTimer = FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START;
@@ -380,7 +387,7 @@ namespace ColorLand
 
                         mMainCharacter.update(gameTime);
 
-                        mGroup.update(gameTime);
+                        //mGroup.update(gameTime);
                         mGroupCollectables.update(gameTime);
 
                         checkVictoryCondition();
@@ -393,6 +400,8 @@ namespace ColorLand
                         HUD.getInstance().update(gameTime);
 
                         mExplosionManager.update(gameTime);
+
+                        mManager.update(gameTime);
 
                         break;
                 }
@@ -456,9 +465,9 @@ namespace ColorLand
                 
                 mMainCharacter.draw(mSpriteBatch);
 
-                EnemyManager.draw(mSpriteBatch);
+                mManager.draw(mSpriteBatch);
 
-                mGroup.draw(mSpriteBatch);
+                //mGroup.draw(mSpriteBatch);
 
                 mGroupCollectables.draw(mSpriteBatch);
 

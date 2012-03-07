@@ -15,7 +15,7 @@ namespace ColorLand
 
         private bool mActive;
 
-        private int mBusyNumber;
+        private double mBusyNumber;
         private bool mBusy;
 
         public void update(GameTime gameTime)
@@ -40,6 +40,27 @@ namespace ColorLand
             if (mActive)
             {
                 int time = getTimeInt();
+                if (!isBusyForNumber(number) && time == number)
+                {
+                    setBusyWithNumber(number);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool getTimeAndLock(double number)
+        {
+            if (mActive)
+            {
+                double time = ExtraFunctions.trimDouble(getTime(),1);
                 if (!isBusyForNumber(number) && time == number)
                 {
                     setBusyWithNumber(number);
@@ -97,6 +118,23 @@ namespace ColorLand
         }
 
         public void setBusyWithNumber(int num)
+        {
+            this.mBusyNumber = num;
+        }
+
+        public bool isBusyForNumber(double num)
+        {
+            if (num == mBusyNumber)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void setBusyWithNumber(double num)
         {
             this.mBusyNumber = num;
         }

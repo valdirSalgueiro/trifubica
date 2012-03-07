@@ -164,7 +164,7 @@ namespace ColorLand
                 //W = joint.Position.W
 
             };
-
+            
 
             return newVector;
         }
