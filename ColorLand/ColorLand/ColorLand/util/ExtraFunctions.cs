@@ -43,6 +43,12 @@ namespace ColorLand
             return a;
         }
 
+        //Trim double v to n decimal places
+        public static double trimDouble(double number, double decimalsWanted)
+        {
+            double p = Math.Pow(10, decimalsWanted);
+            return (Math.Round(number * p)) / p;
+        }
 
     }
 }

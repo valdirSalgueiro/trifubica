@@ -17,19 +17,21 @@ namespace ColorLand
         private MainCharacterData mData;
         private Feet mFeet;
 
-        private float mOldX;
-
         private const float cJUMP_SPEED = -.95f;
-        private bool mOnGround;
-
+        
         private bool mWalking;
-        private float mCurrentSpeed;
         private bool mJumping;
-        private float mYGround;
-
-        private float mDx;
+        
+        //private float mDx;
         private float mDy;// = 0.09f;
 
+        private bool mHurt;
+        private int  mBlinkTotalTime;
+        private int  mBlinkSpeed;
+
+
+        private MTimer mTimer;//total blink
+        private MTimer mTimerBlinkSpeed;//blink speed
 
         //INDEXES
         public const int sSTATE_STOPPED = 0;
@@ -103,6 +105,8 @@ namespace ColorLand
 
                 mFeet = new Feet();
 
+                hurt();
+
             }
 
         }
@@ -120,7 +124,35 @@ namespace ColorLand
             base.update(gameTime);//getCurrentSprite().update();
             UpdateInput();
             updateJump();
-            updateFeet(gameTime);            
+            updateFeet(gameTime);
+
+
+            if (mTimer != null)
+            {
+                mTimer.update(gameTime);
+                if (mTimer.getTimeAndLock(10))
+                {
+                    mHurt = false;
+                }
+            }
+
+            if (mTimerBlinkSpeed != null)
+            {
+                mTimer.update(gameTime);
+
+                Game1.print("" + ExtraFunctions.trimDouble(mTimer.getTime(),1));
+
+                if (mTimer.getTimeAndLock(0.1))
+                {
+                    setVisible(false);
+                }
+                if (mTimer.getTimeAndLock(0.3))
+                {
+                    setVisible(true);
+                    mTimer.start();
+                }
+            }
+
         }
         
         private void updateJump(){
@@ -263,6 +295,7 @@ namespace ColorLand
                     if (!oldState.IsKeyDown(Keys.Space))
                     {
                         Jump();
+
                     }
                 }
                 else if (oldState.IsKeyDown(Keys.Space))
@@ -331,6 +364,23 @@ namespace ColorLand
            
             
         }
+
+
+        
+        public void hurt()
+        {
+            if (!mHurt)
+            {
+                mHurt = true;
+                mTimer = new MTimer();
+                mTimer.start();
+
+                mTimerBlinkSpeed = new MTimer();
+                mTimerBlinkSpeed.start();
+            }
+        }
+
+
 
         public MainCharacterData getData()
         {
@@ -417,6 +467,8 @@ namespace ColorLand
             {
                 base.update(gameTime);//getCurrentSprite().update();
             }
+
+            
 
         }
 

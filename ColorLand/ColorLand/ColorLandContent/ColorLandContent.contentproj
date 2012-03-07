@@ -58,8 +58,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="enemies\world1\blue\" />
-    <Folder Include="enemies\world1\green\" />
     <Folder Include="gameplay\backgrounds\stage1_2\" />
     <Folder Include="gameplay\backgrounds\stage1_3\" />
   </ItemGroup>
@@ -605,6 +603,295 @@
     </Compile>
     <Compile Include="enemies\world1\red\crab_attack9.png">
       <Name>crab_attack9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\world1\blue\crab_attack1.png">
+      <Name>crab_attack1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_attack10.png">
+      <Name>crab_attack10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_attack11.png">
+      <Name>crab_attack11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_attack12.png">
+      <Name>crab_attack12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_attack13.png">
+      <Name>crab_attack13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_attack2.png">
+      <Name>crab_attack2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_attack3.png">
+      <Name>crab_attack3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_attack4.png">
+      <Name>crab_attack4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_attack5.png">
+      <Name>crab_attack5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_attack6.png">
+      <Name>crab_attack6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_attack7.png">
+      <Name>crab_attack7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_attack8.png">
+      <Name>crab_attack8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_attack9.png">
+      <Name>crab_attack9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk1.png">
+      <Name>crab_walk1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk10.png">
+      <Name>crab_walk10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk11.png">
+      <Name>crab_walk11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk12.png">
+      <Name>crab_walk12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk13.png">
+      <Name>crab_walk13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk14.png">
+      <Name>crab_walk14</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk15.png">
+      <Name>crab_walk15</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk16.png">
+      <Name>crab_walk16</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk2.png">
+      <Name>crab_walk2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk3.png">
+      <Name>crab_walk3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk4.png">
+      <Name>crab_walk4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk5.png">
+      <Name>crab_walk5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk6.png">
+      <Name>crab_walk6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk7.png">
+      <Name>crab_walk7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk8.png">
+      <Name>crab_walk8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\blue\crab_walk9.png">
+      <Name>crab_walk9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\world1\green\crab_attack1.png">
+      <Name>crab_attack1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_attack10.png">
+      <Name>crab_attack10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_attack11.png">
+      <Name>crab_attack11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_attack12.png">
+      <Name>crab_attack12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_attack2.png">
+      <Name>crab_attack2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_attack3.png">
+      <Name>crab_attack3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_attack4.png">
+      <Name>crab_attack4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_attack5.png">
+      <Name>crab_attack5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_attack6.png">
+      <Name>crab_attack6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_attack7.png">
+      <Name>crab_attack7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_attack8.png">
+      <Name>crab_attack8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_attack9.png">
+      <Name>crab_attack9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk1.png">
+      <Name>crab_walk1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk10.png">
+      <Name>crab_walk10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk11.png">
+      <Name>crab_walk11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk12.png">
+      <Name>crab_walk12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk13.png">
+      <Name>crab_walk13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk14.png">
+      <Name>crab_walk14</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk15.png">
+      <Name>crab_walk15</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk16.png">
+      <Name>crab_walk16</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk2.png">
+      <Name>crab_walk2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk3.png">
+      <Name>crab_walk3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk4.png">
+      <Name>crab_walk4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk5.png">
+      <Name>crab_walk5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk6.png">
+      <Name>crab_walk6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk7.png">
+      <Name>crab_walk7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk8.png">
+      <Name>crab_walk8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\world1\green\crab_walk9.png">
+      <Name>crab_walk9</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

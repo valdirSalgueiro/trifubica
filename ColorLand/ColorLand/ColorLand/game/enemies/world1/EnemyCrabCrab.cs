@@ -31,17 +31,33 @@ namespace ColorLand
 
         //TODO Construir mecanismo de chamar um delegate method when finish animation
 
+        
+        public EnemyCrabCrab(Color color) : this (color, new Vector2(0,0))
+        {
+            
+        }
+
         public EnemyCrabCrab(Color color, Vector2 origin)
             : base(color, origin)
         {
 
             if(color == Color.Red)
             {
-                
+                 //os sprites andando do red sao diferentes. Tem que ter cuidado caso for mexer
                   mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages(20, "enemies\\world1\\red\\crab_walk"), new int[] { 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 }, 2, 300, 300, false, false);
                   mSpriteAttacking = new Sprite(ExtraFunctions.fillArrayWithImages(11, "enemies\\world1\\red\\crab_attack"), new int[] { Sprite.sALL_FRAMES_IN_ORDER,11 }, 2, 300, 300, false, false);
             }
-        
+            if (color == Color.Blue)
+            {
+                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages(16, "enemies\\world1\\blue\\crab_walk"), new int[] { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }, 2, 300, 300, false, false);
+                mSpriteAttacking = new Sprite(ExtraFunctions.fillArrayWithImages(11, "enemies\\world1\\blue\\crab_attack"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 11 }, 2, 300, 300, false, false);
+            }
+            if (color == Color.Green)
+            {
+                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages(16, "enemies\\world1\\green\\crab_walk"), new int[] { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }, 2, 300, 300, false, false);
+                mSpriteAttacking = new Sprite(ExtraFunctions.fillArrayWithImages(11, "enemies\\world1\\green\\crab_attack"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 11 }, 2, 300, 300, false, false);
+            }
+
             addSprite(mSpriteWalking, sSTATE_WALKING);
             addSprite(mSpriteAttacking, sSTATE_ATTACKING);
 

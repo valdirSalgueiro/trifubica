@@ -12,6 +12,10 @@ namespace ColorLand
     public abstract class GameObject
     {
 
+        /// SPECIFIC FOR ENEMY MANAGER
+        private bool mReady;
+        // /
+
         private Direction mDirection;
         private float mSpeed;
 
@@ -462,6 +466,16 @@ namespace ColorLand
         public Rectangle getAttackRectangle()
         {
             return mAttackCollisionRect;
+        }
+
+        public void setReady(bool ready)
+        {
+            this.mReady = ready;
+        }
+
+        public bool isReady()
+        {
+            return this.mReady;
         }
 
         public float getCenter()

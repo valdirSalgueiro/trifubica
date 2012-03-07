@@ -84,7 +84,6 @@
     <Compile Include="game\ColorChoiceBar.cs" />
     <Compile Include="game\Collectable.cs" />
     <Compile Include="game\enemies\Explosion.cs" />
-    <Compile Include="game\enemies\EnemiesManager.cs" />
     <Compile Include="game\enemies\ExplosionManager.cs" />
     <Compile Include="game\enemies\world1\EnemyCrabCrab.cs" />
     <Compile Include="game\EnemyArc.cs" />
