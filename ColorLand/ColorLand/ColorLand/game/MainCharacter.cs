@@ -343,7 +343,7 @@ namespace ColorLand
 
                     if (getState() != sSTATE_TOP_LEFT)
                     {
-                        Game1.print("ETERNAL");
+                        //Game1.print("ETERNAL");
                         changeToSprite(sSTATE_TOP_LEFT);
                         getCurrentSprite().resetAnimationFlag();
                     }

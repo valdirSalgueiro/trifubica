@@ -25,7 +25,7 @@ namespace ColorLand
 
             float x;
 
-            x = value * range / 100;
+            x = value * 100 / range;
 
             return x;
 

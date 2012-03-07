@@ -550,11 +550,16 @@ namespace ColorLand
         public void damage()
         {
             //energy -= 10   sobrou 90
+            Console.WriteLine("*******");
+            Console.WriteLine(energy);
             energy -= 13;
+            Console.WriteLine(energy);
             float porcentagemRestante = ExtraFunctions.valueToPercent(energy, 1000);
+            Console.WriteLine(porcentagemRestante);
 
             int larguraDaBarraDoHud = 200;
             int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
+            Console.WriteLine(novoValor);
 
             HUD.getInstance().setPlayerBarLevel(novoValor);
 
@@ -626,7 +631,7 @@ namespace ColorLand
                     {
                         mExplosionManager.getNextOfColor().explode(mouseState.X, mouseState.Y);
                     }
-                    Game1.print("oxe");
+                    //Game1.print("oxe");
                     mCursor.nextColor();
 
                 }
@@ -647,7 +652,8 @@ namespace ColorLand
 
                 if (newState.IsKeyDown(Keys.Space))
                 {
-                    SoundManager.PlaySound("test\\iniciar");
+                    damage();
+                    //SoundManager.PlaySound("test\\iniciar");
                 }
 
                 //Game1.print("Z:" + mCamera.getZoomLevel());
