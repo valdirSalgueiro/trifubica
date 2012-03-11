@@ -27,6 +27,7 @@ namespace ColorLand
         private const int cHORIZONTAL_MARGIN = 40;
 
         private bool tempMove;
+        private float x;
 
         //TODO Construir mecanismo de chamar um delegate method when finish animation
 
@@ -100,6 +101,11 @@ namespace ColorLand
             {
                 moveLeft(3);
             }
+
+            x += 0.1f;
+            float sinMov = 5.0f * (float)Math.Sin(x);
+            mY += sinMov;
+
 
 
         }
