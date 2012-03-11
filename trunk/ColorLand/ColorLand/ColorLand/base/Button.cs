@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace ColorLand
 {
-	class Button : PaperObject
+	class Button : GameObject
 	{
 
         //INDEXES
@@ -22,6 +22,7 @@ namespace ColorLand
         private Sprite mSpriteNormal;
         private Sprite mSpritePressed;
 
+        private Rectangle mRectArea;
 
         public Button(String imgNormal, String imgPressed, Rectangle rectArea)
         {
@@ -33,12 +34,34 @@ namespace ColorLand
 
             changeToSprite(sSTATE_NORMAL);
 
-            setCollisionRect(rectArea.Width,rectArea.Height);
+            //setCollisionRect(rectArea.Width,rectArea.Height);
 
             setCollisionRect(0, 0, rectArea.Width, rectArea.Height);
 
             setLocation(rectArea.X, rectArea.Y);
 
+
+            mRectArea = rectArea;
+        }
+
+        public Button(String imgNormal, String imgHighlight, String imgPressed, Rectangle rectArea)
+        {
+            mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(1, imgNormal), new int[] { 0 }, 7, rectArea.Width, rectArea.Height, false, false);
+            mSpritePressed = new Sprite(ExtraFunctions.fillArrayWithImages(1, imgPressed), new int[] { 0 }, 7, rectArea.Width, rectArea.Height, false, false);
+
+            addSprite(mSpriteNormal, sSTATE_NORMAL);
+            addSprite(mSpritePressed, sSTATE_PRESSED);
+
+            changeToSprite(sSTATE_NORMAL);
+
+            //setCollisionRect(rectArea.Width,rectArea.Height);
+
+            setCollisionRect(0, 0, rectArea.Width, rectArea.Height);
+
+            setLocation(rectArea.X, rectArea.Y);
+
+
+            mRectArea = rectArea;
         }
 
 
@@ -74,6 +97,11 @@ namespace ColorLand
                     break;
             }
 
+        }
+
+        public Rectangle getRectangle()
+        {
+            return this.mRectArea;
         }
 
 	}

@@ -20,20 +20,27 @@ namespace ColorLand
 
         private Sprite mSpriteNormal;
 
+        public Explosion(Color color) {
 
+            mColor = color;
 
-
-        public Explosion() {
-
-            String[] imagesStopped = new String[9];
-
-            for (int x = 0; x < imagesStopped.Length; x++)
+            if (color == Color.Tomato)
             {
-                imagesStopped[x] = "test\\e" + (x+1);
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(49, "enemies\\explosion\\explosion"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 49 }, 1, 500, 500, true, false);
             }
-            
-            mSpriteNormal = new Sprite(imagesStopped, new int[] { 0,1,2,3,4,5,6,7,8 }, 7, 90, 90, true, false);
-            //mSpriteTackling = new Sprite(imagesTackling, new int[] { 0, 1, 2, 3, 4, 5 }, 1, 65, 80, true, false);
+            if (color == Color.Red)
+            {
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(30, "enemies\\explosion\\red\\explosion_red"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 30 }, 1, 500, 500, true, false);
+            }
+            if (color == Color.Green)
+            {
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(30, "enemies\\explosion\\green\\explosion_green"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 30 }, 1, 500, 500, true, false);
+            }
+            if (color == Color.Blue)
+            {
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(30, "enemies\\explosion\\blue\\explosion_blue"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 30 }, 1, 500, 500, true, false);
+            }
+                //mSpriteTackling = new Sprite(imagesTackling, new int[] { 0, 1, 2, 3, 4, 5 }, 1, 65, 80, true, false);
 
             addSprite(mSpriteNormal, sSTATE_NORMAL);
             //addSprite(mSpriteTackling, sSTATE_TACKLING);
@@ -76,7 +83,11 @@ namespace ColorLand
             mSpriteNormal.resetStatus();
             mSpriteNormal.resetAnimationFlag();                
             mWaitingAppear = false;
-            setLocation(x, y);
+            setCenter(x, y);
+        }
+
+        public void explode(Vector2 location){
+            explode((int)location.X, (int)location.Y);
         }
 
         public bool isAvailableToExplode()
@@ -84,6 +95,10 @@ namespace ColorLand
             return mWaitingAppear;
         }
 
+        public Color getColor()
+        {
+            return this.mColor;
+        }
 
     }
 }

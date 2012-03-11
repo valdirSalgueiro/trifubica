@@ -163,7 +163,7 @@ namespace ColorLand
 
                     mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
-                    desaturateEffect = Game1.getInstance().getScreenManager().getContent().Load<Effect>("effects\\desaturate");
+                    //desaturateEffect = Game1.getInstance().getScreenManager().getContent().Load<Effect>("effects\\desaturate");
 
                     //mFontDebug = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("debug");
                     //mFontAlert = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("alerts");
@@ -192,7 +192,7 @@ namespace ColorLand
 
                     mMainCharacter = new MainCharacter(Color.Blue);
                     mMainCharacter.loadContent(Game1.getInstance().getScreenManager().getContent());
-                    mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 440);
+                    mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 400);
 
                    /* mGroup.addGameObject(new EnemyCrabCrab(Color.Green, new Vector2(300, 320)));
                     mGroup.addGameObject(new EnemyArc(Color.Blue));
@@ -224,16 +224,20 @@ namespace ColorLand
                     
                     HUD.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
 
-                    mExplosion = new Explosion();
-                    mExplosion.loadContent(Game1.getInstance().getScreenManager().getContent());
-
                     mExplosionManager = new ExplosionManager();
-                    mExplosionManager.add(new Explosion(), Game1.getInstance().getScreenManager().getContent());
-                    mExplosionManager.add(new Explosion(), Game1.getInstance().getScreenManager().getContent());
+                    mExplosionManager.addExplosion(5, Color.Red, Game1.getInstance().getScreenManager().getContent());
+                    mExplosionManager.addExplosion(5, Color.Green, Game1.getInstance().getScreenManager().getContent());
+                    mExplosionManager.addExplosion(5, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
-                    mManager.addEnemy(new EnemyCrabCrab(Color.Green),new Vector2(300, 320));
-                    mManager.addEnemy(new EnemyCrabCrab(Color.Red), new Vector2(500, 320));
-                    mManager.addEnemy(new EnemyCrabCrab(Color.Red), new Vector2(-100, 320));
+                   // mManager.addEnemy(new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED), new Vector2(300, 320));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(10, 10));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(300, 320));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Green, new Vector2(200, 320));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(340, 320));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(0, 320));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Green, new Vector2(100, 320));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(900, 320));
+                    
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mManager.start();
                     //mCamera.zoomIn(2.4f);
@@ -318,28 +322,33 @@ namespace ColorLand
                 //unloadWorld1();
             }
 
-            /*if (mGroup.checkCollisionWith(mCursor))
+            if (mManager.checkCollision(mCursor))
             {
 
-                BaseEnemy be = mGroup.getCollidedObject();
+                BaseEnemy be = mManager.getGameObjectsGroup().getCollidedObject();
                 //mExplosionManager.getNextOfColor().explode((int)be.getX(), (int)be.getY());
                 int x = (int)be.getX();
                 int y = (int)be.getY();
-                mExplosionManager.getNextOfColor().explode(x,y);
+                mExplosionManager.getNextOfColor(be.getColor()).explode(be.getCenter());
                 be.destroy();
-                mGroup.remove(be);
+                //mGroup.remove(be);
 
-                Collectable c = mGroupCollectables.getNext();
-                c.appear(x, y);
+                //Collectable c = mGroupCollectables.getNext();
+                //c.appear(x, y);
                 
             }
 
-            if (mGroup.checkAttackCollisionWith(mMainCharacter))
+            if (mManager.checkAttackCollision(mMainCharacter))
             {
                 Game1.print("AFE... bateu ````````````````````````````````````````````````````````````````````````````````````");
-                //if(!player.damaged) damageit
+                if (!mMainCharacter.isHurt())
+                {
+                    mMainCharacter.hurt();
 
-            }*/
+                   
+                }
+
+            }
 
         }
 
@@ -347,12 +356,19 @@ namespace ColorLand
 
         private void checkGameOverCondition()
         {
-           
+            if (mMainCharacter.getData().getEnergy() == 0)
+            {
+                //mGameState = GAME_STATE_DERROTA;
+            }
+
         }
 
         private void checkVictoryCondition()
         {
-          
+            if (mManager.enemiesAreOver())
+            {
+                Game1.print("FINISH. YOU WIN");
+            }
         }
 
         public override void executeFade(Fade fadeObject, int effect)
@@ -453,7 +469,7 @@ namespace ColorLand
 
             if (mCurrentWorld == sWORLD_1)
             {
-                drawDesaturation(gameTime,mBackgroundBack);
+                //drawDesaturation(gameTime,mBackgroundBack);
 
                 //mSpriteBatch.Begin();
                 mSpriteBatch.Begin(
@@ -464,7 +480,9 @@ namespace ColorLand
                         null,
                         null,
                         mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
-                
+
+                mBackgroundBack.draw(mSpriteBatch);
+
                 mMainCharacter.draw(mSpriteBatch);
 
                 mManager.draw(mSpriteBatch);
@@ -499,7 +517,7 @@ namespace ColorLand
 
                 mSpriteBatch.End();
 
-                drawDesaturation(gameTime, mBackgroundFront);
+                //drawDesaturation(gameTime, mBackgroundFront);
 
                 mSpriteBatch.Begin();
                 HUD.getInstance().draw(mSpriteBatch);
@@ -618,7 +636,7 @@ namespace ColorLand
         {
             if (mMainCharacter != null)
             {
-                return mMainCharacter.getCenter();
+                return mMainCharacter.getCenterX();
             }
 
             return 0f;
@@ -638,10 +656,10 @@ namespace ColorLand
                     //mBullet.goToXY(new Vector2(300, 300));
                     //mCamera.centerCamTo(100, 100);
 
-                    Explosion e = mExplosionManager.getNextOfColor();
+                    Explosion e = mExplosionManager.getNextOfColor(Color.Red);
                     if (e != null)
                     {
-                        mExplosionManager.getNextOfColor().explode(mouseState.X, mouseState.Y);
+                        //mExplosionManager.getNextOfColor().explode(mouseState.X, mouseState.Y);
                     }
                     //Game1.print("oxe");
                     mCursor.nextColor();

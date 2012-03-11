@@ -14,6 +14,8 @@ namespace ColorLand
 {
     class MainCharacter : GameObject {
 
+        private const int cHURT_TIME = 3; //seconds
+
         private MainCharacterData mData;
         private Feet mFeet;
 
@@ -30,13 +32,16 @@ namespace ColorLand
         private int  mBlinkSpeed;
 
 
-        private MTimer mTimer;//total blink
+        private MTimer mTimerTotalHurtTime;//total blink
         private MTimer mTimerBlinkSpeed;//blink speed
 
         //INDEXES
         public const int sSTATE_STOPPED = 0;
         public const int sSTATE_TOP_LEFT = 1;
         public const int sSTATE_TOP_RIGHT = 2;
+
+        public const int sSTATE_VICTORY = 3;
+        public const int sSTATE_LOSE    = 4;
 
         //public const int sSTATE_TACKLING = 1;
         public const int sSTATE_MOVING = 1;
@@ -47,6 +52,8 @@ namespace ColorLand
         private Sprite mSpriteTopRight;
         private Sprite mSpriteDownLeft;
         private Sprite mSpriteDownRight;
+        private Sprite mSpriteVictory;
+        private Sprite mSpriteDefeat;
         //private Sprite mSpriteTackling;
 
         
@@ -55,10 +62,11 @@ namespace ColorLand
         private float mJumpSpeed;
 
 
-        private Texture2D mLeftHandTexture;
+        /*private Texture2D mLeftHandTexture;
         private Texture2D mLeftHandTextureWithBrush;
         private float mLeftHandAngle;
-
+        */
+          
         private Texture2D mRightHandTexture;
         private Texture2D mRightHandTextureWithBrush;
         private float mRightHandAngle;
@@ -88,16 +96,20 @@ namespace ColorLand
             if (mColor == Color.Blue)
             {
 
-                int width = 130;
-                int height = 130;
+                int width = 270;
+                int height = 270;
 
-                mSpriteStopped = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\maincharacter\\blue_stopped"), new int[] { 0 }, 7, width, height, false, false);
-                mSpriteTopLeft = new Sprite(ExtraFunctions.fillArrayWithImages(5, "gameplay\\maincharacter\\blue_left_top"), new int[] { 0, 1, 2, 3, 4 }, 2, width, height, true, false);
+                mSpriteStopped  = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\maincharacter\\blue_stopped"), new int[] { 0 }, 7, width, height, false, false);
+                mSpriteTopLeft  = new Sprite(ExtraFunctions.fillArrayWithImages(4, "gameplay\\maincharacter\\blue_left_top"), new int[] { 0, 1, 2, 3 }, 2, width, height, true, false);
                 mSpriteTopRight = new Sprite(ExtraFunctions.fillArrayWithImages(5, "gameplay\\maincharacter\\blue_right_top"), new int[] { 0, 1, 2, 3, 4 }, 2, width, height, true, false);
-                
+                mSpriteVictory  = new Sprite(ExtraFunctions.fillArrayWithImages(84, "gameplay\\maincharacter\\win\\blue_victory"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 84 }, 1, width, height, true, false);
+                mSpriteDefeat   = new Sprite(ExtraFunctions.fillArrayWithImages(105, "gameplay\\maincharacter\\loose\\blue_defeat"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 105 }, 1, width, height, true, false);
+
                 addSprite(mSpriteStopped, sSTATE_STOPPED);
                 addSprite(mSpriteTopLeft, sSTATE_TOP_LEFT);
                 addSprite(mSpriteTopRight, sSTATE_TOP_RIGHT);
+                addSprite(mSpriteVictory, sSTATE_VICTORY);
+                addSprite(mSpriteDefeat, sSTATE_LOSE);
                 
                 changeToSprite(sSTATE_STOPPED);
 
@@ -105,7 +117,7 @@ namespace ColorLand
 
                 mFeet = new Feet();
 
-                hurt();
+                //hurt();
 
             }
 
@@ -115,43 +127,56 @@ namespace ColorLand
         {
             base.loadContent(content);
             mFeet.loadContent(content);
-            mLeftHandTexture = content.Load<Texture2D>("gameplay\\maincharacter\\hands\\HandLeft");
+            //mLeftHandTexture = content.Load<Texture2D>("gameplay\\maincharacter\\hands\\HandLeft");
             mRightHandTexture = content.Load<Texture2D>("gameplay\\maincharacter\\hands\\HandRightBrush");
         }
 
         public override void update(GameTime gameTime) {
             mY += mDy * gameTime.ElapsedGameTime.Milliseconds;
             base.update(gameTime);//getCurrentSprite().update();
-            UpdateInput();
-            updateJump();
-            updateFeet(gameTime);
-
-
-            if (mTimer != null)
+            if (getState() != sSTATE_VICTORY && getState() != sSTATE_LOSE)
             {
-                mTimer.update(gameTime);
-                if (mTimer.getTimeAndLock(10))
+                UpdateInput();
+                updateFeet(gameTime);
+
+                if (mTimerTotalHurtTime != null)
                 {
-                    mHurt = false;
+                    mTimerTotalHurtTime.update(gameTime);
+                    if (mTimerTotalHurtTime.getTimeAndLock(cHURT_TIME))
+                    {
+                        mHurt = false;
+                    }
                 }
-            }
 
-            if (mTimerBlinkSpeed != null)
-            {
-                mTimer.update(gameTime);
-
-                Game1.print("" + ExtraFunctions.trimDouble(mTimer.getTime(),1));
-
-                if (mTimer.getTimeAndLock(0.1))
+                //trata piscadeira do personagem
+                if (mHurt)
                 {
-                    setVisible(false);
+                    if (mTimerBlinkSpeed != null)
+                    {
+                        mTimerBlinkSpeed.update(gameTime);
+
+                        if (mTimerBlinkSpeed.getTimeAndLock(0.1))
+                        {
+                            setVisible(false);
+                        }
+                        if (mTimerBlinkSpeed.getTimeAndLock(0.3))
+                        {
+                            setVisible(true);
+                            mTimerBlinkSpeed.start();
+                        }
+                    }
                 }
-                if (mTimer.getTimeAndLock(0.3))
+                else
                 {
                     setVisible(true);
-                    mTimer.start();
+                    if (mTimerBlinkSpeed != null)
+                    {
+                        mTimerBlinkSpeed.stop();
+                    }
                 }
             }
+            updateJump();
+            
 
         }
         
@@ -246,12 +271,13 @@ namespace ColorLand
 
 
         public override void draw(SpriteBatch spriteBatch) {
-            //getCurrentSprite().draw(spriteBatch);
-            mFeet.draw(spriteBatch);
 
-            spriteBatch.Draw(mLeftHandTexture, new Vector2(mX + 40, mY + 40), null, Color.White, mLeftHandAngle - (float)Math.PI, new Vector2(800, 331), 0.1f, SpriteEffects.None, 0f);
-            spriteBatch.Draw(mRightHandTexture, new Vector2(mX + 90, mY + 60), null, Color.White, mRightHandAngle, new Vector2(0, 306), 0.1f, SpriteEffects.None, 0f);
-
+            if (getState() != sSTATE_VICTORY && getState() != sSTATE_LOSE)
+            {
+                mFeet.draw(spriteBatch);
+                //spriteBatch.Draw(mLeftHandTexture, new Vector2(mX + 40, mY + 40), null, Color.White, mLeftHandAngle - (float)Math.PI, new Vector2(800, 331), 0.1f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(mRightHandTexture, new Vector2(mX + 150, mY + 170), null, Color.White, mRightHandAngle, new Vector2(0, 357), 0.17f, SpriteEffects.None, 0f);
+            }
 
             base.draw(spriteBatch);
         }
@@ -259,7 +285,7 @@ namespace ColorLand
         public void updateHand(float angle)
         {
             //TODO corrigir esta porra
-            mLeftHandAngle = angle;
+            //mLeftHandAngle = angle;
             mRightHandAngle = angle;
         }
 
@@ -294,10 +320,19 @@ namespace ColorLand
                     // If not down last update, key has just been pressed.
                     if (!oldState.IsKeyDown(Keys.Space))
                     {
-                        Jump();
-
+                        //Jump();
+                        changeState(sSTATE_VICTORY);
                     }
-                }
+                }else
+                    if (newState.IsKeyDown(Keys.Enter))
+                    {
+                        // If not down last update, key has just been pressed.
+                        if (!oldState.IsKeyDown(Keys.Enter))
+                        {
+                            //Jump();
+                            changeState(sSTATE_LOSE);
+                        }
+                    }
                 else if (oldState.IsKeyDown(Keys.Space))
                 {
                     // Key was down last update, but not down now, so
@@ -357,6 +392,24 @@ namespace ColorLand
                         getCurrentSprite().resetAnimationFlag();
                     }
                     break;
+
+                case sSTATE_VICTORY:
+                    if (getState() != sSTATE_VICTORY)
+                    {
+                        changeToSprite(sSTATE_VICTORY);
+                        getCurrentSprite().resetAnimationFlag();
+                        mHurt = false;
+                    }
+                    break;
+
+                case sSTATE_LOSE:
+                    if (getState() != sSTATE_LOSE)
+                    {
+                        changeToSprite(sSTATE_LOSE);
+                        getCurrentSprite().resetAnimationFlag();
+                        mHurt = false;
+                    }
+                    break;
             }
 
             base.setState(state);
@@ -372,15 +425,20 @@ namespace ColorLand
             if (!mHurt)
             {
                 mHurt = true;
-                mTimer = new MTimer();
-                mTimer.start();
+                mTimerTotalHurtTime = new MTimer();
+                mTimerTotalHurtTime.start();
 
                 mTimerBlinkSpeed = new MTimer();
                 mTimerBlinkSpeed.start();
+
+                mData.removeEnergy();
             }
         }
 
-
+        public bool isHurt()
+        {
+            return mHurt;
+        }
 
         public MainCharacterData getData()
         {
@@ -414,11 +472,11 @@ namespace ColorLand
             public Feet()
             {
 
-                int size = 160;
+                int size = 300;
 
-                mSpriteStoppedFeet = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\maincharacter\\feet\\blue_feet_stopped"), new int[] { 0 }, 7, size, size, false, false);
-                mSpriteWalkingFeetLeft = new Sprite(ExtraFunctions.fillArrayWithImages(12, "gameplay\\maincharacter\\feet\\blue_feet_walk"), new int[] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 }, 1, size, size, false, false);
-                mSpriteWalkingFeetRight = new Sprite(ExtraFunctions.fillArrayWithImages(12, "gameplay\\maincharacter\\feet\\blue_feet_walk"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, size, size, false, false);
+                mSpriteStoppedFeet =      new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\maincharacter\\feet\\blue_feet_stopped"), new int[] { 0 }, 7, size, size, false, false);
+                mSpriteWalkingFeetLeft =  new Sprite(ExtraFunctions.fillArrayWithImages(17, "gameplay\\maincharacter\\feet\\blue\\left\\blue_feet_walk_left"), new int[] { 0,1,2,3,4,5,6,7,8,9,10,11,12,13 }, 1, size, size, false, false);
+                mSpriteWalkingFeetRight = new Sprite(ExtraFunctions.fillArrayWithImages(17, "gameplay\\maincharacter\\feet\\blue\\right\\blue_feet_walk_right"), new int[] { 0,1,2,3,4,5,6,7,8,9,10,11,12,13 }, 1, size, size, false, false);
                                
 
                 //mSpriteTackling = new Sprite(imagesTackling, new int[] { 0, 1, 2, 3, 4, 5 }, 1, 65, 80, true, false);
@@ -453,6 +511,7 @@ namespace ColorLand
                         changeToSprite(sSTATE_WALKING_FEET_RIGHT);
                         getCurrentSprite().resetAnimationFlag();
                         break;
+        
                 }
 
             }

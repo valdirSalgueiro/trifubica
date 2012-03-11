@@ -16,6 +16,14 @@ namespace ColorLand
         private bool mReady;
         // /
 
+        //center hotspot
+
+        private Vector2 mCenterHotspot;
+        private float mXCenterDiff;
+        private float mYCenterDiff;
+
+        //
+
         private Direction mDirection;
         private float mSpeed;
 
@@ -478,10 +486,44 @@ namespace ColorLand
             return this.mReady;
         }
 
-        public float getCenter()
+        public float getCenterX()
         {
             return mX + (getCurrentSprite().getWidth() / 2);
         }
+
+        public float getCenterY()
+        {
+            return mY + (getCurrentSprite().getHeight() / 2);
+        }
+
+        public Vector2 getCenter()
+        {
+            return new Vector2(getCenterX(), getCenterY());
+        }
+
+
+        //not relative to the image, but relative to the enemy
+        public Vector2 getCenterHotspot()
+        {
+            return mCenterHotspot;
+        }
+
+        public void setCenterHotspot(Vector2 center)
+        {
+            mCenterHotspot = center;
+            mXCenterDiff = mCenterHotspot.X;
+            mYCenterDiff = mCenterHotspot.Y;
+        }
+
+        public void updateCenterHotspot()
+        {
+            if (mCenterHotspot != null)
+            {
+                mCenterHotspot.X = mX + mXCenterDiff;
+                mCenterHotspot.Y = mY + mYCenterDiff;
+            }
+        }
+
 
         /*public enum enumMoveDirection
         {

@@ -46,10 +46,12 @@ namespace ColorLand
 
         public Cursor()
         {
-            mSpriteNormal = new Sprite(1, "gameplay\\cursors\\cursor", new int[] { 0 }, 10, 32, 32);
-            mSpriteBlue   = new Sprite(1, "gameplay\\cursors\\cursorblue", new int[] { 0 }, 10, 32, 32);
-            mSpriteGreen  = new Sprite(1, "gameplay\\cursors\\cursorgreen", new int[] { 0 }, 10, 32, 32);
-            mSpriteRed    = new Sprite(1, "gameplay\\cursors\\cursorred", new int[] { 0 }, 10, 32, 32);
+
+            int size = 170;
+            mSpriteNormal = new Sprite(1, "gameplay\\cursors\\cursor", new int[] { 0 }, 10, size, size);
+            mSpriteBlue = new Sprite(ExtraFunctions.fillArrayWithImages (14, "gameplay\\cursors\\cursor_blue"), new int[] { Sprite.sALL_FRAMES_IN_ORDER,14}, 2, 190, 190, false, false);
+            mSpriteGreen = new Sprite(ExtraFunctions.fillArrayWithImages(14, "gameplay\\cursors\\cursor_green"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 2, 190, 190, false, false);
+            mSpriteRed = new Sprite(ExtraFunctions.fillArrayWithImages  (14, "gameplay\\cursors\\cursor_red"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 2, 190, 190, false, false);
             
             addSprite(mSpriteNormal, sSTATE_NORMAL);
             addSprite(mSpriteBlue,   sSTATE_BLUE);
@@ -78,14 +80,14 @@ namespace ColorLand
             if (!Game1.sKINECT_BASED)
             {
                 MouseState mouseState = Mouse.GetState();
-                setLocation(mouseState.X, mouseState.Y);
+                setCenter(mouseState.X, mouseState.Y);
             }
             else
             {
                 setLocation(KinectManager.sMAIN_HAND_COORD.X, KinectManager.sMAIN_HAND_COORD.Y);
             }
 
-             if (frames % 2 == 0)
+           /*  if (frames % 2 == 0)
             {
                 for (int i = 0; i < tracers.Length; i++)
                 {
@@ -107,20 +109,20 @@ namespace ColorLand
                         tracers[i].alive = false;                  
                 }
             }
-            frames++;        
+            frames++;   */     
         }
 
         public override void draw(SpriteBatch spriteBatch)
         {
 
-            for (int i = 0; i < tracers.Length; i++)
+           /* for (int i = 0; i < tracers.Length; i++)
             {
                 if (tracers[i].alive)
                 {
                     spriteBatch.Draw(getCurrentSprite().getCurrentTexture2D(), new Rectangle((int)tracers[i].pos.X, (int)tracers[i].pos.Y, 32, 32), Color.White * tracers[i].alpha);
                 }
             }
-            
+            */
             
             base.draw(spriteBatch, Color.AliceBlue); 
 
