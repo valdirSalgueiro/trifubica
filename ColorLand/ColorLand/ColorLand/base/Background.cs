@@ -33,6 +33,10 @@ namespace ColorLand
         private List<Sprite> mListParts;
         private int mVolatileIndexForParts;
 
+        private Color[] color;
+
+        private float oldX=0.0f;
+
         public Background()
         {
             mListParts = new List<Sprite>();
@@ -87,6 +91,30 @@ namespace ColorLand
             {
                 s.loadContent(content);
             }
+            color = new Color[mImage.Width * mImage.Height];
+            mImage.GetData<Color>(color);
+            saturate(0.0f);
+        }
+
+        private void saturate(float x)
+        {
+            x /= 100.0f;
+            //x = 1.0f;
+            Color[] newColor = new Color[mImage.Width * mImage.Height];
+            for (int i = 0; i < mImage.Width * mImage.Height; i++)
+            {
+                var avg = (byte)((0.3 * color[i].R + 0.59 * color[i].G + 0.11 * color[i].B));
+
+
+                byte r = color[i].R;
+                byte g = color[i].G;
+                byte b = color[i].B;
+
+                newColor[i].R = (byte)(avg + x * (r - avg));
+                newColor[i].G = (byte)(avg + x * (g - avg));
+                newColor[i].B = (byte)(avg + x * (b - avg));
+            }
+            mImage.SetData<Color>(newColor);
         }
 
         public void update()
@@ -97,12 +125,18 @@ namespace ColorLand
             }
         }
 
-        public void draw(SpriteBatch spritebatch)
+        public void draw(SpriteBatch spritebatch, float x)
         {
+            if (x != oldX) {
+                saturate(x);
+                oldX = x;
+            }
+
             //o draw que ta sendo chamado eh esse, Valdir
+            //new Color(0.3f, 0.59f, 0.11f, ALPHA)
             if (mImagePath != null)
             {
-                spritebatch.Draw(mImage, mLocationVector, new Color(R * ALPHA / 255, G * ALPHA / 255, B * ALPHA / 255, ALPHA));
+                spritebatch.Draw(mImage, mLocationVector, Color.White);
             }
 
             foreach (Sprite s in mListParts)
@@ -114,10 +148,10 @@ namespace ColorLand
 
         //mas vc pode chamar esse daqui la em gameplay screen, que eh o mais recomendavel
         public void draw(SpriteBatch spritebatch, Color color)
-        {
+        {            
             if (mImagePath != null)
             {
-                spritebatch.Draw(mImage, mLocationVector, color);//new Color(R * ALPHA / 255, G * ALPHA / 255, B * ALPHA / 255, ALPHA));
+                spritebatch.Draw(mImage, mLocationVector, new Color(R * ALPHA / 255, G * ALPHA / 255, B * ALPHA / 255, ALPHA));
             }
 
             foreach (Sprite s in mListParts)
@@ -157,7 +191,5 @@ namespace ColorLand
         {
             return mListParts.Count;
         }
-
-
     }
 }

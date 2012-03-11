@@ -77,7 +77,7 @@ namespace ColorLand
         {
             mSpriteBatch.Begin();
 
-            mCurrentBackground.draw(mSpriteBatch);
+            mCurrentBackground.draw(mSpriteBatch,0.0f);
            // mButtonPlay.draw(mSpriteBatch);
             mCursor.draw(mSpriteBatch);
 
