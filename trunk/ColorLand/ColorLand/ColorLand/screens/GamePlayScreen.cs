@@ -113,6 +113,8 @@ namespace ColorLand
 
         private EnemyManager mManager = new EnemyManager();
 
+        private float porcentagemRestante=0.0f;
+
 
         public void manageColorCount()
         {
@@ -481,7 +483,7 @@ namespace ColorLand
                         null,
                         mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
 
-                mBackgroundBack.draw(mSpriteBatch);
+                mBackgroundBack.draw(mSpriteBatch,porcentagemRestante);
 
                 mMainCharacter.draw(mSpriteBatch);
 
@@ -570,8 +572,8 @@ namespace ColorLand
         public void damage()
         {
             //energy -= 10   sobrou 90
-            energy -= 13;            
-            float porcentagemRestante = ExtraFunctions.valueToPercent(energy, 1000);
+            energy -= 13;
+            porcentagemRestante = ExtraFunctions.valueToPercent(energy, 1000);
 
             int larguraDaBarraDoHud = 200;
             int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
@@ -586,7 +588,7 @@ namespace ColorLand
             if(energy<numberEnemies)
                 energy += 1;
 
-            float porcentagemRestante = ExtraFunctions.valueToPercent(energy, numberEnemies);
+            porcentagemRestante = ExtraFunctions.valueToPercent(energy, numberEnemies);
 
             int larguraDaBarraDoHud = 100;
             int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
