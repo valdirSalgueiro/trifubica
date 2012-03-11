@@ -37,6 +37,24 @@ namespace ColorLand
             mList.Add(explosionObject);
         }
 
+        public void addExplosion(Color color, ContentManager content)
+        {
+            Explosion explosion = new Explosion(color);
+            explosion.loadContent(content);
+            mList.Add(explosion);
+            explosion = null;
+        }
+
+        public void addExplosion(int howMany, Color color, ContentManager content)
+        {
+            for (int x = 0; x < howMany; x++)
+            {
+                Explosion explosion = new Explosion(color);
+                explosion.loadContent(content);
+                mList.Add(explosion);
+            }
+        }
+
         public void update(GameTime gameTime)
         {
             for (int x = 0; x < mList.Count; x++)
@@ -54,19 +72,20 @@ namespace ColorLand
             }
         }
 
-        public Explosion getNextOfColor(/*Color color*/)
+        public Explosion getNextOfColor(Color color)
         {
 
             //if color == red
             foreach (Explosion e in mList)
             {
 
-                if (e.isAvailableToExplode())
+                if (e.getColor() == color)
                 {
-
-                    return e;
+                    if (e.isAvailableToExplode())
+                    {
+                        return e;
+                    }
                 }
-
             }
             
             return mList.ElementAt(0);

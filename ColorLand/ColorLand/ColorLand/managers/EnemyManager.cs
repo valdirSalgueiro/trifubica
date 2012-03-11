@@ -5,19 +5,25 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Audio;
 
 
 namespace ColorLand
 {
     public class EnemyManager
     {
-        private int mMaxEnemiesPerScreen = 4;
-        private const int cTIME_BETWEEN_ENEMIES = 4;
+        private int mMaxEnemiesPerScreen = 0;
+        private const int cTIME_BETWEEN_ENEMIES = 2;
         private List<BaseEnemy> mList;
         private GameObjectsGroup<BaseEnemy> mGroup;
         private int mCurrentIndex = -1;
         private MTimer mTimer;
+
+        public enum EnemiesTypes
+        {
+            CrabCrab,
+            Mongo,
+            Bako
+        }
 
         public EnemyManager()
         {
@@ -31,8 +37,22 @@ namespace ColorLand
             mTimer.start();
         }
 
-        public void addEnemy(BaseEnemy enemy, Vector2 location)
+        public void addEnemy(EnemiesTypes type, Color c, Vector2 location)
         {
+            BaseEnemy enemy = null;
+            switch (type)
+            {
+                case EnemiesTypes.CrabCrab:
+                    enemy = new EnemyCrabCrab(c, location);
+                    break;
+                case EnemiesTypes.Mongo:
+                    enemy = new EnemyMongo(c, location);
+                    break;
+                case EnemiesTypes.Bako:
+                    enemy = new Bako(c, location);
+                    break;
+            }
+
             enemy.setLocation(location);
             mList.Add(enemy);
         }
@@ -142,6 +162,16 @@ namespace ColorLand
             }
         }
 
+        public bool checkCollision(GameObject gameObject)
+        {
+            return mGroup.checkCollisionWith(gameObject);
+        }
+
+        public bool checkAttackCollision(GameObject gameObject)
+        {
+            return mGroup.checkAttackCollisionWith(gameObject);
+        }
+
         public void garbageCollection()
         {
 
@@ -157,6 +187,7 @@ namespace ColorLand
 
             if (indexCondenado != -1)
             {
+                Game1.print("GARBAGE COLLECTION HAS CLEANED");
                 mGroup.remove(indexCondenado);
             }
         }
@@ -164,6 +195,24 @@ namespace ColorLand
         public void setMaxEnemiesPerScreen(int maxEnemies)
         {
             mMaxEnemiesPerScreen = maxEnemies;
+        }
+
+        public GameObjectsGroup<BaseEnemy> getGameObjectsGroup()
+        {
+            return this.mGroup;
+        }
+
+        public bool enemiesAreOver()
+        {
+            Game1.print("SIZE: " + mGroup.getSize() + "  INDEX: " + mCurrentIndex +  " C: " +  mList.Count);
+            if (mGroup.getSize() == 0 && mCurrentIndex >= mList.Count - 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

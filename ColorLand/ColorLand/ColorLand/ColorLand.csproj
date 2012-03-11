@@ -75,6 +75,8 @@
   <ItemGroup>
     <Compile Include="base\Background.cs" />
     <Compile Include="base\Button.cs" />
+    <Compile Include="base\MenuGrade.cs" />
+    <Compile Include="base\OptionComponent.cs" />
     <Compile Include="base\Cursor.cs" />
     <Compile Include="base\GameObject.cs" />
     <Compile Include="base\GameObjectsGroup.cs" />
@@ -85,6 +87,8 @@
     <Compile Include="game\Collectable.cs" />
     <Compile Include="game\enemies\Explosion.cs" />
     <Compile Include="game\enemies\ExplosionManager.cs" />
+    <Compile Include="game\enemies\world1\Bako.cs" />
+    <Compile Include="game\enemies\world1\EnemyMongo.cs" />
     <Compile Include="game\enemies\world1\EnemyCrabCrab.cs" />
     <Compile Include="game\EnemyArc.cs" />
     <Compile Include="game\EnemySimpleShooting.cs" />
@@ -107,10 +111,11 @@
     <Compile Include="screens\GamePlayScreen.cs" />
     <Compile Include="screens\LogosScreen.cs" />
     <Compile Include="screens\MainMenuScreen.cs" />
+    <Compile Include="screens\menu\SettingsScreen.cs" />
     <Compile Include="util\Camera.cs" />
     <Compile Include="util\ExtraFunctions.cs" />
     <Compile Include="util\Fade.cs" />
-    <Compile Include="managers\SoundManager.cs" />
+    <Compile Include="screens\SoundManager.cs" />
     <Compile Include="util\Timer.cs" />
   </ItemGroup>
   <ItemGroup>

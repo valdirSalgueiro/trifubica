@@ -9,34 +9,30 @@ namespace ColorLand
     {
 
         private int mEnergy;
-        private int mColor;
-
-        //properties
-        public int pEnergy
-        {
-            get
-            {
-                return mEnergy;
-            }
-            set
-            {
-                mEnergy = value;
-            }
+        
+        public MainCharacterData(){
+            setEnergy(4);
         }
 
-        public int pColor
+        public void addEnergy()
         {
-            get
-            {
-                return mColor;
-            }
-            set
-            {
-                mColor = value;
-            }
+            mEnergy++;
         }
 
+        public void removeEnergy()
+        {
+            mEnergy--;
+        }
 
+        public void setEnergy(int total)
+        {
+            mEnergy = total;
+        }
+
+        public int getEnergy()
+        {
+            return mEnergy;
+        }
 
     }
 }

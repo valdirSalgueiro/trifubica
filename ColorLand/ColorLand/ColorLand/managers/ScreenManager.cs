@@ -28,7 +28,10 @@ namespace ColorLand
         //indexes
         public const int SCREEN_ID_LOGOS_SCREEN    = 0;
         public const int SCREEN_ID_MAIN_MENU       = 1;
+        public const int SCREEN_ID_MAIN_MENU_SETTINGS_SCREEN = 100;
+        
         public const int SCREEN_ID_GAMEPLAY        = 2;
+
         //public const int SCREEN_ID_MAIN_MENU     = 1;
         //public const int SCREEN_ID_HISTORY       = 2;
         
@@ -53,7 +56,7 @@ namespace ColorLand
             //changeScreen(SCREEN_ID_LOGOS_SCREEN, false);
             changeScreen(SCREEN_ID_GAMEPLAY, false);
             //changeScreen(SCREEN_ID_MAIN_MENU, false);
-            
+            //changeScreen(SCREEN_ID_MAIN_MENU_SETTINGS_SCREEN, false);
         }
 
         public void UnloadContent()
@@ -101,8 +104,6 @@ namespace ColorLand
             }
 
         }
-
-        
 
         public SpriteBatch getSpriteBatch() {
 

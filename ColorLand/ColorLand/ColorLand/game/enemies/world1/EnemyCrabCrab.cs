@@ -63,6 +63,7 @@ namespace ColorLand
 
             changeToSprite(sSTATE_WALKING);
 
+            setCenterHotspot(new Vector2(274, 252));
             setCollisionRect(101,187, 374, 155);
             setLocation(origin);
 
@@ -81,10 +82,10 @@ namespace ColorLand
 
 
             //PLAYER IS LEFT FROM CRAB
-            if (getPlayerCenter() < getCenter())
+            if (getPlayerCenter() < getCenterX())
             {
                 //setFlipDirection(FlipDirection.Left);
-                if (getPlayerCenter() >= getCenter() - 110)
+                if (getPlayerCenter() >= getCenterX() - 110)
                 {
                     if (getState() != sSTATE_ATTACKING)
                         changeState(sSTATE_ATTACKING);
@@ -106,7 +107,7 @@ namespace ColorLand
             {
                //PLAYER IS RIGHT FROM CRAB
                
-                if (getPlayerCenter() <=  getCenter() + 110)
+                if (getPlayerCenter() <=  getCenterX() + 110)
                 {
                     if (getState() != sSTATE_ATTACKING)
                     {

@@ -99,6 +99,7 @@ namespace ColorLand
 
         public void draw(SpriteBatch spritebatch)
         {
+            //o draw que ta sendo chamado eh esse, Valdir
             if (mImagePath != null)
             {
                 spritebatch.Draw(mImage, mLocationVector, new Color(R * ALPHA / 255, G * ALPHA / 255, B * ALPHA / 255, ALPHA));
@@ -111,6 +112,7 @@ namespace ColorLand
 
         }
 
+        //mas vc pode chamar esse daqui la em gameplay screen, que eh o mais recomendavel
         public void draw(SpriteBatch spritebatch, Color color)
         {
             if (mImagePath != null)

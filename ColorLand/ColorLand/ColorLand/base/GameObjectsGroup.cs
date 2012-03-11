@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace ColorLand
 {
-    class GameObjectsGroup <T> where T : GameObject {
+    public class GameObjectsGroup <T> where T : GameObject {
 
         private List<T> mList;
 
