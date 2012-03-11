@@ -35,6 +35,8 @@ namespace ColorLand
         private float x = 0;
         private double destAngle = 0;
 
+        private double posAngle = 0;
+
 
         public Bako(Color color)
             : this(color, new Vector2(0, 0))
@@ -86,13 +88,20 @@ namespace ColorLand
             float distance;
             Vector2 playerPosition = getPlayerPosition();
             Vector2.Distance(ref playerPosition, ref spritePos, out distance);
-            if (distance > 20)
+            Console.WriteLine(distance);
+            if (distance > 60)
             {
                 pos = oldPosition;
                 //altere aqui para fazer a onda do seno mais rapidamente/devagarmente :p
                 x += 0.1f;
 
                 destAngle = Math.Atan2(getPlayerPosition().Y - pos.Y, getPlayerPosition().X - pos.X);
+                if (destAngle < 0){
+                    destAngle = posAngle;
+                }else{
+                    posAngle=destAngle;
+                }
+
                 //altere "1.0f" para fazer com que ele se desloque mais rapidamente
                 pos.X += 5.0f * (float)Math.Cos(destAngle);
                 pos.Y += 5.0f * (float)Math.Sin(destAngle);
@@ -108,8 +117,8 @@ namespace ColorLand
                 spritePos = pos + (offset * perpendicular);
                 oldPosition = pos;
             }
-            else { 
-                //colidiu..
+            else {
+                //Console.WriteLine("colidiu");
             }
 
 
