@@ -143,8 +143,8 @@ namespace ColorLand
 
             loadWorld1(sWORLD_1);
 
-            //setGameState(GAME_STATE_PREPARANDO);
             setGameState(GAME_STATE_EM_JOGO);
+            //setGameState(GAME_STATE_PREPARANDO);
 
 
             mKeyboard = KeyboardManager.getInstance();
@@ -155,8 +155,6 @@ namespace ColorLand
 
             mCurrentWorld = 1;
             mCurrentPart  = part;
-
-            SoundManager.LoadSound("test\\iniciar");
 
             switch (part)
             {
@@ -232,14 +230,16 @@ namespace ColorLand
                     mExplosionManager.addExplosion(5, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
                    // mManager.addEnemy(new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED), new Vector2(300, 320));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(10, 10));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(300, 320));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(10, 10));
+                    /*mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(300, 320));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Green, new Vector2(200, 320));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(340, 320));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(0, 320));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Green, new Vector2(100, 320));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(900, 320));
-                    
+                    */
+ 
+
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mManager.start();
                     //mCamera.zoomIn(2.4f);
@@ -249,6 +249,7 @@ namespace ColorLand
                         mColorChoiceBar.loadContent(Game1.getInstance().getScreenManager().getContent());
                         mColorChoiceBar.setCenter(200, 200);*/
 
+                    SoundManager.PlayMusic("sound\\music\\begin");
                     break;
 
             }
@@ -264,23 +265,7 @@ namespace ColorLand
         }
 
 
-        private void setGameState(int gameState)
-        {
-
-            mGameState = gameState;
-
-            switch (gameState)
-            {
-
-                case GAME_STATE_PREPARANDO:
-
-                    mCamera.setZoom(2.4f);
-                    //Game1.print("FUCK ME");
-                    break;
-
-            }
-
-        }
+        
 
         private void updateTimers()
         {
@@ -380,7 +365,25 @@ namespace ColorLand
             //fadeObject.activate();
         }
 
+        private void setGameState(int gameState)
+        {
 
+            mGameState = gameState;
+            Game1.print("JOGO");
+            switch (gameState)
+            {
+
+                case GAME_STATE_PREPARANDO:
+
+                    mCamera.setZoom(1.4f);
+                    mFlagTimer = FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START;
+                    restartTimer(5);
+             
+                    break;
+
+            }
+
+        }
         public override void update(GameTime gameTime)
         {
             if (mCurrentWorld == sWORLD_1)
@@ -391,14 +394,15 @@ namespace ColorLand
                 {
                     case GAME_STATE_PREPARANDO:
 
-                        mCamera.zoomOut(0.01f);
+                        mCamera.zoomOut(0.004f);
                         
-                        if (mCamera.getZoomLevel() == 1)
-                        {
-                            mFlagTimer = FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START;
-                            restartTimer(3);
-                        }
+                      
+                        
+                       // mBackgroundBack.update();
+                       // mBackgroundFront.update();
 
+                        mMainCharacter.update(gameTime);
+                        updatePlayerBody();
                         break;
 
                     case GAME_STATE_EM_JOGO:
