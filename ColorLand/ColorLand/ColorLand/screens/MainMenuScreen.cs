@@ -53,9 +53,9 @@ namespace ColorLand
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mButtonPlay    = new Button("mainmenu\\buttons\\mainmenu_play", "mainmenu\\buttons\\mainmenu_play_select","mainmenu\\buttons\\mainmenu_play_selected",new Rectangle(61, 190, 260, 84));
-            mButtonHelp    = new Button("mainmenu\\buttons\\mainmenu_help", "mainmenu\\buttons\\mainmenu_help_select", "mainmenu\\buttons\\mainmenu_help_selected", new Rectangle(81, 390, 187, 68));
-            mButtonCredits = new Button("mainmenu\\buttons\\mainmenu_credits", "mainmenu\\buttons\\mainmenu_credits_select", "mainmenu\\buttons\\mainmenu_credits_selected", new Rectangle(81, 500, 187, 68));
+            mButtonPlay    = new Button("mainmenu\\buttons\\mainmenu_play", "mainmenu\\buttons\\mainmenu_play_select","mainmenu\\buttons\\mainmenu_play_selected",new Rectangle(82, 190, 295, 105));
+            mButtonHelp    = new Button("mainmenu\\buttons\\mainmenu_help", "mainmenu\\buttons\\mainmenu_help_select", "mainmenu\\buttons\\mainmenu_help_selected", new Rectangle(82, 295, 229, 103));
+            mButtonCredits = new Button("mainmenu\\buttons\\mainmenu_credits", "mainmenu\\buttons\\mainmenu_credits_select", "mainmenu\\buttons\\mainmenu_credits_selected", new Rectangle(82, 400, 229, 103));
 
             mGroupButtons = new GameObjectsGroup<Button>();
             mGroupButtons.addGameObject(mButtonPlay);
@@ -64,13 +64,11 @@ namespace ColorLand
 
             mGroupButtons.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-
-
             //mButtonPlay.loadContent(Game1.getInstance().getScreenManager().getContent());
             //mButtonHelp.loadContent(Game1.getInstance().getScreenManager().getContent());
-            //mButtonCredits.loadContent(Game1.getInstance().getScreenManager().getContent());
+            //mButtonCredits.loadContent(Game1.getInstance().getScreenManager().getContent());            
             
-            mButtonPlay.setLocation(50, 300);
+
             
         }
 
@@ -164,12 +162,12 @@ namespace ColorLand
             if (button == mButtonPlay)
             {
                 //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true);
-            }else
-            if (button == mButtonHelp)
+            }
+            else if (button == mButtonHelp)
             {
                 Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU_HELP, false);
-            }else
-            if (button == mButtonCredits)
+            }
+            else if (button == mButtonCredits)
             {
                 Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU_CREDITS, false);
             }
