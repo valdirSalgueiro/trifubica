@@ -188,6 +188,7 @@ namespace ColorLand
 
                     mBackgroundFront.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mBackgroundFront.setLocation(0, 0);
+                    mBackgroundFront.saturate(0.0f);
 
 
                     mMainCharacter = new MainCharacter(Color.Blue);
@@ -449,7 +450,8 @@ namespace ColorLand
                         null,
                         mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
 
-                mBackgroundBack.draw(mSpriteBatch,porcentagemRestante);
+                mBackgroundBack.saturate(porcentagemRestante);
+                mBackgroundBack.draw(mSpriteBatch);
 
 
                 mMainCharacter.draw(mSpriteBatch);
@@ -482,7 +484,9 @@ namespace ColorLand
                 //mSpriteBatch.DrawString(mFontDebug, ""+mUniversalTEXT, new Vector2(10, 100), Color.Red);
                 //mSpriteBatch.DrawString(mFontDebug, "" + mUniversalTEXT2, new Vector2(10, 140), Color.Red);
 
-                mBackgroundFront.draw(mSpriteBatch, porcentagemRestante);
+                mBackgroundFront.saturate(porcentagemRestante);
+                mBackgroundFront.draw(mSpriteBatch);
+
 
 
                 mSpriteBatch.End();

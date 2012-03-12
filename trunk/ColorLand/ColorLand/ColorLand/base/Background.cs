@@ -93,10 +93,9 @@ namespace ColorLand
             }
             color = new Color[mImage.Width * mImage.Height];
             mImage.GetData<Color>(color);
-            saturate(0.0f);
         }
 
-        private void saturate(float x)
+        public void saturate(float x)
         {
             x /= 100.0f;
             //x = 1.0f;
@@ -125,15 +124,9 @@ namespace ColorLand
             }
         }
 
-        public void draw(SpriteBatch spritebatch, float x)
+        public void draw(SpriteBatch spritebatch)
         {
-            if (x != oldX) {
-                saturate(x);
-                oldX = x;
-            }
-
             //o draw que ta sendo chamado eh esse, Valdir
-            //new Color(0.3f, 0.59f, 0.11f, ALPHA)
             if (mImagePath != null)
             {
                 spritebatch.Draw(mImage, mLocationVector, Color.White);

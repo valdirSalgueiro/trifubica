@@ -80,7 +80,7 @@ namespace ColorLand
         {
             mSpriteBatch.Begin();
 
-            mCurrentBackground.draw(mSpriteBatch,0.0f);
+            mCurrentBackground.draw(mSpriteBatch);
 
             mFadeIn.draw(mSpriteBatch);
             
