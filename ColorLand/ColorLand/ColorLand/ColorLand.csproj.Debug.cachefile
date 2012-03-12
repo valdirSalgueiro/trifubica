@@ -643,6 +643,14 @@ Content\mainmenu\instruction_1.xnb
 Content\mainmenu\instruction_2.xnb
 Content\mainmenu\instruction_3.xnb
 Content\mainmenu\instruction_4.xnb
+Content\mainmenu\buttons\next.xnb
+Content\mainmenu\buttons\next_disabled.xnb
+Content\mainmenu\buttons\next_select.xnb
+Content\mainmenu\buttons\next_selected.xnb
+Content\mainmenu\buttons\previous.xnb
+Content\mainmenu\buttons\previous_disabled.xnb
+Content\mainmenu\buttons\previous_select.xnb
+Content\mainmenu\buttons\previous_selected.xnb
 Content\test\theme.wma
 Content\sound\music\begin.wma
 Content\sound\music\loose.wma
