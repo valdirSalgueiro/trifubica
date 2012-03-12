@@ -7,8 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
+#if WINDOWS
 using System.Timers;
-
+#endif
 /* ***
  * ESTA CLASSE GERENCIA OS LOGOS INICIAIS QUE DEVEM APARECER ANTES DO MENU PRINCIPAL
  * 
@@ -18,7 +19,7 @@ namespace ColorLand
 {
     class LogosScreen : BaseScreen
     {
-
+#if WINDOWS
         private SpriteBatch mSpriteBatch;
 
         //Lista dos backgrounds
@@ -151,7 +152,7 @@ namespace ColorLand
 
         }
 
-
+#endif
 
     }
 }

@@ -113,7 +113,7 @@ namespace ColorLand
                 
                 changeToSprite(sSTATE_STOPPED);
 
-                setCollisionRect(75, 80);
+                setCollisionRect(90, 150,90,90);
 
                 mFeet = new Feet();
 
@@ -295,7 +295,7 @@ namespace ColorLand
 
             if (Game1.sKINECT_BASED == true)
             {
-                mX = KinectManager.getInstance().getHipCenterPosition().X;
+                /*mX = KinectManager.getInstance().getHipCenterPosition().X;
 
                 //fazer esquema de old x = kinect.x
                 //if(mx != old x) entao moving
@@ -307,7 +307,7 @@ namespace ColorLand
                      //   Jump();
                     }
                     //Game1.print(KinectManager.getInstance().getHipCenterPosition().Y + "");
-                }
+                }*/
             }
             else
             {

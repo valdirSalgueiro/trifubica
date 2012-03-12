@@ -44,18 +44,18 @@ namespace ColorLand
             if(color == Color.Red)
             {
                  //os sprites andando do red sao diferentes. Tem que ter cuidado caso for mexer
-                  mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages(20, "enemies\\world1\\red\\crab_walk"), new int[] { 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 }, 2, 300, 300, false, false);
-                  mSpriteAttacking = new Sprite(ExtraFunctions.fillArrayWithImages(11, "enemies\\world1\\red\\crab_attack"), new int[] { Sprite.sALL_FRAMES_IN_ORDER,11 }, 2, 300, 300, false, false);
+                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages(16, "enemies\\world1\\red\\crab_walk"), new int[] { 3,4,5,6,7,8,9,10,11,12,13,14,15 }, 2, 300, 110, false, false);
+                  mSpriteAttacking = new Sprite(ExtraFunctions.fillArrayWithImages(10, "enemies\\world1\\red\\crab_attack"), new int[] { 0,1,2,3,4,5,6,7,8,9,0 }, 2, 300, 110, false, false);
             }
             if (color == Color.Blue)
             {
-                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages(16, "enemies\\world1\\blue\\crab_walk"), new int[] { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }, 2, 300, 300, false, false);
-                mSpriteAttacking = new Sprite(ExtraFunctions.fillArrayWithImages(11, "enemies\\world1\\blue\\crab_attack"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 11 }, 2, 300, 300, false, false);
+                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages(16, "enemies\\world1\\blue\\crab_walk"), new int[] { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }, 2, 300, 110, false, false);
+                mSpriteAttacking = new Sprite(ExtraFunctions.fillArrayWithImages(10, "enemies\\world1\\blue\\crab_attack"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 }, 2, 300, 110, false, false);
             }
             if (color == Color.Green)
             {
                 mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages(16, "enemies\\world1\\green\\crab_walk"), new int[] { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }, 2, 300, 300, false, false);
-                mSpriteAttacking = new Sprite(ExtraFunctions.fillArrayWithImages(11, "enemies\\world1\\green\\crab_attack"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 11 }, 2, 300, 300, false, false);
+                mSpriteAttacking = new Sprite(ExtraFunctions.fillArrayWithImages(10, "enemies\\world1\\green\\crab_attack"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 }, 2, 300, 300, false, false);
             }
 
             addSprite(mSpriteWalking, sSTATE_WALKING);
@@ -63,8 +63,8 @@ namespace ColorLand
 
             changeToSprite(sSTATE_WALKING);
 
-            setCenterHotspot(new Vector2(274, 252));
-            setCollisionRect(101,187, 374, 155);
+            setCenterHotspot(new Vector2(274, 101));
+            setCollisionRect(30,30,220,80);
             setLocation(origin);
 
         }
@@ -130,9 +130,9 @@ namespace ColorLand
             }
 
             if(getState() == sSTATE_ATTACKING){
-                if (getCurrentSprite().getCurrentFrame() == 8)
+                if (getCurrentSprite().getCurrentFrame() == 7)
                 {
-                    setAttackRectangle(86, 192, 86 + 100, 192 + 80);
+                    setAttackRectangle(140, 0, 135, 100);
                 }
                 else
                 {

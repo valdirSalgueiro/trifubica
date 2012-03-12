@@ -62,11 +62,15 @@ namespace ColorLand
 
             if (sKINECT_BASED)
             {
-                KinectManager.getInstance().init();
+               // KinectManager.getInstance().init();
             }
-
+#if WINDOWS_PHONE
+            graphics.PreferredBackBufferHeight = 480;
+            graphics.PreferredBackBufferWidth = 800; 
+#else
             graphics.PreferredBackBufferWidth = sSCREEN_RESOLUTION_WIDTH;
             graphics.PreferredBackBufferHeight = sSCREEN_RESOLUTION_HEIGHT;
+#endif
             graphics.ApplyChanges();
             graphics.GraphicsDevice.Clear(Color.Black);
 

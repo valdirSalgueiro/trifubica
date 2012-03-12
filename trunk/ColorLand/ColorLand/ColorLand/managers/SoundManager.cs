@@ -45,13 +45,24 @@ namespace ColorLand
         }
 
         /// <summary>
+        /// Loads a sound for playing
+        /// </summary>
+        /// <param name="assetName">The asset name of the sound</param>
+        public static void LoadSound(string assetName)
+        {
+            //load the sound into our dictionary
+            sounds.Add(assetName, content.Load<SoundEffect>(assetName));
+        }
+
+
+        /// <summary>
         /// Sets the background music to the sound with the given name.
         /// </summary>
         /// <param name="name">The name of the music to play.</param>
         public static void PlayMusic(string name)
         {
             currentSong = null;
-
+            
             try
             {
                 currentSong = content.Load<Song>(name);
@@ -66,15 +77,6 @@ namespace ColorLand
             MediaPlayer.Play(currentSong);
         }
 
-        /// <summary>
-        /// Loads a sound for playing
-        /// </summary>
-        /// <param name="assetName">The asset name of the sound</param>
-        public static void LoadSound(string assetName)
-        {
-            //load the sound into our dictionary
-            sounds.Add(assetName, content.Load<SoundEffect>(assetName));
-        }
 
         /// <summary>
         /// Stops the background music.
@@ -101,5 +103,6 @@ namespace ColorLand
         {
             MediaPlayer.Volume = volume;
         }
+
     }
 }

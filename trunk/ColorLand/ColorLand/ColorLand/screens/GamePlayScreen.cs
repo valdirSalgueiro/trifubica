@@ -10,7 +10,7 @@ using System.IO.IsolatedStorage;
 using System.IO;
 using Microsoft.Xna.Framework.Input;
 //using Microsoft.Xna.Framework.Input.Touch;
-using System.Timers;
+//using System.Timers;
 
 
 namespace ColorLand
@@ -105,7 +105,7 @@ namespace ColorLand
         private ColorChoiceBar mColorChoiceBar;
         private int mColorCount;
 
-        private static Timer mTimer;
+        private static MTimer mTimer;
 
         Explosion mExplosion;
         private ExplosionManager mExplosionManager;
@@ -230,7 +230,7 @@ namespace ColorLand
                     mExplosionManager.addExplosion(5, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
                    // mManager.addEnemy(new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED), new Vector2(300, 320));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(10, 10));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(100, 415));
                     /*mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(300, 320));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Green, new Vector2(200, 320));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(340, 320));
@@ -264,41 +264,6 @@ namespace ColorLand
             //executeFade(mFadeIn);
         }
 
-
-        
-
-        private void updateTimers()
-        {
-            //mTimerMessages alerts
-            if (mTimerMessages.isActive())
-            {
-                //mUniversalTEXT = "AE PORRA: " + mTimerMessages.getTimeInt();
-
-                if (mGameState == GAME_STATE_PREPARANDO)
-                {
-                    
-                }else
-                if (mGameState == GAME_STATE_SUCESSO)
-                {
-                    if (!mTimerMessages.isBusyForNumber(3) && mTimerMessages.getTimeInt() == 3)
-                    {
-                        //mUniversalTEXT = "AE PORRA: " + mTimerMessages.getTimeInt();
-                        mTimerMessages.setBusyWithNumber(3);
-                        //setGameState(GAME_STATE_PREPARANDO);
-                        //mTimerSucesso.stop();
-                        //nextWave();
-                    }
-                }else
-                if (mGameState == GAME_STATE_DERROTA)
-                {
-                    if (!mTimerMessages.isBusyForNumber(3) && mTimerMessages.getTimeInt() == 3)
-                    {
-                        //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, false);
-                    }
-                }
-            }
-
-        }
 
 
         private void checkCollisions()
@@ -377,7 +342,7 @@ namespace ColorLand
 
                     mCamera.setZoom(1.4f);
                     mFlagTimer = FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START;
-                    restartTimer(5);
+                    restartTimer(6);
              
                     break;
 
@@ -389,6 +354,8 @@ namespace ColorLand
             if (mCurrentWorld == sWORLD_1)
             {
                 mCamera.update();
+
+                updateTimer(gameTime);
 
                 switch (mGameState)
                 {
@@ -442,32 +409,27 @@ namespace ColorLand
             */
         }
 
-        private void OnTimedEvent(object source, ElapsedEventArgs e)
+
+        private void restartTimer(int seconds)
         {
-            mTimer.Stop();
-            mTimer.Enabled = false;
+            mTimer = new MTimer();
+            mTimer.start();
+        }
 
-            switch (mGameState)
+        private void updateTimer(GameTime gameTime)
+        {
+            if (mTimer != null)
             {
-                case GAME_STATE_PREPARANDO:
+                mTimer.update(gameTime);
 
+                if (mTimer.getTimeAndLock(6))
+                {
                     if (mFlagTimer == FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START)
                     {
                         this.setGameState(GAME_STATE_EM_JOGO);
                     }
-
-                    break;
+                }
             }
-
-            
-        }
-
-        private void restartTimer(int seconds)
-        {
-            mTimer = new Timer();
-            mTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-            mTimer.Interval = seconds * 1000;
-            mTimer.Enabled = true;
         }
 
         public override void draw(GameTime gameTime)
@@ -488,6 +450,7 @@ namespace ColorLand
                         mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
 
                 mBackgroundBack.draw(mSpriteBatch,porcentagemRestante);
+
 
                 mMainCharacter.draw(mSpriteBatch);
 
@@ -519,7 +482,8 @@ namespace ColorLand
                 //mSpriteBatch.DrawString(mFontDebug, ""+mUniversalTEXT, new Vector2(10, 100), Color.Red);
                 //mSpriteBatch.DrawString(mFontDebug, "" + mUniversalTEXT2, new Vector2(10, 140), Color.Red);
 
-               
+                mBackgroundFront.draw(mSpriteBatch, porcentagemRestante);
+
 
                 mSpriteBatch.End();
 

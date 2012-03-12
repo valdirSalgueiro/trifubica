@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+#if WINDOWS
 using Microsoft.Research.Kinect;
 using Microsoft.Research.Kinect.Nui;
+#endif
 
 namespace ColorLand
 {
     public class KinectManager
     {
-
+#if WINDOWS
         private static KinectManager instance;
 
         //For - Resolution640x480
@@ -197,6 +199,6 @@ namespace ColorLand
         {
             return mCenterShouldersCoord;
         }
-
+#endif
     }
 }

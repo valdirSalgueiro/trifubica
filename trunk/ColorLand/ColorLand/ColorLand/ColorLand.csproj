@@ -111,11 +111,13 @@
     <Compile Include="screens\GamePlayScreen.cs" />
     <Compile Include="screens\LogosScreen.cs" />
     <Compile Include="screens\MainMenuScreen.cs" />
-    <Compile Include="screens\menu\SettingsScreen.cs" />
+    <Compile Include="screens\menu\HelpScreen.cs" />
+    <Compile Include="screens\menu\CreditsScreen.cs" />
+    <Compile Include="screens\StoryScreen.cs" />
     <Compile Include="util\Camera.cs" />
     <Compile Include="util\ExtraFunctions.cs" />
     <Compile Include="util\Fade.cs" />
-    <Compile Include="screens\SoundManager.cs" />
+    <Compile Include="managers\SoundManager.cs" />
     <Compile Include="util\Timer.cs" />
   </ItemGroup>
   <ItemGroup>

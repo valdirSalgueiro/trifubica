@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
-using System.Timers;
+//using System.Timers;
 using ColorLand.game;
 
 namespace ColorLand
@@ -36,7 +36,10 @@ namespace ColorLand
         private Sprite mSpriteRed;
 
         //
-        private Timer mTimer;
+        //private Timer mTimer;
+        private MTimer mTimer;
+        private int mSecs;
+
         private bool mActiveInsideButton;
         private bool mEventCompleted;
 
@@ -60,7 +63,7 @@ namespace ColorLand
             
             changeToSprite(sSTATE_NORMAL);
 
-            setCollisionRect(32, 32);
+            setCollisionRect(30, 30);
 
             for (int i = 0; i < tracers.Length; i++)
             {
@@ -77,6 +80,8 @@ namespace ColorLand
         {
             base.update(gameTime);//getCurrentSprite().update();
 
+            updateTimer(gameTime);
+
             if (!Game1.sKINECT_BASED)
             {
                 MouseState mouseState = Mouse.GetState();
@@ -84,7 +89,7 @@ namespace ColorLand
             }
             else
             {
-                setLocation(KinectManager.sMAIN_HAND_COORD.X, KinectManager.sMAIN_HAND_COORD.Y);
+                //setLocation(KinectManager.sMAIN_HAND_COORD.X, KinectManager.sMAIN_HAND_COORD.Y);
             }
 
            /*  if (frames % 2 == 0)
@@ -171,31 +176,44 @@ namespace ColorLand
             
             mActiveInsideButton = state;
 
-             mTimer.Stop();
-            mTimer.Enabled = false;
+            if (mTimer != null)
+            {
+                mTimer.stop();
+            }
+            //mTimer.Stop();
+            //mTimer.Enabled = false;
 
         }
 
         private void restartTimer(int seconds)
         {
-            mTimer = new Timer();
+            /*mTimer = new Timer();
             mTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
             mTimer.Interval = seconds * 1000;
-            mTimer.Enabled = true;
+            mTimer.Enabled = true;*/
+
+            mTimer = new MTimer();
+            mTimer.start();
         }
 
-        //qualquer coisa mete static aqui que funciona
-        private void OnTimedEvent(object source, ElapsedEventArgs e)
+
+        private void updateTimer(GameTime gameTime)
         {
-            mTimer.Stop();
-            mTimer.Enabled = false;
-
-            //if the cursor is yet over the button
-            if (mActiveInsideButton)
+            if (mTimer != null)
             {
-                mEventCompleted = true;
-            }
+                mTimer.update(gameTime);
 
+                if (mTimer.getTimeAndLock(cEVENT_SECONDS))
+                {
+                    if (mActiveInsideButton)
+                    {
+                        mEventCompleted = true;
+
+                        mTimer.stop();
+                        mTimer = null;
+                    }
+                }
+            }
         }
 
         public bool isEventCompleted()
