@@ -450,7 +450,7 @@ namespace ColorLand
                         null,
                         mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
 
-                mBackgroundBack.saturate(porcentagemRestante);
+                
                 mBackgroundBack.draw(mSpriteBatch);
 
 
@@ -482,9 +482,8 @@ namespace ColorLand
 
 
                 //mSpriteBatch.DrawString(mFontDebug, ""+mUniversalTEXT, new Vector2(10, 100), Color.Red);
-                //mSpriteBatch.DrawString(mFontDebug, "" + mUniversalTEXT2, new Vector2(10, 140), Color.Red);
-
-                mBackgroundFront.saturate(porcentagemRestante);
+                //mSpriteBatch.DrawString(mFontDebug, "" + mUniversalTEXT2, new Vector2(10, 140), Color.Red);       
+                
                 mBackgroundFront.draw(mSpriteBatch);
 
 
@@ -566,6 +565,9 @@ namespace ColorLand
             int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
 
             HUD.getInstance().setPlayerBarLevel(novoValor);
+
+            mBackgroundBack.saturate(porcentagemRestante);
+            mBackgroundFront.saturate(porcentagemRestante);
 
         }
 
