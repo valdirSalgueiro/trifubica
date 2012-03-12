@@ -37,7 +37,7 @@ namespace ColorLand
         {
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
-            mBackgroundImage = new Background("mainmenu\\mainmenu_credits_bg");
+            mBackgroundImage = new Background("mainmenu\\instruction_1");
             mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
 
             mList.Add(mBackgroundImage);
@@ -47,7 +47,7 @@ namespace ColorLand
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mButtonBack = new Button("mainmenu\\buttons\\menu_credits_help_back", "mainmenu\\buttons\\menu_credits_help_back_select", "mainmenu\\buttons\\menu_credits_help_back_selected", new Rectangle(100, 100, 200, 100));
+            mButtonBack = new Button("mainmenu\\buttons\\menu_credits_help_back", "mainmenu\\buttons\\menu_credits_help_back_select", "mainmenu\\buttons\\menu_credits_help_back_selected", new Rectangle(50, 464, 175, 124));
 
             mButtonBack.loadContent(Game1.getInstance().getScreenManager().getContent());
 
@@ -71,7 +71,7 @@ namespace ColorLand
         {
             mSpriteBatch.Begin();
 
-            mCurrentBackground.draw(mSpriteBatch,0.0f);
+            mCurrentBackground.draw(mSpriteBatch);
             mButtonBack.draw(mSpriteBatch);
             mCursor.draw(mSpriteBatch);
 
