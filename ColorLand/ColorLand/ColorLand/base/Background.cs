@@ -97,6 +97,16 @@ namespace ColorLand
 
         public void saturate(float x)
         {
+            if (x != oldX)
+            {
+                saturate(x);
+                oldX = x;
+            }
+            else {
+                return;
+            }
+
+
             x /= 100.0f;
             //x = 1.0f;
             Color[] newColor = new Color[mImage.Width * mImage.Height];
