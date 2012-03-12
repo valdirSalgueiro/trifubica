@@ -26,14 +26,18 @@ namespace ColorLand
         private int mBackgroundCounter;
 
         private Cursor mCursor;
+        private Button mCurrentHighlightButton;
+        private bool mMousePressing;
 
 
         /***
          * BUTTONS
          * */
         private Button mButtonPlay;
-        private Button mButtonSettings;
+        private Button mButtonHelp;
         private Button mButtonCredits;
+
+        private GameObjectsGroup<Button> mGroupButtons;
 
         public MainMenuScreen()
         {
@@ -49,42 +53,126 @@ namespace ColorLand
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mButtonPlay = new Button("test\\m", "test\\e", new Rectangle(100, 100, 200, 100));
+            mButtonPlay    = new Button("mainmenu\\buttons\\mainmenu_play", "mainmenu\\buttons\\mainmenu_play_select","mainmenu\\buttons\\mainmenu_play_selected",new Rectangle(61, 190, 260, 84));
+            mButtonHelp    = new Button("mainmenu\\buttons\\mainmenu_help", "mainmenu\\buttons\\mainmenu_help_select", "mainmenu\\buttons\\mainmenu_help_selected", new Rectangle(81, 390, 187, 68));
+            mButtonCredits = new Button("mainmenu\\buttons\\mainmenu_credits", "mainmenu\\buttons\\mainmenu_credits_select", "mainmenu\\buttons\\mainmenu_credits_selected", new Rectangle(81, 500, 187, 68));
 
-            mButtonPlay.loadContent(Game1.getInstance().getScreenManager().getContent());
+            mGroupButtons = new GameObjectsGroup<Button>();
+            mGroupButtons.addGameObject(mButtonPlay);
+            mGroupButtons.addGameObject(mButtonHelp);
+            mGroupButtons.addGameObject(mButtonCredits);
 
+            mGroupButtons.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+
+
+            //mButtonPlay.loadContent(Game1.getInstance().getScreenManager().getContent());
+            //mButtonHelp.loadContent(Game1.getInstance().getScreenManager().getContent());
+            //mButtonCredits.loadContent(Game1.getInstance().getScreenManager().getContent());
+            
             mButtonPlay.setLocation(50, 300);
-
+            
         }
 
 
         public override void update(GameTime gameTime)
         {
-            checkCollisions();
+            //checkCollisions();
             mCurrentBackground.update();
-            mButtonPlay.update(gameTime);
+            mGroupButtons.update(gameTime);
             mCursor.update(gameTime);
+            updateMouseInput();
+            checkCollisions();
         }
+
 
         public override void draw(GameTime gameTime)
         {
             mSpriteBatch.Begin();
 
-            mCurrentBackground.draw(mSpriteBatch,0.0f);
-            mButtonPlay.draw(mSpriteBatch);
+            mCurrentBackground.draw(mSpriteBatch,100f);
+            mGroupButtons.draw(mSpriteBatch);
             mCursor.draw(mSpriteBatch);
 
             mSpriteBatch.End();
         }
 
+        private void updateMouseInput()
+        {
+            
+
+            MouseState ms = Mouse.GetState();
+
+            if (ms.LeftButton == ButtonState.Pressed)
+            {
+                mMousePressing = true;
+            }
+            else
+            {
+                if (mCurrentHighlightButton != null)
+                {
+
+                    if (mMousePressing)
+                    {
+                        processButtonAction(mCurrentHighlightButton);
+                    }
+
+                }
+
+                mMousePressing = false;
+            }
+
+
+        }
+
         private void checkCollisions()
         {
 
-            if (mCursor.collidesWith(mButtonPlay))
+            if (mGroupButtons.checkCollisionWith(mCursor))
             {
-                
+                mCurrentHighlightButton = (Button)mGroupButtons.getCollidedObject();
+
+                if (mMousePressing)
+                {
+                    if (mCurrentHighlightButton.getState() != Button.sSTATE_PRESSED)
+                    {
+                        mCurrentHighlightButton.changeState(Button.sSTATE_PRESSED);
+                    }
+                }
+                else
+                {
+
+                    if (mCurrentHighlightButton.getState() != Button.sSTATE_HIGHLIGH)
+                    {
+                        mCurrentHighlightButton.changeState(Button.sSTATE_HIGHLIGH);
+                    }
+
+                }
+
+            }else{
+                if (mCurrentHighlightButton != null)// && mCurrentHighlightButton.getState() != Button.sSTATE_PRESSED)
+                {
+                    mCurrentHighlightButton.changeState(Button.sSTATE_NORMAL);
+                }
+                mCurrentHighlightButton = null;
             }
 
+        }
+
+        private void processButtonAction(Button button)
+        {
+            if (button == mButtonPlay)
+            {
+                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true);
+            }else
+            if (button == mButtonHelp)
+            {
+                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU_HELP, false);
+            }else
+            if (button == mButtonCredits)
+            {
+                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU_CREDITS, false);
+            }
         }
         
 
@@ -93,6 +181,7 @@ namespace ColorLand
         {
 
         }
+
 
     }
 }

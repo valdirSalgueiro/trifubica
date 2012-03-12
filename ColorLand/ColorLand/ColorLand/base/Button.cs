@@ -15,11 +15,13 @@ namespace ColorLand
 	{
 
         //INDEXES
-        public const int sSTATE_NORMAL  = 0;
-        public const int sSTATE_PRESSED = 1;
+        public const int sSTATE_NORMAL   = 0;
+        public const int sSTATE_HIGHLIGH = 1;
+        public const int sSTATE_PRESSED = 2;
 
         //SPRITES
         private Sprite mSpriteNormal;
+        private Sprite mSpriteHighlight;
         private Sprite mSpritePressed;
 
         private Rectangle mRectArea;
@@ -46,10 +48,12 @@ namespace ColorLand
 
         public Button(String imgNormal, String imgHighlight, String imgPressed, Rectangle rectArea)
         {
-            mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(1, imgNormal), new int[] { 0 }, 7, rectArea.Width, rectArea.Height, false, false);
-            mSpritePressed = new Sprite(ExtraFunctions.fillArrayWithImages(1, imgPressed), new int[] { 0 }, 7, rectArea.Width, rectArea.Height, false, false);
+            mSpriteNormal = new Sprite(new String[]{imgNormal}, new int[] { 0 }, 7, rectArea.Width, rectArea.Height, false, false);
+            mSpriteHighlight = new Sprite(new String[]{imgHighlight}, new int[] { 0 }, 7, rectArea.Width, rectArea.Height, false, false);
+            mSpritePressed = new Sprite(new String[]{imgPressed}, new int[] { 0 }, 7, rectArea.Width, rectArea.Height, false, false);
 
             addSprite(mSpriteNormal, sSTATE_NORMAL);
+            addSprite(mSpriteHighlight, sSTATE_HIGHLIGH);
             addSprite(mSpritePressed, sSTATE_PRESSED);
 
             changeToSprite(sSTATE_NORMAL);
@@ -57,7 +61,7 @@ namespace ColorLand
             //setCollisionRect(rectArea.Width,rectArea.Height);
 
             setCollisionRect(0, 0, rectArea.Width, rectArea.Height);
-
+            //setCollisionRect(300, 300);
             setLocation(rectArea.X, rectArea.Y);
 
 
@@ -75,6 +79,7 @@ namespace ColorLand
             base.update(gameTime);//getCurrentSprite().update();
         }
 
+
         public override void draw(SpriteBatch spriteBatch)
         {
             base.draw(spriteBatch);//getCurrentSprite().draw(spriteBatch);
@@ -91,6 +96,9 @@ namespace ColorLand
             {
                 case sSTATE_NORMAL:
                     changeToSprite(sSTATE_NORMAL);
+                    break;
+                case sSTATE_HIGHLIGH:
+                    changeToSprite(sSTATE_HIGHLIGH);
                     break;
                 case sSTATE_PRESSED:
                     changeToSprite(sSTATE_PRESSED);

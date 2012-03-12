@@ -67,6 +67,15 @@ namespace ColorLand
         private bool mAllowMovement;
 
 
+        private int mInitialCollisionRectX;
+        private int mInitialCollisionRectY;
+
+        private int mInitialAttackCollisionRectX;
+        private int mInitialAttackCollisionRectY;
+
+        //extra
+        private Texture2D mCollisionTexture;
+
         public enum FlipDirection
         {
             Left,
@@ -111,6 +120,8 @@ namespace ColorLand
             //setLocation(10, 10);
             setMovementAllowed(true);
             setActive(true);
+
+            showCollisionRect();
         }
 
         protected void addSprite(Sprite sprite, int index)
@@ -145,6 +156,9 @@ namespace ColorLand
                 mCollisionRect.Y = y;
                 mCollisionRect.Width = width;
                 mCollisionRect.Height = height;
+
+                mInitialCollisionRectX = x;
+                mInitialCollisionRectY = y;
             }
         }
 
@@ -156,6 +170,9 @@ namespace ColorLand
                 mCollisionRect.Y = (int)mY;
                 mCollisionRect.Width = width;
                 mCollisionRect.Height = height;
+
+                mInitialCollisionRectX = mCollisionRect.X;
+                mInitialCollisionRectY = mCollisionRect.Y;
             }
         }
 
@@ -175,6 +192,15 @@ namespace ColorLand
             updateCollisionRectLocation((int)mX, (int)mY);
         }
 
+        public void updateAttackCollisionRectLocation()
+        {
+            if (mAttackCollisionRect != null)
+            {
+                mAttackCollisionRect.X = (int)mX + mInitialAttackCollisionRectX;
+                mAttackCollisionRect.Y = (int)mY + mInitialAttackCollisionRectY;
+            }
+        }
+
         public virtual void update(GameTime gameTime)
         {
             //mCurrentSprite.setLocation(mX, mY);
@@ -184,7 +210,8 @@ namespace ColorLand
                 mCurrentSprite.update();
                 mCurrentSprite.setX(mX);
                 mCurrentSprite.setY(mY);
-                updateCollisionRectLocation((int)mX, (int)mY);
+                updateCollisionRectLocation((int)mX + mInitialCollisionRectX, (int)mY + mInitialCollisionRectY);
+                updateAttackCollisionRectLocation();
             }
             //}
         }
@@ -225,6 +252,13 @@ namespace ColorLand
                 {
                     //mCurrentSprite.draw(spriteBatch, angle);
                     mCurrentSprite.draw(spriteBatch);
+
+                    if (mCollisionTexture != null)
+                    {
+                        spriteBatch.Draw(mCollisionTexture, getCollisionRect(), new Color(0, 0, 0, 0.5f));
+
+                        spriteBatch.Draw(mCollisionTexture, getAttackRectangle(), new Color(0, 0, 0, 0.9f));
+                    }
                 }
                 else
                 {
@@ -241,6 +275,12 @@ namespace ColorLand
                 {
                     //mCurrentSprite.draw(spriteBatch, angle);
                     mCurrentSprite.draw(spriteBatch,color);
+
+                    if (mCollisionTexture != null)
+                    {
+                        spriteBatch.Draw(mCollisionTexture, getCollisionRect(), new Color(0, 0, 0, 0.5f));
+                        spriteBatch.Draw(mCollisionTexture, getAttackRectangle(), new Color(0, 0, 0, 0.9f));
+                    }
                 }
                 else
                 {
@@ -464,6 +504,8 @@ namespace ColorLand
         public void setAttackRectangle(int x, int y, int width, int height)
         {
             mAttackCollisionRect = new Rectangle(x, y, width, height);
+            mInitialAttackCollisionRectX = x;
+            mInitialAttackCollisionRectY = y;
         }
 
         public void setAttackRectangle(Rectangle r)
@@ -550,6 +592,16 @@ namespace ColorLand
             RIGHT,
             UP,
             DOWN
+        }
+
+        public void showCollisionRect()
+        {
+            mCollisionTexture = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("fades\\blackfade");
+        }
+
+        public Vector2 getInitialCollisionDimension()
+        {
+            return new Vector2(mInitialCollisionRectX,mInitialCollisionRectY);
         }
 
     }
