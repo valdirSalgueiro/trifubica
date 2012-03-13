@@ -600,6 +600,7 @@ namespace ColorLand
             int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
 
             HUD.getInstance().setPlayerBarLevel(novoValor);
+            pulse = (int) (porcentagemRestante * 128 / 100.0f);
 
         }
 
