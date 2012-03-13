@@ -16,6 +16,7 @@ namespace ColorLand
         //player energy
         //coin icon
         //coin level
+        private const String cSOUND_COLOR = "sound\\fx\\colorswap8bit";
 
         private Texture2D mTextureHudBG;
         private Texture2D mTexturePlayerHead;
@@ -108,6 +109,9 @@ namespace ColorLand
             mTextureBarEnergy = contentManager.Load<Texture2D>("gameplay\\hud\\hud_pbar_progress");
 
             mTextureHudBG = contentManager.Load<Texture2D>("gameplay\\hud\\hud_bg");
+
+            SoundManager.LoadSound(cSOUND_COLOR);
+              
         }
 
         public void update(GameTime gameTime)
@@ -163,6 +167,7 @@ namespace ColorLand
                         {
                             cursor.changeColor(Color.Red);
                             //play sound
+                            SoundManager.PlaySound(cSOUND_COLOR);
                         }
                     }else
                     if (mCurrentHighlightButton == mButtonGreen)
@@ -170,7 +175,7 @@ namespace ColorLand
                         if (cursor.getColor() != Color.Green)
                         {
                             cursor.changeColor(Color.Green);
-                            //play sound
+                            SoundManager.PlaySound(cSOUND_COLOR);
                         }
                     }else
                     if (mCurrentHighlightButton == mButtonBlue)
@@ -178,7 +183,7 @@ namespace ColorLand
                         if (cursor.getColor() != Color.Blue)
                         {
                             cursor.changeColor(Color.Blue);
-                            //play sound
+                            SoundManager.PlaySound(cSOUND_COLOR);
                         }
                     }
                 }

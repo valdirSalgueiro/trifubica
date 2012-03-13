@@ -125,5 +125,17 @@ namespace ColorLand
             MediaPlayer.Volume = volume;
         }
 
+        public static bool isPlaying()
+        {
+            return MediaPlayer.State == MediaState.Playing;
+        }
+        public static void stopMusic()
+        {
+            if (isPlaying())
+            {
+                MediaPlayer.Stop();
+            }
+        }
+
     }
 }
