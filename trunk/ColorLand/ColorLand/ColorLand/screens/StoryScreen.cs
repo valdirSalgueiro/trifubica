@@ -85,7 +85,7 @@ namespace ColorLand
              
             restartTimer();
 
-            mButtonNext = new Button("mainmenu\\buttons\\next", "mainmenu\\buttons\\next_select", "mainmenu\\buttons\\next_selected", new Rectangle(650, 20, 160, 192));
+            mButtonNext = new Button("mainmenu\\buttons\\next", "mainmenu\\buttons\\next_select", "mainmenu\\buttons\\next_selected", new Rectangle(650, 10, 160, 192));
             mButtonNext.loadContent(Game1.getInstance().getScreenManager().getContent());
 
             mCursor = new Cursor();
@@ -97,13 +97,13 @@ namespace ColorLand
         {
             mCurrentIndex++;
 
-            mPastTexture = mCurrentTexture;
+            //mPastTexture = mCurrentTexture;
             if (mCurrentIndex < mImages.Length)
             {
                 mCurrentTexture = mImages[mCurrentIndex];
                 if (mPastTexture != null)
                 {
-                    mPastTexture.Dispose();
+                    //mPastTexture.Dispose();
                 }
                 mPastTexture = null;
             }

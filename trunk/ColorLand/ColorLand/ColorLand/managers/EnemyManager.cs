@@ -11,12 +11,22 @@ namespace ColorLand
 {
     public class EnemyManager
     {
-        private int mMaxEnemiesPerScreen = 5;
-        private const int cTIME_BETWEEN_ENEMIES = 1;
+        private int mMaxEnemiesPerScreen = 4;
+        private int cTIME_BETWEEN_ENEMIES = 5;
         private List<BaseEnemy> mList;
         private GameObjectsGroup<BaseEnemy> mGroup;
         private int mCurrentIndex = -1;
         private MTimer mTimer;
+
+        public void accelerateTime()
+        {
+            cTIME_BETWEEN_ENEMIES = 5;
+        }
+
+        public void slowDownTime()
+        {
+            cTIME_BETWEEN_ENEMIES = 2;
+        }
 
         public enum EnemiesTypes
         {

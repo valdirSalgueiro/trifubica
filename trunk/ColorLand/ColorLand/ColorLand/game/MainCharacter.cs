@@ -177,7 +177,6 @@ namespace ColorLand
             }
             updateJump();
             
-
         }
         
         private void updateJump(){
@@ -344,6 +343,11 @@ namespace ColorLand
 
                 if (newState.IsKeyDown(Keys.Left) || newState.IsKeyDown(Keys.A))
                 {
+                    if (mX <= 0)
+                    {
+                        mX = 0;
+                    }
+                 
                     moveLeft(8);
                     setDirection(Direction.LEFT);
                     mWalking = true;
@@ -354,6 +358,11 @@ namespace ColorLand
                         moveRight(8);
                         setDirection(Direction.RIGHT);
                         mWalking = true;
+
+                        if (mX >= 600)
+                        {
+                            mX = 600;
+                        }
                     }
                     else
                     {
