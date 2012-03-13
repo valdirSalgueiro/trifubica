@@ -73,7 +73,7 @@ namespace ColorLand
 
            setCollisionRect(90,90,111,110);
 
-           pos = origin;
+           oldPosition = spritePos = pos = origin;
            //pos = new Vector2(0, 0);
         }
 
