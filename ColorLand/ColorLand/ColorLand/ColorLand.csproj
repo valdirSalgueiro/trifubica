@@ -81,7 +81,7 @@
     <Compile Include="base\GameObjectsGroup.cs" />
     <Compile Include="base\PaperObject.cs" />
     <Compile Include="base\Sprite.cs" />
-    <Compile Include="game\BaseEnemy.cs" />
+    <Compile Include="game\hud\BaseEnemy.cs" />
     <Compile Include="game\ColorChoiceBar.cs" />
     <Compile Include="game\Collectable.cs" />
     <Compile Include="game\enemies\Explosion.cs" />

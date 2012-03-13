@@ -37,6 +37,12 @@ namespace ColorLand
         private Rectangle mRectangleExhibitionTexture;
         //private SoundEffect[] mSound;
 
+        private Button mButtonNext;
+        private Button mCurrentHighlightButton;
+
+        private Cursor mCursor;
+        private bool mMousePressing;
+
 
         public StoryScreen()
         {
@@ -78,6 +84,12 @@ namespace ColorLand
             }
              
             restartTimer();
+
+            mButtonNext = new Button("mainmenu\\buttons\\next", "mainmenu\\buttons\\next_select", "mainmenu\\buttons\\next_selected", new Rectangle(650, 20, 160, 192));
+            mButtonNext.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+            mCursor = new Cursor();
+            mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
         }
 
@@ -162,7 +174,17 @@ namespace ColorLand
 
         public override void update(GameTime gameTime)
         {
+            mCursor.update(gameTime);
             updateTimer(gameTime);
+            mButtonNext.update(gameTime);
+            updateMouseInput();
+            checkCollisions();
+
+            KeyboardState newState = Keyboard.GetState();
+            if (newState.IsKeyDown(Keys.Escape) || newState.IsKeyDown(Keys.Enter))
+            {
+                goToGameScreen();
+            }
         }
 
         public override void draw(GameTime gameTime)
@@ -173,7 +195,86 @@ namespace ColorLand
             {
                 mSpriteBatch.Draw(mCurrentTexture, mRectangleExhibitionTexture, Color.White);
             }
+            mButtonNext.draw(mSpriteBatch);
+            mCursor.draw(mSpriteBatch);
             mSpriteBatch.End();
+        }
+
+        private void updateMouseInput()
+        {
+
+
+            MouseState ms = Mouse.GetState();
+
+            if (ms.LeftButton == ButtonState.Pressed)
+            {
+                mMousePressing = true;
+            }
+            else
+            {
+                if (mCurrentHighlightButton != null)
+                {
+
+                    if (mMousePressing)
+                    {
+                        processButtonAction(mCurrentHighlightButton);
+                    }
+
+                }
+
+                mMousePressing = false;
+            }
+
+            //dispara evento
+
+        }
+
+        private void checkCollisions()
+        {
+
+            if (mButtonNext.collidesWith(mCursor))
+            {
+                mCurrentHighlightButton = mButtonNext;
+
+                if (mMousePressing)
+                {
+                    if (mCurrentHighlightButton.getState() != Button.sSTATE_PRESSED)
+                    {
+                        mCurrentHighlightButton.changeState(Button.sSTATE_PRESSED);
+                    }
+                }
+                else
+                {
+
+                    if (mCurrentHighlightButton.getState() != Button.sSTATE_HIGHLIGH)
+                    {
+                        mCurrentHighlightButton.changeState(Button.sSTATE_HIGHLIGH);
+                    }
+
+                }
+
+            }
+            else
+            {
+                if (mCurrentHighlightButton != null)// && mCurrentHighlightButton.getState() != Button.sSTATE_PRESSED)
+                {
+                    mCurrentHighlightButton.changeState(Button.sSTATE_NORMAL);
+                }
+                mCurrentHighlightButton = null;
+            }
+
+        }
+
+        private void processButtonAction(Button button)
+        {
+            
+            if (button == mButtonNext)
+            {
+
+                goToGameScreen();
+            }
+
+
         }
 
     }
