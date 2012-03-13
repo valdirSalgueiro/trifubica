@@ -55,8 +55,8 @@ namespace ColorLand
             mSpriteBatch = new SpriteBatch(GraphicsDevice);
 
             //changeScreen(SCREEN_ID_MAIN_MENU_HELP, false);
-            //changeScreen(SCREEN_ID_LOGOS_SCREEN, false);
-            changeScreen(SCREEN_ID_GAMEPLAY, false);
+            changeScreen(SCREEN_ID_LOGOS_SCREEN, false);
+            //changeScreen(SCREEN_ID_GAMEPLAY, false);
             //changeScreen(SCREEN_ID_MAIN_MENU, false);
             //changeScreen(SCREEN_ID_MAIN_MENU_SETTINGS_SCREEN, false);
             //changeScreen(SCREEN_ID_HISTORY, false);
