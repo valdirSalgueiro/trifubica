@@ -156,8 +156,8 @@ namespace ColorLand
 
             loadWorld1(sWORLD_1);
 
-            setGameState(GAME_STATE_EM_JOGO);
-            //setGameState(GAME_STATE_PREPARANDO);
+            //setGameState(GAME_STATE_EM_JOGO);
+            setGameState(GAME_STATE_PREPARANDO);
 
 
             mKeyboard = KeyboardManager.getInstance();
@@ -228,11 +228,25 @@ namespace ColorLand
                     mExplosionManager.addExplosion(5, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
                    // mManager.addEnemy(new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED), new Vector2(300, 320));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-100, -70));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(900, 10));
-                    //mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(2000, -20));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(-300, 430));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(-600, 430));
+                    mManager.accelerateTime();
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-100, -70));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(1000, 140));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(1000, 430));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(1100, -70));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(1000, 430));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-160, 100));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(1100, 140));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(1100, 140));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(1100, 140));
+                    
+                //mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(2000, -20));
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-600, -20));
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(-300, 400));
-                    //mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(1000, 140));
+                    //
                         
                 //mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(10, 10));
                     
@@ -258,7 +272,9 @@ namespace ColorLand
                      * mColorChoiceBar = new ColorChoiceBar();
                         mColorChoiceBar.loadContent(Game1.getInstance().getScreenManager().getContent());
                         mColorChoiceBar.setCenter(200, 200);*/
-                    
+
+                    mCursor.changeColor(Color.Blue);
+
                     break;
 
             }

@@ -36,7 +36,7 @@ namespace ColorLand
 
         private static Timer mTimer;
 
-        private const int cMAX_BG_COUNTER = 3;
+        private const int cMAX_BG_COUNTER = 2;
         private int mBackgroundCounter;
         
 
@@ -44,16 +44,15 @@ namespace ColorLand
         {
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
-            mBackgroundTeamImagineCup = new Background("gameplay\\backgrounds\\bgteste");
+            mBackgroundTeamImagineCup = new Background("logos\\imaginecup_bg");
             mBackgroundTeamImagineCup.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mBackgroundTeamLogo = new Background("test\\0009");
+            mBackgroundTeamLogo = new Background("logos\\chihuahuagameslogo");
             mBackgroundTeamLogo.loadContent(Game1.getInstance().getScreenManager().getContent());
 
             mList.Add(mBackgroundTeamImagineCup);
             mList.Add(mBackgroundTeamLogo);
-            mList.Add(mBackgroundTeamImagineCup);
-
+            
             mCurrentBackground = mList.ElementAt(0);
 
             mFadeIn = new Fade(this, "fades\\blackfade");
@@ -65,7 +64,7 @@ namespace ColorLand
 
         private void nextBackground()
         {
-            Console.WriteLine("FUNCIONOU!!!!");
+            //Console.WriteLine("FUNCIONOU!!!!");
         }
 
         public override void update(GameTime gameTime)
@@ -99,7 +98,7 @@ namespace ColorLand
         public override void fadeFinished(Fade fadeObject)
         {
             if(fadeObject.getEffect() == Fade.sFADE_IN_EFFECT_GRADATIVE){
-                restartTimer(3);
+                restartTimer(2);
             }else
             if (fadeObject.getEffect() == Fade.sFADE_OUT_EFFECT_GRADATIVE)
             {
@@ -107,11 +106,11 @@ namespace ColorLand
                 if (mBackgroundCounter < cMAX_BG_COUNTER)
                 {
                     mCurrentBackground = mList.ElementAt(mBackgroundCounter);
-                    restartTimer(3);
+                    restartTimer(2);
                 }
                 else
                 {
-                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, false);
+                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
                 }
 
             }
