@@ -63,7 +63,7 @@ namespace ColorLand
 
             changeToSprite(sSTATE_WALKING);
 
-            setCollisionRect(101,187, 374, 155);
+            setCollisionRect(0,0, 100, 100);
             setLocation(origin);
 
 

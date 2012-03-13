@@ -70,9 +70,13 @@ namespace ColorLand
                             182,
                             27);
 
-            mButtonRed = new Button("gameplay\\hud\\hud_vermelho", "gameplay\\hud\\hud_vermelho_selected", "gameplay\\hud\\hud_vermelho_selected", new Rectangle(534, 556 - 10, 63, 76));
-            mButtonGreen = new Button("gameplay\\hud\\hud_verde", "gameplay\\hud\\hud_verde_selected", "gameplay\\hud\\hud_verde_selected", new Rectangle(594, 536 - 10, 63, 76));
-            mButtonBlue = new Button("gameplay\\hud\\hud_azul", "gameplay\\hud\\hud_azul_selected", "gameplay\\hud\\hud_azul_selected", new Rectangle(659, 560 - 10, 63, 76));
+            mButtonRed = new Button("gameplay\\hud\\hud_vermelho", "gameplay\\hud\\hud_vermelho_selected", "gameplay\\hud\\hud_vermelho_selected", new Rectangle(534, 556 - 30, 63, 76));
+            mButtonGreen = new Button("gameplay\\hud\\hud_verde", "gameplay\\hud\\hud_verde_selected", "gameplay\\hud\\hud_verde_selected", new Rectangle(594, 536 - 30, 63, 76));
+            mButtonBlue = new Button("gameplay\\hud\\hud_azul", "gameplay\\hud\\hud_azul_selected", "gameplay\\hud\\hud_azul_selected", new Rectangle(659, 560 - 30, 63, 76));
+
+            mButtonRed.setCollisionRect(11, 22, 40, 40);
+            mButtonGreen.setCollisionRect(11, 22, 40, 40);
+            mButtonBlue.setCollisionRect(11, 22, 40, 40);
 
             mGroupButtons = new GameObjectsGroup<Button>();
             mGroupButtons.addGameObject(mButtonRed);
@@ -109,7 +113,7 @@ namespace ColorLand
         public void update(GameTime gameTime)
         {
             mGroupButtons.update(gameTime);
-            checkCollisions();
+            //checkCollisions();
         }
 
         public void draw(SpriteBatch spriteBatch)
@@ -142,8 +146,47 @@ namespace ColorLand
             mRectBarEnergy.Width = value;
         }
 
-        private void checkCollisions()
+        //the hud is an exception. THe checkcollision method must be called by GamePlayScreen class.
+        public void checkCollisions(Cursor cursor, bool mousePressing)
         {
+            if (mGroupButtons.checkCollisionWith(cursor))
+            {
+                mCurrentHighlightButton = (Button)mGroupButtons.getCollidedObject();
+
+                Game1.print(" XOE");
+
+                if (mousePressing)
+                {
+                    if (mCurrentHighlightButton == mButtonRed)
+                    {
+                        if (cursor.getColor() != Color.Red)
+                        {
+                            cursor.changeColor(Color.Red);
+                            //play sound
+                        }
+                    }else
+                    if (mCurrentHighlightButton == mButtonGreen)
+                    {
+                        if (cursor.getColor() != Color.Green)
+                        {
+                            cursor.changeColor(Color.Green);
+                            //play sound
+                        }
+                    }else
+                    if (mCurrentHighlightButton == mButtonBlue)
+                    {
+                        if (cursor.getColor() != Color.Blue)
+                        {
+                            cursor.changeColor(Color.Blue);
+                            //play sound
+                        }
+                    }
+                }
+
+
+            }
+
+
             //if (mGroupButtons.checkCollisionWith(mCursor))
             //{
             //    mCurrentHighlightButton = (Button)mGroupButtons.getCollidedObject();

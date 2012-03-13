@@ -11,8 +11,8 @@ namespace ColorLand
 {
     public class EnemyManager
     {
-        private int mMaxEnemiesPerScreen = 1;
-        private const int cTIME_BETWEEN_ENEMIES = 2;
+        private int mMaxEnemiesPerScreen = 5;
+        private const int cTIME_BETWEEN_ENEMIES = 1;
         private List<BaseEnemy> mList;
         private GameObjectsGroup<BaseEnemy> mGroup;
         private int mCurrentIndex = -1;
@@ -55,6 +55,11 @@ namespace ColorLand
 
             enemy.setLocation(location);
             mList.Add(enemy);
+        }
+
+        public int getTotalEnemies()
+        {
+            return mList.Count;
         }
 
         public void loadContent(ContentManager content)
@@ -187,7 +192,7 @@ namespace ColorLand
 
             if (indexCondenado != -1)
             {
-                Game1.print("GARBAGE COLLECTION HAS CLEANED");
+                //Game1.print("GARBAGE COLLECTION HAS CLEANED");
                 mGroup.remove(indexCondenado);
             }
         }
@@ -204,7 +209,7 @@ namespace ColorLand
 
         public bool enemiesAreOver()
         {
-            Game1.print("SIZE: " + mGroup.getSize() + "  INDEX: " + mCurrentIndex +  " C: " +  mList.Count);
+            //Game1.print("SIZE: " + mGroup.getSize() + "  INDEX: " + mCurrentIndex +  " C: " +  mList.Count);
             if (mGroup.getSize() == 0 && mCurrentIndex >= mList.Count - 1)
             {
                 return true;

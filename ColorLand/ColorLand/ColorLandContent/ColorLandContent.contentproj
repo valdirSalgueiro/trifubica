@@ -60,6 +60,7 @@
   <ItemGroup>
     <Folder Include="gameplay\backgrounds\stage1_2\" />
     <Folder Include="gameplay\backgrounds\stage1_3\" />
+    <Folder Include="gameplay\collectable\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gameplay\cursors\cursorblue.png">
@@ -3472,6 +3473,108 @@
     </Compile>
     <Compile Include="gameplay\hud\hud_vermelho_selected.png">
       <Name>hud_vermelho_selected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="story\Imagem_01_pos.png">
+      <Name>Imagem_01_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_02_pos.png">
+      <Name>Imagem_02_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_03_pos.png">
+      <Name>Imagem_03_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_04_pos.png">
+      <Name>Imagem_04_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_05_pos.png">
+      <Name>Imagem_05_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_06_pos.png">
+      <Name>Imagem_06_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_07_pos.png">
+      <Name>Imagem_07_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_08_pos.png">
+      <Name>Imagem_08_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_09_pos.png">
+      <Name>Imagem_09_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_10_pos.png">
+      <Name>Imagem_10_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_11_pos.png">
+      <Name>Imagem_11_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_12_pos.png">
+      <Name>Imagem_12_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_13_pos.png">
+      <Name>Imagem_13_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_14_pos.png">
+      <Name>Imagem_14_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_15_pos.png">
+      <Name>Imagem_15_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_16_pos.png">
+      <Name>Imagem_16_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_17_pos.png">
+      <Name>Imagem_17_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_18_pos.png">
+      <Name>Imagem_18_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_19_pos.png">
+      <Name>Imagem_19_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="story\Imagem_20_pos.png">
+      <Name>Imagem_20_pos</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

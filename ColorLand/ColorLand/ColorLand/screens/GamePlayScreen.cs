@@ -65,6 +65,8 @@ namespace ColorLand
         String mUniversalTEXT;
         String mUniversalTEXT2;
 
+        private bool mMousePressing;
+
 
         private MTimer mTimerMessages = new MTimer();
         //private Timer mTimerSucesso = new Timer();
@@ -114,6 +116,8 @@ namespace ColorLand
 
         private static Timer mTimer;
 
+        private MTimer mEndStageTimer;
+
         Explosion mExplosion;
         private ExplosionManager mExplosionManager;
 
@@ -121,6 +125,7 @@ namespace ColorLand
         private EnemyManager mManager = new EnemyManager();
 
         private float porcentagemRestante=0.0f;
+
 
 
         public void manageColorCount()
@@ -142,7 +147,7 @@ namespace ColorLand
 
         public GamePlayScreen()
         {
-            
+            mTimer = null;
            // mGameState = GAME_STATE_PREPARANDO;
             mGameState = GAME_STATE_SUCESSO;
 
@@ -150,8 +155,8 @@ namespace ColorLand
 
             loadWorld1(sWORLD_1);
 
-            //setGameState(GAME_STATE_EM_JOGO);
-            setGameState(GAME_STATE_PREPARANDO);
+            setGameState(GAME_STATE_EM_JOGO);
+            //setGameState(GAME_STATE_PREPARANDO);
 
 
             mKeyboard = KeyboardManager.getInstance();
@@ -205,10 +210,7 @@ namespace ColorLand
                     mGroup.addGameObject(new EnemyArc(Color.Blue));
                     mGroup.loadContent(Game1.getInstance().getScreenManager().getContent());
                     */
-                    /*for (int x = 0; x < mGroup.getSize(); x++)
-                    {
-                        mGroupCollectables.addGameObject(new Collectable(Collectable.CollectableType.StagePiece));
-                    }*/
+                 
 
                     mGroupCollectables.loadContent(Game1.getInstance().getScreenManager().getContent());
 
@@ -217,18 +219,6 @@ namespace ColorLand
                     mCursor.changeColor(Color.Green);
                     mCursor.setCenter(20, 20);
 
-                    EnemySimpleShooting mTestEnemy3;
-                    EnemyArc mTestEnemy4;
-
-                    mTestEnemy3 = new EnemySimpleShooting(BaseEnemy.sTYPE_SIMPLE_FLYING_RED);
-                    mTestEnemy3.loadContent(Game1.getInstance().getScreenManager().getContent());
-                    mTestEnemy3.setCenter(100, 100);
-
-                    mTestEnemy4 = new EnemyArc(Color.Blue);
-                    mTestEnemy4.loadContent(Game1.getInstance().getScreenManager().getContent());
-                    mTestEnemy4.setCenter(100, 100);
-
-                    
                     HUD.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
 
                     mExplosionManager = new ExplosionManager();
@@ -237,10 +227,15 @@ namespace ColorLand
                     mExplosionManager.addExplosion(5, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
                    // mManager.addEnemy(new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED), new Vector2(300, 320));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(10, 10));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(10, 10));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(900, 10));
+                    //mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(2000, -20));
+                    //mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-600, -20));
+                    //mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(-300, 400));
+                    //mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(1000, 140));
+                        
+                //mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(10, 10));
                     
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(300, 320));
+                    //mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(300, 320));
                     /*mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Green, new Vector2(200, 320));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(340, 320));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(0, 320));
@@ -248,9 +243,14 @@ namespace ColorLand
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(900, 320));
                     */
  
-
+                     
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mManager.start();
+
+                    /*for (int x = 0; x < mManager.getTotalEnemies(); x++)
+                    {
+                        mGroupCollectables.addGameObject(new Collectable(Collectable.CollectableType.StagePiece));
+                    }*/
                     //mCamera.zoomIn(2.4f);
 
                     /*
@@ -274,10 +274,15 @@ namespace ColorLand
         }
 
 
-        
+        private void startManualTimer()
+        {
+            mEndStageTimer = new MTimer();
+            mEndStageTimer.start();
+        }
 
         private void updateTimers()
         {
+            /*
             //mTimerMessages alerts
             if (mTimerMessages.isActive())
             {
@@ -305,43 +310,58 @@ namespace ColorLand
                         //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, false);
                     }
                 }
-            }
+            }*/
 
         }
 
 
         private void checkCollisions()
         {
-            if (mCursor.collidesWith(mMainCharacter))
-            { 
-                //Console.WriteLine("COLIDIU");
-                //unloadWorld1();
+            HUD.getInstance().checkCollisions(mCursor, mMousePressing);
+
+            if (mManager.checkCollision(mMainCharacter))
+            {
+                BaseEnemy be = mManager.getGameObjectsGroup().getCollidedObject();
+
+                if (be is Bako)
+                {
+                    int x = (int)be.getX();
+                    int y = (int)be.getY();
+                    mExplosionManager.getNextOfColor(be.getColor()).explode(be.getCenter());
+                    be.destroy();
+                    incrementProgress();
+                    damage();
+                }
             }
 
             if (mManager.checkCollision(mCursor))
-            {
-
+            {   
                 BaseEnemy be = mManager.getGameObjectsGroup().getCollidedObject();
                 //mExplosionManager.getNextOfColor().explode((int)be.getX(), (int)be.getY());
-                int x = (int)be.getX();
-                int y = (int)be.getY();
-                mExplosionManager.getNextOfColor(be.getColor()).explode(be.getCenter());
-                be.destroy();
+
+                if (be.getColor() == mCursor.getColor())
+                {
+                    int x = (int)be.getX();
+                    int y = (int)be.getY();
+                    mExplosionManager.getNextOfColor(be.getColor()).explode(be.getCenter());
+                    be.destroy();
+                    incrementProgress();
+
+                    //Collectable c = mGroupCollectables.getNext();
+                    //c.appear(x, y);
+                }
                 //mGroup.remove(be);
 
-                //Collectable c = mGroupCollectables.getNext();
-                //c.appear(x, y);
+                
                 
             }
 
             if (mManager.checkAttackCollision(mMainCharacter))
             {
-                Game1.print("AFE... bateu ````````````````````````````````````````````````````````````````````````````````````");
                 if (!mMainCharacter.isHurt())
                 {
                     mMainCharacter.hurt();
-
-                   
+                    damage();
                 }
 
             }
@@ -352,8 +372,11 @@ namespace ColorLand
 
         private void checkGameOverCondition()
         {
-            if (mMainCharacter.getData().getEnergy() == 0)
+            //if (mMainCharacter.getData().getEnergy() == 0)
+            if (energy == 0)
             {
+                setGameState(GAME_STATE_DERROTA);
+
                 //mGameState = GAME_STATE_DERROTA;
             }
 
@@ -363,7 +386,8 @@ namespace ColorLand
         {
             if (mManager.enemiesAreOver())
             {
-                Game1.print("FINISH. YOU WIN");
+                //Game1.print("FINISH. YOU WIN");
+                setGameState(GAME_STATE_SUCESSO);
             }
         }
 
@@ -377,24 +401,41 @@ namespace ColorLand
         private void setGameState(int gameState)
         {
 
-            mGameState = gameState;
-            Game1.print("JOGO");
-            switch (gameState)
-            {
+            //if (mGameState != gameState)
+           // {
+                mGameState = gameState;
 
-                case GAME_STATE_PREPARANDO:
-                    SoundManager.PlayMusic(cMUSIC_BEGIN, false);
-                    mCamera.setZoom(1.4f);
-                    mFlagTimer = FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START;
-                    restartTimer(5);
-             
-                    break;
+                switch (gameState)
+                {
 
-                case GAME_STATE_EM_JOGO:
-                    SoundManager.PlayMusic(cMUSIC_STAGE11, true);
-                    break;
+                    case GAME_STATE_PREPARANDO:
+                        SoundManager.PlayMusic(cMUSIC_BEGIN, false);
+                        mCamera.setZoom(1.4f);
+                        mFlagTimer = FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START;
+                        restartTimer(5);
 
-            }
+                        break;
+
+                    case GAME_STATE_EM_JOGO:
+                        SoundManager.PlayMusic(cMUSIC_STAGE11, true);
+                        break;
+
+                    case GAME_STATE_DERROTA:
+                        SoundManager.PlayMusic(cMUSIC_LOSE, false);
+                        mMainCharacter.changeState(MainCharacter.sSTATE_LOSE);
+                        mCursor.setLocation(0, 1000);
+                        startManualTimer();
+                        break;
+
+                    case GAME_STATE_SUCESSO:
+                        SoundManager.PlayMusic(cMUSIC_WIN, false);
+                        mMainCharacter.changeState(MainCharacter.sSTATE_VICTORY);
+                        mCursor.setLocation(0, 1000);
+                        startManualTimer();
+                        break;
+                }
+           // }
+
 
         }
         public override void update(GameTime gameTime)
@@ -440,6 +481,60 @@ namespace ColorLand
 
                         mManager.update(gameTime);
 
+                        break;
+
+                    case GAME_STATE_DERROTA:
+
+                        if (mEndStageTimer != null)
+                        {
+                            mEndStageTimer.update(gameTime);
+
+                            if (mEndStageTimer.getTimeAndLock(5))
+                            {
+                                //Game1.print("AE");
+                                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
+                                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
+                            }
+                        }
+
+                        mBackgroundBack.update();
+                        mBackgroundFront.update();
+                        mGroupCollectables.update(gameTime);
+                        mMainCharacter.update(gameTime);
+                        mMainCharacter.setVisible(true);
+                        mExplosionManager.update(gameTime);
+                        mCursor.update(gameTime);
+                        //mManager.update(gameTime);
+                        mMainCharacter.update(gameTime);
+                        mMainCharacter.setCollisionRect(0, 0, 0, 0);
+                        mMainCharacter.setVisible(true);
+                        break;
+
+                    case GAME_STATE_SUCESSO:
+                        
+                        
+                        if (mEndStageTimer != null)
+                        {
+                            mEndStageTimer.update(gameTime);
+
+                            if (mEndStageTimer.getTimeAndLock(5))
+                            {
+                                //Game1.print("CABOSSE");
+                                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
+                            }
+                            else
+                            {
+                                mCamera.zoomIn(0.002f);
+                            }
+                        }
+
+                        mBackgroundBack.update();
+                        mBackgroundFront.update();
+                        mGroupCollectables.update(gameTime);
+                        mMainCharacter.update(gameTime);
+                        mMainCharacter.setVisible(true);
+                        mExplosionManager.update(gameTime);
+                        mCursor.update(gameTime);
                         break;
                 }
 
@@ -584,7 +679,7 @@ namespace ColorLand
 
         public void damage()
         {
-            energy -= 5;
+            energy -= 10;
 
             if (energy < 0)
                 energy = 0;
@@ -600,6 +695,7 @@ namespace ColorLand
 
         public void incrementProgress()
         {
+            numberEnemies = mManager.getTotalEnemies();
             if (progress < numberEnemies)
                 progress += 1;
 
@@ -669,23 +765,15 @@ namespace ColorLand
                 MouseState mouseState = Mouse.GetState();
                 if (mouseState.LeftButton == ButtonState.Pressed)
                 {
-                    //damage();
-                    //manageColorCount();
-                    //mBullet.goToXY(new Vector2(300, 300));
-                    //mCamera.centerCamTo(100, 100);
-
-                    Explosion e = mExplosionManager.getNextOfColor(Color.Red);
-                    if (e != null)
-                    {
-                        //mExplosionManager.getNextOfColor().explode(mouseState.X, mouseState.Y);
-                    }
-                    //Game1.print("oxe");
-                    mCursor.nextColor();
-
+                    mMousePressing = true;
+                }
+                else
+                {
+                    mMousePressing = false;
                 }
 
                 KeyboardState newState = Keyboard.GetState();
-
+                /*
                 if (newState.IsKeyDown(Keys.Down))
                 {
                     pulse--;
@@ -696,7 +784,7 @@ namespace ColorLand
                 {
                     pulse++;
                     mCamera.zoomIn(0.1f);
-                }
+                }*/
 
                 /*if (newState.IsKeyDown(Keys.Space))
                 {
@@ -708,8 +796,8 @@ namespace ColorLand
                     // If not down last update, key has just been pressed.
                     if (!oldState.IsKeyDown(Keys.Space))
                     {
-                        incrementProgress();
-                        damage();
+                        //incrementProgress();
+                        //damage();
                     }
                 }
 

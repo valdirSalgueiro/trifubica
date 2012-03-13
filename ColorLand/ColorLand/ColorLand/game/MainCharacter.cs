@@ -321,7 +321,7 @@ namespace ColorLand
                     if (!oldState.IsKeyDown(Keys.Space))
                     {
                         //Jump();
-                        changeState(sSTATE_VICTORY);
+                        //changeState(sSTATE_VICTORY);
                     }
                 }else
                     if (newState.IsKeyDown(Keys.Enter))
@@ -330,7 +330,7 @@ namespace ColorLand
                         if (!oldState.IsKeyDown(Keys.Enter))
                         {
                             //Jump();
-                            changeState(sSTATE_LOSE);
+                            //changeState(sSTATE_LOSE);
                         }
                     }
                 else if (oldState.IsKeyDown(Keys.Space))
@@ -342,14 +342,14 @@ namespace ColorLand
                 // Update saved state.
                 oldState = newState;
 
-                if (newState.IsKeyDown(Keys.Left))
+                if (newState.IsKeyDown(Keys.Left) || newState.IsKeyDown(Keys.A))
                 {
                     moveLeft(8);
                     setDirection(Direction.LEFT);
                     mWalking = true;
                     
                 }else
-                    if (newState.IsKeyDown(Keys.Right))
+                    if (newState.IsKeyDown(Keys.Right) || newState.IsKeyDown(Keys.D))
                     {
                         moveRight(8);
                         setDirection(Direction.RIGHT);
