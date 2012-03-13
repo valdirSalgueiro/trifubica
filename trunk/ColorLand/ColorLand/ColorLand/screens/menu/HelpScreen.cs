@@ -12,8 +12,8 @@ namespace ColorLand
 {
     class HelpScreen : BaseScreen
     {
-        
 
+        private const String cSOUND_HIGHLIGHT = "sound\\fx\\highlight8bit";
         private SpriteBatch mSpriteBatch;
 
         //Lista dos backgrounds
@@ -81,6 +81,8 @@ namespace ColorLand
             mNext = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\buttons\\next_disabled");
             mPrevious = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\buttons\\previous_disabled");
             //mMenu = new MenuGrade();
+
+            SoundManager.LoadSound(cSOUND_HIGHLIGHT);
 
         }
 
@@ -181,15 +183,18 @@ namespace ColorLand
         {
             if (button == mButtonBack)
             {
+                SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                 Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU,false);
             }
 
             if (button == mButtonNext)
-            {                
+            {
+                
                 if (currentScreen == 3)
                     return;
                 else
                     currentScreen++;
+                SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                 mCurrentBackground = mList.ElementAt(currentScreen);
             }
 
@@ -200,6 +205,7 @@ namespace ColorLand
                     return;
                 else
                     currentScreen--;
+                SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                 mCurrentBackground = mList.ElementAt(currentScreen);
             }
            
