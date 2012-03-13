@@ -26,6 +26,7 @@ namespace ColorLand
         private const String cMUSIC_WIN = "sound\\music\\win";
         private const String cMUSIC_LOSE = "sound\\music\\loose";
 
+      
 
         /*******************
          * CONSTANTS
@@ -257,8 +258,7 @@ namespace ColorLand
                      * mColorChoiceBar = new ColorChoiceBar();
                         mColorChoiceBar.loadContent(Game1.getInstance().getScreenManager().getContent());
                         mColorChoiceBar.setCenter(200, 200);*/
-
-              
+                    
                     break;
 
             }

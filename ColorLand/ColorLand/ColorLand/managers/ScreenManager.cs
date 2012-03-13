@@ -56,8 +56,8 @@ namespace ColorLand
 
             //changeScreen(SCREEN_ID_MAIN_MENU_HELP, false);
             //changeScreen(SCREEN_ID_LOGOS_SCREEN, false);
-            changeScreen(SCREEN_ID_GAMEPLAY, false);
-            //changeScreen(SCREEN_ID_MAIN_MENU, false);
+            //changeScreen(SCREEN_ID_GAMEPLAY, false);
+            changeScreen(SCREEN_ID_MAIN_MENU, false);
             //changeScreen(SCREEN_ID_MAIN_MENU_SETTINGS_SCREEN, false);
             //changeScreen(SCREEN_ID_HISTORY, false);
         }
@@ -102,7 +102,6 @@ namespace ColorLand
                     break;
 
                 case SCREEN_ID_MAIN_MENU:
-                    SoundManager.PlayMusic("sound\\music\\theme");
                     mCurrentScreen = new MainMenuScreen();
                     break;
 

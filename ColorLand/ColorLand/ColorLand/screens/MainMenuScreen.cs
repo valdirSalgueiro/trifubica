@@ -12,7 +12,7 @@ namespace ColorLand
 {
     class MainMenuScreen : BaseScreen
     {
-
+        private const String cSOUND_HIGHLIGHT = "sound\\fx\\highlight8bit";
         private SpriteBatch mSpriteBatch;
 
         //Lista dos backgrounds
@@ -30,6 +30,7 @@ namespace ColorLand
         private bool mMousePressing;
 
 
+
         /***
          * BUTTONS
          * */
@@ -41,6 +42,10 @@ namespace ColorLand
 
         public MainMenuScreen()
         {
+            if (!SoundManager.isPlaying())
+            {
+                SoundManager.PlayMusic("sound\\music\\theme");
+            }
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
             mBackgroundImage = new Background("mainmenu\\mainmenubg");
@@ -67,8 +72,8 @@ namespace ColorLand
             //mButtonPlay.loadContent(Game1.getInstance().getScreenManager().getContent());
             //mButtonHelp.loadContent(Game1.getInstance().getScreenManager().getContent());
             //mButtonCredits.loadContent(Game1.getInstance().getScreenManager().getContent());            
-            
 
+            SoundManager.LoadSound(cSOUND_HIGHLIGHT);
             
         }
 
@@ -161,14 +166,18 @@ namespace ColorLand
         {
             if (button == mButtonPlay)
             {
-                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true);
+                SoundManager.PlaySound(cSOUND_HIGHLIGHT);
+                SoundManager.stopMusic();
+                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true);
             }
             else if (button == mButtonHelp)
             {
+                SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                 Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU_HELP, false);
             }
             else if (button == mButtonCredits)
             {
+                SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                 Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU_CREDITS, false);
             }
         }
