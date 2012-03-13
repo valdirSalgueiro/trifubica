@@ -11,9 +11,10 @@ namespace ColorLand
     public class BaseEnemy : GameObject {
 
         public const int sTYPE_SIMPLE_FLYING_RED = 0;
-        public const int sTYPE_SIMPLE_FLYING_BLUE = 1;
-        public const int sTYPE_SIMPLE_FLYING_GREEN = 2;
+        public const int sTYPE_SIMPLE_FLYING_GREEN = 1;
+        public const int sTYPE_SIMPLE_FLYING_BLUE = 2;
 
+        public const String cSOUND_EXPLOSION = "sound\\fx\\explosao8bit";
         private Color mColor;
         
         public BaseEnemy(Color color)
@@ -29,6 +30,7 @@ namespace ColorLand
 
         public override void loadContent(ContentManager content) {
             base.loadContent(content);
+            SoundManager.LoadSound(cSOUND_EXPLOSION);
         }
 
         public override void update(GameTime gameTime) {
@@ -71,6 +73,12 @@ namespace ColorLand
         public Color getColor()
         {
             return this.mColor;
+        }
+
+        public void destroy()
+        {
+            base.destroy();
+            SoundManager.PlaySound(cSOUND_EXPLOSION);
         }
 
     }

@@ -52,9 +52,9 @@ namespace ColorLand
 
             int size = 170;
             mSpriteNormal = new Sprite(1, "gameplay\\cursors\\cursor", new int[] { 0 }, 10, size, size);
-            mSpriteBlue = new Sprite(ExtraFunctions.fillArrayWithImages (14, "gameplay\\cursors\\cursor_blue"), new int[] { Sprite.sALL_FRAMES_IN_ORDER,14}, 2, 190, 190, false, false);
-            mSpriteGreen = new Sprite(ExtraFunctions.fillArrayWithImages(14, "gameplay\\cursors\\cursor_green"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 2, 190, 190, false, false);
-            mSpriteRed = new Sprite(ExtraFunctions.fillArrayWithImages  (14, "gameplay\\cursors\\cursor_red"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 2, 190, 190, false, false);
+            mSpriteBlue = new Sprite(ExtraFunctions.fillArrayWithImages(14, "gameplay\\cursors\\cursor_blue"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 2, 100, 100, false, false);
+            mSpriteGreen = new Sprite(ExtraFunctions.fillArrayWithImages(14, "gameplay\\cursors\\cursor_green"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 2, 100, 100, false, false);
+            mSpriteRed = new Sprite(ExtraFunctions.fillArrayWithImages(14, "gameplay\\cursors\\cursor_red"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 2, 100, 100, false, false);
             
             addSprite(mSpriteNormal, sSTATE_NORMAL);
             addSprite(mSpriteBlue,   sSTATE_BLUE);
@@ -63,7 +63,7 @@ namespace ColorLand
             
             changeToSprite(sSTATE_NORMAL);
 
-            setCollisionRect(30, 30);
+            setCollisionRect(20,20,60,60);
 
             for (int i = 0; i < tracers.Length; i++)
             {

@@ -11,6 +11,8 @@ namespace ColorLand
     class EnemyCrabCrab : BaseEnemy
     {
 
+        private const String cSOUND_PATADA = "sound\\fx\\patada8bit";
+
         //SpriteFont mFontDebug = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("debug");
 
         //INDEXES
@@ -74,6 +76,7 @@ namespace ColorLand
         public override void loadContent(ContentManager content)
         {
             base.loadContent(content);
+            SoundManager.LoadSound(cSOUND_PATADA);
         }
 
         public override void update(GameTime gameTime)
@@ -132,7 +135,15 @@ namespace ColorLand
             if(getState() == sSTATE_ATTACKING){
                 if (getCurrentSprite().getCurrentFrame() == 7)
                 {
-                    setAttackRectangle(140, 0, 135, 100);
+                    SoundManager.PlaySound(cSOUND_PATADA);
+                    if (getCurrentSprite().isFlipped())
+                    {
+                        setAttackRectangle(140, 0, 135, 100);
+                    }
+                    else
+                    {
+                        setAttackRectangle(140 - 135, 0, 135, 100);
+                    }
                 }
                 else
                 {
