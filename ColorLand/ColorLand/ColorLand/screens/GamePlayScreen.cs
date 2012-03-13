@@ -10,7 +10,7 @@ using System.IO.IsolatedStorage;
 using System.IO;
 using Microsoft.Xna.Framework.Input;
 //using Microsoft.Xna.Framework.Input.Touch;
-//using System.Timers;
+using System.Timers;
 
 
 namespace ColorLand
@@ -27,7 +27,7 @@ namespace ColorLand
         public static int sGROUND_WORLD_1_1 = 500;
 
         int energy = 0;
-        int numberEnemies = 4;
+        int numberEnemies = 40;
         int pulse = 0;
 
         //debug
@@ -105,7 +105,7 @@ namespace ColorLand
         private ColorChoiceBar mColorChoiceBar;
         private int mColorCount;
 
-        private static MTimer mTimer;
+        private static Timer mTimer;
 
         Explosion mExplosion;
         private ExplosionManager mExplosionManager;
@@ -163,7 +163,7 @@ namespace ColorLand
 
                     mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
-                    //desaturateEffect = Game1.getInstance().getScreenManager().getContent().Load<Effect>("effects\\desaturate");
+                    desaturateEffect = Game1.getInstance().getScreenManager().getContent().Load<Effect>("effects\\desaturate");
 
                     //mFontDebug = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("debug");
                     //mFontAlert = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("alerts");
@@ -188,7 +188,6 @@ namespace ColorLand
 
                     mBackgroundFront.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mBackgroundFront.setLocation(0, 0);
-                    mBackgroundFront.saturate(0.0f);
 
 
                     mMainCharacter = new MainCharacter(Color.Blue);
@@ -231,7 +230,9 @@ namespace ColorLand
                     mExplosionManager.addExplosion(5, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
                    // mManager.addEnemy(new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED), new Vector2(300, 320));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(100, 415));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(10, 10));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(10, 10));
+                    
                     /*mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(300, 320));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Green, new Vector2(200, 320));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(340, 320));
@@ -265,6 +266,41 @@ namespace ColorLand
             //executeFade(mFadeIn);
         }
 
+
+        
+
+        private void updateTimers()
+        {
+            //mTimerMessages alerts
+            if (mTimerMessages.isActive())
+            {
+                //mUniversalTEXT = "AE PORRA: " + mTimerMessages.getTimeInt();
+
+                if (mGameState == GAME_STATE_PREPARANDO)
+                {
+                    
+                }else
+                if (mGameState == GAME_STATE_SUCESSO)
+                {
+                    if (!mTimerMessages.isBusyForNumber(3) && mTimerMessages.getTimeInt() == 3)
+                    {
+                        //mUniversalTEXT = "AE PORRA: " + mTimerMessages.getTimeInt();
+                        mTimerMessages.setBusyWithNumber(3);
+                        //setGameState(GAME_STATE_PREPARANDO);
+                        //mTimerSucesso.stop();
+                        //nextWave();
+                    }
+                }else
+                if (mGameState == GAME_STATE_DERROTA)
+                {
+                    if (!mTimerMessages.isBusyForNumber(3) && mTimerMessages.getTimeInt() == 3)
+                    {
+                        //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, false);
+                    }
+                }
+            }
+
+        }
 
 
         private void checkCollisions()
@@ -343,7 +379,7 @@ namespace ColorLand
 
                     mCamera.setZoom(1.4f);
                     mFlagTimer = FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START;
-                    restartTimer(6);
+                    restartTimer(5);
              
                     break;
 
@@ -355,8 +391,6 @@ namespace ColorLand
             if (mCurrentWorld == sWORLD_1)
             {
                 mCamera.update();
-
-                updateTimer(gameTime);
 
                 switch (mGameState)
                 {
@@ -410,27 +444,32 @@ namespace ColorLand
             */
         }
 
-
-        private void restartTimer(int seconds)
+        private void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            mTimer = new MTimer();
-            mTimer.start();
-        }
+            mTimer.Stop();
+            mTimer.Enabled = false;
 
-        private void updateTimer(GameTime gameTime)
-        {
-            if (mTimer != null)
+            switch (mGameState)
             {
-                mTimer.update(gameTime);
+                case GAME_STATE_PREPARANDO:
 
-                if (mTimer.getTimeAndLock(6))
-                {
                     if (mFlagTimer == FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START)
                     {
                         this.setGameState(GAME_STATE_EM_JOGO);
                     }
-                }
+
+                    break;
             }
+
+            
+        }
+
+        private void restartTimer(int seconds)
+        {
+            mTimer = new Timer();
+            mTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            mTimer.Interval = seconds * 1000;
+            mTimer.Enabled = true;
         }
 
         public override void draw(GameTime gameTime)
@@ -438,7 +477,7 @@ namespace ColorLand
 
             if (mCurrentWorld == sWORLD_1)
             {
-                //drawDesaturation(gameTime,mBackgroundBack);
+                drawDesaturation(gameTime,mBackgroundBack);
 
                 //mSpriteBatch.Begin();
                 mSpriteBatch.Begin(
@@ -450,9 +489,7 @@ namespace ColorLand
                         null,
                         mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
 
-                
-                mBackgroundBack.draw(mSpriteBatch);
-
+                //mBackgroundBack.draw(mSpriteBatch);
 
                 mMainCharacter.draw(mSpriteBatch);
 
@@ -482,15 +519,13 @@ namespace ColorLand
 
 
                 //mSpriteBatch.DrawString(mFontDebug, ""+mUniversalTEXT, new Vector2(10, 100), Color.Red);
-                //mSpriteBatch.DrawString(mFontDebug, "" + mUniversalTEXT2, new Vector2(10, 140), Color.Red);       
-                
-                mBackgroundFront.draw(mSpriteBatch);
+                //mSpriteBatch.DrawString(mFontDebug, "" + mUniversalTEXT2, new Vector2(10, 140), Color.Red);
 
-
+               
 
                 mSpriteBatch.End();
 
-                //drawDesaturation(gameTime, mBackgroundFront);
+                drawDesaturation(gameTime, mBackgroundFront);
 
                 mSpriteBatch.Begin();
                 HUD.getInstance().draw(mSpriteBatch);
@@ -565,9 +600,6 @@ namespace ColorLand
             int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
 
             HUD.getInstance().setPlayerBarLevel(novoValor);
-
-            mBackgroundBack.saturate(porcentagemRestante);
-            mBackgroundFront.saturate(porcentagemRestante);
 
         }
 
