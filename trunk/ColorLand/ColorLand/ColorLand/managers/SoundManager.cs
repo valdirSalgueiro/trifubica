@@ -51,7 +51,10 @@ namespace ColorLand
         public static void LoadSound(string assetName)
         {
             //load the sound into our dictionary
-            sounds.Add(assetName, content.Load<SoundEffect>(assetName));
+            if (!sounds.ContainsKey(assetName))
+            {
+                sounds.Add(assetName, content.Load<SoundEffect>(assetName));
+            }
         }
 
 
@@ -73,7 +76,25 @@ namespace ColorLand
                 if (currentSong == null)
                     throw e;
             }
+            MediaPlayer.IsRepeating = false;
+            MediaPlayer.Play(currentSong);
+        }
 
+        public static void PlayMusic(string name, bool repeat)
+        {
+            currentSong = null;
+
+            try
+            {
+                currentSong = content.Load<Song>(name);
+            }
+            catch (Exception e)
+            {
+                //if we didn't find the song, rethrow the exception
+                if (currentSong == null)
+                    throw e;
+            }
+            MediaPlayer.IsRepeating = repeat;
             MediaPlayer.Play(currentSong);
         }
 
