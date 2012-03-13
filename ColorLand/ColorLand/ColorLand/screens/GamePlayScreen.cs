@@ -426,7 +426,7 @@ namespace ColorLand
 
                     case GAME_STATE_PREPARANDO:
                         SoundManager.PlayMusic(cMUSIC_BEGIN, false);
-                        mCamera.setZoom(1.4f);
+                        //mCamera.setZoom(1.4f);
                         mFlagTimer = FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START;
                         restartTimer(5);
 
@@ -464,7 +464,7 @@ namespace ColorLand
                 {
                     case GAME_STATE_PREPARANDO:
 
-                        mCamera.zoomOut(0.004f);
+                        //mCamera.zoomOut(0.004f);
                         
                       
                         
