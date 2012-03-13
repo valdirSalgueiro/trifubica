@@ -602,11 +602,11 @@ namespace ColorLand
 
             porcentagemRestante = ExtraFunctions.valueToPercent(energy, numberEnemies);
 
-            int larguraDaBarraDoHud = 100;
+            int larguraDaBarraDoHud = 181;
             int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
 
             HUD.getInstance().setPlayerBarLevel(novoValor);
-            pulse = (int) (porcentagemRestante * 128 / 100.0f);
+            pulse = (int) (porcentagemRestante * 127 / 100.0f);
 
         }
 
