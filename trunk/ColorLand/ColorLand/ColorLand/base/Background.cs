@@ -60,14 +60,7 @@ namespace ColorLand
 
             s.setLocation(x, y);
 
-            mListParts.Add(s);
-
-            Texture2D tex = s.getCurrentTexture2D();
-            Color[] colorTemp = new Color[tex.Width * tex.Height];
-            mImage.GetData<Color>(colorTemp);
-            mListColorParts.Add(colorTemp);
-            
-
+            mListParts.Add(s);      
         }
 
         public void setPlayerLayer()
@@ -99,24 +92,32 @@ namespace ColorLand
             foreach (Sprite s in mListParts)
             {
                 s.loadContent(content);
+
+                //Texture2D tex = s.getCurrentTexture2D();
+                //Color[] colorTemp = new Color[tex.Width * tex.Height];
+                //tex.GetData<Color>(colorTemp);
+                //mListColorParts.Add(colorTemp);
+
             }
-            color = new Color[mImage.Width * mImage.Height];
-            mImage.GetData<Color>(color);
+            //color = new Color[mImage.Width * mImage.Height];
+            //mImage.GetData<Color>(color);
         }
 
         public void saturate(float x)
         {
-            x /= 100.0f;
-            //x = 1.0f;
-            saturateImpl(x, color, mImage);
+            //x /= 100.0f;
+            
 
-            for (int i = 0; i < mListColorParts.Count;i++ )
-            {
-                saturateImpl(x, mListColorParts[i], mListParts[i].getCurrentTexture2D());
-            }
+            //for (int i = 0; i < mListColorParts.Count;i++ )
+            //{
+            //    Texture2D tex=mListParts[i].getCurrentTexture2D();
+            //    //saturateImpl(x, mListColorParts[i], ref tex);
+            //}
+
+            //saturateImpl(x, color, ref mImage);
         }
 
-        private void saturateImpl(float x,Color[] color_, Texture2D image)
+        private void saturateImpl(float x, Color[] color_, ref Texture2D image)
         {
             Color[] newColor = new Color[image.Width * image.Height];
             for (int i = 0; i < image.Width * image.Height; i++)
@@ -163,7 +164,7 @@ namespace ColorLand
         {            
             if (mImagePath != null)
             {
-                spritebatch.Draw(mImage, mLocationVector, new Color(R * ALPHA / 255, G * ALPHA / 255, B * ALPHA / 255, ALPHA));
+                spritebatch.Draw(mImage, mLocationVector,color);
             }
 
             foreach (Sprite s in mListParts)

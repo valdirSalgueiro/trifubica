@@ -219,6 +219,7 @@ namespace ColorLand
                     mImages[x] = content.Load<Texture2D>(mImagesPaths[x]);
                 }
                 setSourceValues(0, 0, mImages[0].Width, mImages[0].Height);
+                mImage = mImages[0];
             }
             else
             {
