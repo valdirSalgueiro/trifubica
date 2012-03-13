@@ -31,10 +31,10 @@ namespace ColorLand
         public const int SCREEN_ID_MAIN_MENU_HELP     = 100;
         public const int SCREEN_ID_MAIN_MENU_CREDITS  = 101;
         
-        public const int SCREEN_ID_GAMEPLAY        = 2;
+        public const int SCREEN_ID_GAMEPLAY           = 2;
 
         //public const int SCREEN_ID_MAIN_MENU     = 1;
-        //public const int SCREEN_ID_HISTORY       = 2;
+        public const int SCREEN_ID_HISTORY            = 3;
         
 
         public ScreenManager(Game game)
@@ -59,6 +59,7 @@ namespace ColorLand
             changeScreen(SCREEN_ID_GAMEPLAY, false);
             //changeScreen(SCREEN_ID_MAIN_MENU, false);
             //changeScreen(SCREEN_ID_MAIN_MENU_SETTINGS_SCREEN, false);
+            //changeScreen(SCREEN_ID_HISTORY, false);
         }
 
         public void UnloadContent()
@@ -115,6 +116,10 @@ namespace ColorLand
 
                 case SCREEN_ID_MAIN_MENU_CREDITS:
                    mCurrentScreen = new CreditsScreen();
+                   break;
+
+                case SCREEN_ID_HISTORY:
+                   mCurrentScreen = new StoryScreen();
                    break;
 
             }

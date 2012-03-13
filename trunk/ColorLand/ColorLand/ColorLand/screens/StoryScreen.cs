@@ -18,10 +18,7 @@ namespace ColorLand
 
         private SpriteBatch mSpriteBatch;
 
-        private String[] mImagesNames =
-        {
-            ""
-        };
+        private String[] mImagesNames = new String[2];
 
         private String[] mSoundFilesNames =
         {
@@ -30,9 +27,10 @@ namespace ColorLand
 
         private Texture2D[] mImages;
 
-        private int mCurrentIndex;
+        private int mCurrentIndex = -1;
         private MTimer mTimer;
 
+        private Texture2D mPastTexture;
         private Texture2D mCurrentTexture;
 
 
@@ -42,6 +40,18 @@ namespace ColorLand
 
         public StoryScreen()
         {
+            //fill array
+            for (int x = 0; x < mImagesNames.Length; x++)
+            {
+                if(x < 10){
+                    mImagesNames[x] = "Imagem_0" + (x+1) + "_pos"; 
+                }else{
+                    mImagesNames[x] = "Imagem_" + (x+1) + "_pos";
+                }
+                 
+                
+            }
+
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
             mImages = new Texture2D[cTOTAL_RESOURCES];
@@ -49,11 +59,11 @@ namespace ColorLand
             mRectangleExhibitionTexture = new Rectangle(0, 0, 800, 600);
 
             //load resources
-            for(int x=0; x < cTOTAL_RESOURCES; x++){
-                mImages[x] =  Game1.getInstance().getScreenManager().getContent().Load<Texture2D>(mImagesNames[x]);
-                SoundManager.LoadSound(mSoundFilesNames[x]);
+            for(int x=0; x < mImagesNames.Length; x++){
+                mImages[x] =  Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("story\\"+mImagesNames[x]);
+                //SoundManager.LoadSound(mSoundFilesNames[x]);
             }
-
+             
             restartTimer();
 
         }
@@ -62,9 +72,26 @@ namespace ColorLand
         {
             mCurrentIndex++;
 
-            mCurrentTexture = mImages[mCurrentIndex];
+            mPastTexture = mCurrentTexture;
+            if (mCurrentIndex < mImages.Length)
+            {
+                mCurrentTexture = mImages[mCurrentIndex];
+                if (mPastTexture != null)
+                {
+                    mPastTexture.Dispose();
+                }
+                mPastTexture = null;
+            }
+           
+        }
 
-
+        private void goToGameScreen()
+        {
+            if (mTimer != null)
+            {
+                mTimer.stop();
+            }
+            Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true);
         }
 
         private void restartTimer()
@@ -77,16 +104,28 @@ namespace ColorLand
         {
             if (mTimer != null)
             {
+
+                mTimer.update(gameTime);
+
                 //first image
                 if (mTimer.getTimeAndLock(1))
                 {
-
+                    next();
                 }else
-                if (mTimer.getTimeAndLock(5))
+                if (mTimer.getTimeAndLock(4))
                 {
                     //for the last image
-                    mTimer.stop();
-                    mTimer = null;
+                    //mTimer.stop();
+                    //mTimer = null;
+                    next();
+                    
+                }else
+                if (mTimer.getTimeAndLock(6))
+                {
+                        //for the last image
+                        //mTimer.stop();
+                        //mTimer = null;
+                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true);
                 }
 
             }
@@ -101,8 +140,10 @@ namespace ColorLand
         {
             mSpriteBatch.Begin();
 
-            mSpriteBatch.Draw(mCurrentTexture, mRectangleExhibitionTexture, Color.White);
-            
+            if (mCurrentTexture != null)
+            {
+                mSpriteBatch.Draw(mCurrentTexture, mRectangleExhibitionTexture, Color.White);
+            }
             mSpriteBatch.End();
         }
 

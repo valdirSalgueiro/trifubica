@@ -71,9 +71,10 @@ namespace ColorLand
 
            changeToSprite(sSTATE_NORMAL);
 
-           setCollisionRect(40, 40);
+           setCollisionRect(90,90,111,110);
 
-           pos = new Vector2(0, 0);
+           pos = origin;
+           //pos = new Vector2(0, 0);
         }
 
 
@@ -103,8 +104,8 @@ namespace ColorLand
                 }
 
                 //altere "1.0f" para fazer com que ele se desloque mais rapidamente
-                pos.X += 5.0f * (float)Math.Cos(destAngle);
-                pos.Y += 5.0f * (float)Math.Sin(destAngle);
+                pos.X += 2.0f * (float)Math.Cos(destAngle);
+                pos.Y += 2.0f * (float)Math.Sin(destAngle);
 
                 Vector2 direction = getPlayerPosition() - oldPosition;
 
@@ -121,6 +122,16 @@ namespace ColorLand
                 //Console.WriteLine("colidiu");
             }
 
+
+            //PLAYER IS LEFT FROM CRAB
+            if (getPlayerCenter() < getCenterX())
+            {
+                getCurrentSprite().setFlip(true);
+            }
+            else
+            {
+                getCurrentSprite().setFlip(false);
+            }
 
             setLocation(spritePos);
 

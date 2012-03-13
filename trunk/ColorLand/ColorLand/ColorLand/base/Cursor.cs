@@ -12,7 +12,7 @@ using ColorLand.game;
 
 namespace ColorLand
 {
-    class Cursor : GameObject
+    public class Cursor : GameObject
     {
 
         //how many seconds are necessary to complete an event
@@ -142,6 +142,11 @@ namespace ColorLand
             if (color == Color.Green) changeToSprite(sSTATE_GREEN);
             if (color == Color.Red) changeToSprite(sSTATE_RED);
             
+        }
+
+        public Color getColor()
+        {
+            return mCurrentColor;
         }
 
         public void nextColor()

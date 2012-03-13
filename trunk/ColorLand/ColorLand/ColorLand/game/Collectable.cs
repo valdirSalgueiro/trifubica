@@ -45,7 +45,7 @@ namespace ColorLand
             {
                 case CollectableType.StagePiece:
 
-                    mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\maincharacter\\blue_stopped"), new int[] { 0}, 1, 40, 40, false, false);
+                    mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(10, "gameplay\\collectable\\heart"), new int[] {Sprite.sALL_FRAMES_IN_ORDER,10}, 1, 40, 40, false, false);
                     mSpriteCollected = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\maincharacter\\blue_stopped"), new int[] { 0, 1 }, 1, 45, 45, false, false);
                     break;
                 
