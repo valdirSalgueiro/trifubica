@@ -32,7 +32,8 @@ namespace ColorLand
          *******************/
         public static int sGROUND_WORLD_1_1 = 500;
 
-        int energy = 0;
+        int energy = 100;
+        int progress = 0;
         int numberEnemies = 40;
         int pulse = 0;
 
@@ -583,29 +584,31 @@ namespace ColorLand
 
         public void damage()
         {
-            //energy -= 10   sobrou 90
-            energy -= 13;
-            porcentagemRestante = ExtraFunctions.valueToPercent(energy, 1000);
+            energy -= 5;
 
-            int larguraDaBarraDoHud = 200;
-            int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
+            if (energy < 0)
+                energy = 0;
+         
 
-            HUD.getInstance().setPlayerBarLevel(novoValor);
-
-        }
-
-        public void incrementProgress()
-        {
-            //energy -= 10   sobrou 90
-            if(energy<numberEnemies)
-                energy += 1;
-
-            porcentagemRestante = ExtraFunctions.valueToPercent(energy, numberEnemies);
+            porcentagemRestante = ExtraFunctions.valueToPercent(energy, 100);
 
             int larguraDaBarraDoHud = 181;
             int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
 
             HUD.getInstance().setPlayerBarLevel(novoValor);
+        }
+
+        public void incrementProgress()
+        {
+            if (progress < numberEnemies)
+                progress += 1;
+
+            porcentagemRestante = ExtraFunctions.valueToPercent(progress, numberEnemies);
+
+            int larguraDaBarraDoHud = 182;
+            int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
+
+            HUD.getInstance().setBarLevel(novoValor);
             pulse = (int) (porcentagemRestante * 127 / 100.0f);
 
         }
@@ -706,6 +709,7 @@ namespace ColorLand
                     if (!oldState.IsKeyDown(Keys.Space))
                     {
                         incrementProgress();
+                        damage();
                     }
                 }
 
