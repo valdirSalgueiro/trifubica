@@ -55,6 +55,9 @@ namespace ColorLand
             {
                 sounds.Add(assetName, content.Load<SoundEffect>(assetName));
             }
+            else if(sounds[assetName].IsDisposed){
+                sounds[assetName] = content.Load<SoundEffect>(assetName);
+            }
         }
 
 
