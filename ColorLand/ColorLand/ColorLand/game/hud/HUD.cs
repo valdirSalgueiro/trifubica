@@ -52,7 +52,7 @@ namespace ColorLand
 
             mRectPlayerBarEnergy = new Rectangle(128,
                                         566,
-                                        0,
+                                        181,
                                         23);
 
             mRectPlayerBar = new Rectangle(128,
@@ -62,7 +62,7 @@ namespace ColorLand
 
             mRectBarEnergy = new Rectangle(315,
                             566,
-                            20,
+                            0,
                             23);
 
             mRectBar = new Rectangle(315,
@@ -135,6 +135,11 @@ namespace ColorLand
         public void setPlayerBarLevel(int value)
         {
             mRectPlayerBarEnergy.Width = value;
+        }
+
+        public void setBarLevel(int value)
+        {
+            mRectBarEnergy.Width = value;
         }
 
         private void checkCollisions()
