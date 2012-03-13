@@ -12,13 +12,13 @@ namespace ColorLand
 {
     public class StoryScreen : BaseScreen
     {
-        private const int cTOTAL_RESOURCES = 3;
+        private const int cTOTAL_RESOURCES = 20;
 
         private Button mButtonSkip;
 
         private SpriteBatch mSpriteBatch;
 
-        private String[] mImagesNames = new String[2];
+        private String[] mImagesNames = new String[cTOTAL_RESOURCES];
 
         private String[] mSoundFilesNames =
         {
@@ -40,11 +40,24 @@ namespace ColorLand
 
         public StoryScreen()
         {
+
+            if (!SoundManager.isPlaying())
+            {
+                SoundManager.PlayMusic("sound\\music\\historia1");
+            }
+
             //fill array
             for (int x = 0; x < mImagesNames.Length; x++)
             {
                 if(x < 10){
-                    mImagesNames[x] = "Imagem_0" + (x+1) + "_pos"; 
+                    if (x != 9)
+                    {
+                        mImagesNames[x] = "Imagem_0" + (x + 1) + "_pos";
+                    }
+                    else
+                    {
+                        mImagesNames[x] = "Imagem_" + (x + 1) + "_pos";
+                    }
                 }else{
                     mImagesNames[x] = "Imagem_" + (x+1) + "_pos";
                 }
@@ -108,6 +121,22 @@ namespace ColorLand
                 mTimer.update(gameTime);
 
                 //first image
+                for (int x = 0, time = 1; x < cTOTAL_RESOURCES; x++, time += 3)
+                {
+                    if (time >= 63)
+                    {
+                        goToGameScreen();
+                    }
+                    else
+                    {
+                        if (mTimer.getTimeAndLock(time))
+                        {
+                            next();
+                        }
+
+                    }
+                }
+                /*
                 if (mTimer.getTimeAndLock(1))
                 {
                     next();
@@ -127,7 +156,7 @@ namespace ColorLand
                         //mTimer = null;
                     Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true);
                 }
-
+                */
             }
         }
 

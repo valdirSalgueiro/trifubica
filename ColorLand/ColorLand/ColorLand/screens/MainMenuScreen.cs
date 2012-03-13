@@ -168,7 +168,7 @@ namespace ColorLand
             {
                 SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                 SoundManager.stopMusic();
-                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true);
+                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_HISTORY, true);
             }
             else if (button == mButtonHelp)
             {
