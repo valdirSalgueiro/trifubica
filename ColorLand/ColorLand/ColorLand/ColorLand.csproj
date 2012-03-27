@@ -66,6 +66,7 @@
     <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -75,6 +76,7 @@
     <Compile Include="base\Background.cs" />
     <Compile Include="base\Button.cs" />
     <Compile Include="base\MenuGrade.cs" />
+    <Compile Include="base\ObjectSerialization.cs" />
     <Compile Include="base\OptionComponent.cs" />
     <Compile Include="base\Cursor.cs" />
     <Compile Include="base\GameObject.cs" />

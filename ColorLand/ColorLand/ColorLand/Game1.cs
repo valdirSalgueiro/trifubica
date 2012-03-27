@@ -34,10 +34,14 @@ namespace ColorLand
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-     
-        
+
         public Game1()
         {
+            //int level = 6;
+            //ObjectSerialization.Save<int>("level", level);            
+            int loadedLevel=ObjectSerialization.Load<int>("level");
+            Console.WriteLine(loadedLevel);
+
             graphics = new GraphicsDeviceManager(this);
 
             Content.RootDirectory = "Content";
