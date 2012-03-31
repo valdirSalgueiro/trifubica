@@ -109,6 +109,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="screens\BaseScreen.cs" />
+    <Compile Include="screens\LoadingScreen.cs" />
     <Compile Include="screens\GamePlayScreen.cs" />
     <Compile Include="screens\LogosScreen.cs" />
     <Compile Include="screens\MainMenuScreen.cs" />
