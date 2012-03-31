@@ -47,6 +47,7 @@
     <Folder Include="gameplay\backgrounds\stage1_2\" />
     <Folder Include="gameplay\backgrounds\stage1_3\" />
     <Folder Include="gameplay\collectable\" />
+    <Folder Include="macromap\" />
     <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
@@ -3402,6 +3403,62 @@
     </Compile>
     <Compile Include="logos\imaginecup_bg.png">
       <Name>imaginecup_bg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="mainmenu\buttons\full.png">
+      <Name>full</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="mainmenu\buttons\full_select.png">
+      <Name>full_select</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="mainmenu\buttons\full_selected.png">
+      <Name>full_selected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="mainmenu\buttons\mapa_next.png">
+      <Name>mapa_next</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="mainmenu\buttons\mapa_next_select.png">
+      <Name>mapa_next_select</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="mainmenu\buttons\mapa_next_selected.png">
+      <Name>mapa_next_selected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\macromap\mapa.png">
+      <Name>mapa</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\mapa1.png">
+      <Name>mapa1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\mapa2.png">
+      <Name>mapa2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\mapa3.png">
+      <Name>mapa3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

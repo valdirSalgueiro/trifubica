@@ -83,7 +83,7 @@ namespace ColorLand
             mGroupButtons.addGameObject(mButtonRed);
             mGroupButtons.addGameObject(mButtonGreen);
             mGroupButtons.addGameObject(mButtonBlue);
-            mGroupButtons.loadContent(Game1.getInstance().getScreenManager().getContent());
+            
 
         }
 
@@ -109,6 +109,8 @@ namespace ColorLand
             mTextureBarEnergy = contentManager.Load<Texture2D>("gameplay\\hud\\hud_pbar_progress");
 
             mTextureHudBG = contentManager.Load<Texture2D>("gameplay\\hud\\hud_bg");
+
+            mGroupButtons.loadContent(Game1.getInstance().getScreenManager().getContent());
 
             SoundManager.LoadSound(cSOUND_COLOR);
               

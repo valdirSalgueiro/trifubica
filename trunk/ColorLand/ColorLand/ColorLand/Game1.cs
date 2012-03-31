@@ -19,6 +19,8 @@ namespace ColorLand
     public class Game1 : Microsoft.Xna.Framework.Game
     {
 
+        public static String sPROGRESS_FILE_NAME = "progress.lol";
+
         public static int sSCREEN_RESOLUTION_WIDTH = 800;//640;
         public static int sSCREEN_RESOLUTION_HEIGHT = 600;//480;
 
@@ -39,8 +41,8 @@ namespace ColorLand
         {
             //int level = 6;
             //ObjectSerialization.Save<int>("level", level);            
-            int loadedLevel=ObjectSerialization.Load<int>("level");
-            Console.WriteLine(loadedLevel);
+            //int loadedLevel=ObjectSerialization.Load<int>("level");
+            //Console.WriteLine(loadedLevel);
 
             graphics = new GraphicsDeviceManager(this);
 
@@ -100,8 +102,19 @@ namespace ColorLand
             return this.mScreenManager;
         }
 
+        public void toggleFullscreen()
+        {
+            graphics.IsFullScreen = !graphics.IsFullScreen;
+            graphics.ApplyChanges();
+            graphics.GraphicsDevice.Clear(Color.Black);
+        }
 
-      
+        public void setFullscreen(bool fullscreen)
+        {
+            graphics.IsFullScreen = fullscreen;
+            graphics.ApplyChanges();
+            graphics.GraphicsDevice.Clear(Color.Black);
+        }
 
         protected override void UnloadContent()
         {

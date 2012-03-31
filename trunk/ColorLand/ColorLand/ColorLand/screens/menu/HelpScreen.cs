@@ -25,9 +25,11 @@ namespace ColorLand
 
         private int currentScreen=0;
 
-        private Cursor mCursor;
         private bool mMousePressing;
-        
+
+        private KeyboardState oldState;
+
+
         /***
          * BUTTONS
          * */
@@ -65,8 +67,7 @@ namespace ColorLand
 
             mCurrentBackground = mList.ElementAt(0);
 
-            mCursor = new Cursor();
-            mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
+            Cursor.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
 
             mButtonBack = new Button("mainmenu\\buttons\\menu_credits_help_back", "mainmenu\\buttons\\menu_credits_help_back_select", "mainmenu\\buttons\\menu_credits_help_back_selected", new Rectangle(50, 464, 175, 124));
             mButtonPrevious = new Button("mainmenu\\buttons\\previous", "mainmenu\\buttons\\previous_select", "mainmenu\\buttons\\previous_selected", new Rectangle(350, 484, 80, 86));
@@ -91,27 +92,31 @@ namespace ColorLand
         {
             mCurrentBackground.update();
             mGroupButtons.update(gameTime);
-            mCursor.update(gameTime);
+            Cursor.getInstance().update(gameTime);
             updateMouseInput();
             checkCollisions();
         }
 
         public override void draw(GameTime gameTime)
         {
+
             mSpriteBatch.Begin();
 
             mCurrentBackground.draw(mSpriteBatch);
+
             mGroupButtons.draw(mSpriteBatch);
-            if (currentScreen == 3) {
-                mSpriteBatch.Draw(mNext,new Rectangle(586, 484, 80, 86),Color.White);
+            if (currentScreen == 3)
+            {
+                mSpriteBatch.Draw(mNext, new Rectangle(586, 484, 80, 86), Color.White);
             }
             if (currentScreen == 0)
             {
                 mSpriteBatch.Draw(mPrevious, new Rectangle(350, 484, 80, 86), Color.White);
             }
-            mCursor.draw(mSpriteBatch);
+            Cursor.getInstance().draw(mSpriteBatch);
 
             mSpriteBatch.End();
+
         }
 
         private void updateMouseInput()
@@ -143,10 +148,42 @@ namespace ColorLand
 
         }
 
+        public override void handleInput(InputState input)
+        {
+            base.handleInput(input);
+
+            KeyboardState newState = Keyboard.GetState();
+
+            if (newState.IsKeyDown(Keys.Escape))
+            {
+                if (!oldState.IsKeyDown(Keys.Escape))
+                {
+                    SoundManager.PlaySound(cSOUND_HIGHLIGHT);
+                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU,false);
+                }
+            }else
+            if (newState.IsKeyDown(Keys.Left))
+            {
+                if (!oldState.IsKeyDown(Keys.Left))
+                {
+                    previousPage();
+                }
+            }else
+            if (newState.IsKeyDown(Keys.Right))
+            {
+                if (!oldState.IsKeyDown(Keys.Right))
+                {
+                    nextPage();
+                }
+            }
+
+            oldState = newState;
+        }
+
         private void checkCollisions()
         {
 
-            if (mGroupButtons.checkCollisionWith(mCursor))
+            if (mGroupButtons.checkCollisionWith(Cursor.getInstance()))
             {
                 mCurrentHighlightButton = (Button)mGroupButtons.getCollidedObject();
 
@@ -179,6 +216,28 @@ namespace ColorLand
 
         }
 
+        private void nextPage()
+        {
+            if (currentScreen == 3)
+                return;
+            else
+                currentScreen++;
+            SoundManager.PlaySound(cSOUND_HIGHLIGHT);
+            mCurrentBackground = mList.ElementAt(currentScreen);
+        }
+
+        private void previousPage()
+        {
+            if (currentScreen == 0)
+                return;
+            else
+                currentScreen--;
+            SoundManager.PlaySound(cSOUND_HIGHLIGHT);
+            mCurrentBackground = mList.ElementAt(currentScreen);
+        }
+
+
+
         private void processButtonAction(Button button)
         {
             if (button == mButtonBack)
@@ -189,24 +248,12 @@ namespace ColorLand
 
             if (button == mButtonNext)
             {
-                
-                if (currentScreen == 3)
-                    return;
-                else
-                    currentScreen++;
-                SoundManager.PlaySound(cSOUND_HIGHLIGHT);
-                mCurrentBackground = mList.ElementAt(currentScreen);
+                nextPage();
             }
 
             if (button == mButtonPrevious)
             {
-                
-                if (currentScreen == 0)
-                    return;
-                else
-                    currentScreen--;
-                SoundManager.PlaySound(cSOUND_HIGHLIGHT);
-                mCurrentBackground = mList.ElementAt(currentScreen);
+                previousPage();
             }
            
         }

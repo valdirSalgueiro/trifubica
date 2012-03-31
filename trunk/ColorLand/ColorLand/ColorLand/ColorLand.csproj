@@ -18,6 +18,7 @@
     <XnaOutputType>Game</XnaOutputType>
     <ApplicationIcon>Game.ico</ApplicationIcon>
     <Thumbnail>GameThumbnail.png</Thumbnail>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -30,7 +31,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -82,8 +82,9 @@
     <Compile Include="base\GameObject.cs" />
     <Compile Include="base\GameObjectsGroup.cs" />
     <Compile Include="base\PaperObject.cs" />
+    <Compile Include="base\ProgressObject.cs" />
     <Compile Include="base\Sprite.cs" />
-    <Compile Include="game\hud\BaseEnemy.cs" />
+    <Compile Include="game\BaseEnemy.cs" />
     <Compile Include="game\ColorChoiceBar.cs" />
     <Compile Include="game\Collectable.cs" />
     <Compile Include="game\enemies\Explosion.cs" />
@@ -109,6 +110,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="screens\BaseScreen.cs" />
+    <Compile Include="screens\macromap\MacromapPlayer.cs" />
+    <Compile Include="screens\macromap\MacroMapScreen.cs" />
     <Compile Include="screens\LoadingScreen.cs" />
     <Compile Include="screens\GamePlayScreen.cs" />
     <Compile Include="screens\LogosScreen.cs" />

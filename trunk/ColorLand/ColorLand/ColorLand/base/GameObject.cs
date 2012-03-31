@@ -162,6 +162,7 @@ namespace ColorLand
             }
         }
 
+
         public void setCollisionRect(int width, int height)
         {
             if (mCollisionRect != null)
@@ -226,6 +227,10 @@ namespace ColorLand
         {
             this.mX = x;
             this.mY = y;
+
+            mCurrentSprite.update();
+            mCurrentSprite.setX(mX);
+            mCurrentSprite.setY(mY);
         }
 
         public void setX(float x)
