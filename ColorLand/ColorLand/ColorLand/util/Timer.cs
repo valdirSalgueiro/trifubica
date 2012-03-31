@@ -18,6 +18,19 @@ namespace ColorLand
         private double mBusyNumber;
         private bool mBusy;
 
+        public MTimer()
+        {
+
+        }
+
+        public MTimer(bool alreadyStarted)
+        {
+            if (alreadyStarted)
+            {
+                start();
+            }
+        }
+
         public void update(GameTime gameTime)
         {
             if (mActive)

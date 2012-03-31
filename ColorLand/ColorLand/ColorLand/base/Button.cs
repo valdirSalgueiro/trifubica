@@ -11,9 +11,9 @@ using Microsoft.Xna.Framework.Content;
 
 namespace ColorLand
 {
-	class Button : GameObject
+	public class Button : GameObject
 	{
-
+        //todo futuramente, adicionar um attachGameObject() (para o cursor)
         //INDEXES
         public const int sSTATE_NORMAL   = 0;
         public const int sSTATE_HIGHLIGH = 1;
@@ -106,6 +106,7 @@ namespace ColorLand
             }
 
         }
+
 
         public Rectangle getRectangle()
         {

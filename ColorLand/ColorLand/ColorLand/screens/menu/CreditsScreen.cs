@@ -23,9 +23,10 @@ namespace ColorLand
 
         private List<Background> mList = new List<Background>();
 
-        private Cursor mCursor;
         private bool mMousePressing;
-        
+
+        private KeyboardState oldState;
+
         /***
          * BUTTONS
          * */
@@ -44,8 +45,7 @@ namespace ColorLand
 
             mCurrentBackground = mList.ElementAt(0);
 
-            mCursor = new Cursor();
-            mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
+            Cursor.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
 
             mButtonBack = new Button("mainmenu\\buttons\\menu_credits_help_back", "mainmenu\\buttons\\menu_credits_help_back_select", "mainmenu\\buttons\\menu_credits_help_back_selected", new Rectangle(50, 464, 175, 124));
 
@@ -61,7 +61,7 @@ namespace ColorLand
         {
             mCurrentBackground.update();
             mButtonBack.update(gameTime);
-            mCursor.update(gameTime);
+            Cursor.getInstance().update(gameTime);
             updateMouseInput();
             checkCollisions();
         }
@@ -69,12 +69,29 @@ namespace ColorLand
         public override void draw(GameTime gameTime)
         {
             mSpriteBatch.Begin();
-
             mCurrentBackground.draw(mSpriteBatch);
             mButtonBack.draw(mSpriteBatch);
-            mCursor.draw(mSpriteBatch);
-
+            Cursor.getInstance().draw(mSpriteBatch);
             mSpriteBatch.End();
+
+        }
+
+        public override void handleInput(InputState input)
+        {
+            base.handleInput(input);
+
+            KeyboardState newState = Keyboard.GetState();
+
+            if (newState.IsKeyDown(Keys.Escape))
+            {
+                if (!oldState.IsKeyDown(Keys.Escape))
+                {
+                    SoundManager.PlaySound(cSOUND_HIGHLIGHT);
+                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, false);
+                }
+            }
+
+            oldState = newState;
         }
 
         private void updateMouseInput()
@@ -109,7 +126,7 @@ namespace ColorLand
         private void checkCollisions()
         {
 
-            if (mCursor.collidesWith(mButtonBack))
+            if (Cursor.getInstance().collidesWith(mButtonBack))
             {
                 mCurrentHighlightButton = mButtonBack;
 

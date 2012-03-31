@@ -25,25 +25,25 @@ namespace ColorLand
         private SpriteBatch mSpriteBatch;
         
         private SpriteFont mFont;
-
         
         //indexes
         public const int SCREEN_ID_LOGOS_SCREEN       = 0;
         public const int SCREEN_ID_MAIN_MENU          = 1;
         public const int SCREEN_ID_MAIN_MENU_HELP     = 100;
         public const int SCREEN_ID_MAIN_MENU_CREDITS  = 101;
-        
+
         public const int SCREEN_ID_GAMEPLAY           = 2;
 
         //public const int SCREEN_ID_MAIN_MENU     = 1;
         public const int SCREEN_ID_HISTORY            = 3;
+
+        public const int SCREEN_ID_MACROMAP           = 4;        
 
         private BackgroundWorker bw = new BackgroundWorker();
         private BaseScreen mScreenToLoad;
 
         private int mScreenID;
         
-
         public ScreenManager(Game game)
             : base(game) {
             
@@ -61,11 +61,12 @@ namespace ColorLand
 
             mSpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            //changeScreen(SCREEN_ID_MAIN_MENU_HELP, false);
-            changeScreen(SCREEN_ID_LOGOS_SCREEN, false);
+            //changeScreen(SCREEN_ID_LOGOS_SCREEN, false);
             //changeScreen(SCREEN_ID_GAMEPLAY, false);
-            //changeScreen(SCREEN_ID_MAIN_MENU, false);
+            changeScreen(SCREEN_ID_MAIN_MENU, false);
+            //changeScreen(SCREEN_ID_MACROMAP, false);
             //changeScreen(SCREEN_ID_MAIN_MENU_SETTINGS_SCREEN, false);
+            //changeScreen(SCREEN_ID_MAIN_MENU_HELP, false);
             //changeScreen(SCREEN_ID_HISTORY, false);
         }
 
@@ -108,7 +109,6 @@ namespace ColorLand
             {
                 UnloadContent();
             }
-
             if (!threaded)
             {
                 mCurrentScreen=returnScreen(id);
@@ -150,6 +150,10 @@ namespace ColorLand
                 case SCREEN_ID_HISTORY:
                     baseScreen = new StoryScreen();
                     break;
+                case SCREEN_ID_MACROMAP:
+                   mCurrentScreen = new MacroMapScreen();
+                   break;
+
             }
             return baseScreen;
         }

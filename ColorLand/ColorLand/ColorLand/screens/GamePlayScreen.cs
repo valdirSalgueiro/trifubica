@@ -108,8 +108,6 @@ namespace ColorLand
         private Fade mFadeIn;
         private Fade mFadeOut;
 
-        private Cursor mCursor;
-
         private Camera mCamera;
 
         private ColorChoiceBar mColorChoiceBar;
@@ -140,9 +138,9 @@ namespace ColorLand
 
             mColorChoiceBar.changeState(mColorCount);
 
-            if (mColorCount == 0) mCursor.changeColor(Color.Red);
-            if (mColorCount == 1) mCursor.changeColor(Color.Green);
-            if (mColorCount == 2) mCursor.changeColor(Color.Blue);
+            if (mColorCount == 0) Cursor.getInstance().changeColor(Color.Red);
+            if (mColorCount == 1) Cursor.getInstance().changeColor(Color.Green);
+            if (mColorCount == 2) Cursor.getInstance().changeColor(Color.Blue);
 
         }
 
@@ -215,10 +213,9 @@ namespace ColorLand
 
                     mGroupCollectables.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-                    mCursor = new Cursor();
-                    mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
-                    mCursor.changeColor(Color.Green);
-                    mCursor.setCenter(20, 20);
+                    Cursor.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
+                    Cursor.getInstance().changeColor(Color.Green);
+                    Cursor.getInstance().setCenter(20, 20);
 
                     HUD.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
 
@@ -243,6 +240,7 @@ namespace ColorLand
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(1100, 140));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(1100, 140));
                     
+
                 //mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(2000, -20));
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-600, -20));
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(-300, 400));
@@ -273,7 +271,7 @@ namespace ColorLand
                         mColorChoiceBar.loadContent(Game1.getInstance().getScreenManager().getContent());
                         mColorChoiceBar.setCenter(200, 200);*/
 
-                    mCursor.changeColor(Color.Blue);
+                    Cursor.getInstance().changeColor(Color.Blue);
 
                     break;
 
@@ -333,7 +331,7 @@ namespace ColorLand
 
         private void checkCollisions()
         {
-            HUD.getInstance().checkCollisions(mCursor, mMousePressing);
+            HUD.getInstance().checkCollisions(Cursor.getInstance(), mMousePressing);
 
             if (mManager.checkCollision(mMainCharacter))
             {
@@ -350,12 +348,12 @@ namespace ColorLand
                 }
             }
 
-            if (mManager.checkCollision(mCursor))
+            if (mManager.checkCollision(Cursor.getInstance()))
             {   
                 BaseEnemy be = mManager.getGameObjectsGroup().getCollidedObject();
                 //mExplosionManager.getNextOfColor().explode((int)be.getX(), (int)be.getY());
 
-                if (be.getColor() == mCursor.getColor())
+                if (be.getColor() == Cursor.getInstance().getColor())
                 {
                     int x = (int)be.getX();
                     int y = (int)be.getY();
@@ -439,14 +437,14 @@ namespace ColorLand
                     case GAME_STATE_DERROTA:
                         SoundManager.PlayMusic(cMUSIC_LOSE, false);
                         mMainCharacter.changeState(MainCharacter.sSTATE_LOSE);
-                        mCursor.setLocation(0, 1000);
+                        Cursor.getInstance().setLocation(0, 1000);
                         startManualTimer();
                         break;
 
                     case GAME_STATE_SUCESSO:
                         SoundManager.PlayMusic(cMUSIC_WIN, false);
                         mMainCharacter.changeState(MainCharacter.sSTATE_VICTORY);
-                        mCursor.setLocation(0, 1000);
+                        Cursor.getInstance().setLocation(0, 1000);
                         startManualTimer();
                         break;
                 }
@@ -488,7 +486,7 @@ namespace ColorLand
                         checkGameOverCondition();
                         checkCollisions();
                         updatePlayerBody();
-                        mCursor.update(gameTime);
+                        Cursor.getInstance().update(gameTime);
                         MouseState mouseState = Mouse.GetState();
 
                         HUD.getInstance().update(gameTime);
@@ -519,7 +517,7 @@ namespace ColorLand
                         mMainCharacter.update(gameTime);
                         mMainCharacter.setVisible(true);
                         mExplosionManager.update(gameTime);
-                        mCursor.update(gameTime);
+                        Cursor.getInstance().update(gameTime);
                         //mManager.update(gameTime);
                         mMainCharacter.update(gameTime);
                         mMainCharacter.setCollisionRect(0, 0, 0, 0);
@@ -550,7 +548,7 @@ namespace ColorLand
                         mMainCharacter.update(gameTime);
                         mMainCharacter.setVisible(true);
                         mExplosionManager.update(gameTime);
-                        mCursor.update(gameTime);
+                        Cursor.getInstance().update(gameTime);
                         break;
                 }
 
@@ -621,7 +619,7 @@ namespace ColorLand
 
                 mGroupCollectables.draw(mSpriteBatch);
 
-                mCursor.draw(mSpriteBatch);
+                Cursor.getInstance().draw(mSpriteBatch);
 
                 mExplosionManager.draw(mSpriteBatch);
                 
@@ -638,18 +636,21 @@ namespace ColorLand
                         total++;
                     }
                 }*/
-
+                
 
                 //mSpriteBatch.DrawString(mFontDebug, ""+mUniversalTEXT, new Vector2(10, 100), Color.Red);
                 mSpriteBatch.End();
 
                 drawDesaturation(gameTime, mBackgroundFront);
 
-                mSpriteBatch.Begin();
-                HUD.getInstance().draw(mSpriteBatch);
-                mCursor.draw(mSpriteBatch);
-                mSpriteBatch.End();
-
+                if (mGameState == GAME_STATE_EM_JOGO)
+                {
+                    mSpriteBatch.Begin();
+                    HUD.getInstance().draw(mSpriteBatch);
+                    Cursor.getInstance().draw(mSpriteBatch);
+                    mSpriteBatch.End();
+                }
+                
             }
 
    
@@ -727,24 +728,24 @@ namespace ColorLand
 
         public void updatePlayerBody()
         {
-            Vector2 directionRightHand = mCursor.getLocation() - new Vector2(mMainCharacter.getX(), mMainCharacter.getY());//mVectorCenterOfScreen;
+            Vector2 directionRightHand = Cursor.getInstance().getLocation() - new Vector2(mMainCharacter.getX(), mMainCharacter.getY());//mVectorCenterOfScreen;
             float angleHandCursor = (float)(Math.Atan2(directionRightHand.Y, directionRightHand.X));
 
             mMainCharacter.updateHand(angleHandCursor);
 
-            if (mMainCharacter.getState() != MainCharacter.sSTATE_TOP_LEFT && mCursor.getX() < mMainCharacter.getX() && mCursor.getY() < mMainCharacter.getY())
+            if (mMainCharacter.getState() != MainCharacter.sSTATE_TOP_LEFT && Cursor.getInstance().getX() < mMainCharacter.getX() && Cursor.getInstance().getY() < mMainCharacter.getY())
             {
                 mMainCharacter.changeState(MainCharacter.sSTATE_TOP_LEFT);
             }else
-            if (mMainCharacter.getState() != MainCharacter.sSTATE_TOP_RIGHT && mCursor.getX() > mMainCharacter.getX() && mCursor.getY() < mMainCharacter.getY())
+                if (mMainCharacter.getState() != MainCharacter.sSTATE_TOP_RIGHT && Cursor.getInstance().getX() > mMainCharacter.getX() && Cursor.getInstance().getY() < mMainCharacter.getY())
             {
                 mMainCharacter.changeState(MainCharacter.sSTATE_TOP_RIGHT);
             }else
-            if (mCursor.getX() < mMainCharacter.getX() && mCursor.getY() > mMainCharacter.getY())
+                if (Cursor.getInstance().getX() < mMainCharacter.getX() && Cursor.getInstance().getY() > mMainCharacter.getY())
             {
                 //mMainCharacter..changeState(MainCharacter.sSTATE_dow;
             }else
-            if (mCursor.getX() > mMainCharacter.getX() && mCursor.getY() > mMainCharacter.getY())
+                    if (Cursor.getInstance().getX() > mMainCharacter.getX() && Cursor.getInstance().getY() > mMainCharacter.getY())
             {
                 //mMainCharacter.setBodyState(MainCharacter.BODYSTATE.DOWN_RIGHT);
             }

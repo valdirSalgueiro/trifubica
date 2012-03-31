@@ -11,6 +11,8 @@ namespace ColorLand
 {
     public static class SoundManager
     {
+        private static bool activated = true;
+
         //the sound effects for our game
         static Dictionary<string, SoundEffect> sounds =
             new Dictionary<string, SoundEffect>();
@@ -81,6 +83,9 @@ namespace ColorLand
             }
             MediaPlayer.IsRepeating = false;
             MediaPlayer.Play(currentSong);
+
+            Game1.print("VOLUME: " + MediaPlayer.Volume);
+            Game1.print("SOUND: " + soundVolume);
         }
 
         public static void PlayMusic(string name, bool repeat)
@@ -137,6 +142,22 @@ namespace ColorLand
             if (isPlaying())
             {
                 MediaPlayer.Stop();
+            }
+        }
+
+        public static void toggleSound()
+        {
+            activated = !activated;
+
+            if (activated)
+            {
+                MediaPlayer.Volume = 1;
+                SetSoundFXVolume(1);
+            }
+            else
+            {
+                MediaPlayer.Volume = 0;
+                SetSoundFXVolume(0);
             }
         }
 

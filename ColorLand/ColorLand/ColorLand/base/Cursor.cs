@@ -43,11 +43,13 @@ namespace ColorLand
         private bool mActiveInsideButton;
         private bool mEventCompleted;
 
+        private static Cursor instance;
+
         //tracers
         Tracer[] tracers = new Tracer[5];
         int frames = 0;
 
-        public Cursor()
+        private Cursor()
         {
 
             int size = 170;
@@ -70,6 +72,15 @@ namespace ColorLand
                 tracers[i] = new Tracer();
                 tracers[i].alive = false;
             }
+        }
+
+        public static Cursor getInstance()
+        {
+            if (instance == null)
+            {
+                instance = new Cursor();
+            }
+            return instance;
         }
 
         public override void loadContent(ContentManager content) {
