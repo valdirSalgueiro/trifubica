@@ -47,7 +47,6 @@
     <Folder Include="gameplay\backgrounds\stage1_2\" />
     <Folder Include="gameplay\backgrounds\stage1_3\" />
     <Folder Include="gameplay\collectable\" />
-    <Folder Include="macromap\" />
     <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
@@ -3458,6 +3457,28 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
     <Compile Include="gameplay\macromap\mapa3.png">
+      <Name>mapa3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="macromap\mapa 1.png">
+      <Name>mapa 1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="macromap\mapa.png">
+      <Name>mapa</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="macromap\mapa2.png">
+      <Name>mapa2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="macromap\mapa3.png">
       <Name>mapa3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
