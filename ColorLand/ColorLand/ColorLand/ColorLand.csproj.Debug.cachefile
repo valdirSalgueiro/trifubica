@@ -152,7 +152,6 @@ Content\enemies\all\red\mongo6.xnb
 Content\enemies\all\red\mongo7.xnb
 Content\enemies\all\red\mongo8.xnb
 Content\enemies\all\red\mongo9.xnb
-Content\font\option_component.xnb
 Content\enemies\explosion\explosion1.xnb
 Content\enemies\explosion\explosion10.xnb
 Content\enemies\explosion\explosion11.xnb
@@ -582,11 +581,6 @@ Content\gameplay\maincharacter\loose\blue_defeat96.xnb
 Content\gameplay\maincharacter\loose\blue_defeat97.xnb
 Content\gameplay\maincharacter\loose\blue_defeat98.xnb
 Content\gameplay\maincharacter\loose\blue_defeat99.xnb
-Content\sound\music\begin.xnb
-Content\sound\music\loose.xnb
-Content\sound\music\stage11.xnb
-Content\sound\music\theme.xnb
-Content\sound\music\win.xnb
 Content\mainmenu\buttons\mainmenu_credits.xnb
 Content\mainmenu\buttons\mainmenu_credits_select.xnb
 Content\mainmenu\buttons\mainmenu_credits_selected.xnb
@@ -596,12 +590,6 @@ Content\mainmenu\buttons\mainmenu_help_selected.xnb
 Content\mainmenu\buttons\mainmenu_play.xnb
 Content\mainmenu\buttons\mainmenu_play_select.xnb
 Content\mainmenu\buttons\mainmenu_play_selected.xnb
-Content\sound\fx\artefato8bit.xnb
-Content\sound\fx\colorswap8bit.xnb
-Content\sound\fx\dano8bit.xnb
-Content\sound\fx\explosao8bit.xnb
-Content\sound\fx\highlight8bit.xnb
-Content\sound\fx\patada8bit.xnb
 Content\mainmenu\buttons\menu_credits_help_back.xnb
 Content\mainmenu\buttons\menu_credits_help_back_select.xnb
 Content\mainmenu\buttons\menu_credits_help_back_selected.xnb
@@ -618,7 +606,6 @@ Content\mainmenu\buttons\previous.xnb
 Content\mainmenu\buttons\previous_disabled.xnb
 Content\mainmenu\buttons\previous_select.xnb
 Content\mainmenu\buttons\previous_selected.xnb
-Content\effects\desaturate.xnb
 Content\gameplay\hud\hud_azul.xnb
 Content\gameplay\hud\hud_azul_selected.xnb
 Content\gameplay\hud\hud_bar_blue.xnb
@@ -652,7 +639,6 @@ Content\story\Imagem_17_pos.xnb
 Content\story\Imagem_18_pos.xnb
 Content\story\Imagem_19_pos.xnb
 Content\story\Imagem_20_pos.xnb
-Content\sound\music\historia1.xnb
 Content\logos\chihuahuagameslogo.xnb
 Content\logos\imaginecup_bg.xnb
 Content\mainmenu\buttons\full.xnb
@@ -665,6 +651,24 @@ Content\gameplay\macromap\mapa.xnb
 Content\gameplay\macromap\mapa1.xnb
 Content\gameplay\macromap\mapa2.xnb
 Content\gameplay\macromap\mapa3.xnb
+Content\macromap\mapa 1.xnb
+Content\macromap\mapa.xnb
+Content\macromap\mapa2.xnb
+Content\macromap\mapa3.xnb
+Content\font\option_component.xnb
+Content\sound\music\begin.xnb
+Content\sound\music\loose.xnb
+Content\sound\music\stage11.xnb
+Content\sound\music\theme.xnb
+Content\sound\music\win.xnb
+Content\sound\music\historia1.xnb
+Content\sound\fx\artefato8bit.xnb
+Content\sound\fx\colorswap8bit.xnb
+Content\sound\fx\dano8bit.xnb
+Content\sound\fx\explosao8bit.xnb
+Content\sound\fx\highlight8bit.xnb
+Content\sound\fx\patada8bit.xnb
+Content\effects\desaturate.xnb
 Content\sound\music\begin.wma
 Content\sound\music\loose.wma
 Content\sound\music\stage11.wma
