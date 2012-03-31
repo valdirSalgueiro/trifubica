@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.ComponentModel;
 
 
 namespace ColorLand
@@ -19,6 +20,7 @@ namespace ColorLand
         InputState input = new InputState();
 
         private BaseScreen mCurrentScreen;
+        
 
         private SpriteBatch mSpriteBatch;
         
@@ -35,6 +37,11 @@ namespace ColorLand
 
         //public const int SCREEN_ID_MAIN_MENU     = 1;
         public const int SCREEN_ID_HISTORY            = 3;
+
+        private BackgroundWorker bw = new BackgroundWorker();
+        private BaseScreen mScreenToLoad;
+
+        private int mScreenID;
         
 
         public ScreenManager(Game game)
@@ -88,40 +95,74 @@ namespace ColorLand
             mCurrentScreen.draw(gameTime);
         }
 
-        public void changeScreen(int id, bool releaseCurrentScreen) {
+        public void changeScreen(int id, bool releaseCurrentScreen)
+        {
+            changeScreen(id, releaseCurrentScreen, false);
+        }
 
+
+        public void changeScreen(int id, bool releaseCurrentScreen, bool threaded)
+        {
+            mScreenID = id;
             if (releaseCurrentScreen)
             {
                 UnloadContent();
             }
 
-            switch (id) {
+            if (!threaded)
+            {
+                mCurrentScreen=returnScreen(id);
+            }else{
+                mCurrentScreen = new LoadingScreen();
+                bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+                bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
+                bw.RunWorkerAsync();
+            }
+
+        }
+
+        private BaseScreen returnScreen(int id)
+        {
+            BaseScreen baseScreen = null;
+            switch (id)
+            {
 
                 case SCREEN_ID_LOGOS_SCREEN:
-                    mCurrentScreen = new LogosScreen();
+                    baseScreen = new LogosScreen();
                     break;
 
                 case SCREEN_ID_MAIN_MENU:
-                    mCurrentScreen = new MainMenuScreen();
+                    baseScreen = new MainMenuScreen();
                     break;
 
                 case SCREEN_ID_GAMEPLAY:
-                   mCurrentScreen = new GamePlayScreen();
-                   break;
+                    baseScreen = new GamePlayScreen();
+                    break;
 
                 case SCREEN_ID_MAIN_MENU_HELP:
-                   mCurrentScreen = new HelpScreen();
-                   break;
+                    baseScreen = new HelpScreen();
+                    break;
 
                 case SCREEN_ID_MAIN_MENU_CREDITS:
-                   mCurrentScreen = new CreditsScreen();
-                   break;
+                    baseScreen = new CreditsScreen();
+                    break;
 
                 case SCREEN_ID_HISTORY:
-                   mCurrentScreen = new StoryScreen();
-                   break;
-
+                    baseScreen = new StoryScreen();
+                    break;
             }
+            return baseScreen;
+        }
+
+        private void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            mScreenToLoad = returnScreen(mScreenID);
+        }
+
+        private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e){
+            Console.WriteLine("teste completo");
+            mCurrentScreen = mScreenToLoad;
 
         }
 

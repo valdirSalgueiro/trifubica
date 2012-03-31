@@ -116,7 +116,7 @@ namespace ColorLand
             {
                 mTimer.stop();
             }
-            Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true);
+            Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true, true);
         }
 
         private void restartTimer()
