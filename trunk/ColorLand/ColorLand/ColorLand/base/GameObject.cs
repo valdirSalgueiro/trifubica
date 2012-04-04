@@ -294,6 +294,24 @@ namespace ColorLand
             }
         }
 
+        public virtual void draw(SpriteBatch spriteBatch, float rotationAngle)
+        {
+            if (mIsActive)
+            {
+                if (mIsVisible)
+                {
+                    //mCurrentSprite.draw(spriteBatch, angle);
+                    mCurrentSprite.draw(spriteBatch, rotationAngle);
+
+                    if (mCollisionTexture != null)
+                    {
+                        spriteBatch.Draw(mCollisionTexture, getCollisionRect(), new Color(0, 0, 0, 0.5f));
+                        spriteBatch.Draw(mCollisionTexture, getAttackRectangle(), new Color(0, 0, 0, 0.9f));
+                    }
+                }
+            }
+        }
+
         public void setHold(bool holded)
         {
 

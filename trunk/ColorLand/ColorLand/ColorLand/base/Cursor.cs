@@ -49,6 +49,9 @@ namespace ColorLand
         Tracer[] tracers = new Tracer[5];
         int frames = 0;
 
+        private bool mCanMove = true;
+        private float mRotation = 0;
+
         private Cursor()
         {
 
@@ -72,6 +75,7 @@ namespace ColorLand
                 tracers[i] = new Tracer();
                 tracers[i].alive = false;
             }
+
         }
 
         public static Cursor getInstance()
@@ -95,8 +99,11 @@ namespace ColorLand
 
             if (!Game1.sKINECT_BASED)
             {
-                MouseState mouseState = Mouse.GetState();
-                setCenter(mouseState.X, mouseState.Y);
+                if (mCanMove)
+                {
+                    MouseState mouseState = Mouse.GetState();
+                    setCenter(mouseState.X, mouseState.Y);
+                }
             }
             else
             {
@@ -139,8 +146,11 @@ namespace ColorLand
                 }
             }
             */
-            
-            base.draw(spriteBatch, Color.AliceBlue); 
+
+            base.draw(spriteBatch, mRotation += 0.5f);
+            //spriteBatch.Draw(getCurrentSprite().getCurrentTexture2D(), new Vector2(mX, mY), new Rectangle(0, 0, getCurrentSprite().getWidth(), getCurrentSprite().getHeight()), Color.White, mRotation+=0.3f, new Vector2(300, 300), 1, SpriteEffects.None, 0);
+
+            //base.draw(spriteBatch, Color.AliceBlue); 
 
         }
 
