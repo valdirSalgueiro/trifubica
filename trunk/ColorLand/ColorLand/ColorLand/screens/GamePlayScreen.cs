@@ -228,20 +228,21 @@ namespace ColorLand
                     mExplosionManager.addExplosion(5, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
                    // mManager.addEnemy(new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED), new Vector2(300, 320));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(300, 140));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(200, 140));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(1100, 140));
+                    
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-100, -70));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(900, 10));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(-300, 430));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(-600, 430));
                     mManager.accelerateTime();
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-100, -70));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(1000, 140));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(1000, 140));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(1000, 430));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(1100, -70));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(1000, 430));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-160, 100));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(1100, 140));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(1100, 140));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(1100, 140));
                     
 
                 //mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(2000, -20));
