@@ -26,7 +26,7 @@ namespace ColorLand
         private const String cMUSIC_WIN = "sound\\music\\win";
         private const String cMUSIC_LOSE = "sound\\music\\loose";
 
-      
+        private PauseScreen mPauseScreen;
 
         /*******************
          * CONSTANTS
@@ -68,6 +68,7 @@ namespace ColorLand
 
         private bool mMousePressing;
 
+        private bool mPaused;
 
         private MTimer mTimerMessages = new MTimer();
         //private Timer mTimerSucesso = new Timer();
@@ -154,6 +155,8 @@ namespace ColorLand
 
             loadWorld1(sWORLD_1);
 
+            mPauseScreen = new PauseScreen(this);
+
             //setGameState(GAME_STATE_EM_JOGO);
             setGameState(GAME_STATE_PREPARANDO);
 
@@ -203,7 +206,7 @@ namespace ColorLand
 
                     mMainCharacter = new MainCharacter(Color.Blue);
                     mMainCharacter.loadContent(Game1.getInstance().getScreenManager().getContent());
-                    mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 400);
+                    mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 434);
 
                    /* mGroup.addGameObject(new EnemyCrabCrab(Color.Green, new Vector2(300, 320)));
                     mGroup.addGameObject(new EnemyArc(Color.Blue));
@@ -364,6 +367,10 @@ namespace ColorLand
                     //Collectable c = mGroupCollectables.getNext();
                     //c.appear(x, y);
                 }
+                else
+                {
+                    //FUDEU
+                }
                 //mGroup.remove(be);
 
                 
@@ -454,107 +461,113 @@ namespace ColorLand
         }
         public override void update(GameTime gameTime)
         {
-            if (mCurrentWorld == sWORLD_1)
+            if (!mPaused)
             {
-                mCamera.update();
-
-                switch (mGameState)
+                if (mCurrentWorld == sWORLD_1)
                 {
-                    case GAME_STATE_PREPARANDO:
+                    mCamera.update();
 
-                        //mCamera.zoomOut(0.004f);
-                        
-                      
-                        
-                       // mBackgroundBack.update();
-                       // mBackgroundFront.update();
+                    switch (mGameState)
+                    {
+                        case GAME_STATE_PREPARANDO:
 
-                        mMainCharacter.update(gameTime);
-                        updatePlayerBody();
-                        break;
+                            //mCamera.zoomOut(0.004f);
 
-                    case GAME_STATE_EM_JOGO:
-                        mBackgroundBack.update();
-                        mBackgroundFront.update();
 
-                        mMainCharacter.update(gameTime);
 
-                        //mGroup.update(gameTime);
-                        mGroupCollectables.update(gameTime);
+                            // mBackgroundBack.update();
+                            // mBackgroundFront.update();
 
-                        checkVictoryCondition();
-                        checkGameOverCondition();
-                        checkCollisions();
-                        updatePlayerBody();
-                        Cursor.getInstance().update(gameTime);
-                        MouseState mouseState = Mouse.GetState();
+                            mMainCharacter.update(gameTime);
+                            updatePlayerBody();
+                            break;
 
-                        HUD.getInstance().update(gameTime);
+                        case GAME_STATE_EM_JOGO:
+                            mBackgroundBack.update();
+                            mBackgroundFront.update();
 
-                        mExplosionManager.update(gameTime);
+                            mMainCharacter.update(gameTime);
 
-                        mManager.update(gameTime);
+                            //mGroup.update(gameTime);
+                            mGroupCollectables.update(gameTime);
 
-                        break;
+                            checkVictoryCondition();
+                            checkGameOverCondition();
+                            checkCollisions();
+                            updatePlayerBody();
+                            Cursor.getInstance().update(gameTime);
+                            MouseState mouseState = Mouse.GetState();
 
-                    case GAME_STATE_DERROTA:
+                            HUD.getInstance().update(gameTime);
 
-                        if (mEndStageTimer != null)
-                        {
-                            mEndStageTimer.update(gameTime);
+                            mExplosionManager.update(gameTime);
 
-                            if (mEndStageTimer.getTimeAndLock(5))
+                            mManager.update(gameTime);
+
+                            break;
+
+                        case GAME_STATE_DERROTA:
+
+                            if (mEndStageTimer != null)
                             {
-                                //Game1.print("AE");
-                                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
-                                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
+                                mEndStageTimer.update(gameTime);
+
+                                if (mEndStageTimer.getTimeAndLock(5))
+                                {
+                                    //Game1.print("AE");
+                                    //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
+                                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
+                                }
                             }
-                        }
 
-                        mBackgroundBack.update();
-                        mBackgroundFront.update();
-                        mGroupCollectables.update(gameTime);
-                        mMainCharacter.update(gameTime);
-                        mMainCharacter.setVisible(true);
-                        mExplosionManager.update(gameTime);
-                        Cursor.getInstance().update(gameTime);
-                        //mManager.update(gameTime);
-                        mMainCharacter.update(gameTime);
-                        mMainCharacter.setCollisionRect(0, 0, 0, 0);
-                        mMainCharacter.setVisible(true);
-                        break;
+                            mBackgroundBack.update();
+                            mBackgroundFront.update();
+                            mGroupCollectables.update(gameTime);
+                            mMainCharacter.update(gameTime);
+                            mMainCharacter.setVisible(true);
+                            mExplosionManager.update(gameTime);
+                            Cursor.getInstance().update(gameTime);
+                            //mManager.update(gameTime);
+                            mMainCharacter.update(gameTime);
+                            mMainCharacter.setCollisionRect(0, 0, 0, 0);
+                            mMainCharacter.setVisible(true);
+                            break;
 
-                    case GAME_STATE_SUCESSO:
-                        
-                        
-                        if (mEndStageTimer != null)
-                        {
-                            mEndStageTimer.update(gameTime);
+                        case GAME_STATE_SUCESSO:
 
-                            if (mEndStageTimer.getTimeAndLock(5))
+
+                            if (mEndStageTimer != null)
                             {
-                                //Game1.print("CABOSSE");
-                                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
-                            }
-                            else
-                            {
-                                mCamera.zoomIn(0.002f);
-                            }
-                        }
+                                mEndStageTimer.update(gameTime);
 
-                        mBackgroundBack.update();
-                        mBackgroundFront.update();
-                        mGroupCollectables.update(gameTime);
-                        mMainCharacter.update(gameTime);
-                        mMainCharacter.setVisible(true);
-                        mExplosionManager.update(gameTime);
-                        Cursor.getInstance().update(gameTime);
-                        break;
+                                if (mEndStageTimer.getTimeAndLock(5))
+                                {
+                                    //Game1.print("CABOSSE");
+                                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
+                                }
+                                else
+                                {
+                                    mCamera.zoomIn(0.002f);
+                                }
+                            }
+
+                            mBackgroundBack.update();
+                            mBackgroundFront.update();
+                            mGroupCollectables.update(gameTime);
+                            mMainCharacter.update(gameTime);
+                            mMainCharacter.setVisible(true);
+                            mExplosionManager.update(gameTime);
+                            Cursor.getInstance().update(gameTime);
+                            break;
+                    }
+
+
                 }
-
-
             }
-            
+            else
+            {
+                mPauseScreen.update(gameTime);
+            }
             /*
             if (KeyboardState.pressed(Keys.A))
             {
@@ -653,6 +666,10 @@ namespace ColorLand
                 
             }
 
+            if (mPaused)
+            {
+                mPauseScreen.draw(gameTime);
+            }
    
         }
 
@@ -694,6 +711,16 @@ namespace ColorLand
             mSpriteBatch.End();
         }
 
+        public void togglePauseGame()
+        {
+            mPaused = !mPaused;
+        }
+
+        public void setPauseGame(bool paused)
+        {
+            mPaused = paused;
+        }
+
         public void damage()
         {
             energy -= 10;
@@ -733,22 +760,40 @@ namespace ColorLand
 
             mMainCharacter.updateHand(angleHandCursor);
 
-            if (mMainCharacter.getState() != MainCharacter.sSTATE_TOP_LEFT && Cursor.getInstance().getX() < mMainCharacter.getX() && Cursor.getInstance().getY() < mMainCharacter.getY())
+            if (mMainCharacter.getState() != MainCharacter.sSTATE_TOP_LEFT && Cursor.getInstance().getX() < mMainCharacter.getX() && Cursor.getInstance().getY() <= Game1.sHALF_SCREEN_RESOLUTION_HEIGHT)
             {
-                mMainCharacter.changeState(MainCharacter.sSTATE_TOP_LEFT);
+                if (mMainCharacter.getState() != MainCharacter.sSTATE_BOTTOM_LEFT && mMainCharacter.getState() != MainCharacter.sSTATE_INVERSE_TOP_LEFT)
+                {
+                    mMainCharacter.changeState(MainCharacter.sSTATE_TOP_LEFT);
+                }
+                else
+                {
+                    mMainCharacter.changeState(MainCharacter.sSTATE_INVERSE_TOP_LEFT);
+                }
+
             }else
-                if (mMainCharacter.getState() != MainCharacter.sSTATE_TOP_RIGHT && Cursor.getInstance().getX() > mMainCharacter.getX() && Cursor.getInstance().getY() < mMainCharacter.getY())
+            if (mMainCharacter.getState() != MainCharacter.sSTATE_TOP_RIGHT && Cursor.getInstance().getX() > mMainCharacter.getX() && Cursor.getInstance().getY() <= Game1.sHALF_SCREEN_RESOLUTION_HEIGHT)
             {
-                mMainCharacter.changeState(MainCharacter.sSTATE_TOP_RIGHT);
+                if (mMainCharacter.getState() != MainCharacter.sSTATE_BOTTOM_RIGHT && mMainCharacter.getState() != MainCharacter.sSTATE_INVERSE_TOP_RIGHT)
+                {
+                    mMainCharacter.changeState(MainCharacter.sSTATE_TOP_RIGHT);
+                }
+                else
+                {
+                    mMainCharacter.changeState(MainCharacter.sSTATE_INVERSE_TOP_RIGHT);
+                }
+                
             }else
-                if (Cursor.getInstance().getX() < mMainCharacter.getX() && Cursor.getInstance().getY() > mMainCharacter.getY())
+            if (mMainCharacter.getState() != MainCharacter.sSTATE_BOTTOM_LEFT && Cursor.getInstance().getX() < mMainCharacter.getX() && Cursor.getInstance().getY() > Game1.sHALF_SCREEN_RESOLUTION_HEIGHT)
             {
-                //mMainCharacter..changeState(MainCharacter.sSTATE_dow;
-            }else
-                    if (Cursor.getInstance().getX() > mMainCharacter.getX() && Cursor.getInstance().getY() > mMainCharacter.getY())
-            {
-                //mMainCharacter.setBodyState(MainCharacter.BODYSTATE.DOWN_RIGHT);
+                mMainCharacter.changeState(MainCharacter.sSTATE_BOTTOM_LEFT);
             }
+            else
+            if (mMainCharacter.getState() != MainCharacter.sSTATE_BOTTOM_RIGHT && Cursor.getInstance().getX() > mMainCharacter.getX() && Cursor.getInstance().getY() > Game1.sHALF_SCREEN_RESOLUTION_HEIGHT)
+            {
+                mMainCharacter.changeState(MainCharacter.sSTATE_BOTTOM_RIGHT);
+            }
+            
             
 
         }
@@ -817,11 +862,16 @@ namespace ColorLand
                         //damage();
                     }
                 }
+                if (newState.IsKeyDown(Keys.Escape))
+                {
+                    if (!oldState.IsKeyDown(Keys.Escape))
+                    {
+                        togglePauseGame();
+                    }
+                }
 
-                // Update saved state.
+
                 oldState = newState;
-
-                //Game1.print("Z:" + mCamera.getZoomLevel());
 
             }
             else

@@ -28,6 +28,7 @@ Global
 		{4AE3D0C5-9A88-4BB2-B8BD-EBF090A7976D}.Release|x86.ActiveCfg = Release|x86
 		{4AE3D0C5-9A88-4BB2-B8BD-EBF090A7976D}.Release|x86.Build.0 = Release|x86
 		{82E9FD01-18F4-40C1-BB5A-5E6592B930D1}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{82E9FD01-18F4-40C1-BB5A-5E6592B930D1}.Debug|Mixed Platforms.Build.0 = Debug|x86
 		{82E9FD01-18F4-40C1-BB5A-5E6592B930D1}.Debug|Windows Phone.ActiveCfg = Debug|x86
 		{82E9FD01-18F4-40C1-BB5A-5E6592B930D1}.Debug|x86.ActiveCfg = Debug|x86
 		{82E9FD01-18F4-40C1-BB5A-5E6592B930D1}.Release|Mixed Platforms.ActiveCfg = Release|x86

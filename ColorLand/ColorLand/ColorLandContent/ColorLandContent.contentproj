@@ -47,6 +47,11 @@
     <Folder Include="gameplay\backgrounds\stage1_2\" />
     <Folder Include="gameplay\backgrounds\stage1_3\" />
     <Folder Include="gameplay\collectable\" />
+    <Folder Include="gameplay\maincharacter\blue\loose\" />
+    <Folder Include="gameplay\maincharacter\blue\stopped\" />
+    <Folder Include="gameplay\maincharacter\blue\win\" />
+    <Folder Include="gameplay\maincharacter\green\" />
+    <Folder Include="gameplay\maincharacter\red\" />
     <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
@@ -69,154 +74,6 @@
   <ItemGroup>
     <Compile Include="fades\blackfade.png">
       <Name>blackfade</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="gameplay\maincharacter\blue_left_top1.png">
-      <Name>blue_left_top1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\blue_left_top2.png">
-      <Name>blue_left_top2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\blue_left_top3.png">
-      <Name>blue_left_top3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\blue_left_top4.png">
-      <Name>blue_left_top4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\blue_left_top5.png">
-      <Name>blue_left_top5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\blue_right_top1.png">
-      <Name>blue_right_top1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\blue_right_top2.png">
-      <Name>blue_right_top2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\blue_right_top3.png">
-      <Name>blue_right_top3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\blue_right_top4.png">
-      <Name>blue_right_top4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\blue_right_top5.png">
-      <Name>blue_right_top5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="gameplay\maincharacter\feet\blue_feet_stopped1.png">
-      <Name>blue_feet_stopped1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk1.png">
-      <Name>blue_feet_walk1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk10.png">
-      <Name>blue_feet_walk10</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk11.png">
-      <Name>blue_feet_walk11</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk12.png">
-      <Name>blue_feet_walk12</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk2.png">
-      <Name>blue_feet_walk2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk3.png">
-      <Name>blue_feet_walk3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk4.png">
-      <Name>blue_feet_walk4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk5.png">
-      <Name>blue_feet_walk5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk6.png">
-      <Name>blue_feet_walk6</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk7.png">
-      <Name>blue_feet_walk7</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk8.png">
-      <Name>blue_feet_walk8</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue_feet_walk9.png">
-      <Name>blue_feet_walk9</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="gameplay\maincharacter\blue_stopped1.png">
-      <Name>blue_stopped1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="gameplay\maincharacter\hands\HandLeft.png">
-      <Name>HandLeft</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\hands\HandLeftBrush.png">
-      <Name>HandLeftBrush</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\hands\HandRight.png">
-      <Name>HandRight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\hands\HandRightBrush.png">
-      <Name>HandRightBrush</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -1890,1134 +1747,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left1.png">
-      <Name>blue_feet_walk_left1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left10.png">
-      <Name>blue_feet_walk_left10</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left11.png">
-      <Name>blue_feet_walk_left11</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left12.png">
-      <Name>blue_feet_walk_left12</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left13.png">
-      <Name>blue_feet_walk_left13</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left14.png">
-      <Name>blue_feet_walk_left14</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left15.png">
-      <Name>blue_feet_walk_left15</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left16.png">
-      <Name>blue_feet_walk_left16</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left17.png">
-      <Name>blue_feet_walk_left17</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left2.png">
-      <Name>blue_feet_walk_left2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left3.png">
-      <Name>blue_feet_walk_left3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left4.png">
-      <Name>blue_feet_walk_left4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left5.png">
-      <Name>blue_feet_walk_left5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left6.png">
-      <Name>blue_feet_walk_left6</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left7.png">
-      <Name>blue_feet_walk_left7</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left8.png">
-      <Name>blue_feet_walk_left8</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\left\blue_feet_walk_left9.png">
-      <Name>blue_feet_walk_left9</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right1.png">
-      <Name>blue_feet_walk_right1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right10.png">
-      <Name>blue_feet_walk_right10</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right11.png">
-      <Name>blue_feet_walk_right11</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right12.png">
-      <Name>blue_feet_walk_right12</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right13.png">
-      <Name>blue_feet_walk_right13</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right14.png">
-      <Name>blue_feet_walk_right14</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right15.png">
-      <Name>blue_feet_walk_right15</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right16.png">
-      <Name>blue_feet_walk_right16</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right17.png">
-      <Name>blue_feet_walk_right17</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right2.png">
-      <Name>blue_feet_walk_right2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right3.png">
-      <Name>blue_feet_walk_right3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right4.png">
-      <Name>blue_feet_walk_right4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right5.png">
-      <Name>blue_feet_walk_right5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right6.png">
-      <Name>blue_feet_walk_right6</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right7.png">
-      <Name>blue_feet_walk_right7</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right8.png">
-      <Name>blue_feet_walk_right8</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\feet\blue\right\blue_feet_walk_right9.png">
-      <Name>blue_feet_walk_right9</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="gameplay\maincharacter\win\blue_victory1.png">
-      <Name>blue_victory1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory10.png">
-      <Name>blue_victory10</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory11.png">
-      <Name>blue_victory11</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory12.png">
-      <Name>blue_victory12</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory13.png">
-      <Name>blue_victory13</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory14.png">
-      <Name>blue_victory14</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory15.png">
-      <Name>blue_victory15</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory16.png">
-      <Name>blue_victory16</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory17.png">
-      <Name>blue_victory17</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory18.png">
-      <Name>blue_victory18</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory19.png">
-      <Name>blue_victory19</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory2.png">
-      <Name>blue_victory2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory20.png">
-      <Name>blue_victory20</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory21.png">
-      <Name>blue_victory21</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory22.png">
-      <Name>blue_victory22</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory23.png">
-      <Name>blue_victory23</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory24.png">
-      <Name>blue_victory24</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory25.png">
-      <Name>blue_victory25</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory26.png">
-      <Name>blue_victory26</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory27.png">
-      <Name>blue_victory27</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory28.png">
-      <Name>blue_victory28</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory29.png">
-      <Name>blue_victory29</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory3.png">
-      <Name>blue_victory3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory30.png">
-      <Name>blue_victory30</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory31.png">
-      <Name>blue_victory31</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory32.png">
-      <Name>blue_victory32</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory33.png">
-      <Name>blue_victory33</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory34.png">
-      <Name>blue_victory34</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory35.png">
-      <Name>blue_victory35</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory36.png">
-      <Name>blue_victory36</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory37.png">
-      <Name>blue_victory37</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory38.png">
-      <Name>blue_victory38</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory39.png">
-      <Name>blue_victory39</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory4.png">
-      <Name>blue_victory4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory40.png">
-      <Name>blue_victory40</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory41.png">
-      <Name>blue_victory41</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory42.png">
-      <Name>blue_victory42</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory43.png">
-      <Name>blue_victory43</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory44.png">
-      <Name>blue_victory44</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory45.png">
-      <Name>blue_victory45</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory46.png">
-      <Name>blue_victory46</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory47.png">
-      <Name>blue_victory47</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory48.png">
-      <Name>blue_victory48</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory49.png">
-      <Name>blue_victory49</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory5.png">
-      <Name>blue_victory5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory50.png">
-      <Name>blue_victory50</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory51.png">
-      <Name>blue_victory51</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory52.png">
-      <Name>blue_victory52</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory53.png">
-      <Name>blue_victory53</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory54.png">
-      <Name>blue_victory54</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory55.png">
-      <Name>blue_victory55</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory56.png">
-      <Name>blue_victory56</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory57.png">
-      <Name>blue_victory57</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory58.png">
-      <Name>blue_victory58</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory59.png">
-      <Name>blue_victory59</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory6.png">
-      <Name>blue_victory6</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory60.png">
-      <Name>blue_victory60</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory61.png">
-      <Name>blue_victory61</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory62.png">
-      <Name>blue_victory62</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory63.png">
-      <Name>blue_victory63</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory64.png">
-      <Name>blue_victory64</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory65.png">
-      <Name>blue_victory65</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory66.png">
-      <Name>blue_victory66</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory67.png">
-      <Name>blue_victory67</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory68.png">
-      <Name>blue_victory68</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory69.png">
-      <Name>blue_victory69</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory7.png">
-      <Name>blue_victory7</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory70.png">
-      <Name>blue_victory70</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory71.png">
-      <Name>blue_victory71</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory72.png">
-      <Name>blue_victory72</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory73.png">
-      <Name>blue_victory73</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory74.png">
-      <Name>blue_victory74</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory75.png">
-      <Name>blue_victory75</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory76.png">
-      <Name>blue_victory76</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory77.png">
-      <Name>blue_victory77</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory78.png">
-      <Name>blue_victory78</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory79.png">
-      <Name>blue_victory79</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory8.png">
-      <Name>blue_victory8</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory80.png">
-      <Name>blue_victory80</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory81.png">
-      <Name>blue_victory81</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory82.png">
-      <Name>blue_victory82</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory83.png">
-      <Name>blue_victory83</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory84.png">
-      <Name>blue_victory84</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory85.png">
-      <Name>blue_victory85</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\win\blue_victory9.png">
-      <Name>blue_victory9</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat1.png">
-      <Name>blue_defeat1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat10.png">
-      <Name>blue_defeat10</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat100.png">
-      <Name>blue_defeat100</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat101.png">
-      <Name>blue_defeat101</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat102.png">
-      <Name>blue_defeat102</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat103.png">
-      <Name>blue_defeat103</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat104.png">
-      <Name>blue_defeat104</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat105.png">
-      <Name>blue_defeat105</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat11.png">
-      <Name>blue_defeat11</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat12.png">
-      <Name>blue_defeat12</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat13.png">
-      <Name>blue_defeat13</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat14.png">
-      <Name>blue_defeat14</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat15.png">
-      <Name>blue_defeat15</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat16.png">
-      <Name>blue_defeat16</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat17.png">
-      <Name>blue_defeat17</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat18.png">
-      <Name>blue_defeat18</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat19.png">
-      <Name>blue_defeat19</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat2.png">
-      <Name>blue_defeat2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat20.png">
-      <Name>blue_defeat20</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat21.png">
-      <Name>blue_defeat21</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat22.png">
-      <Name>blue_defeat22</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat23.png">
-      <Name>blue_defeat23</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat24.png">
-      <Name>blue_defeat24</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat25.png">
-      <Name>blue_defeat25</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat26.png">
-      <Name>blue_defeat26</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat27.png">
-      <Name>blue_defeat27</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat28.png">
-      <Name>blue_defeat28</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat29.png">
-      <Name>blue_defeat29</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat3.png">
-      <Name>blue_defeat3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat30.png">
-      <Name>blue_defeat30</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat31.png">
-      <Name>blue_defeat31</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat32.png">
-      <Name>blue_defeat32</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat33.png">
-      <Name>blue_defeat33</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat34.png">
-      <Name>blue_defeat34</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat35.png">
-      <Name>blue_defeat35</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat36.png">
-      <Name>blue_defeat36</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat37.png">
-      <Name>blue_defeat37</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat38.png">
-      <Name>blue_defeat38</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat39.png">
-      <Name>blue_defeat39</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat4.png">
-      <Name>blue_defeat4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat40.png">
-      <Name>blue_defeat40</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat41.png">
-      <Name>blue_defeat41</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat42.png">
-      <Name>blue_defeat42</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat43.png">
-      <Name>blue_defeat43</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat44.png">
-      <Name>blue_defeat44</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat45.png">
-      <Name>blue_defeat45</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat46.png">
-      <Name>blue_defeat46</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat47.png">
-      <Name>blue_defeat47</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat48.png">
-      <Name>blue_defeat48</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat49.png">
-      <Name>blue_defeat49</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat5.png">
-      <Name>blue_defeat5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat50.png">
-      <Name>blue_defeat50</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat51.png">
-      <Name>blue_defeat51</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat52.png">
-      <Name>blue_defeat52</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat53.png">
-      <Name>blue_defeat53</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat54.png">
-      <Name>blue_defeat54</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat55.png">
-      <Name>blue_defeat55</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat56.png">
-      <Name>blue_defeat56</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat57.png">
-      <Name>blue_defeat57</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat58.png">
-      <Name>blue_defeat58</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat59.png">
-      <Name>blue_defeat59</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat6.png">
-      <Name>blue_defeat6</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat60.png">
-      <Name>blue_defeat60</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat61.png">
-      <Name>blue_defeat61</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat62.png">
-      <Name>blue_defeat62</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat63.png">
-      <Name>blue_defeat63</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat64.png">
-      <Name>blue_defeat64</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat65.png">
-      <Name>blue_defeat65</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat66.png">
-      <Name>blue_defeat66</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat67.png">
-      <Name>blue_defeat67</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat68.png">
-      <Name>blue_defeat68</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat69.png">
-      <Name>blue_defeat69</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat7.png">
-      <Name>blue_defeat7</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat70.png">
-      <Name>blue_defeat70</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat71.png">
-      <Name>blue_defeat71</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat72.png">
-      <Name>blue_defeat72</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat73.png">
-      <Name>blue_defeat73</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat74.png">
-      <Name>blue_defeat74</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat75.png">
-      <Name>blue_defeat75</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat76.png">
-      <Name>blue_defeat76</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat77.png">
-      <Name>blue_defeat77</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat78.png">
-      <Name>blue_defeat78</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat79.png">
-      <Name>blue_defeat79</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat8.png">
-      <Name>blue_defeat8</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat80.png">
-      <Name>blue_defeat80</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat81.png">
-      <Name>blue_defeat81</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat82.png">
-      <Name>blue_defeat82</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat83.png">
-      <Name>blue_defeat83</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat84.png">
-      <Name>blue_defeat84</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat85.png">
-      <Name>blue_defeat85</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat86.png">
-      <Name>blue_defeat86</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat87.png">
-      <Name>blue_defeat87</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat88.png">
-      <Name>blue_defeat88</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat89.png">
-      <Name>blue_defeat89</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat9.png">
-      <Name>blue_defeat9</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat90.png">
-      <Name>blue_defeat90</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat91.png">
-      <Name>blue_defeat91</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat92.png">
-      <Name>blue_defeat92</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat93.png">
-      <Name>blue_defeat93</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat94.png">
-      <Name>blue_defeat94</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat95.png">
-      <Name>blue_defeat95</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat96.png">
-      <Name>blue_defeat96</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat97.png">
-      <Name>blue_defeat97</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat98.png">
-      <Name>blue_defeat98</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\maincharacter\loose\blue_defeat99.png">
-      <Name>blue_defeat99</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="sound\music\begin.mp3">
       <Name>begin</Name>
       <Importer>Mp3Importer</Importer>
@@ -3480,6 +2209,591 @@
     </Compile>
     <Compile Include="macromap\mapa3.png">
       <Name>mapa3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\pausescreen\continue.png">
+      <Name>continue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\pausescreen\continue_select.png">
+      <Name>continue_select</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\pausescreen\continue_selected.png">
+      <Name>continue_selected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\pausescreen\exit.png">
+      <Name>exit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\pausescreen\exit_select.png">
+      <Name>exit_select</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\pausescreen\exit_selected.png">
+      <Name>exit_selected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\pausescreen\paused_title.png">
+      <Name>paused_title</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\maincharacter\blue\body0001.png">
+      <Name>body0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0002.png">
+      <Name>body0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0003.png">
+      <Name>body0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0004.png">
+      <Name>body0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0005.png">
+      <Name>body0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0006.png">
+      <Name>body0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0007.png">
+      <Name>body0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0008.png">
+      <Name>body0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0009.png">
+      <Name>body0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0010.png">
+      <Name>body0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0011.png">
+      <Name>body0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0012.png">
+      <Name>body0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0013.png">
+      <Name>body0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0014.png">
+      <Name>body0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0015.png">
+      <Name>body0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0016.png">
+      <Name>body0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0017.png">
+      <Name>body0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0018.png">
+      <Name>body0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0019.png">
+      <Name>body0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0020.png">
+      <Name>body0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0021.png">
+      <Name>body0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0022.png">
+      <Name>body0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0023.png">
+      <Name>body0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0024.png">
+      <Name>body0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0025.png">
+      <Name>body0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0026.png">
+      <Name>body0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0027.png">
+      <Name>body0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0028.png">
+      <Name>body0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0029.png">
+      <Name>body0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0030.png">
+      <Name>body0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0031.png">
+      <Name>body0031</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0032.png">
+      <Name>body0032</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0033.png">
+      <Name>body0033</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0034.png">
+      <Name>body0034</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0035.png">
+      <Name>body0035</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0036.png">
+      <Name>body0036</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0037.png">
+      <Name>body0037</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0038.png">
+      <Name>body0038</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0039.png">
+      <Name>body0039</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0040.png">
+      <Name>body0040</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0041.png">
+      <Name>body0041</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0042.png">
+      <Name>body0042</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0043.png">
+      <Name>body0043</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0044.png">
+      <Name>body0044</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0045.png">
+      <Name>body0045</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0046.png">
+      <Name>body0046</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0047.png">
+      <Name>body0047</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0048.png">
+      <Name>body0048</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0049.png">
+      <Name>body0049</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0050.png">
+      <Name>body0050</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0051.png">
+      <Name>body0051</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0052.png">
+      <Name>body0052</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0053.png">
+      <Name>body0053</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0054.png">
+      <Name>body0054</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0055.png">
+      <Name>body0055</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0056.png">
+      <Name>body0056</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0057.png">
+      <Name>body0057</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0058.png">
+      <Name>body0058</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0059.png">
+      <Name>body0059</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0060.png">
+      <Name>body0060</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0061.png">
+      <Name>body0061</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0062.png">
+      <Name>body0062</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0063.png">
+      <Name>body0063</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0064.png">
+      <Name>body0064</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\body0065.png">
+      <Name>body0065</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\maincharacter\hand\hand.png">
+      <Name>hand</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0001.png">
+      <Name>blue_feet_walk_left0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0002.png">
+      <Name>blue_feet_walk_left0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0003.png">
+      <Name>blue_feet_walk_left0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0004.png">
+      <Name>blue_feet_walk_left0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0005.png">
+      <Name>blue_feet_walk_left0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0006.png">
+      <Name>blue_feet_walk_left0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0007.png">
+      <Name>blue_feet_walk_left0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0008.png">
+      <Name>blue_feet_walk_left0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0009.png">
+      <Name>blue_feet_walk_left0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0010.png">
+      <Name>blue_feet_walk_left0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0011.png">
+      <Name>blue_feet_walk_left0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0012.png">
+      <Name>blue_feet_walk_left0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0013.png">
+      <Name>blue_feet_walk_left0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0014.png">
+      <Name>blue_feet_walk_left0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0015.png">
+      <Name>blue_feet_walk_left0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0016.png">
+      <Name>blue_feet_walk_left0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0017.png">
+      <Name>blue_feet_walk_left0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0018.png">
+      <Name>blue_feet_walk_left0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0019.png">
+      <Name>blue_feet_walk_left0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0020.png">
+      <Name>blue_feet_walk_left0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\left\blue_feet_walk_left0021.png">
+      <Name>blue_feet_walk_left0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0001.png">
+      <Name>blue_feet_walk_right0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0002.png">
+      <Name>blue_feet_walk_right0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0003.png">
+      <Name>blue_feet_walk_right0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0004.png">
+      <Name>blue_feet_walk_right0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0005.png">
+      <Name>blue_feet_walk_right0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0006.png">
+      <Name>blue_feet_walk_right0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0007.png">
+      <Name>blue_feet_walk_right0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0008.png">
+      <Name>blue_feet_walk_right0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0009.png">
+      <Name>blue_feet_walk_right0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0010.png">
+      <Name>blue_feet_walk_right0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0011.png">
+      <Name>blue_feet_walk_right0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0012.png">
+      <Name>blue_feet_walk_right0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0013.png">
+      <Name>blue_feet_walk_right0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0014.png">
+      <Name>blue_feet_walk_right0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0015.png">
+      <Name>blue_feet_walk_right0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0016.png">
+      <Name>blue_feet_walk_right0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0017.png">
+      <Name>blue_feet_walk_right0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0018.png">
+      <Name>blue_feet_walk_right0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0019.png">
+      <Name>blue_feet_walk_right0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0020.png">
+      <Name>blue_feet_walk_right0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0021.png">
+      <Name>blue_feet_walk_right0021</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

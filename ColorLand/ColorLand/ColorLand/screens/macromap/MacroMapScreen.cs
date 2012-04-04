@@ -185,11 +185,15 @@ namespace ColorLand
             //if stage 1
             mTimer.update(gameTime);
             if (mTimer.getTimeAndLock(3))
-           {
+            {
                 mMacromapPlayer.setVisible(true);
                 mMacromapPlayer.growUp(0.1f);
             }
 
+            if (mTimer.getTimeAndLock(5))
+            {
+                mMacromapPlayer.moveTo(new Vector2(30, 30));
+            }
 
             if (mFade != null)
             {

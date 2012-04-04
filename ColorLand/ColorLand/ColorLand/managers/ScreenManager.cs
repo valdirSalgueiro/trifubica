@@ -62,8 +62,8 @@ namespace ColorLand
             mSpriteBatch = new SpriteBatch(GraphicsDevice);
 
             //changeScreen(SCREEN_ID_LOGOS_SCREEN, false);
-            //changeScreen(SCREEN_ID_GAMEPLAY, false);
-            changeScreen(SCREEN_ID_MAIN_MENU, false);
+            changeScreen(SCREEN_ID_GAMEPLAY, false, true);
+            //changeScreen(SCREEN_ID_MAIN_MENU, false);
             //changeScreen(SCREEN_ID_MACROMAP, false, false);
             //changeScreen(SCREEN_ID_MAIN_MENU_SETTINGS_SCREEN, false);
             //changeScreen(SCREEN_ID_MAIN_MENU_HELP, false);
@@ -151,8 +151,8 @@ namespace ColorLand
                     baseScreen = new StoryScreen();
                     break;
                 case SCREEN_ID_MACROMAP:
-                   mCurrentScreen = new MacroMapScreen();
-                   break;
+                    baseScreen = new MacroMapScreen();
+                     break;
 
             }
             return baseScreen;

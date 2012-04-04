@@ -43,6 +43,8 @@ namespace ColorLand
         private bool mGrowing;
         private float mGrowValue;
 
+        private bool mMustMove;
+
         //TODO Construir mecanismo de chamar um delegate method when finish animation
 
         public MacromapPlayer(Color color, Vector2 position)
@@ -89,6 +91,17 @@ namespace ColorLand
         }
 
 
+        public void moveTo(Vector2 destiny)
+        {
+            setDestiny(destiny);
+            mMustMove = true;
+        }
+
+        public void setMustMove(bool mustMove)
+        {
+            mMustMove = mustMove;
+        }
+
         public void setDestiny(Vector2 destiny)
         {
             this.mDestiny = destiny;
@@ -102,18 +115,23 @@ namespace ColorLand
 
         public override void update(GameTime gameTime)
         {
-            float distance;
-            Vector2 playerPosition = getPlayerPosition();
-            Vector2.Distance(ref mDestiny, ref pos, out distance);
-            if (distance > 20)
+            if (mMustMove)
             {
-                destAngle = Math.Atan2(mDestiny.Y - pos.Y, mDestiny.X - pos.X);
-                //altere "1.0f" para fazer com que ele se desloque mais rapidamente
-                pos.X += 1.0f * (float)Math.Cos(destAngle);
-                pos.Y += 1.0f * (float)Math.Sin(destAngle);
-            }
-            else { 
-                //colidiu..
+                float distance;
+                Vector2 playerPosition = getPlayerPosition();
+                Vector2.Distance(ref mDestiny, ref pos, out distance);
+                if (distance > 20)
+                {
+                    destAngle = Math.Atan2(mDestiny.Y - pos.Y, mDestiny.X - pos.X);
+                    //altere "1.0f" para fazer com que ele se desloque mais rapidamente
+                    pos.X += 1.0f * (float)Math.Cos(destAngle);
+                    pos.Y += 1.0f * (float)Math.Sin(destAngle);
+                }
+                else
+                {
+                    //colidiu..
+                }
+
             }
 
             if (mGrowing && !mReachedMaxSize)
