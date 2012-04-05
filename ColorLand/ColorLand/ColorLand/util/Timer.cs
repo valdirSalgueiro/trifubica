@@ -74,8 +74,11 @@ namespace ColorLand
             if (mActive)
             {
                 double time = ExtraFunctions.trimDouble(getTime(),1);
+
+                //Game1.print("TIME: " + time);
                 if (!isBusyForNumber(number) && time == number)
                 {
+                    Game1.print("ENTROU AQUI COMO: " + time);
                     setBusyWithNumber(number);
                     return true;
                 }

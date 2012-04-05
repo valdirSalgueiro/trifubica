@@ -115,8 +115,8 @@ namespace ColorLand
                 mSpriteVictory  = new Sprite(ExtraFunctions.fillArrayWithImages2 (5, "gameplay\\maincharacter\\blue\\body"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 5 }, 1, width, height, true, false);
                 mSpriteDefeat   = new Sprite(ExtraFunctions.fillArrayWithImages2 (5, "gameplay\\maincharacter\\blue\\body"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 5 }, 1, width, height, true, false);
 
-                mSpriteInverseTopLeft  = new Sprite(ExtraFunctions.fillArrayWithImages2(50, 4, "gameplay\\maincharacter\\blue\\body"), new int[] { 3,2,1,0 }, 2, width, height, true, false);
-                mSpriteInverseTopRight = new Sprite(ExtraFunctions.fillArrayWithImages2(17, 5, "gameplay\\maincharacter\\blue\\body"), new int[] { 4,3,2,1,0 }, 2, width, height, true, false);
+                mSpriteInverseTopLeft  = new Sprite(ExtraFunctions.fillArrayWithImages2(50, 4, "gameplay\\maincharacter\\blue\\body"), new int[] { 3,2 }, 2, width, height, true, false);
+                mSpriteInverseTopRight = new Sprite(ExtraFunctions.fillArrayWithImages2(17, 5, "gameplay\\maincharacter\\blue\\body"), new int[] { 4,3,2 }, 2, width, height, true, false);
                 
 
                 addSprite(mSpriteStopped, sSTATE_STOPPED);
@@ -176,10 +176,12 @@ namespace ColorLand
                         if (mTimerBlinkSpeed.getTimeAndLock(0.1))
                         {
                             setVisible(false);
+                            mFeet.setVisible(false);
                         }
                         if (mTimerBlinkSpeed.getTimeAndLock(0.3))
                         {
                             setVisible(true);
+                            mFeet.setVisible(true);
                             mTimerBlinkSpeed.start();
                         }
                     }
@@ -187,6 +189,7 @@ namespace ColorLand
                 else
                 {
                     setVisible(true);
+                    mFeet.setVisible(true);
                     if (mTimerBlinkSpeed != null)
                     {
                         mTimerBlinkSpeed.stop();
