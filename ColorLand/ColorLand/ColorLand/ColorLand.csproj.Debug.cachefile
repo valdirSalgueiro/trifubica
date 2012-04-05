@@ -1,5 +1,4 @@
 Content\gameplay\backgrounds\bgteste.xnb
-Content\gameplay\cursors\cursor.xnb
 Content\fades\blackfade.xnb
 Content\mainmenu\mainmenubg.xnb
 Content\gameplay\backgrounds\stage1_1\stage1_1_layer1.xnb
@@ -730,6 +729,7 @@ Content\gameplay\cursors\red\cursor0011.xnb
 Content\gameplay\cursors\red\cursor0012.xnb
 Content\gameplay\cursors\red\cursor0013.xnb
 Content\gameplay\cursors\red\cursor0014.xnb
+Content\gameplay\cursors\cursor1.xnb
 Content\sound\music\begin.wma
 Content\sound\music\loose.wma
 Content\sound\music\stage11.wma

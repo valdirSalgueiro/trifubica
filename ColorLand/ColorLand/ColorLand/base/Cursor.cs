@@ -41,7 +41,7 @@ namespace ColorLand
         private int mSecs;
 
 
-        private float mZoomClick = 1f;
+        private float mZoomClick = 1.0f;
 
 
         private MTimer mTimerParalyzed;//when hit an enemy of wrong color
@@ -62,7 +62,7 @@ namespace ColorLand
         {
 
             int size = 170;
-            mSpriteNormal = new Sprite(1, "gameplay\\cursors\\cursor", new int[] { 0 }, 10, 93, 150);
+            mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\cursors\\cursor"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 1 }, 1, 93, 150, false, false);                            
             mSpriteBlue = new Sprite(ExtraFunctions.fillArrayWithImages2(14, "gameplay\\cursors\\blue\\cursor"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 1, 100, 100, false, false);
             mSpriteGreen = new Sprite(ExtraFunctions.fillArrayWithImages2(14, "gameplay\\cursors\\green\\cursor"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 1, 100, 100, false, false);
             mSpriteRed = new Sprite(ExtraFunctions.fillArrayWithImages2(14, "gameplay\\cursors\\red\\cursor"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 1, 100, 100, false, false);
@@ -110,7 +110,8 @@ namespace ColorLand
                 //if (mCanMove)
                 //{
                     MouseState mouseState = Mouse.GetState();
-                    setCenter(mouseState.X, mouseState.Y);
+                    //setCenter(mouseState.X, mouseState.Y);
+                    setLocation(mouseState.X, mouseState.Y);
                 //}
             }
             else
@@ -155,13 +156,22 @@ namespace ColorLand
             }
             */
 
-            if (mCanMove)
+            if (getCurrentSprite() == mSpriteNormal)
             {
-                //base.draw(spriteBatch,);
+                base.draw(spriteBatch, 0, mZoomClick);
             }
             else
             {
-                base.draw(spriteBatch, mRotation += 0.4f);               
+
+                if (mCanMove)
+                {
+                    base.draw(spriteBatch);
+                }
+                else
+                {
+                    base.draw(spriteBatch, mRotation += 0.4f);
+                }
+
             }
             //spriteBatch.Draw(getCurrentSprite().getCurrentTexture2D(), new Vector2(mX, mY), new Rectangle(0, 0, getCurrentSprite().getWidth(), getCurrentSprite().getHeight()), Color.White, mRotation+=0.3f, new Vector2(300, 300), 1, SpriteEffects.None, 0);
 
@@ -254,6 +264,7 @@ namespace ColorLand
                     if (mZoomClick > 0.7f)
                     {
                         mZoomClick -= 0.04f;
+                        Game1.print("ZOOM level: " + mZoomClick);
                     }
                     else
                     {
@@ -265,7 +276,7 @@ namespace ColorLand
                 {
                     if (mZoomClick < 1.0f)
                     {
-                        mZoomClick -= 0.04f;
+                        mZoomClick += 0.04f;
                     }
                     else
                     {

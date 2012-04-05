@@ -383,20 +383,14 @@ namespace ColorLand
 
         }
 
-        public void draw(int a,SpriteBatch spritebatch, double zoom)
+        public void draw(SpriteBatch spritebatch, float angle, float zoom)
         {
             if (mVisible)
             {
-                //se nÃƒÂ£o tiver aparecendo nada ÃƒÂ© pq width e height nao foram setados
-                //130,124
+                //se der um caralho aqui foi culpa da cor, digo logo. Volta pra Color.WHITE
                 if (mIndividualImages)
                 {
-                    spritebatch.Draw(mImages[mCurrentFrame], destRectangle(), new Color(R, G, B));
-                }
-                else
-                {
-
-                    //flip?
+                    //flip effect
                     SpriteEffects flipEffect;
                     if (mFlip)
                     {
@@ -406,8 +400,14 @@ namespace ColorLand
                     {
                         flipEffect = SpriteEffects.None;
                     }
-                    //spritebatch.Draw(
-                    //sspritebatch.Draw(mImage, rotationPosition, new Rectangle(0, 0, 259, 247), new Color(R, G, B), (float)angle, rotationOrigin, 1, flipEffect, 1);
+
+                    int imageIndex = mAnimationSequence[mCurrentFrame];
+                    spritebatch.Draw(mImages[imageIndex], new Vector2(mX,mY), srcRectangle(), new Color(R, G, B),angle, Vector2.Zero, zoom, flipEffect, 0);
+                }
+                else
+                {
+                   Game1.print("ALERTA! ENTROU NUM ELSE FUDIDO!**********************************");
+                    //spritebatch.Draw(mImage, destRectangle(), srcRectangle(), new Color(R, G, B), (float)angle, Vector2.Zero, SpriteEffects.None, 0);
                 }
             }
 
