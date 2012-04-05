@@ -37,26 +37,21 @@ namespace ColorLand
             
         }
 
-        public EnemyMongo
-            
-            
-            
-            (Color color, Vector2 origin)
+        public EnemyMongo(Color color, Vector2 origin)
             : base(color, origin)
         {
 
             if(color == Color.Red)
             {
-                 //os sprites andando do red sao diferentes. Tem que ter cuidado caso for mexer
-                  mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages(9, "enemies\\all\\red\\mongo"), new int[] { 0,1,2,3,4,5,6,7,8,7,6,5,4,3,2,1,0 }, 2, 120, 120, false, false);
+                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(9, "enemies\\Mongo\\red\\01\\mongo_red"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 7, 6, 5, 4, 3, 2, 1, 0 }, 2, 100, 100, false, false);
             }
             if (color == Color.Blue)
             {
-                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages(9, "enemies\\all\\blau\\mongo"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 7, 6, 5, 4, 3, 2, 1, 0 }, 2, 120, 120, false, false);
+                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(9, "enemies\\Mongo\\blue\\01\\mongo_blue"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 7, 6, 5, 4, 3, 2, 1, 0 }, 2, 100, 100, false, false);
             }
             if (color == Color.Green)
             {
-                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages(9, "enemies\\all\\green\\mongo"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 7, 6, 5, 4, 3, 2, 1, 0 }, 2, 120, 120, false, false);
+                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(9, "enemies\\Mongo\\green\\01\\mongo_green"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 7, 6, 5, 4, 3, 2, 1, 0 }, 2, 100, 100, false, false);
             }
 
             addSprite(mSpriteWalking, sSTATE_WALKING);

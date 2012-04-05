@@ -40,6 +40,12 @@ namespace ColorLand
         private MTimer mTimer;
         private int mSecs;
 
+
+        private float mZoomClick = 1f;
+
+
+        private MTimer mTimerParalyzed;//when hit an enemy of wrong color
+
         private bool mActiveInsideButton;
         private bool mEventCompleted;
 
@@ -56,10 +62,10 @@ namespace ColorLand
         {
 
             int size = 170;
-            mSpriteNormal = new Sprite(1, "gameplay\\cursors\\cursor", new int[] { 0 }, 10, size, size);
-            mSpriteBlue = new Sprite(ExtraFunctions.fillArrayWithImages(14, "gameplay\\cursors\\cursor_blue"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 2, 100, 100, false, false);
-            mSpriteGreen = new Sprite(ExtraFunctions.fillArrayWithImages(14, "gameplay\\cursors\\cursor_green"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 2, 100, 100, false, false);
-            mSpriteRed = new Sprite(ExtraFunctions.fillArrayWithImages(14, "gameplay\\cursors\\cursor_red"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 2, 100, 100, false, false);
+            mSpriteNormal = new Sprite(1, "gameplay\\cursors\\cursor", new int[] { 0 }, 10, 93, 150);
+            mSpriteBlue = new Sprite(ExtraFunctions.fillArrayWithImages2(14, "gameplay\\cursors\\blue\\cursor"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 1, 100, 100, false, false);
+            mSpriteGreen = new Sprite(ExtraFunctions.fillArrayWithImages2(14, "gameplay\\cursors\\green\\cursor"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 1, 100, 100, false, false);
+            mSpriteRed = new Sprite(ExtraFunctions.fillArrayWithImages2(14, "gameplay\\cursors\\red\\cursor"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 1, 100, 100, false, false);
             
             addSprite(mSpriteNormal, sSTATE_NORMAL);
             addSprite(mSpriteBlue,   sSTATE_BLUE);
@@ -97,13 +103,15 @@ namespace ColorLand
 
             updateTimer(gameTime);
 
+            updateInput();
+
             if (!Game1.sKINECT_BASED)
             {
-                if (mCanMove)
-                {
+                //if (mCanMove)
+                //{
                     MouseState mouseState = Mouse.GetState();
                     setCenter(mouseState.X, mouseState.Y);
-                }
+                //}
             }
             else
             {
@@ -147,7 +155,14 @@ namespace ColorLand
             }
             */
 
-            base.draw(spriteBatch, mRotation += 0.5f);
+            if (mCanMove)
+            {
+                //base.draw(spriteBatch,);
+            }
+            else
+            {
+                base.draw(spriteBatch, mRotation += 0.4f);               
+            }
             //spriteBatch.Draw(getCurrentSprite().getCurrentTexture2D(), new Vector2(mX, mY), new Rectangle(0, 0, getCurrentSprite().getWidth(), getCurrentSprite().getHeight()), Color.White, mRotation+=0.3f, new Vector2(300, 300), 1, SpriteEffects.None, 0);
 
             //base.draw(spriteBatch, Color.AliceBlue); 
@@ -163,6 +178,12 @@ namespace ColorLand
             if (color == Color.Green) changeToSprite(sSTATE_GREEN);
             if (color == Color.Red) changeToSprite(sSTATE_RED);
             
+        }
+
+        public void backToMenuCursor()
+        {
+            mCurrentColor = Color.Blue;
+            changeToSprite(sSTATE_NORMAL);
         }
 
         public Color getColor()
@@ -222,6 +243,38 @@ namespace ColorLand
             mTimer.start();
         }
 
+        private void updateInput()
+        {
+            if (getCurrentSprite() == mSpriteNormal)
+            {
+                MouseState mouseState = Mouse.GetState();
+
+                if (mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    if (mZoomClick > 0.7f)
+                    {
+                        mZoomClick -= 0.04f;
+                    }
+                    else
+                    {
+                        mZoomClick = 0.7f;
+                    }
+
+                }
+                else
+                {
+                    if (mZoomClick < 1.0f)
+                    {
+                        mZoomClick -= 0.04f;
+                    }
+                    else
+                    {
+                        mZoomClick = 1.0f;
+                    }
+                }
+
+            }
+        }
 
         private void updateTimer(GameTime gameTime)
         {
@@ -240,6 +293,34 @@ namespace ColorLand
                     }
                 }
             }
+
+
+            if (mTimerParalyzed != null)
+            {
+                mTimerParalyzed.update(gameTime);
+
+                if (mTimerParalyzed.getTimeAndLock(0.6))
+                {
+                    mTimerParalyzed.stop();
+                    mTimerParalyzed = null;
+
+                    mCanMove = true;
+                }
+            }
+        }
+
+        public void paralyze()
+        {
+            if (mCanMove)
+            {
+                mTimerParalyzed = new MTimer(true);
+                mCanMove = false;
+            }
+        }
+
+        public bool isParalyzed()
+        {
+            return !mCanMove;
         }
 
         public bool isEventCompleted()

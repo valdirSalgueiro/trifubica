@@ -24,21 +24,21 @@ namespace ColorLand
 
             mColor = color;
 
-            if (color == Color.Tomato)
+            /*if (color == Color.Tomato)
             {
-                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(49, "enemies\\explosion\\explosion"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 49 }, 1, 500, 500, true, false);
-            }
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(27, "enemies\\explosion\\explosion"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 27 }, 1, 500, 500, true, false);
+            }*/
             if (color == Color.Red)
             {
-                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(30, "enemies\\explosion\\red\\explosion_red"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 30 }, 1, 500, 500, true, false);
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(27, "enemies\\explosion\\red\\Red"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 27 }, 1, 210, 210, true, false);
             }
             if (color == Color.Green)
             {
-                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(30, "enemies\\explosion\\green\\explosion_green"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 30 }, 1, 500, 500, true, false);
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(27, "enemies\\explosion\\green\\Green"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 27 }, 1, 210, 210, true, false);
             }
             if (color == Color.Blue)
             {
-                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(30, "enemies\\explosion\\blue\\explosion_blue"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 30 }, 1, 500, 500, true, false);
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(27, "enemies\\explosion\\blue\\Blue"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 27 }, 1, 210, 210, true, false);
             }
                 //mSpriteTackling = new Sprite(imagesTackling, new int[] { 0, 1, 2, 3, 4, 5 }, 1, 65, 80, true, false);
 

@@ -52,6 +52,8 @@ namespace ColorLand
 
         KeyboardState oldState;
 
+        MouseState oldStateMouse;
+
         /*******************
          * BASIC
          *******************/
@@ -229,8 +231,8 @@ namespace ColorLand
 
                    // mManager.addEnemy(new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED), new Vector2(300, 320));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(300, 140));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(200, 140));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(1100, 140));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(200, 140));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(1100, 140));
                     
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-100, -70));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(900, 10));
@@ -359,18 +361,21 @@ namespace ColorLand
 
                 if (be.getColor() == Cursor.getInstance().getColor())
                 {
-                    int x = (int)be.getX();
-                    int y = (int)be.getY();
-                    mExplosionManager.getNextOfColor(be.getColor()).explode(be.getCenter());
-                    be.destroy();
-                    incrementProgress();
-
+                    if (!Cursor.getInstance().isParalyzed())
+                    {
+                        int x = (int)be.getX();
+                        int y = (int)be.getY();
+                        mExplosionManager.getNextOfColor(be.getColor()).explode(be.getCenter());
+                        be.destroy();
+                        incrementProgress();
+                    }
                     //Collectable c = mGroupCollectables.getNext();
                     //c.appear(x, y);
                 }
                 else
                 {
                     //FUDEU
+                    Cursor.getInstance().paralyze();
                 }
                 //mGroup.remove(be);
 
@@ -826,6 +831,19 @@ namespace ColorLand
             if (!Game1.sKINECT_BASED)
             {
                 MouseState mouseState = Mouse.GetState();
+
+
+                if (mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    if (oldStateMouse.LeftButton != ButtonState.Pressed)
+                    {
+                        Cursor.getInstance().nextColor();
+                    }
+                }
+                
+
+                oldStateMouse = mouseState;
+
                 if (mouseState.LeftButton == ButtonState.Pressed)
                 {
                     mMousePressing = true;
@@ -847,12 +865,6 @@ namespace ColorLand
                 {
                     pulse++;
                     mCamera.zoomIn(0.1f);
-                }*/
-
-                /*if (newState.IsKeyDown(Keys.Space))
-                {
-                    incrementProgress();
-                    //SoundManager.PlaySound("test\\iniciar");
                 }*/
                 if (newState.IsKeyDown(Keys.Space))
                 {

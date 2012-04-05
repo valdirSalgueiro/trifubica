@@ -55,23 +55,6 @@
     <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gameplay\cursors\cursorblue.png">
-      <Name>cursorblue</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursorgreen.png">
-      <Name>cursorgreen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursorred.png">
-      <Name>cursorred</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="fades\blackfade.png">
       <Name>blackfade</Name>
       <Importer>TextureImporter</Importer>
@@ -951,462 +934,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="enemies\explosion\blue\explosion_blue1.png">
-      <Name>explosion_blue1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue10.png">
-      <Name>explosion_blue10</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue11.png">
-      <Name>explosion_blue11</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue12.png">
-      <Name>explosion_blue12</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue13.png">
-      <Name>explosion_blue13</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue14.png">
-      <Name>explosion_blue14</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue15.png">
-      <Name>explosion_blue15</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue16.png">
-      <Name>explosion_blue16</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue17.png">
-      <Name>explosion_blue17</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue18.png">
-      <Name>explosion_blue18</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue19.png">
-      <Name>explosion_blue19</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue2.png">
-      <Name>explosion_blue2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue20.png">
-      <Name>explosion_blue20</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue21.png">
-      <Name>explosion_blue21</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue22.png">
-      <Name>explosion_blue22</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue23.png">
-      <Name>explosion_blue23</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue24.png">
-      <Name>explosion_blue24</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue25.png">
-      <Name>explosion_blue25</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue26.png">
-      <Name>explosion_blue26</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue27.png">
-      <Name>explosion_blue27</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue28.png">
-      <Name>explosion_blue28</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue29.png">
-      <Name>explosion_blue29</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue3.png">
-      <Name>explosion_blue3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue30.png">
-      <Name>explosion_blue30</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue4.png">
-      <Name>explosion_blue4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue5.png">
-      <Name>explosion_blue5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue6.png">
-      <Name>explosion_blue6</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue7.png">
-      <Name>explosion_blue7</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue8.png">
-      <Name>explosion_blue8</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\blue\explosion_blue9.png">
-      <Name>explosion_blue9</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="enemies\explosion\green\explosion_green1.png">
-      <Name>explosion_green1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green10.png">
-      <Name>explosion_green10</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green11.png">
-      <Name>explosion_green11</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green12.png">
-      <Name>explosion_green12</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green13.png">
-      <Name>explosion_green13</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green14.png">
-      <Name>explosion_green14</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green15.png">
-      <Name>explosion_green15</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green16.png">
-      <Name>explosion_green16</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green17.png">
-      <Name>explosion_green17</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green18.png">
-      <Name>explosion_green18</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green19.png">
-      <Name>explosion_green19</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green2.png">
-      <Name>explosion_green2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green20.png">
-      <Name>explosion_green20</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green21.png">
-      <Name>explosion_green21</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green22.png">
-      <Name>explosion_green22</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green23.png">
-      <Name>explosion_green23</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green24.png">
-      <Name>explosion_green24</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green25.png">
-      <Name>explosion_green25</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green26.png">
-      <Name>explosion_green26</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green27.png">
-      <Name>explosion_green27</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green28.png">
-      <Name>explosion_green28</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green29.png">
-      <Name>explosion_green29</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green3.png">
-      <Name>explosion_green3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green30.png">
-      <Name>explosion_green30</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green4.png">
-      <Name>explosion_green4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green5.png">
-      <Name>explosion_green5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green6.png">
-      <Name>explosion_green6</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green7.png">
-      <Name>explosion_green7</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green8.png">
-      <Name>explosion_green8</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\green\explosion_green9.png">
-      <Name>explosion_green9</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="enemies\explosion\red\explosion_red1.png">
-      <Name>explosion_red1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red10.png">
-      <Name>explosion_red10</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red11.png">
-      <Name>explosion_red11</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red12.png">
-      <Name>explosion_red12</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red13.png">
-      <Name>explosion_red13</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red14.png">
-      <Name>explosion_red14</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red15.png">
-      <Name>explosion_red15</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red16.png">
-      <Name>explosion_red16</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red17.png">
-      <Name>explosion_red17</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red18.png">
-      <Name>explosion_red18</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red19.png">
-      <Name>explosion_red19</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red2.png">
-      <Name>explosion_red2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red20.png">
-      <Name>explosion_red20</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red21.png">
-      <Name>explosion_red21</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red22.png">
-      <Name>explosion_red22</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red23.png">
-      <Name>explosion_red23</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red24.png">
-      <Name>explosion_red24</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red25.png">
-      <Name>explosion_red25</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red26.png">
-      <Name>explosion_red26</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red27.png">
-      <Name>explosion_red27</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red28.png">
-      <Name>explosion_red28</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red29.png">
-      <Name>explosion_red29</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red3.png">
-      <Name>explosion_red3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red30.png">
-      <Name>explosion_red30</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red4.png">
-      <Name>explosion_red4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red5.png">
-      <Name>explosion_red5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red6.png">
-      <Name>explosion_red6</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red7.png">
-      <Name>explosion_red7</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red8.png">
-      <Name>explosion_red8</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\explosion\red\explosion_red9.png">
-      <Name>explosion_red9</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="enemies\all\blau\bako1.png">
       <Name>bako1</Name>
       <Importer>TextureImporter</Importer>
@@ -1528,220 +1055,6 @@
     </Compile>
     <Compile Include="enemies\all\red\bako8.png">
       <Name>bako8</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="gameplay\cursors\cursor_blue1.png">
-      <Name>cursor_blue1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_blue10.png">
-      <Name>cursor_blue10</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_blue11.png">
-      <Name>cursor_blue11</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_blue12.png">
-      <Name>cursor_blue12</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_blue13.png">
-      <Name>cursor_blue13</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_blue14.png">
-      <Name>cursor_blue14</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_blue2.png">
-      <Name>cursor_blue2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_blue3.png">
-      <Name>cursor_blue3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_blue4.png">
-      <Name>cursor_blue4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_blue5.png">
-      <Name>cursor_blue5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_blue6.png">
-      <Name>cursor_blue6</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_blue7.png">
-      <Name>cursor_blue7</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_blue8.png">
-      <Name>cursor_blue8</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_blue9.png">
-      <Name>cursor_blue9</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_red1.png">
-      <Name>cursor_red1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_red10.png">
-      <Name>cursor_red10</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_red11.png">
-      <Name>cursor_red11</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_red12.png">
-      <Name>cursor_red12</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_red13.png">
-      <Name>cursor_red13</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_red14.png">
-      <Name>cursor_red14</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_red2.png">
-      <Name>cursor_red2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_red3.png">
-      <Name>cursor_red3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_red4.png">
-      <Name>cursor_red4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_red5.png">
-      <Name>cursor_red5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_red6.png">
-      <Name>cursor_red6</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_red7.png">
-      <Name>cursor_red7</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_red8.png">
-      <Name>cursor_red8</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_red9.png">
-      <Name>cursor_red9</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="gameplay\cursors\cursor_green1.png">
-      <Name>cursor_green1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_green10.png">
-      <Name>cursor_green10</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_green11.png">
-      <Name>cursor_green11</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_green12.png">
-      <Name>cursor_green12</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_green13.png">
-      <Name>cursor_green13</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_green14.png">
-      <Name>cursor_green14</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_green2.png">
-      <Name>cursor_green2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_green3.png">
-      <Name>cursor_green3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_green4.png">
-      <Name>cursor_green4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_green5.png">
-      <Name>cursor_green5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_green6.png">
-      <Name>cursor_green6</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_green7.png">
-      <Name>cursor_green7</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_green8.png">
-      <Name>cursor_green8</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\cursors\cursor_green9.png">
-      <Name>cursor_green9</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -2794,6 +2107,1695 @@
     </Compile>
     <Compile Include="gameplay\maincharacter\blue\feet\right\blue_feet_walk_right0021.png">
       <Name>blue_feet_walk_right0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0000.png">
+      <Name>mongo_blue0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0001.png">
+      <Name>mongo_blue0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0002.png">
+      <Name>mongo_blue0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0003.png">
+      <Name>mongo_blue0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0004.png">
+      <Name>mongo_blue0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0005.png">
+      <Name>mongo_blue0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0006.png">
+      <Name>mongo_blue0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0007.png">
+      <Name>mongo_blue0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0008.png">
+      <Name>mongo_blue0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0009.png">
+      <Name>mongo_blue0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0010.png">
+      <Name>mongo_blue0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0011.png">
+      <Name>mongo_blue0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0012.png">
+      <Name>mongo_blue0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0013.png">
+      <Name>mongo_blue0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0014.png">
+      <Name>mongo_blue0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0015.png">
+      <Name>mongo_blue0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0016.png">
+      <Name>mongo_blue0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0017.png">
+      <Name>mongo_blue0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0018.png">
+      <Name>mongo_blue0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0019.png">
+      <Name>mongo_blue0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0020.png">
+      <Name>mongo_blue0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0021.png">
+      <Name>mongo_blue0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0022.png">
+      <Name>mongo_blue0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0023.png">
+      <Name>mongo_blue0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0024.png">
+      <Name>mongo_blue0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0025.png">
+      <Name>mongo_blue0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0026.png">
+      <Name>mongo_blue0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0027.png">
+      <Name>mongo_blue0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0028.png">
+      <Name>mongo_blue0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0029.png">
+      <Name>mongo_blue0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0030.png">
+      <Name>mongo_blue0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0031.png">
+      <Name>mongo_blue0031</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\01\mongo_blue0032.png">
+      <Name>mongo_blue0032</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0000.png">
+      <Name>mongo_blue0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0001.png">
+      <Name>mongo_blue0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0002.png">
+      <Name>mongo_blue0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0003.png">
+      <Name>mongo_blue0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0004.png">
+      <Name>mongo_blue0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0005.png">
+      <Name>mongo_blue0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0006.png">
+      <Name>mongo_blue0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0007.png">
+      <Name>mongo_blue0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0008.png">
+      <Name>mongo_blue0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0009.png">
+      <Name>mongo_blue0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0010.png">
+      <Name>mongo_blue0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0011.png">
+      <Name>mongo_blue0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0012.png">
+      <Name>mongo_blue0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0013.png">
+      <Name>mongo_blue0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0014.png">
+      <Name>mongo_blue0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0015.png">
+      <Name>mongo_blue0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0016.png">
+      <Name>mongo_blue0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0017.png">
+      <Name>mongo_blue0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0018.png">
+      <Name>mongo_blue0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0019.png">
+      <Name>mongo_blue0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0020.png">
+      <Name>mongo_blue0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0021.png">
+      <Name>mongo_blue0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0022.png">
+      <Name>mongo_blue0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0023.png">
+      <Name>mongo_blue0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0024.png">
+      <Name>mongo_blue0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0025.png">
+      <Name>mongo_blue0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0026.png">
+      <Name>mongo_blue0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0027.png">
+      <Name>mongo_blue0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0028.png">
+      <Name>mongo_blue0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0029.png">
+      <Name>mongo_blue0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0030.png">
+      <Name>mongo_blue0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0031.png">
+      <Name>mongo_blue0031</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\blue\02\mongo_blue0032.png">
+      <Name>mongo_blue0032</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0000.png">
+      <Name>mongo_green0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0001.png">
+      <Name>mongo_green0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0002.png">
+      <Name>mongo_green0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0003.png">
+      <Name>mongo_green0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0004.png">
+      <Name>mongo_green0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0005.png">
+      <Name>mongo_green0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0006.png">
+      <Name>mongo_green0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0007.png">
+      <Name>mongo_green0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0008.png">
+      <Name>mongo_green0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0009.png">
+      <Name>mongo_green0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0010.png">
+      <Name>mongo_green0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0011.png">
+      <Name>mongo_green0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0012.png">
+      <Name>mongo_green0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0013.png">
+      <Name>mongo_green0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0014.png">
+      <Name>mongo_green0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0015.png">
+      <Name>mongo_green0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0016.png">
+      <Name>mongo_green0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0017.png">
+      <Name>mongo_green0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0018.png">
+      <Name>mongo_green0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0019.png">
+      <Name>mongo_green0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0020.png">
+      <Name>mongo_green0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0021.png">
+      <Name>mongo_green0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0022.png">
+      <Name>mongo_green0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0023.png">
+      <Name>mongo_green0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0024.png">
+      <Name>mongo_green0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0025.png">
+      <Name>mongo_green0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0026.png">
+      <Name>mongo_green0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0027.png">
+      <Name>mongo_green0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0028.png">
+      <Name>mongo_green0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0029.png">
+      <Name>mongo_green0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0030.png">
+      <Name>mongo_green0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0031.png">
+      <Name>mongo_green0031</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\01\mongo_green0032.png">
+      <Name>mongo_green0032</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0000.png">
+      <Name>mongo_green0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0001.png">
+      <Name>mongo_green0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0002.png">
+      <Name>mongo_green0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0003.png">
+      <Name>mongo_green0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0004.png">
+      <Name>mongo_green0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0005.png">
+      <Name>mongo_green0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0006.png">
+      <Name>mongo_green0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0007.png">
+      <Name>mongo_green0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0008.png">
+      <Name>mongo_green0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0009.png">
+      <Name>mongo_green0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0010.png">
+      <Name>mongo_green0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0011.png">
+      <Name>mongo_green0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0012.png">
+      <Name>mongo_green0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0013.png">
+      <Name>mongo_green0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0014.png">
+      <Name>mongo_green0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0015.png">
+      <Name>mongo_green0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0016.png">
+      <Name>mongo_green0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0017.png">
+      <Name>mongo_green0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0018.png">
+      <Name>mongo_green0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0019.png">
+      <Name>mongo_green0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0020.png">
+      <Name>mongo_green0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0021.png">
+      <Name>mongo_green0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0022.png">
+      <Name>mongo_green0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0023.png">
+      <Name>mongo_green0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0024.png">
+      <Name>mongo_green0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0025.png">
+      <Name>mongo_green0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0026.png">
+      <Name>mongo_green0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0027.png">
+      <Name>mongo_green0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0028.png">
+      <Name>mongo_green0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0029.png">
+      <Name>mongo_green0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0030.png">
+      <Name>mongo_green0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0031.png">
+      <Name>mongo_green0031</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\green\02\mongo_green0032.png">
+      <Name>mongo_green0032</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0000.png">
+      <Name>mongo_red0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0001.png">
+      <Name>mongo_red0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0002.png">
+      <Name>mongo_red0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0003.png">
+      <Name>mongo_red0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0004.png">
+      <Name>mongo_red0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0005.png">
+      <Name>mongo_red0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0006.png">
+      <Name>mongo_red0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0007.png">
+      <Name>mongo_red0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0008.png">
+      <Name>mongo_red0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0009.png">
+      <Name>mongo_red0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0010.png">
+      <Name>mongo_red0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0011.png">
+      <Name>mongo_red0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0012.png">
+      <Name>mongo_red0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0013.png">
+      <Name>mongo_red0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0014.png">
+      <Name>mongo_red0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0015.png">
+      <Name>mongo_red0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0016.png">
+      <Name>mongo_red0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0017.png">
+      <Name>mongo_red0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0018.png">
+      <Name>mongo_red0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0019.png">
+      <Name>mongo_red0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0020.png">
+      <Name>mongo_red0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0021.png">
+      <Name>mongo_red0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0022.png">
+      <Name>mongo_red0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0023.png">
+      <Name>mongo_red0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0024.png">
+      <Name>mongo_red0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0025.png">
+      <Name>mongo_red0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0026.png">
+      <Name>mongo_red0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0027.png">
+      <Name>mongo_red0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0028.png">
+      <Name>mongo_red0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0029.png">
+      <Name>mongo_red0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0030.png">
+      <Name>mongo_red0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0031.png">
+      <Name>mongo_red0031</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\01\mongo_red0032.png">
+      <Name>mongo_red0032</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0000.png">
+      <Name>mongo_red0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0001.png">
+      <Name>mongo_red0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0002.png">
+      <Name>mongo_red0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0003.png">
+      <Name>mongo_red0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0004.png">
+      <Name>mongo_red0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0005.png">
+      <Name>mongo_red0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0006.png">
+      <Name>mongo_red0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0007.png">
+      <Name>mongo_red0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0008.png">
+      <Name>mongo_red0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0009.png">
+      <Name>mongo_red0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0010.png">
+      <Name>mongo_red0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0011.png">
+      <Name>mongo_red0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0012.png">
+      <Name>mongo_red0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0013.png">
+      <Name>mongo_red0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0014.png">
+      <Name>mongo_red0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0015.png">
+      <Name>mongo_red0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0016.png">
+      <Name>mongo_red0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0017.png">
+      <Name>mongo_red0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0018.png">
+      <Name>mongo_red0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0019.png">
+      <Name>mongo_red0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0020.png">
+      <Name>mongo_red0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0021.png">
+      <Name>mongo_red0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0022.png">
+      <Name>mongo_red0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0023.png">
+      <Name>mongo_red0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0024.png">
+      <Name>mongo_red0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0025.png">
+      <Name>mongo_red0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0026.png">
+      <Name>mongo_red0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0027.png">
+      <Name>mongo_red0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0028.png">
+      <Name>mongo_red0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0029.png">
+      <Name>mongo_red0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0030.png">
+      <Name>mongo_red0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0031.png">
+      <Name>mongo_red0031</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Mongo\red\02\mongo_red0032.png">
+      <Name>mongo_red0032</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\explosion\blue\Blue0001.png">
+      <Name>Blue0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0002.png">
+      <Name>Blue0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0003.png">
+      <Name>Blue0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0004.png">
+      <Name>Blue0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0005.png">
+      <Name>Blue0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0006.png">
+      <Name>Blue0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0007.png">
+      <Name>Blue0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0008.png">
+      <Name>Blue0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0009.png">
+      <Name>Blue0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0010.png">
+      <Name>Blue0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0011.png">
+      <Name>Blue0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0012.png">
+      <Name>Blue0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0013.png">
+      <Name>Blue0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0014.png">
+      <Name>Blue0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0015.png">
+      <Name>Blue0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0016.png">
+      <Name>Blue0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0017.png">
+      <Name>Blue0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0018.png">
+      <Name>Blue0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0019.png">
+      <Name>Blue0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0020.png">
+      <Name>Blue0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0021.png">
+      <Name>Blue0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0022.png">
+      <Name>Blue0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0023.png">
+      <Name>Blue0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0024.png">
+      <Name>Blue0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0025.png">
+      <Name>Blue0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0026.png">
+      <Name>Blue0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0027.png">
+      <Name>Blue0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0028.png">
+      <Name>Blue0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0029.png">
+      <Name>Blue0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\blue\Blue0030.png">
+      <Name>Blue0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\explosion\green\Green0001.png">
+      <Name>Green0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0002.png">
+      <Name>Green0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0003.png">
+      <Name>Green0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0004.png">
+      <Name>Green0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0005.png">
+      <Name>Green0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0006.png">
+      <Name>Green0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0007.png">
+      <Name>Green0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0008.png">
+      <Name>Green0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0009.png">
+      <Name>Green0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0010.png">
+      <Name>Green0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0011.png">
+      <Name>Green0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0012.png">
+      <Name>Green0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0013.png">
+      <Name>Green0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0014.png">
+      <Name>Green0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0015.png">
+      <Name>Green0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0016.png">
+      <Name>Green0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0017.png">
+      <Name>Green0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0018.png">
+      <Name>Green0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0019.png">
+      <Name>Green0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0020.png">
+      <Name>Green0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0021.png">
+      <Name>Green0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0022.png">
+      <Name>Green0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0023.png">
+      <Name>Green0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0024.png">
+      <Name>Green0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0025.png">
+      <Name>Green0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0026.png">
+      <Name>Green0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0027.png">
+      <Name>Green0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0028.png">
+      <Name>Green0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0029.png">
+      <Name>Green0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\green\Green0030.png">
+      <Name>Green0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\explosion\red\Red0001.png">
+      <Name>Red0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0002.png">
+      <Name>Red0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0003.png">
+      <Name>Red0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0004.png">
+      <Name>Red0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0005.png">
+      <Name>Red0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0006.png">
+      <Name>Red0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0007.png">
+      <Name>Red0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0008.png">
+      <Name>Red0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0009.png">
+      <Name>Red0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0010.png">
+      <Name>Red0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0011.png">
+      <Name>Red0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0012.png">
+      <Name>Red0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0013.png">
+      <Name>Red0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0014.png">
+      <Name>Red0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0015.png">
+      <Name>Red0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0016.png">
+      <Name>Red0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0017.png">
+      <Name>Red0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0018.png">
+      <Name>Red0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0019.png">
+      <Name>Red0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0020.png">
+      <Name>Red0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0021.png">
+      <Name>Red0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0022.png">
+      <Name>Red0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0023.png">
+      <Name>Red0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0024.png">
+      <Name>Red0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0025.png">
+      <Name>Red0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0026.png">
+      <Name>Red0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0027.png">
+      <Name>Red0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0028.png">
+      <Name>Red0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0029.png">
+      <Name>Red0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\explosion\red\Red0030.png">
+      <Name>Red0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\cursors\blue\cursor0000.png">
+      <Name>cursor0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\blue\cursor0001.png">
+      <Name>cursor0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\blue\cursor0002.png">
+      <Name>cursor0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\blue\cursor0003.png">
+      <Name>cursor0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\blue\cursor0004.png">
+      <Name>cursor0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\blue\cursor0005.png">
+      <Name>cursor0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\blue\cursor0006.png">
+      <Name>cursor0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\blue\cursor0007.png">
+      <Name>cursor0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\blue\cursor0008.png">
+      <Name>cursor0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\blue\cursor0009.png">
+      <Name>cursor0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\blue\cursor0010.png">
+      <Name>cursor0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\blue\cursor0011.png">
+      <Name>cursor0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\blue\cursor0012.png">
+      <Name>cursor0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\blue\cursor0013.png">
+      <Name>cursor0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\blue\cursor0014.png">
+      <Name>cursor0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\cursors\green\cursor0000.png">
+      <Name>cursor0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\green\cursor0001.png">
+      <Name>cursor0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\green\cursor0002.png">
+      <Name>cursor0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\green\cursor0003.png">
+      <Name>cursor0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\green\cursor0004.png">
+      <Name>cursor0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\green\cursor0005.png">
+      <Name>cursor0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\green\cursor0006.png">
+      <Name>cursor0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\green\cursor0007.png">
+      <Name>cursor0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\green\cursor0008.png">
+      <Name>cursor0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\green\cursor0009.png">
+      <Name>cursor0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\green\cursor0010.png">
+      <Name>cursor0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\green\cursor0011.png">
+      <Name>cursor0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\green\cursor0012.png">
+      <Name>cursor0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\green\cursor0013.png">
+      <Name>cursor0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\green\cursor0014.png">
+      <Name>cursor0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\cursors\red\cursor0000.png">
+      <Name>cursor0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\red\cursor0001.png">
+      <Name>cursor0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\red\cursor0002.png">
+      <Name>cursor0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\red\cursor0003.png">
+      <Name>cursor0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\red\cursor0004.png">
+      <Name>cursor0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\red\cursor0005.png">
+      <Name>cursor0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\red\cursor0006.png">
+      <Name>cursor0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\red\cursor0007.png">
+      <Name>cursor0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\red\cursor0008.png">
+      <Name>cursor0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\red\cursor0009.png">
+      <Name>cursor0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\red\cursor0010.png">
+      <Name>cursor0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\red\cursor0011.png">
+      <Name>cursor0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\red\cursor0012.png">
+      <Name>cursor0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\red\cursor0013.png">
+      <Name>cursor0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\cursors\red\cursor0014.png">
+      <Name>cursor0014</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

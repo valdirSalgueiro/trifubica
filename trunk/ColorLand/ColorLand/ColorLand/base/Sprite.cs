@@ -383,6 +383,36 @@ namespace ColorLand
 
         }
 
+        public void draw(int a,SpriteBatch spritebatch, double zoom)
+        {
+            if (mVisible)
+            {
+                //se nÃƒÂ£o tiver aparecendo nada ÃƒÂ© pq width e height nao foram setados
+                //130,124
+                if (mIndividualImages)
+                {
+                    spritebatch.Draw(mImages[mCurrentFrame], destRectangle(), new Color(R, G, B));
+                }
+                else
+                {
+
+                    //flip?
+                    SpriteEffects flipEffect;
+                    if (mFlip)
+                    {
+                        flipEffect = SpriteEffects.FlipHorizontally;
+                    }
+                    else
+                    {
+                        flipEffect = SpriteEffects.None;
+                    }
+                    //spritebatch.Draw(
+                    //sspritebatch.Draw(mImage, rotationPosition, new Rectangle(0, 0, 259, 247), new Color(R, G, B), (float)angle, rotationOrigin, 1, flipEffect, 1);
+                }
+            }
+
+        }
+
         public void draw(SpriteBatch spritebatch, Color c)
         {
             if (mIndividualImages)
