@@ -161,8 +161,7 @@ namespace ColorLand
                 mInitialCollisionRectY = y;
             }
         }
-
-
+       
         public void setCollisionRect(int width, int height)
         {
             if (mCollisionRect != null)
@@ -302,6 +301,24 @@ namespace ColorLand
                 {
                     //mCurrentSprite.draw(spriteBatch, angle);
                     mCurrentSprite.draw(spriteBatch, rotationAngle);
+
+                    if (mCollisionTexture != null)
+                    {
+                        spriteBatch.Draw(mCollisionTexture, getCollisionRect(), new Color(0, 0, 0, 0.5f));
+                        spriteBatch.Draw(mCollisionTexture, getAttackRectangle(), new Color(0, 0, 0, 0.9f));
+                    }
+                }
+            }
+        }
+
+        public virtual void draw(SpriteBatch spriteBatch, float rotationAngle, float zoomScale)
+        {
+            if (mIsActive)
+            {
+                if (mIsVisible)
+                {
+                    //mCurrentSprite.draw(spriteBatch, angle);
+                    mCurrentSprite.draw(spriteBatch, rotationAngle, zoomScale);
 
                     if (mCollisionTexture != null)
                     {
