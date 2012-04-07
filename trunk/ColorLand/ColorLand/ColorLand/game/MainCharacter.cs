@@ -155,6 +155,7 @@ namespace ColorLand
             if (getState() != sSTATE_VICTORY && getState() != sSTATE_LOSE)
             {
                 UpdateInput();
+                updateHand();
                 updateFeet(gameTime);
 
                 if (mTimerTotalHurtTime != null)
@@ -296,17 +297,19 @@ namespace ColorLand
             {
                 mFeet.draw(spriteBatch);
                 //spriteBatch.Draw(mLeftHandTexture, new Vector2(mX + 40, mY + 40), null, Color.White, mLeftHandAngle - (float)Math.PI, new Vector2(800, 331), 0.1f, SpriteEffects.None, 0f);
-                spriteBatch.Draw(mRightHandTexture, new Vector2(mX + 140, mY + 100), null, Color.White, mRightHandAngle, new Vector2(0, 30), 1.2f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(mRightHandTexture, new Vector2(mX + 140, mY + 100), null, Color.White, mRightHandAngle, new Vector2(-13, 22), 1.2f, SpriteEffects.None, 0f);
             }
 
             base.draw(spriteBatch);
         }
 
-        public void updateHand(float angle)
+        public void updateHand()
         {
-            //TODO corrigir esta porra
-            //mLeftHandAngle = angle;
-            mRightHandAngle = angle;
+            //Vector2 directionRightHand = Cursor.getInstance().getLocation() - new Vector2(mX + 140, mY + 100);//mVectorCenterOfScreen;
+            Vector2 directionRightHand = Cursor.getInstance().getLocation() - new Vector2(mX + 140, mY + 122);//mVectorCenterOfScreen;
+            float angleHandCursor = (float)(Math.Atan2(directionRightHand.Y, directionRightHand.X));
+
+            mRightHandAngle = angleHandCursor + (float)Math.PI/2;
         }
 
 
