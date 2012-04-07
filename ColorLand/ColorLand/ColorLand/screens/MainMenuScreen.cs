@@ -42,6 +42,7 @@ namespace ColorLand
         private Button mButtonCredits;
         private Button mButtonFullscreen;
         private Button mButtonSound;
+        private Button mButtonExit;
 
         private GameObjectsGroup<Button> mGroupButtons;
 
@@ -62,10 +63,11 @@ namespace ColorLand
 
             Cursor.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mButtonContinue = new Button("mainmenu\\buttons\\mainmenu_play", "mainmenu\\buttons\\mainmenu_play_select", "mainmenu\\buttons\\mainmenu_play_selected", new Rectangle(82, 120, 295, 105));
-            mButtonPlay    = new Button("mainmenu\\buttons\\mainmenu_play", "mainmenu\\buttons\\mainmenu_play_select","mainmenu\\buttons\\mainmenu_play_selected",new Rectangle(82, 190, 295, 105));
-            mButtonHelp    = new Button("mainmenu\\buttons\\mainmenu_help", "mainmenu\\buttons\\mainmenu_help_select", "mainmenu\\buttons\\mainmenu_help_selected", new Rectangle(82, 295, 229, 103));
-            mButtonCredits = new Button("mainmenu\\buttons\\mainmenu_credits", "mainmenu\\buttons\\mainmenu_credits_select", "mainmenu\\buttons\\mainmenu_credits_selected", new Rectangle(82, 400, 229, 103));
+            mButtonContinue = new Button("mainmenu\\buttons\\mainmenu_play", "mainmenu\\buttons\\mainmenu_play_select", "mainmenu\\buttons\\mainmenu_play_selected", new Rectangle(82, 90, 295, 105));
+            mButtonPlay    = new Button("mainmenu\\buttons\\mainmenu_play", "mainmenu\\buttons\\mainmenu_play_select","mainmenu\\buttons\\mainmenu_play_selected",new Rectangle(82, 160, 295, 105));
+            mButtonHelp    = new Button("mainmenu\\buttons\\mainmenu_help", "mainmenu\\buttons\\mainmenu_help_select", "mainmenu\\buttons\\mainmenu_help_selected", new Rectangle(82, 265, 229, 103));
+            mButtonCredits = new Button("mainmenu\\buttons\\mainmenu_credits", "mainmenu\\buttons\\mainmenu_credits_select", "mainmenu\\buttons\\mainmenu_credits_selected", new Rectangle(82, 370, 229, 103));
+            mButtonExit = new Button("gameplay\\pausescreen\\exit", "gameplay\\pausescreen\\exit_select", "gameplay\\pausescreen\\exit_selected", new Rectangle(82, 475, 222, 105));
 
             mButtonFullscreen = new Button("mainmenu\\buttons\\full", "mainmenu\\buttons\\full_select", "mainmenu\\buttons\\full_selected", new Rectangle(580, 530, 90, 60));
             mButtonSound = new Button("mainmenu\\buttons\\full", "mainmenu\\buttons\\full_select", "mainmenu\\buttons\\full_selected", new Rectangle(700, 530, 90, 60));
@@ -75,6 +77,7 @@ namespace ColorLand
             mGroupButtons.addGameObject(mButtonPlay);
             mGroupButtons.addGameObject(mButtonHelp);
             mGroupButtons.addGameObject(mButtonCredits);
+            mGroupButtons.addGameObject(mButtonExit);
             mGroupButtons.addGameObject(mButtonFullscreen);
             mGroupButtons.addGameObject(mButtonSound);
 
@@ -250,6 +253,11 @@ namespace ColorLand
             {
                 SoundManager.toggleSound();
             }
+            else if (button == mButtonExit)
+            {
+                Game1.getInstance().Exit();
+            }
+            
         }
 
         public override void executeFade(Fade fadeObject, int effect)
