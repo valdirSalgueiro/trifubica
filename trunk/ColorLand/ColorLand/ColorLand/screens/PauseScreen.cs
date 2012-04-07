@@ -66,8 +66,8 @@ namespace ColorLand
 
             Cursor.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mButtonContinue = new Button("gameplay\\pausescreen\\continue", "gameplay\\pausescreen\\continue_select", "gameplay\\pausescreen\\continue_selected", new Rectangle(202, 120, 319, 117));
-            mButtonExit = new Button("gameplay\\pausescreen\\exit", "gameplay\\pausescreen\\exit_select", "gameplay\\pausescreen\\exit_selected", new Rectangle(230, 260, 290, 115));
+            mButtonContinue = new Button("gameplay\\pausescreen\\continue", "gameplay\\pausescreen\\continue_select", "gameplay\\pausescreen\\continue_selected", new Rectangle(400 - 319 / 2, 300 - 117/2 - 50, 319, 117));
+            mButtonExit = new Button("gameplay\\pausescreen\\exit", "gameplay\\pausescreen\\exit_select", "gameplay\\pausescreen\\exit_selected", new Rectangle(400 - 290 / 2, 300 - 115 / 2 + 80, 290, 115));
 
             mPauseTitleTexture = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\pausescreen\\paused_title");
             mPauseBackgroundTexture = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("fades\\blackfade");
