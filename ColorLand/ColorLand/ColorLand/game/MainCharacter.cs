@@ -111,12 +111,12 @@ namespace ColorLand
                 mSpriteTopRight = new Sprite(ExtraFunctions.fillArrayWithImages2 (17,5, "gameplay\\maincharacter\\blue\\body"), new int[] { 0,1,2,3,4 }, 2, width, height, true, false);
                 mSpriteDownLeft = new Sprite(ExtraFunctions.fillArrayWithImages2 (54,4, "gameplay\\maincharacter\\blue\\body"), new int[] { 0,1,2,3 }, 2, width, height, true, false);
                 mSpriteDownRight = new Sprite(ExtraFunctions.fillArrayWithImages2(22, 4, "gameplay\\maincharacter\\blue\\body"), new int[] { 0,1,2,3 }, 2, width, height, true, false);
-                
-                mSpriteVictory  = new Sprite(ExtraFunctions.fillArrayWithImages2 (5, "gameplay\\maincharacter\\blue\\body"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 5 }, 1, width, height, true, false);
-                mSpriteDefeat   = new Sprite(ExtraFunctions.fillArrayWithImages2 (5, "gameplay\\maincharacter\\blue\\body"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 5 }, 1, width, height, true, false);
+
+                mSpriteVictory = new Sprite(ExtraFunctions.fillArrayWithImages2 (1,80, "gameplay\\maincharacter\\blue\\win\\blue_win"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 80 }, 1, width, height, true, false);
+                mSpriteDefeat  = new Sprite(ExtraFunctions.fillArrayWithImages2 (1,89, "gameplay\\maincharacter\\blue\\loose\\lose"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 89 }, 1, width, height, true, false);
 
                 mSpriteInverseTopLeft  = new Sprite(ExtraFunctions.fillArrayWithImages2(50, 4, "gameplay\\maincharacter\\blue\\body"), new int[] { 3,2 }, 2, width, height, true, false);
-                mSpriteInverseTopRight = new Sprite(ExtraFunctions.fillArrayWithImages2(17, 5, "gameplay\\maincharacter\\blue\\body"), new int[] { 4,3,2 }, 2, width, height, true, false);
+                mSpriteInverseTopRight = new Sprite(ExtraFunctions.fillArrayWithImages2(17, 5, "gameplay\\maincharacter\\blue\\body"), new int[] { 4,3 }, 2, width, height, true, false);
                 
 
                 addSprite(mSpriteStopped, sSTATE_STOPPED);
@@ -152,6 +152,7 @@ namespace ColorLand
         public override void update(GameTime gameTime) {
             mY += mDy * gameTime.ElapsedGameTime.Milliseconds;
             base.update(gameTime);//getCurrentSprite().update();
+
             if (getState() != sSTATE_VICTORY && getState() != sSTATE_LOSE)
             {
                 UpdateInput();
@@ -296,12 +297,12 @@ namespace ColorLand
             if (getState() != sSTATE_VICTORY && getState() != sSTATE_LOSE)
             {
                 Vector2 vec = new Vector2(mX + 100, mY + 100);
-                float dx= vec.X + (float)Math.Cos(mRightHandAngle) * 70;
-                float dy= vec.Y + (float)Math.Sin(mRightHandAngle) * 70;
+                float dx= vec.X + (float)Math.Cos(mRightHandAngle) * 60;
+                float dy= vec.Y + (float)Math.Sin(mRightHandAngle) * 60;
 
                 mFeet.draw(spriteBatch);
                 //spriteBatch.Draw(mLeftHandTexture, new Vector2(mX + 40, mY + 40), null, Color.White, mLeftHandAngle - (float)Math.PI, new Vector2(800, 331), 0.1f, SpriteEffects.None, 0f);
-                spriteBatch.Draw(mRightHandTexture, new Vector2(dx, dy), null, Color.White, mRightHandAngle + (float)Math.PI / 2, new Vector2(13, 22), 1.2f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(mRightHandTexture, new Vector2(dx + 20 , dy + 40), null, Color.White, mRightHandAngle + (float)Math.PI / 2, new Vector2(13, 22), 1.2f, SpriteEffects.None, 0f);
             }
 
             base.draw(spriteBatch);

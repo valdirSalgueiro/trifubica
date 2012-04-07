@@ -49,19 +49,19 @@ namespace ColorLand
         {
 
            if(color == Color.Red){
-               mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(8, "enemies\\all\\red\\bako"), new int[] { 0,1,2,3,4,5,6,7,6,5,4,3,2,1 }, 3, 200, 200, false, false);
+               mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(1,8,"enemies\\Bako\\red\\perseguidor_mau"), new int[] { 0,1,2,3,4,5,6,7,6,5,4,3,2,1 }, 3, 120, 120, false, false);
                //mSpriteExploding = new Sprite(imagesDestroyed, new int[] { 0 }, 3, 90, 90, true, true);
            }
 
            if (color == Color.Green)
            {
-               mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(8, "enemies\\all\\green\\bako"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1 }, 3, 300, 300, false, false);
+               mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 8, "enemies\\Bako\\green\\perseguidor_mau"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1 }, 3, 120, 120, false, false);
                //mSpriteExploding = new Sprite(imagesDestroyed, new int[] { 0 }, 3, 90, 90, true, true);
            }
 
            if (color == Color.Blue)
            {
-               mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(8, "enemies\\all\\blau\\bako"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1 }, 3, 300, 300, false, false);
+               mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 8, "enemies\\Bako\\blue\\perseguidor_mau"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1 }, 3, 120, 120, false, false);
                //mSpriteExploding = new Sprite(imagesDestroyed, new int[] { 0 }, 3, 90, 90, true, true);
            }
  

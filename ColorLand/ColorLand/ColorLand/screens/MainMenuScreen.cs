@@ -86,6 +86,8 @@ namespace ColorLand
 
             //Game1.print("LOC: "  + mGroupButtons.getGameObject(2).getLocation());
 
+            Cursor.getInstance().backToMenuCursor();
+
             SoundManager.LoadSound(cSOUND_HIGHLIGHT);
 
         }

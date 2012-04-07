@@ -50,6 +50,10 @@ namespace ColorLand
         
         public MacroMapScreen()
         {
+            //debug purposes oinly
+            ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, new ProgressObject(1));
+            //
+
 
             if (!SoundManager.isPlaying())
             {
@@ -78,11 +82,11 @@ namespace ColorLand
             mMacromapPlayer.setScale(0.1f);
             mTimer = new MTimer(true);
 
-            setMacroMapState(MacroMapState.EverythingBlackAndWhite);
+            
 
             if (ObjectSerialization.Load<ProgressObject>(Game1.sPROGRESS_FILE_NAME).getCurrentStage() == 1)
             {
-                Game1.print("FASE 1, nesse carai");
+                setMacroMapState(MacroMapState.EverythingBlackAndWhite);
             }
             else
             {
@@ -103,7 +107,7 @@ namespace ColorLand
 
                     break;
                 case MacroMapState.EverythingBlackAndWhite:
-                    mBackgroundImage = new Background("gameplay\\macromap\\mapa1");
+                    mBackgroundImage = new Background("gameplay\\macromap\\mapa_bg_00");
                     mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
                     break;
                 case MacroMapState.FirstIslandColoured:

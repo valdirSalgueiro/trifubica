@@ -230,9 +230,10 @@ namespace ColorLand
                     mExplosionManager.addExplosion(5, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
                    // mManager.addEnemy(new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED), new Vector2(300, 320));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(300, 140));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(200, 140));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(1100, 140));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(300, 190));
+                    /*mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(200, 140));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(100, 140));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Green, new Vector2(100, 140));
                     
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-100, -70));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(900, 10));
@@ -245,7 +246,7 @@ namespace ColorLand
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(1100, -70));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(1000, 430));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-160, 100));
-                    
+                    */
 
                 //mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(2000, -20));
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-600, -20));
@@ -497,10 +498,11 @@ namespace ColorLand
                             //mGroup.update(gameTime);
                             mGroupCollectables.update(gameTime);
 
+                            updatePlayerBody();
                             checkVictoryCondition();
                             checkGameOverCondition();
                             checkCollisions();
-                            updatePlayerBody();
+                            
                             Cursor.getInstance().update(gameTime);
                             MouseState mouseState = Mouse.GetState();
 
@@ -549,14 +551,14 @@ namespace ColorLand
                                 if (mEndStageTimer.getTimeAndLock(5))
                                 {
                                     //Game1.print("CABOSSE");
-                                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
+                                    //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
                                 }
                                 else
                                 {
                                     mCamera.zoomIn(0.002f);
                                 }
                             }
-
+                            
                             mBackgroundBack.update();
                             mBackgroundFront.update();
                             mGroupCollectables.update(gameTime);

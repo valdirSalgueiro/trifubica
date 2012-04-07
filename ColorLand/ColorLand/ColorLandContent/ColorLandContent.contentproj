@@ -40,11 +40,10 @@
     <Folder Include="gameplay\backgrounds\stage1_2\" />
     <Folder Include="gameplay\backgrounds\stage1_3\" />
     <Folder Include="gameplay\collectable\" />
-    <Folder Include="gameplay\maincharacter\blue\loose\" />
     <Folder Include="gameplay\maincharacter\blue\stopped\" />
-    <Folder Include="gameplay\maincharacter\blue\win\" />
     <Folder Include="gameplay\maincharacter\green\" />
     <Folder Include="gameplay\maincharacter\red\" />
+    <Folder Include="macromap\" />
     <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
@@ -1471,50 +1470,6 @@
     </Compile>
     <Compile Include="mainmenu\buttons\mapa_next_selected.png">
       <Name>mapa_next_selected</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="gameplay\macromap\mapa.png">
-      <Name>mapa</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\macromap\mapa1.png">
-      <Name>mapa1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\macromap\mapa2.png">
-      <Name>mapa2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gameplay\macromap\mapa3.png">
-      <Name>mapa3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="macromap\mapa 1.png">
-      <Name>mapa 1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="macromap\mapa.png">
-      <Name>mapa</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="macromap\mapa2.png">
-      <Name>mapa2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="macromap\mapa3.png">
-      <Name>mapa3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -3796,6 +3751,1479 @@
   <ItemGroup>
     <Compile Include="gameplay\cursors\cursor1.png">
       <Name>cursor1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Bako\blue\perseguidor_mau0001.png">
+      <Name>perseguidor_mau0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\blue\perseguidor_mau0002.png">
+      <Name>perseguidor_mau0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\blue\perseguidor_mau0003.png">
+      <Name>perseguidor_mau0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\blue\perseguidor_mau0004.png">
+      <Name>perseguidor_mau0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\blue\perseguidor_mau0005.png">
+      <Name>perseguidor_mau0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\blue\perseguidor_mau0006.png">
+      <Name>perseguidor_mau0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\blue\perseguidor_mau0007.png">
+      <Name>perseguidor_mau0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\blue\perseguidor_mau0008.png">
+      <Name>perseguidor_mau0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Bako\green\perseguidor_mau0001.png">
+      <Name>perseguidor_mau0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\green\perseguidor_mau0002.png">
+      <Name>perseguidor_mau0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\green\perseguidor_mau0003.png">
+      <Name>perseguidor_mau0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\green\perseguidor_mau0004.png">
+      <Name>perseguidor_mau0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\green\perseguidor_mau0005.png">
+      <Name>perseguidor_mau0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\green\perseguidor_mau0006.png">
+      <Name>perseguidor_mau0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\green\perseguidor_mau0007.png">
+      <Name>perseguidor_mau0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\green\perseguidor_mau0008.png">
+      <Name>perseguidor_mau0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Bako\red\perseguidor_mau0001.png">
+      <Name>perseguidor_mau0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\red\perseguidor_mau0002.png">
+      <Name>perseguidor_mau0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\red\perseguidor_mau0003.png">
+      <Name>perseguidor_mau0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\red\perseguidor_mau0004.png">
+      <Name>perseguidor_mau0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\red\perseguidor_mau0005.png">
+      <Name>perseguidor_mau0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\red\perseguidor_mau0006.png">
+      <Name>perseguidor_mau0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\red\perseguidor_mau0007.png">
+      <Name>perseguidor_mau0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Bako\red\perseguidor_mau0008.png">
+      <Name>perseguidor_mau0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\CrabCrab\blue\Crab_attack0000.png">
+      <Name>Crab_attack0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_attack0001.png">
+      <Name>Crab_attack0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_attack0002.png">
+      <Name>Crab_attack0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_attack0003.png">
+      <Name>Crab_attack0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_attack0004.png">
+      <Name>Crab_attack0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_attack0005.png">
+      <Name>Crab_attack0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_attack0006.png">
+      <Name>Crab_attack0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_attack0007.png">
+      <Name>Crab_attack0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_attack0008.png">
+      <Name>Crab_attack0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_attack0009.png">
+      <Name>Crab_attack0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_attack0010.png">
+      <Name>Crab_attack0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_attack0011.png">
+      <Name>Crab_attack0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0001.png">
+      <Name>Crab_walk0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0002.png">
+      <Name>Crab_walk0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0003.png">
+      <Name>Crab_walk0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0004.png">
+      <Name>Crab_walk0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0005.png">
+      <Name>Crab_walk0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0006.png">
+      <Name>Crab_walk0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0007.png">
+      <Name>Crab_walk0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0008.png">
+      <Name>Crab_walk0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0009.png">
+      <Name>Crab_walk0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0010.png">
+      <Name>Crab_walk0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0011.png">
+      <Name>Crab_walk0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0012.png">
+      <Name>Crab_walk0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0013.png">
+      <Name>Crab_walk0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0014.png">
+      <Name>Crab_walk0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0015.png">
+      <Name>Crab_walk0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\blue\Crab_walk0016.png">
+      <Name>Crab_walk0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\CrabCrab\green\Crab_attack0000.png">
+      <Name>Crab_attack0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_attack0001.png">
+      <Name>Crab_attack0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_attack0002.png">
+      <Name>Crab_attack0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_attack0003.png">
+      <Name>Crab_attack0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_attack0004.png">
+      <Name>Crab_attack0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_attack0005.png">
+      <Name>Crab_attack0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_attack0006.png">
+      <Name>Crab_attack0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_attack0007.png">
+      <Name>Crab_attack0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_attack0008.png">
+      <Name>Crab_attack0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_attack0009.png">
+      <Name>Crab_attack0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_attack0010.png">
+      <Name>Crab_attack0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_attack0011.png">
+      <Name>Crab_attack0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0001.png">
+      <Name>Crab_walk0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0002.png">
+      <Name>Crab_walk0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0003.png">
+      <Name>Crab_walk0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0004.png">
+      <Name>Crab_walk0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0005.png">
+      <Name>Crab_walk0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0006.png">
+      <Name>Crab_walk0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0007.png">
+      <Name>Crab_walk0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0008.png">
+      <Name>Crab_walk0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0009.png">
+      <Name>Crab_walk0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0010.png">
+      <Name>Crab_walk0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0011.png">
+      <Name>Crab_walk0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0012.png">
+      <Name>Crab_walk0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0013.png">
+      <Name>Crab_walk0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0014.png">
+      <Name>Crab_walk0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0015.png">
+      <Name>Crab_walk0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\green\Crab_walk0016.png">
+      <Name>Crab_walk0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\CrabCrab\red\Crab_attack0000.png">
+      <Name>Crab_attack0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_attack0001.png">
+      <Name>Crab_attack0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_attack0002.png">
+      <Name>Crab_attack0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_attack0003.png">
+      <Name>Crab_attack0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_attack0004.png">
+      <Name>Crab_attack0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_attack0005.png">
+      <Name>Crab_attack0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_attack0006.png">
+      <Name>Crab_attack0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_attack0007.png">
+      <Name>Crab_attack0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_attack0008.png">
+      <Name>Crab_attack0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_attack0009.png">
+      <Name>Crab_attack0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_attack0010.png">
+      <Name>Crab_attack0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_attack0011.png">
+      <Name>Crab_attack0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0001.png">
+      <Name>Crab_walk0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0002.png">
+      <Name>Crab_walk0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0003.png">
+      <Name>Crab_walk0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0004.png">
+      <Name>Crab_walk0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0005.png">
+      <Name>Crab_walk0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0006.png">
+      <Name>Crab_walk0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0007.png">
+      <Name>Crab_walk0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0008.png">
+      <Name>Crab_walk0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0009.png">
+      <Name>Crab_walk0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0010.png">
+      <Name>Crab_walk0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0011.png">
+      <Name>Crab_walk0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0012.png">
+      <Name>Crab_walk0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0013.png">
+      <Name>Crab_walk0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0014.png">
+      <Name>Crab_walk0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0015.png">
+      <Name>Crab_walk0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\CrabCrab\red\Crab_walk0016.png">
+      <Name>Crab_walk0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0000.png">
+      <Name>blue_win0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0001.png">
+      <Name>blue_win0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0002.png">
+      <Name>blue_win0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0003.png">
+      <Name>blue_win0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0004.png">
+      <Name>blue_win0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0005.png">
+      <Name>blue_win0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0006.png">
+      <Name>blue_win0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0007.png">
+      <Name>blue_win0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0008.png">
+      <Name>blue_win0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0009.png">
+      <Name>blue_win0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0010.png">
+      <Name>blue_win0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0011.png">
+      <Name>blue_win0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0012.png">
+      <Name>blue_win0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0013.png">
+      <Name>blue_win0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0014.png">
+      <Name>blue_win0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0015.png">
+      <Name>blue_win0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0016.png">
+      <Name>blue_win0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0017.png">
+      <Name>blue_win0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0018.png">
+      <Name>blue_win0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0019.png">
+      <Name>blue_win0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0020.png">
+      <Name>blue_win0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0021.png">
+      <Name>blue_win0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0022.png">
+      <Name>blue_win0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0023.png">
+      <Name>blue_win0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0024.png">
+      <Name>blue_win0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0025.png">
+      <Name>blue_win0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0026.png">
+      <Name>blue_win0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0027.png">
+      <Name>blue_win0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0028.png">
+      <Name>blue_win0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0029.png">
+      <Name>blue_win0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0030.png">
+      <Name>blue_win0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0031.png">
+      <Name>blue_win0031</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0032.png">
+      <Name>blue_win0032</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0033.png">
+      <Name>blue_win0033</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0034.png">
+      <Name>blue_win0034</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0035.png">
+      <Name>blue_win0035</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0036.png">
+      <Name>blue_win0036</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0037.png">
+      <Name>blue_win0037</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0038.png">
+      <Name>blue_win0038</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0039.png">
+      <Name>blue_win0039</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0040.png">
+      <Name>blue_win0040</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0041.png">
+      <Name>blue_win0041</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0042.png">
+      <Name>blue_win0042</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0043.png">
+      <Name>blue_win0043</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0044.png">
+      <Name>blue_win0044</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0045.png">
+      <Name>blue_win0045</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0046.png">
+      <Name>blue_win0046</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0047.png">
+      <Name>blue_win0047</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0048.png">
+      <Name>blue_win0048</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0049.png">
+      <Name>blue_win0049</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0050.png">
+      <Name>blue_win0050</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0051.png">
+      <Name>blue_win0051</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0052.png">
+      <Name>blue_win0052</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0053.png">
+      <Name>blue_win0053</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0054.png">
+      <Name>blue_win0054</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0055.png">
+      <Name>blue_win0055</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0056.png">
+      <Name>blue_win0056</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0057.png">
+      <Name>blue_win0057</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0058.png">
+      <Name>blue_win0058</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0059.png">
+      <Name>blue_win0059</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0060.png">
+      <Name>blue_win0060</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0061.png">
+      <Name>blue_win0061</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0062.png">
+      <Name>blue_win0062</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0063.png">
+      <Name>blue_win0063</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0064.png">
+      <Name>blue_win0064</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0065.png">
+      <Name>blue_win0065</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0066.png">
+      <Name>blue_win0066</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0067.png">
+      <Name>blue_win0067</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0068.png">
+      <Name>blue_win0068</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0069.png">
+      <Name>blue_win0069</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0070.png">
+      <Name>blue_win0070</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0071.png">
+      <Name>blue_win0071</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0072.png">
+      <Name>blue_win0072</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0073.png">
+      <Name>blue_win0073</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0074.png">
+      <Name>blue_win0074</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0075.png">
+      <Name>blue_win0075</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0076.png">
+      <Name>blue_win0076</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0077.png">
+      <Name>blue_win0077</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0078.png">
+      <Name>blue_win0078</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0079.png">
+      <Name>blue_win0079</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\win\blue_win0080.png">
+      <Name>blue_win0080</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0001.png">
+      <Name>lose0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0002.png">
+      <Name>lose0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0003.png">
+      <Name>lose0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0004.png">
+      <Name>lose0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0005.png">
+      <Name>lose0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0006.png">
+      <Name>lose0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0007.png">
+      <Name>lose0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0008.png">
+      <Name>lose0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0009.png">
+      <Name>lose0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0010.png">
+      <Name>lose0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0011.png">
+      <Name>lose0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0012.png">
+      <Name>lose0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0013.png">
+      <Name>lose0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0014.png">
+      <Name>lose0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0015.png">
+      <Name>lose0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0016.png">
+      <Name>lose0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0017.png">
+      <Name>lose0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0018.png">
+      <Name>lose0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0019.png">
+      <Name>lose0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0020.png">
+      <Name>lose0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0021.png">
+      <Name>lose0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0022.png">
+      <Name>lose0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0023.png">
+      <Name>lose0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0024.png">
+      <Name>lose0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0025.png">
+      <Name>lose0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0026.png">
+      <Name>lose0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0027.png">
+      <Name>lose0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0028.png">
+      <Name>lose0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0029.png">
+      <Name>lose0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0030.png">
+      <Name>lose0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0031.png">
+      <Name>lose0031</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0032.png">
+      <Name>lose0032</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0033.png">
+      <Name>lose0033</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0034.png">
+      <Name>lose0034</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0035.png">
+      <Name>lose0035</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0036.png">
+      <Name>lose0036</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0037.png">
+      <Name>lose0037</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0038.png">
+      <Name>lose0038</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0039.png">
+      <Name>lose0039</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0040.png">
+      <Name>lose0040</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0041.png">
+      <Name>lose0041</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0042.png">
+      <Name>lose0042</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0043.png">
+      <Name>lose0043</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0044.png">
+      <Name>lose0044</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0045.png">
+      <Name>lose0045</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0046.png">
+      <Name>lose0046</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0047.png">
+      <Name>lose0047</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0048.png">
+      <Name>lose0048</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0049.png">
+      <Name>lose0049</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0050.png">
+      <Name>lose0050</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0051.png">
+      <Name>lose0051</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0052.png">
+      <Name>lose0052</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0053.png">
+      <Name>lose0053</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0054.png">
+      <Name>lose0054</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0055.png">
+      <Name>lose0055</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0056.png">
+      <Name>lose0056</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0057.png">
+      <Name>lose0057</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0058.png">
+      <Name>lose0058</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0059.png">
+      <Name>lose0059</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0060.png">
+      <Name>lose0060</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0061.png">
+      <Name>lose0061</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0062.png">
+      <Name>lose0062</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0063.png">
+      <Name>lose0063</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0064.png">
+      <Name>lose0064</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0065.png">
+      <Name>lose0065</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0066.png">
+      <Name>lose0066</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0067.png">
+      <Name>lose0067</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0068.png">
+      <Name>lose0068</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0069.png">
+      <Name>lose0069</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0070.png">
+      <Name>lose0070</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0071.png">
+      <Name>lose0071</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0072.png">
+      <Name>lose0072</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0073.png">
+      <Name>lose0073</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0074.png">
+      <Name>lose0074</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0075.png">
+      <Name>lose0075</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0076.png">
+      <Name>lose0076</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0077.png">
+      <Name>lose0077</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0078.png">
+      <Name>lose0078</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0079.png">
+      <Name>lose0079</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0080.png">
+      <Name>lose0080</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0081.png">
+      <Name>lose0081</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0082.png">
+      <Name>lose0082</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0083.png">
+      <Name>lose0083</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0084.png">
+      <Name>lose0084</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0085.png">
+      <Name>lose0085</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0086.png">
+      <Name>lose0086</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0087.png">
+      <Name>lose0087</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0088.png">
+      <Name>lose0088</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\maincharacter\blue\loose\lose0089.png">
+      <Name>lose0089</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\macromap\barco1.png">
+      <Name>barco1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\barco2.png">
+      <Name>barco2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\barco3.png">
+      <Name>barco3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\bussola_bg.png">
+      <Name>bussola_bg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\bussola_ponteiro.png">
+      <Name>bussola_ponteiro</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\mapa_bg_00.png">
+      <Name>mapa_bg_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\mapa_bg_01.png">
+      <Name>mapa_bg_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\mapa_bg_02.png">
+      <Name>mapa_bg_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\mapa_bg_03.png">
+      <Name>mapa_bg_03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\mapa_bg_04.png">
+      <Name>mapa_bg_04</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\mapa_next.png">
+      <Name>mapa_next</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\mapa_next_selected_02.png">
+      <Name>mapa_next_selected_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\mapa_next_select_05.png">
+      <Name>mapa_next_select_05</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

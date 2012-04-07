@@ -71,7 +71,7 @@ namespace ColorLand
             for (int x = from, i = 0; x < from + length; x++, i++)
             {
                 String zeros = "";
-                if (x < 10 - 1) zeros = "000";
+                if (x < 10) zeros = "000";
                 else
                 if (x < 100 - 1) zeros = "00";
                 else
