@@ -761,11 +761,6 @@ namespace ColorLand
 
         public void updatePlayerBody()
         {
-            Vector2 directionRightHand = Cursor.getInstance().getLocation() - new Vector2(mMainCharacter.getX(), mMainCharacter.getY());//mVectorCenterOfScreen;
-            float angleHandCursor = (float)(Math.Atan2(directionRightHand.Y, directionRightHand.X));
-
-            mMainCharacter.updateHand(angleHandCursor);
-
             if (mMainCharacter.getState() != MainCharacter.sSTATE_TOP_LEFT && Cursor.getInstance().getX() < mMainCharacter.getX() && Cursor.getInstance().getY() <= Game1.sHALF_SCREEN_RESOLUTION_HEIGHT)
             {
                 if (mMainCharacter.getState() != MainCharacter.sSTATE_BOTTOM_LEFT && mMainCharacter.getState() != MainCharacter.sSTATE_INVERSE_TOP_LEFT)
