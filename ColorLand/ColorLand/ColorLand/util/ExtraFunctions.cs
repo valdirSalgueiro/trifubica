@@ -90,5 +90,18 @@ namespace ColorLand
             return (Math.Round(number * p)) / p;
         }
 
+
+        public static void saveLevel(int level)
+        {
+            ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, loadLevel().setCurrentStage(level)); //new ProgressObject(level));
+        }
+
+        //TODO saveLevelFirstTime
+
+        public static ProgressObject loadLevel()
+        {
+            return ObjectSerialization.Load<ProgressObject>(Game1.sPROGRESS_FILE_NAME);
+        }
+
     }
 }
