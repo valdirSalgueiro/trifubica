@@ -19,6 +19,8 @@ namespace ColorLand
         private MTimer mTimer;
 
         private Rectangle mRectangleExhibitionTexture;
+
+        private KeyboardState oldState;
         
         
         private Fade mFade;
@@ -31,20 +33,24 @@ namespace ColorLand
 
         private static MacroMapState mCurrentMacroMapState;
 
+        private static Background mBackgroundBefore;
         private static Background mBackgroundImage;
 
         private MacromapPlayer mMacromapPlayer;
+        private MacromapShip mMacromapShip;
         private Texture2D mTexturePlayerFalling;
-        private float mFallingScale = 1;
+        private float mFallingScale = 2;
+
+        private bool mShowTextureFallingPlayer;
+
+        private ExplosionManager mExplosionManager;
 
         public enum MacroMapState
         {
-            EverythingColoured,
-            EverythingBlackAndWhite,
-            FirstIslandColoured,
-            WestColoured,
-            SecondIslandColoured,
-            ThirdIslandColoured
+            FirstStage,
+            SecondStage,
+            ThirdStage,
+            FourthStage
         }
 
         
@@ -53,8 +59,7 @@ namespace ColorLand
             //debug purposes oinly
             ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, new ProgressObject(1));
             //
-
-
+            
             if (!SoundManager.isPlaying())
             {
                 //SoundManager.PlayMusic("sound\\music\\historia1");
@@ -70,49 +75,77 @@ namespace ColorLand
             mFade = new Fade(this, "fades\\blackfade");
             //executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
 
-            Cursor.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
+            mCursor = new Cursor();
+            mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mMacromapPlayer = new MacromapPlayer(Color.Red, new Vector2(100, 100));
+            mMacromapPlayer = new MacromapPlayer(Color.Red, new Vector2(100, 130));
             mMacromapPlayer.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mTexturePlayerFalling = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("logos\\chihuahuagameslogo");
-
-            //mMacromapPlayer.setDestiny(500, 500);
-            mMacromapPlayer.setVisible(false);
-            mMacromapPlayer.setScale(0.1f);
             mTimer = new MTimer(true);
 
-            
-
-            if (ObjectSerialization.Load<ProgressObject>(Game1.sPROGRESS_FILE_NAME).getCurrentStage() == 1)
+            //ExtraFunctions.saveLevel(2);
+            //Game1.print(" >>> " + ExtraFunctions.loadLevel().getCurrentStage());
+            if (ExtraFunctions.loadLevel().getCurrentStage() == 1)
             {
-                setMacroMapState(MacroMapState.EverythingBlackAndWhite);
+            //    Game1.print("AGAIN 1");
+              //  setMacroMapState(MacroMapState.FirstStage);
             }
             else
             {
-                Game1.print("FASE DA PUTA QUE PARIU");
+                setMacroMapState(MacroMapState.SecondStage); 
             }
 
+            setMacroMapState(MacroMapState.FirstStage);
 
         }
 
-        public static void setMacroMapState(MacroMapState state)
+        public void setMacroMapState(MacroMapState state)
         {
 
             mCurrentMacroMapState = state;
 
             switch (state)
             {
-                case MacroMapState.EverythingColoured:
+                case MacroMapState.FirstStage:
 
-                    break;
-                case MacroMapState.EverythingBlackAndWhite:
+                    mMacromapPlayer.setCenter(214, 265);
+                    mMacromapPlayer.setVisible(false);
+                    mMacromapPlayer.setScale(0.1f);
+
+                    mTexturePlayerFalling = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\caindo_mapa_03");
+
+                    //mMacromapPlayer.setDestiny(500, 500);
+                    
                     mBackgroundImage = new Background("gameplay\\macromap\\mapa_bg_00");
                     mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    mMacromapShip = new MacromapShip(new Vector2(40, 100),MacromapShip.ColorStatus.Black_And_White);
+                    mMacromapShip.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    mShowTextureFallingPlayer = true;
                     break;
-                case MacroMapState.FirstIslandColoured:
-                    mBackgroundImage = new Background("gameplay\\macromap\\mapa2");
+
+                case MacroMapState.SecondStage:
+
+                    mMacromapPlayer.setCenter(214, 265);
+                    mMacromapPlayer.perfectSize();
+                    //mMacromapPlayer.setVisible(true);
+                    mMacromapPlayer.setDestiny(83, 117);
+                    mMacromapPlayer.moveTo(new Vector2(83, 117));
+
+                    mBackgroundBefore = new Background("gameplay\\macromap\\mapa_bg_00");
+                    mBackgroundBefore.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    mBackgroundImage = new Background("gameplay\\macromap\\mapa_bg_04");
                     mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    mMacromapShip = new MacromapShip(new Vector2(40, 100), MacromapShip.ColorStatus.Black_And_White);
+                    mMacromapShip.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    mExplosionManager = new ExplosionManager();
+                    mExplosionManager.addExplosion(10, Color.Red, Game1.getInstance().getScreenManager().getContent());
+
+                    mShowTextureFallingPlayer = false;
                     break;
             }
         }
@@ -134,40 +167,46 @@ namespace ColorLand
             mTimer.start();
         }
 
-        /*private void updateTimer(GameTime gameTime)
+        private void updateTimer(GameTime gameTime)
         {
             if (mTimer != null)
             {
-
                 mTimer.update(gameTime);
 
-                //first image
-                for (int x = 0, time = 1; x < cTOTAL_RESOURCES; x++, time += 3)
+                if (mCurrentMacroMapState == MacroMapState.FirstStage)
                 {
-                    if (time >= 63)
+                    if (mTimer.getTimeAndLock(3))
                     {
-                        mFade = new Fade(this, "fades\\blackfade");
-                        executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-                    }
-                    else
-                    {
-                        if (mTimer.getTimeAndLock(time))
-                        {
-                            next();
-                        }
-
+                        mMacromapPlayer.setVisible(true);
+                        mMacromapPlayer.growUp(0.1f);
                     }
                 }
-                
+                if (mCurrentMacroMapState == MacroMapState.SecondStage)
+                {
+                    if (mTimer.getTimeAndLock(1))
+                    {
+                        mBackgroundBefore = null;
+                        mExplosionManager.getNextOfColor(Color.Red).explode(224,140);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(185,205);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(109,225);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(75, 316);
+                    }
+
+                }
+               
             }
-        }*/
+        }
 
         private float reduceScale()
         {
             //if(
             if (mFallingScale > 0.008)
             {
-                mFallingScale -= 0.008f;
+                mFallingScale -= 0.028f;
+            }
+            else
+            {
+                mShowTextureFallingPlayer = false;
             }
 
             return mFallingScale;
@@ -175,29 +214,39 @@ namespace ColorLand
 
         public override void update(GameTime gameTime)
         {
-            Cursor.getInstance().update(gameTime);
-            if (mAuthorizeUpdate)
+
+            mCursor.update(gameTime);
+
+            updateTimer(gameTime);
+
+            if (mCurrentMacroMapState == MacroMapState.FirstStage)
             {
-                //updateTimer(gameTime);
-                updateMouseInput();
-                checkCollisions();
+
+                if (mMacromapShip != null)
+                {
+                    mMacromapShip.update(gameTime);
+                }
+
                
+
+                //if stage 1
+                //mTimer.update(gameTime);
+                //updateTimer aqui no caso de bug
+
+            }else
+            if (mCurrentMacroMapState == MacroMapState.SecondStage)
+            {
+                mExplosionManager.update(gameTime);
+
+                if (mMacromapShip != null)
+                {
+                    mMacromapShip.update(gameTime);
+                    //mMacromapShip.getCurrentSprite().setFlip(true);
+                }
+
             }
 
             mMacromapPlayer.update(gameTime);
-
-            //if stage 1
-            mTimer.update(gameTime);
-            if (mTimer.getTimeAndLock(3))
-            {
-                mMacromapPlayer.setVisible(true);
-                mMacromapPlayer.growUp(0.1f);
-            }
-
-            if (mTimer.getTimeAndLock(5))
-            {
-                mMacromapPlayer.moveTo(new Vector2(30, 30));
-            }
 
             if (mFade != null)
             {
@@ -210,21 +259,41 @@ namespace ColorLand
 
             mSpriteBatch.Begin();
 
-            if (mBackgroundImage != null)
+            if (mBackgroundBefore != null)
+            {
+                mBackgroundBefore.draw(mSpriteBatch);
+            }
+
+            if (mBackgroundImage != null && mBackgroundBefore == null)
             {
                 mBackgroundImage.draw(mSpriteBatch);
             }
 
+            if (mExplosionManager != null)
+            {
+                mExplosionManager.draw(mSpriteBatch);
+            }
+            
+            if (mMacromapShip != null)
+            {
+                mMacromapShip.draw(mSpriteBatch);
+            }
+
+            if (mShowTextureFallingPlayer)
+            {
+                mSpriteBatch.Draw(mTexturePlayerFalling, new Vector2(176, 235), new Rectangle(0, 0, mTexturePlayerFalling.Width, mTexturePlayerFalling.Height), Color.White, 0f, new Vector2(30, 30), reduceScale(), SpriteEffects.None, 0);
+            }
+
             mMacromapPlayer.draw(mSpriteBatch);
 
-            Cursor.getInstance().draw(mSpriteBatch);
+
+            mCursor.draw(mSpriteBatch);
 
             if (mFade != null)
             {
                 mFade.draw(mSpriteBatch);
             }
 
-            mSpriteBatch.Draw(mTexturePlayerFalling, new Vector2(100, 100), new Rectangle(0, 0, mTexturePlayerFalling.Width, mTexturePlayerFalling.Height), Color.Blue, 0.6f, new Vector2(30, 30), reduceScale(), SpriteEffects.None, 0);
 
             mSpriteBatch.End();
 
@@ -235,16 +304,19 @@ namespace ColorLand
             base.handleInput(input);
 
             KeyboardState newState = Keyboard.GetState();
-
-            /*if (newState.IsKeyDown(Keys.Enter) || newState.IsKeyDown(Keys.Escape) || newState.IsKeyDown(Keys.Space))
+            
+            if (newState.IsKeyDown(Keys.F2))
             {
-                if (!oldState.IsKeyDown(Keys.Enter) && !oldState.IsKeyDown(Keys.Escape) && !oldState.IsKeyDown(Keys.Space))
+                if (!oldState.IsKeyDown(Keys.F2))
                 {
-                    goToGameScreen();
+                    //ExtraFunctions.saveLevel(2);
+                    //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, true,false);
+                    mMacromapShip.setFlip(true);
+                    mMacromapShip.moveTo(new Vector2(-180, (int)mMacromapShip.mY));
                 }
-            }*/
+            }
 
-            //oldState = newState;
+            oldState = newState;
         }
 
         private void updateMouseInput()

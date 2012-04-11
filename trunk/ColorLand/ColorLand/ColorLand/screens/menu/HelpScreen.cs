@@ -67,7 +67,8 @@ namespace ColorLand
 
             mCurrentBackground = mList.ElementAt(0);
 
-            Cursor.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
+            mCursor = new Cursor();
+            mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
             mButtonBack = new Button("mainmenu\\buttons\\menu_credits_help_back", "mainmenu\\buttons\\menu_credits_help_back_select", "mainmenu\\buttons\\menu_credits_help_back_selected", new Rectangle(50, 464, 175, 124));
             mButtonPrevious = new Button("mainmenu\\buttons\\previous", "mainmenu\\buttons\\previous_select", "mainmenu\\buttons\\previous_selected", new Rectangle(350, 484, 80, 86));
@@ -92,7 +93,7 @@ namespace ColorLand
         {
             mCurrentBackground.update();
             mGroupButtons.update(gameTime);
-            Cursor.getInstance().update(gameTime);
+            mCursor.update(gameTime);
             updateMouseInput();
             checkCollisions();
         }
@@ -113,7 +114,7 @@ namespace ColorLand
             {
                 mSpriteBatch.Draw(mPrevious, new Rectangle(350, 484, 80, 86), Color.White);
             }
-            Cursor.getInstance().draw(mSpriteBatch);
+            mCursor.draw(mSpriteBatch);
 
             mSpriteBatch.End();
 
@@ -183,7 +184,7 @@ namespace ColorLand
         private void checkCollisions()
         {
 
-            if (mGroupButtons.checkCollisionWith(Cursor.getInstance()))
+            if (mGroupButtons.checkCollisionWith(mCursor))
             {
                 mCurrentHighlightButton = (Button)mGroupButtons.getCollidedObject();
 

@@ -32,9 +32,10 @@ namespace ColorLand
             return this.mCurrentStage;
         }
 
-        public void setCurrentStage(int stage)
+        public ProgressObject setCurrentStage(int stage)
         {
             mCurrentStage = stage;
+            return this;
         }
 
         PlayerColor getColor()

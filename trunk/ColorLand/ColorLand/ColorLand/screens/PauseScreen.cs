@@ -64,7 +64,8 @@ namespace ColorLand
 
             mCurrentBackground = mList.ElementAt(0);
 
-            Cursor.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
+            mCursor = new Cursor();
+            mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
             mButtonContinue = new Button("gameplay\\pausescreen\\continue", "gameplay\\pausescreen\\continue_select", "gameplay\\pausescreen\\continue_selected", new Rectangle(400 - 319 / 2, 300 - 117/2 - 50, 319, 117));
             mButtonExit = new Button("gameplay\\pausescreen\\exit", "gameplay\\pausescreen\\exit_select", "gameplay\\pausescreen\\exit_selected", new Rectangle(400 - 290 / 2, 300 - 115 / 2 + 80, 290, 115));
@@ -95,7 +96,7 @@ namespace ColorLand
             //checkCollisions();
             mCurrentBackground.update();
             mGroupButtons.update(gameTime);
-            Cursor.getInstance().update(gameTime);
+            mCursor.update(gameTime);
             updateMouseInput();
             checkCollisions();
 
@@ -116,7 +117,7 @@ namespace ColorLand
             mSpriteBatch.Draw(mPauseTitleTexture, new Rectangle(150, 0, 577, 222), Color.White);
             
             mGroupButtons.draw(mSpriteBatch);
-            Cursor.getInstance().draw(mSpriteBatch);
+            mCursor.draw(mSpriteBatch);
 
             /*if (mFade != null)
             {
@@ -179,7 +180,7 @@ namespace ColorLand
         private void checkCollisions()
         {
 
-            if (mGroupButtons.checkCollisionWith(Cursor.getInstance()))
+            if (mGroupButtons.checkCollisionWith(mCursor))
             {
                 mCurrentHighlightButton = (Button)mGroupButtons.getCollidedObject();
 
@@ -227,7 +228,7 @@ namespace ColorLand
                 //SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                 //mFade = new Fade(this, "fades\\blackfade");
                 //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, false,true);
+                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true,true);
             }
            
         }

@@ -110,6 +110,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="screens\BaseScreen.cs" />
+    <Compile Include="screens\selection\SelectableCharacter.cs" />
+    <Compile Include="screens\selection\SelectionScreen.cs" />
+    <Compile Include="screens\macromap\MacromapShip.cs" />
     <Compile Include="screens\PauseScreen.cs" />
     <Compile Include="screens\macromap\MacromapPlayer.cs" />
     <Compile Include="screens\macromap\MacroMapScreen.cs" />

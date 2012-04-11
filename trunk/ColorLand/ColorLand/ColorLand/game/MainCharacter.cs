@@ -310,7 +310,8 @@ namespace ColorLand
 
         public void updateHand()
         {
-            Vector2 directionRightHand = Cursor.getInstance().getLocation() - new Vector2(mX + 100, mY + 100);
+            //cursor.getLocation()
+            Vector2 directionRightHand = new Vector2(Mouse.GetState().X,Mouse.GetState().Y) - new Vector2(mX + 100, mY + 100);
             float angleHandCursor = (float)(Math.Atan2(directionRightHand.Y, directionRightHand.X));
 
             mRightHandAngle = angleHandCursor;

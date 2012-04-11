@@ -100,7 +100,8 @@ namespace ColorLand
             mFade = new Fade(this, "fades\\blackfade");
             executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
 
-            Cursor.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
+            mCursor = new Cursor();
+            mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
         }
 
@@ -131,9 +132,9 @@ namespace ColorLand
 
             //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true);
   //          Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, true);
-//=======
+
             Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true, true);
-//>>>>>>> .r87
+
         }
 
         private void restartTimer()
@@ -172,7 +173,7 @@ namespace ColorLand
 
         public override void update(GameTime gameTime)
         {
-            Cursor.getInstance().update(gameTime);
+            mCursor.update(gameTime);
             if (mAuthorizeUpdate)
             {
                 updateTimer(gameTime);
@@ -188,23 +189,23 @@ namespace ColorLand
 
         public override void draw(GameTime gameTime)
         {
+          
+                mSpriteBatch.Begin();
 
-            mSpriteBatch.Begin();
+                if (mCurrentTexture != null)
+                {
+                    mSpriteBatch.Draw(mCurrentTexture, mRectangleExhibitionTexture, Color.White);
+                }
+                mButtonNext.draw(mSpriteBatch);
+                mCursor.draw(mSpriteBatch);
 
-            if (mCurrentTexture != null)
-            {
-                mSpriteBatch.Draw(mCurrentTexture, mRectangleExhibitionTexture, Color.White);
-            }
-            mButtonNext.draw(mSpriteBatch);
-            Cursor.getInstance().draw(mSpriteBatch);
+                if (mFade != null)
+                {
+                    mFade.draw(mSpriteBatch);
+                }
 
-            if (mFade != null)
-            {
-                mFade.draw(mSpriteBatch);
-            }
-
-            mSpriteBatch.End();
-
+                mSpriteBatch.End();
+         
         }
 
         public override void handleInput(InputState input)
@@ -226,8 +227,6 @@ namespace ColorLand
 
         private void updateMouseInput()
         {
-
-
             MouseState ms = Mouse.GetState();
 
             if (ms.LeftButton == ButtonState.Pressed)
@@ -256,7 +255,7 @@ namespace ColorLand
         private void checkCollisions()
         {
 
-            if (mButtonNext.collidesWith(Cursor.getInstance()))
+            if (mButtonNext.collidesWith(mCursor))
             {
                 mCurrentHighlightButton = mButtonNext;
 

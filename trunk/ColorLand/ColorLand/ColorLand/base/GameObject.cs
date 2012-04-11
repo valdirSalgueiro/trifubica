@@ -76,6 +76,8 @@ namespace ColorLand
         //extra
         private Texture2D mCollisionTexture;
 
+        private bool mFlipped;
+
         public enum FlipDirection
         {
             Left,
@@ -121,7 +123,7 @@ namespace ColorLand
             setMovementAllowed(true);
             setActive(true);
 
-            showCollisionRect();
+            //showCollisionRect();
         }
 
         protected void addSprite(Sprite sprite, int index)
@@ -212,14 +214,28 @@ namespace ColorLand
                 mCurrentSprite.setY(mY);
                 updateCollisionRectLocation((int)mX + mInitialCollisionRectX, (int)mY + mInitialCollisionRectY);
                 updateAttackCollisionRectLocation();
+
+                getCurrentSprite().setFlip(mFlipped);
             }
             //}
         }
 
         public void setCenter(float x, float y)
         {
+
+            setLocation(x, y);
+
             this.mX = x - getCurrentSprite().getWidth() / 2;
             this.mY = y - getCurrentSprite().getHeight() / 2;
+
+            mCurrentSprite.update();
+            mCurrentSprite.setX(mX);
+            mCurrentSprite.setY(mY);
+        }
+
+        public void setCenter(Vector2 center)
+        {
+            setCenter(center.X, center.Y);
         }
 
         public void setLocation(float x, float y)
@@ -334,6 +350,11 @@ namespace ColorLand
 
             this.mHold = holded;
 
+        }
+
+        public void setFlip(bool flip)
+        {
+            mFlipped = flip;
         }
 
         public bool isHold()

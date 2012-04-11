@@ -33,17 +33,15 @@ namespace ColorLand
         public const int SCREEN_ID_MAIN_MENU_CREDITS  = 101;
 
         public const int SCREEN_ID_GAMEPLAY           = 2;
-
-        //public const int SCREEN_ID_MAIN_MENU     = 1;
         public const int SCREEN_ID_HISTORY            = 3;
-
-        public const int SCREEN_ID_MACROMAP           = 4;        
+        public const int SCREEN_ID_MACROMAP           = 4;
+        public const int SCREEN_ID_CHAR_SELECTION     = 5;
 
         private BackgroundWorker bw = new BackgroundWorker();
         private BaseScreen mScreenToLoad;
 
         private int mScreenID;
-        
+
         public ScreenManager(Game game)
             : base(game) {
             
@@ -62,9 +60,10 @@ namespace ColorLand
             mSpriteBatch = new SpriteBatch(GraphicsDevice);
 
             //changeScreen(SCREEN_ID_LOGOS_SCREEN, false);
-            changeScreen(SCREEN_ID_GAMEPLAY, false, true);
+            //changeScreen(SCREEN_ID_GAMEPLAY, false, true);
             //changeScreen(SCREEN_ID_MAIN_MENU, false);
-            //changeScreen(SCREEN_ID_MACROMAP, false, false);
+            changeScreen(SCREEN_ID_MACROMAP, false, false);
+            //changeScreen(SCREEN_ID_CHAR_SELECTION, false, false);
             //changeScreen(SCREEN_ID_MAIN_MENU_SETTINGS_SCREEN, false);
             //changeScreen(SCREEN_ID_MAIN_MENU_HELP, false);
             //changeScreen(SCREEN_ID_HISTORY, false);
@@ -74,6 +73,7 @@ namespace ColorLand
         {
             mContentManager.Unload();
             mContentManager = Game.Content;
+            //mCurrentScreen.setDisposed(true);
         }
 
         public override void Update(GameTime gameTime) {
@@ -92,8 +92,8 @@ namespace ColorLand
         }
 
         public override void Draw(GameTime gameTime) {
-            base.Draw(gameTime);
-            mCurrentScreen.draw(gameTime);
+             base.Draw(gameTime);
+             mCurrentScreen.draw(gameTime);
         }
 
         public void changeScreen(int id, bool releaseCurrentScreen)
@@ -110,7 +110,7 @@ namespace ColorLand
                 UnloadContent();
             }
             if (!threaded)
-            {
+            {           
                 mCurrentScreen=returnScreen(id);
             }else{
                 mCurrentScreen = new LoadingScreen();
@@ -152,7 +152,10 @@ namespace ColorLand
                     break;
                 case SCREEN_ID_MACROMAP:
                     baseScreen = new MacroMapScreen();
-                     break;
+                    break;
+                case SCREEN_ID_CHAR_SELECTION:
+                    baseScreen = new SelectionScreen();
+                    break;
 
             }
             return baseScreen;
@@ -177,7 +180,7 @@ namespace ColorLand
 
 
         public ContentManager getContent() {
-            return this.mContentManager;
+            return Game.Content;//this.mContentManager;
         }
 
 

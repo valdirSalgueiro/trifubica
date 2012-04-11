@@ -21,7 +21,9 @@ namespace ColorLand
         private bool mChangeMe = false;
         private bool mReleaseMe;
         private int mNextScreenId;
-        
+
+        public Cursor mCursor;
+
         public BaseScreen()
         {
             //mEnabledGestures = GestureType.None;
@@ -49,7 +51,8 @@ namespace ColorLand
             Game1.getInstance().getScreenManager().UnloadContent();
         }
 
-        
+      
+
         /*public void setChangeMe(bool changeMe, int toScreenId, bool releaseMe) {
             this.mChangeMe = changeMe;
             this.mNextScreenId = toScreenId;
