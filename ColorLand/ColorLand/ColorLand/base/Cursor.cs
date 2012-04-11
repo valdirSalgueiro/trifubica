@@ -58,7 +58,7 @@ namespace ColorLand
         private bool mCanMove = true;
         private float mRotation = 0;
 
-        private Cursor()
+        public Cursor()
         {
 
             int size = 170;
@@ -84,14 +84,14 @@ namespace ColorLand
 
         }
 
-        public static Cursor getInstance()
+        /*public static Cursor getInstance()
         {
             if (instance == null)
             {
                 instance = new Cursor();
             }
             return instance;
-        }
+        }*/
 
         public override void loadContent(ContentManager content) {
             base.loadContent(content);

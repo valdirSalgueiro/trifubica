@@ -5228,6 +5228,607 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\macromap\BLUE_ICONE.png">
+      <Name>BLUE_ICONE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\caindo_mapa_03.png">
+      <Name>caindo_mapa_03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\macromap\BLUE_ICONE_POS_01.png">
+      <Name>BLUE_ICONE_POS_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\macromap\barcobw1.png">
+      <Name>barcobw1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\barcobw2.png">
+      <Name>barcobw2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\macromap\barcobw3.png">
+      <Name>barcobw3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0017.png">
+      <Name>blue_selected0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0018.png">
+      <Name>blue_selected0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0019.png">
+      <Name>blue_selected0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0020.png">
+      <Name>blue_selected0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0021.png">
+      <Name>blue_selected0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0022.png">
+      <Name>blue_selected0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0023.png">
+      <Name>blue_selected0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0024.png">
+      <Name>blue_selected0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0025.png">
+      <Name>blue_selected0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0026.png">
+      <Name>blue_selected0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0027.png">
+      <Name>blue_selected0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0028.png">
+      <Name>blue_selected0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0029.png">
+      <Name>blue_selected0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0030.png">
+      <Name>blue_selected0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0031.png">
+      <Name>blue_selected0031</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0032.png">
+      <Name>blue_selected0032</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0000.png">
+      <Name>blue_selected0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0001.png">
+      <Name>blue_selected0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0002.png">
+      <Name>blue_selected0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0003.png">
+      <Name>blue_selected0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0004.png">
+      <Name>blue_selected0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0005.png">
+      <Name>blue_selected0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0006.png">
+      <Name>blue_selected0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0007.png">
+      <Name>blue_selected0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0008.png">
+      <Name>blue_selected0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0009.png">
+      <Name>blue_selected0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0010.png">
+      <Name>blue_selected0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0011.png">
+      <Name>blue_selected0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0012.png">
+      <Name>blue_selected0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0013.png">
+      <Name>blue_selected0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0014.png">
+      <Name>blue_selected0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0015.png">
+      <Name>blue_selected0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\Selected\blue_selected0016.png">
+      <Name>blue_selected0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\selection\BLUE\blue_select1.png">
+      <Name>blue_select1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\blue_selected1.png">
+      <Name>blue_selected1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\BLUE\blue_unselect_pos1.png">
+      <Name>blue_unselect_pos1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0016.png">
+      <Name>green_selected0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0017.png">
+      <Name>green_selected0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0018.png">
+      <Name>green_selected0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0019.png">
+      <Name>green_selected0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0020.png">
+      <Name>green_selected0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0021.png">
+      <Name>green_selected0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0022.png">
+      <Name>green_selected0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0023.png">
+      <Name>green_selected0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0024.png">
+      <Name>green_selected0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0025.png">
+      <Name>green_selected0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0026.png">
+      <Name>green_selected0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0027.png">
+      <Name>green_selected0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0028.png">
+      <Name>green_selected0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0029.png">
+      <Name>green_selected0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0030.png">
+      <Name>green_selected0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0031.png">
+      <Name>green_selected0031</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0032.png">
+      <Name>green_selected0032</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0000.png">
+      <Name>green_selected0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0001.png">
+      <Name>green_selected0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0002.png">
+      <Name>green_selected0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0003.png">
+      <Name>green_selected0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0004.png">
+      <Name>green_selected0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0005.png">
+      <Name>green_selected0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0006.png">
+      <Name>green_selected0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0007.png">
+      <Name>green_selected0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0008.png">
+      <Name>green_selected0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0009.png">
+      <Name>green_selected0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0010.png">
+      <Name>green_selected0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0011.png">
+      <Name>green_selected0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0012.png">
+      <Name>green_selected0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0013.png">
+      <Name>green_selected0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0014.png">
+      <Name>green_selected0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\Selected\green_selected0015.png">
+      <Name>green_selected0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\selection\GREEN\green_select1.png">
+      <Name>green_select1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\green_selected1.png">
+      <Name>green_selected1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\GREEN\green_unselect_pos1.png">
+      <Name>green_unselect_pos1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0000.png">
+      <Name>red_selected0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0001.png">
+      <Name>red_selected0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0002.png">
+      <Name>red_selected0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0003.png">
+      <Name>red_selected0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0004.png">
+      <Name>red_selected0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0005.png">
+      <Name>red_selected0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0006.png">
+      <Name>red_selected0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0007.png">
+      <Name>red_selected0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0008.png">
+      <Name>red_selected0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0009.png">
+      <Name>red_selected0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0010.png">
+      <Name>red_selected0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0011.png">
+      <Name>red_selected0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0012.png">
+      <Name>red_selected0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0013.png">
+      <Name>red_selected0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0014.png">
+      <Name>red_selected0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0015.png">
+      <Name>red_selected0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0016.png">
+      <Name>red_selected0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0017.png">
+      <Name>red_selected0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0018.png">
+      <Name>red_selected0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0019.png">
+      <Name>red_selected0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0020.png">
+      <Name>red_selected0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0021.png">
+      <Name>red_selected0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0022.png">
+      <Name>red_selected0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0023.png">
+      <Name>red_selected0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0024.png">
+      <Name>red_selected0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0025.png">
+      <Name>red_selected0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0026.png">
+      <Name>red_selected0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0027.png">
+      <Name>red_selected0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0028.png">
+      <Name>red_selected0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0029.png">
+      <Name>red_selected0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0030.png">
+      <Name>red_selected0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0031.png">
+      <Name>red_selected0031</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Selected\red_selected0032.png">
+      <Name>red_selected0032</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\selection\RED\Red_select1.png">
+      <Name>Red_select1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Red_selected1.png">
+      <Name>Red_selected1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\selection\RED\Red_unselect_pos1.png">
+      <Name>Red_unselect_pos1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\selection\Nuvens_pos.png">
+      <Name>Nuvens_pos</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

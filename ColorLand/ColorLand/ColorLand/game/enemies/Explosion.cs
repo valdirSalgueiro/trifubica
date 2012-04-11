@@ -85,7 +85,7 @@ namespace ColorLand
             mWaitingAppear = false;
             setCenter(x, y);
         }
-
+        
         public void explode(Vector2 location){
             explode((int)location.X, (int)location.Y);
         }

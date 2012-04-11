@@ -54,23 +54,13 @@ namespace ColorLand
             mCurrentColor = color;
 
             if(mCurrentColor == Color.Red){
-                String[] imagesStopped = new String[4];
-                    imagesStopped[0] = "gameplay\\hud\\hud_azul";
-                    imagesStopped[1] = "gameplay\\hud\\hud_azul";
-                    imagesStopped[2] = "gameplay\\hud\\hud_azul";
-                    imagesStopped[3] = "gameplay\\hud\\hud_azul";
-
-                    String[] imagesDestroyed = new String[1];
-                    imagesDestroyed[0] = "gameplay\\hud\\hud_azul";
-
-                    mSpriteNormal = new Sprite(imagesStopped, new int[] { 0,1,2,3 }, 7, 90, 90, false, false);
-                    mSpriteExploding = new Sprite(imagesDestroyed, new int[] { 0 }, 3, 90, 90, true, true);
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\macromap\\BLUE_ICONE_POS_0"), new int[] { 0 }, 7, 107, 107, false, false);
             }else
             if(mCurrentColor == Color.Green){
-
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\macromap\\BLUE_ICONE_POS_0"), new int[] { 0 }, 7, 107, 107, false, false);
             }else
             if(mCurrentColor == Color.Blue){
-
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\macromap\\BLUE_ICONE_POS_0"), new int[] { 0 }, 7, 107, 107, false, false);
             }
             
             addSprite(mSpriteNormal, sSTATE_NORMAL);
@@ -95,6 +85,7 @@ namespace ColorLand
         {
             setDestiny(destiny);
             mMustMove = true;
+            pos = getLocation();
         }
 
         public void setMustMove(bool mustMove)
@@ -132,6 +123,8 @@ namespace ColorLand
                     //colidiu..
                 }
 
+                setLocation(pos);
+
             }
 
             if (mGrowing && !mReachedMaxSize)
@@ -139,7 +132,7 @@ namespace ColorLand
                 increaseScaleIn(mGrowValue);
             }
 
-            setLocation(pos);
+            
 
             base.update(gameTime);//getCurrentSprite().update();
             //LOGICA 
@@ -180,11 +173,12 @@ namespace ColorLand
 
         private void increaseScaleIn(float valueToIncrease)
         {
+            float maxScale = 0.7f;
             if (!mReachedMaxSize)
             {
-                if (mScale + valueToIncrease > 1)
+                if (mScale + valueToIncrease > maxScale)
                 {
-                    mScale = 1;
+                    mScale = maxScale;
                     mReachedMaxSize = true;
                 }
                 else
@@ -198,6 +192,11 @@ namespace ColorLand
         {
             mGrowing = true;
             mGrowValue = value;
+        }
+
+        public void perfectSize()
+        {
+            mScale = 0.7f;
         }
 
 

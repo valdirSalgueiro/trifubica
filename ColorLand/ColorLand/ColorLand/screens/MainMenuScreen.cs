@@ -61,8 +61,9 @@ namespace ColorLand
 
             mCurrentBackground = mList.ElementAt(0);
 
-            Cursor.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
-
+            mCursor = new Cursor();
+            mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
+            
             mButtonContinue = new Button("mainmenu\\buttons\\mainmenu_play", "mainmenu\\buttons\\mainmenu_play_select", "mainmenu\\buttons\\mainmenu_play_selected", new Rectangle(82, 90, 295, 105));
             mButtonPlay    = new Button("mainmenu\\buttons\\mainmenu_play", "mainmenu\\buttons\\mainmenu_play_select","mainmenu\\buttons\\mainmenu_play_selected",new Rectangle(82, 160, 295, 105));
             mButtonHelp    = new Button("mainmenu\\buttons\\mainmenu_help", "mainmenu\\buttons\\mainmenu_help_select", "mainmenu\\buttons\\mainmenu_help_selected", new Rectangle(82, 265, 229, 103));
@@ -89,7 +90,7 @@ namespace ColorLand
 
             //Game1.print("LOC: "  + mGroupButtons.getGameObject(2).getLocation());
 
-            Cursor.getInstance().backToMenuCursor();
+           mCursor.backToMenuCursor();
 
             SoundManager.LoadSound(cSOUND_HIGHLIGHT);
 
@@ -101,7 +102,7 @@ namespace ColorLand
             //checkCollisions();
             mCurrentBackground.update();
             mGroupButtons.update(gameTime);
-            Cursor.getInstance().update(gameTime);
+            mCursor.update(gameTime);
             updateMouseInput();
             checkCollisions();
 
@@ -118,7 +119,7 @@ namespace ColorLand
             mCurrentBackground.draw(mSpriteBatch);
 
             mGroupButtons.draw(mSpriteBatch);
-            Cursor.getInstance().draw(mSpriteBatch);
+            mCursor.draw(mSpriteBatch);
 
             if (mFade != null)
             {
@@ -181,7 +182,7 @@ namespace ColorLand
         private void checkCollisions()
         {
 
-            if (mGroupButtons.checkCollisionWith(Cursor.getInstance()))
+            if (mGroupButtons.checkCollisionWith(mCursor))
             {
                 mCurrentHighlightButton = (Button)mGroupButtons.getCollidedObject();
 
@@ -227,12 +228,13 @@ namespace ColorLand
             {
                 SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                 mFade = new Fade(this, "fades\\blackfade");
-
+                //
+                SoundManager.stopMusic();
+                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_HISTORY, true);
                 executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-
                 Game1.print("Salvei fase 1");
-                ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, new ProgressObject(1));
-
+                //ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, new ProgressObject(1));
+                ExtraFunctions.saveLevel(1);
             }
             else if (button == mButtonHelp)
             {

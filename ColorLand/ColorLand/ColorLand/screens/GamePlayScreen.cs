@@ -141,9 +141,9 @@ namespace ColorLand
 
             mColorChoiceBar.changeState(mColorCount);
 
-            if (mColorCount == 0) Cursor.getInstance().changeColor(Color.Red);
-            if (mColorCount == 1) Cursor.getInstance().changeColor(Color.Green);
-            if (mColorCount == 2) Cursor.getInstance().changeColor(Color.Blue);
+            if (mColorCount == 0) mCursor.changeColor(Color.Red);
+            if (mColorCount == 1) mCursor.changeColor(Color.Green);
+            if (mColorCount == 2) mCursor.changeColor(Color.Blue);
 
         }
 
@@ -218,9 +218,10 @@ namespace ColorLand
 
                     mGroupCollectables.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-                    Cursor.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
-                    Cursor.getInstance().changeColor(Color.Green);
-                    Cursor.getInstance().setCenter(20, 20);
+                    mCursor = new Cursor();
+                    mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
+                    mCursor.changeColor(Color.Green);
+                    mCursor.setCenter(20, 20);
 
                     HUD.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
 
@@ -278,7 +279,7 @@ namespace ColorLand
                         mColorChoiceBar.loadContent(Game1.getInstance().getScreenManager().getContent());
                         mColorChoiceBar.setCenter(200, 200);*/
 
-                    Cursor.getInstance().changeColor(Color.Blue);
+                    mCursor.changeColor(Color.Blue);
 
                     break;
 
@@ -338,7 +339,7 @@ namespace ColorLand
 
         private void checkCollisions()
         {
-            HUD.getInstance().checkCollisions(Cursor.getInstance(), mMousePressing);
+            HUD.getInstance().checkCollisions(mCursor, mMousePressing);
 
             if (mManager.checkCollision(mMainCharacter))
             {
@@ -355,14 +356,14 @@ namespace ColorLand
                 }
             }
 
-            if (mManager.checkCollision(Cursor.getInstance()))
+            if (mManager.checkCollision(mCursor))
             {   
                 BaseEnemy be = mManager.getGameObjectsGroup().getCollidedObject();
                 //mExplosionManager.getNextOfColor().explode((int)be.getX(), (int)be.getY());
 
-                if (be.getColor() == Cursor.getInstance().getColor())
+                if (be.getColor() == mCursor.getColor())
                 {
-                    if (!Cursor.getInstance().isParalyzed())
+                    if (!mCursor.isParalyzed())
                     {
                         int x = (int)be.getX();
                         int y = (int)be.getY();
@@ -376,7 +377,7 @@ namespace ColorLand
                 else
                 {
                     //FUDEU
-                    Cursor.getInstance().paralyze();
+                    mCursor.paralyze();
                 }
                 //mGroup.remove(be);
 
@@ -451,14 +452,14 @@ namespace ColorLand
                     case GAME_STATE_DERROTA:
                         SoundManager.PlayMusic(cMUSIC_LOSE, false);
                         mMainCharacter.changeState(MainCharacter.sSTATE_LOSE);
-                        Cursor.getInstance().setLocation(0, 1000);
+                        mCursor.setLocation(0, 1000);
                         startManualTimer();
                         break;
 
                     case GAME_STATE_SUCESSO:
                         SoundManager.PlayMusic(cMUSIC_WIN, false);
                         mMainCharacter.changeState(MainCharacter.sSTATE_VICTORY);
-                        Cursor.getInstance().setLocation(0, 1000);
+                        mCursor.setLocation(0, 1000);
                         startManualTimer();
                         break;
                 }
@@ -503,7 +504,7 @@ namespace ColorLand
                             checkGameOverCondition();
                             checkCollisions();
                             
-                            Cursor.getInstance().update(gameTime);
+                            mCursor.update(gameTime);
                             MouseState mouseState = Mouse.GetState();
 
                             HUD.getInstance().update(gameTime);
@@ -534,7 +535,7 @@ namespace ColorLand
                             mMainCharacter.update(gameTime);
                             mMainCharacter.setVisible(true);
                             mExplosionManager.update(gameTime);
-                            Cursor.getInstance().update(gameTime);
+                            mCursor.update(gameTime);
                             //mManager.update(gameTime);
                             mMainCharacter.update(gameTime);
                             mMainCharacter.setCollisionRect(0, 0, 0, 0);
@@ -565,7 +566,7 @@ namespace ColorLand
                             mMainCharacter.update(gameTime);
                             mMainCharacter.setVisible(true);
                             mExplosionManager.update(gameTime);
-                            Cursor.getInstance().update(gameTime);
+                            mCursor.update(gameTime);
                             break;
                     }
 
@@ -640,7 +641,7 @@ namespace ColorLand
 
                 mGroupCollectables.draw(mSpriteBatch);
 
-                Cursor.getInstance().draw(mSpriteBatch);
+                mCursor.draw(mSpriteBatch);
 
                 mExplosionManager.draw(mSpriteBatch);
                 
@@ -668,7 +669,7 @@ namespace ColorLand
                 {
                     mSpriteBatch.Begin();
                     HUD.getInstance().draw(mSpriteBatch);
-                    Cursor.getInstance().draw(mSpriteBatch);
+                    mCursor.draw(mSpriteBatch);
                     mSpriteBatch.End();
                 }
                 
@@ -763,7 +764,7 @@ namespace ColorLand
 
         public void updatePlayerBody()
         {
-            if (mMainCharacter.getState() != MainCharacter.sSTATE_TOP_LEFT && Cursor.getInstance().getX() < mMainCharacter.getX() && Cursor.getInstance().getY() <= Game1.sHALF_SCREEN_RESOLUTION_HEIGHT)
+            if (mMainCharacter.getState() != MainCharacter.sSTATE_TOP_LEFT && mCursor.getX() < mMainCharacter.getX() && mCursor.getY() <= Game1.sHALF_SCREEN_RESOLUTION_HEIGHT)
             {
                 if (mMainCharacter.getState() != MainCharacter.sSTATE_BOTTOM_LEFT && mMainCharacter.getState() != MainCharacter.sSTATE_INVERSE_TOP_LEFT)
                 {
@@ -775,7 +776,7 @@ namespace ColorLand
                 }
 
             }else
-            if (mMainCharacter.getState() != MainCharacter.sSTATE_TOP_RIGHT && Cursor.getInstance().getX() > mMainCharacter.getX() && Cursor.getInstance().getY() <= Game1.sHALF_SCREEN_RESOLUTION_HEIGHT)
+            if (mMainCharacter.getState() != MainCharacter.sSTATE_TOP_RIGHT && mCursor.getX() > mMainCharacter.getX() && mCursor.getY() <= Game1.sHALF_SCREEN_RESOLUTION_HEIGHT)
             {
                 if (mMainCharacter.getState() != MainCharacter.sSTATE_BOTTOM_RIGHT && mMainCharacter.getState() != MainCharacter.sSTATE_INVERSE_TOP_RIGHT)
                 {
@@ -787,12 +788,12 @@ namespace ColorLand
                 }
                 
             }else
-            if (mMainCharacter.getState() != MainCharacter.sSTATE_BOTTOM_LEFT && Cursor.getInstance().getX() < mMainCharacter.getX() && Cursor.getInstance().getY() > Game1.sHALF_SCREEN_RESOLUTION_HEIGHT)
+            if (mMainCharacter.getState() != MainCharacter.sSTATE_BOTTOM_LEFT && mCursor.getX() < mMainCharacter.getX() && mCursor.getY() > Game1.sHALF_SCREEN_RESOLUTION_HEIGHT)
             {
                 mMainCharacter.changeState(MainCharacter.sSTATE_BOTTOM_LEFT);
             }
             else
-            if (mMainCharacter.getState() != MainCharacter.sSTATE_BOTTOM_RIGHT && Cursor.getInstance().getX() > mMainCharacter.getX() && Cursor.getInstance().getY() > Game1.sHALF_SCREEN_RESOLUTION_HEIGHT)
+            if (mMainCharacter.getState() != MainCharacter.sSTATE_BOTTOM_RIGHT && mCursor.getX() > mMainCharacter.getX() && mCursor.getY() > Game1.sHALF_SCREEN_RESOLUTION_HEIGHT)
             {
                 mMainCharacter.changeState(MainCharacter.sSTATE_BOTTOM_RIGHT);
             }
@@ -834,7 +835,7 @@ namespace ColorLand
                 {
                     if (oldStateMouse.LeftButton != ButtonState.Pressed)
                     {
-                        Cursor.getInstance().nextColor();
+                        mCursor.nextColor();
                     }
                 }
                 
