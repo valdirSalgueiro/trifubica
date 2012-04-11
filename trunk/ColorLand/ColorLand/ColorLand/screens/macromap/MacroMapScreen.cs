@@ -57,7 +57,7 @@ namespace ColorLand
         public MacroMapScreen()
         {
             //debug purposes oinly
-            ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, new ProgressObject(1));
+            ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, new ProgressObject(1), ProgressObject.PlayerColor.BLUE);
             //
             
             if (!SoundManager.isPlaying())
