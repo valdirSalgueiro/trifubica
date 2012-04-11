@@ -43,6 +43,9 @@ namespace ColorLand
 
         private bool mShowTextureFallingPlayer;
 
+        private Texture2D mTextureBussola;
+        private Texture2D mTextureBussolaPointer;
+
         private ExplosionManager mExplosionManager;
 
         public enum MacroMapState
@@ -58,6 +61,7 @@ namespace ColorLand
         {
             //debug purposes oinly
             ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, new ProgressObject(1, ProgressObject.PlayerColor.BLUE));
+
             //
             
             if (!SoundManager.isPlaying())
@@ -80,6 +84,9 @@ namespace ColorLand
 
             mMacromapPlayer = new MacromapPlayer(Color.Red, new Vector2(100, 130));
             mMacromapPlayer.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+            mTextureBussola = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\bussola_bg");
+            mTextureBussolaPointer = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\bussola_ponteiro2");
 
             mTimer = new MTimer(true);
 
@@ -268,6 +275,9 @@ namespace ColorLand
             {
                 mBackgroundImage.draw(mSpriteBatch);
             }
+
+            mSpriteBatch.Draw(mTextureBussola, new Rectangle(659, 452,mTextureBussola.Width + 40,mTextureBussola.Height + 40), Color.White);
+            mSpriteBatch.Draw(mTextureBussolaPointer, new Rectangle(712, 497, mTextureBussolaPointer.Width, mTextureBussolaPointer.Height), Color.White);
 
             if (mExplosionManager != null)
             {
