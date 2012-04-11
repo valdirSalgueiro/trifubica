@@ -46,6 +46,8 @@ namespace ColorLand
         private Texture2D mTextureBussola;
         private Texture2D mTextureBussolaPointer;
 
+        private float angleBussola;
+
         private ExplosionManager mExplosionManager;
 
         public enum MacroMapState
@@ -222,6 +224,9 @@ namespace ColorLand
         public override void update(GameTime gameTime)
         {
 
+            Vector2 direction = new Vector2(Mouse.GetState().X, Mouse.GetState().Y) - new Vector2(400, 0);
+            angleBussola = (float)(Math.Atan2(direction.Y, direction.X));
+
             mCursor.update(gameTime);
 
             updateTimer(gameTime);
@@ -277,7 +282,7 @@ namespace ColorLand
             }
 
             mSpriteBatch.Draw(mTextureBussola, new Rectangle(659, 452,mTextureBussola.Width + 40,mTextureBussola.Height + 40), Color.White);
-            mSpriteBatch.Draw(mTextureBussolaPointer, new Rectangle(712, 497, mTextureBussolaPointer.Width, mTextureBussolaPointer.Height), Color.White);
+            mSpriteBatch.Draw(mTextureBussolaPointer, new Vector2(712 + mTextureBussolaPointer.Width / 2, 497 + mTextureBussolaPointer.Height / 2), null, Color.White, angleBussola-(float)Math.PI/2, new Vector2(mTextureBussolaPointer.Width / 2, mTextureBussolaPointer.Height / 2), 1, SpriteEffects.None, 0f);
 
             if (mExplosionManager != null)
             {
