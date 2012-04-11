@@ -57,7 +57,7 @@ namespace ColorLand
         public MacroMapScreen()
         {
             //debug purposes oinly
-            ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, new ProgressObject(1), ProgressObject.PlayerColor.BLUE);
+            ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, new ProgressObject(1, ProgressObject.PlayerColor.BLUE));
             //
             
             if (!SoundManager.isPlaying())
@@ -85,7 +85,7 @@ namespace ColorLand
 
             //ExtraFunctions.saveLevel(2);
             //Game1.print(" >>> " + ExtraFunctions.loadLevel().getCurrentStage());
-            if (ExtraFunctions.loadLevel().getCurrentStage() == 1)
+            if (ExtraFunctions.loadProgress().getCurrentStage() == 1)
             {
             //    Game1.print("AGAIN 1");
               //  setMacroMapState(MacroMapState.FirstStage);
