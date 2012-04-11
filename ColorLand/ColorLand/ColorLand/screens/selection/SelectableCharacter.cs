@@ -89,7 +89,7 @@ namespace ColorLand
             
             changeToSprite(sSTATE_UNSELECTED);
 
-            setCollisionRect(200, 200);
+            setCollisionRect(30,30,150, 150);
 
             setCenter(center.X,center.Y);
             setVisible(true);
@@ -158,6 +158,11 @@ namespace ColorLand
                 increaseScaleIn(mGrowValue);
             }
 
+            if (getCurrentSprite() == mSpriteSelected && mSpriteSelected.getAnimationEnded())
+            {
+                changeState(sSTATE_EXPLOSION);
+                Game1.print("PRIU");
+            }
            
 
             base.update(gameTime);//getCurrentSprite().update();
@@ -228,27 +233,32 @@ namespace ColorLand
             {
                 case sSTATE_UNSELECTED:
 
-                    setState(sSTATE_UNSELECTED);
-                    changeToSprite(sSTATE_UNSELECTED);
+                    if (getState() != sSTATE_UNSELECTED)
+                    {
+                        setState(sSTATE_UNSELECTED);
+                        changeToSprite(sSTATE_UNSELECTED);
 
-                    if (mColor == Color.Red) setCenter(160, 310);
-                    if (mColor == Color.Green) setCenter(382 + 15, 310 + 6);
-                    if (mColor == Color.Blue) setCenter(625 - 5, 308 + 6);
-                    
-                    getCurrentSprite().resetAnimationFlag();
+                        if (mColor == Color.Red) setCenter(160, 310);
+                        if (mColor == Color.Green) setCenter(382 + 15, 310 + 6);
+                        if (mColor == Color.Blue) setCenter(625 - 5, 308 + 6);
+
+                        getCurrentSprite().resetAnimationFlag();
+                    }
                     break;
                 
                 case sSTATE_HIGHLIGHTED:
-                    setState(sSTATE_HIGHLIGHTED);
-                    changeToSprite(sSTATE_HIGHLIGHTED);
+                    if (getState() != sSTATE_HIGHLIGHTED)
+                    {
+                        setState(sSTATE_HIGHLIGHTED);
+                        changeToSprite(sSTATE_HIGHLIGHTED);
 
-                    if (mColor == Color.Red) setCenter(160, 310);
-                    if (mColor == Color.Green) setCenter(386 + 15, 312 + 6);
-                    if (mColor == Color.Blue) setCenter(623 - 5, 311 + 6);
+                        if (mColor == Color.Red) setCenter(160, 310);
+                        if (mColor == Color.Green) setCenter(386 + 15, 312 + 6);
+                        if (mColor == Color.Blue) setCenter(623 - 5, 311 + 6);
 
-                    getCurrentSprite().resetAnimationFlag();
+                        getCurrentSprite().resetAnimationFlag();
+                    }
                     break;
-                
                 case sSTATE_SELECTED:
                     if (getState() != sSTATE_SELECTED)
                     {

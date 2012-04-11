@@ -30,6 +30,8 @@ namespace ColorLand
         private Background mBackgroundImage;
         private Background mCurrentBackground;
 
+        MouseState oldStateMouse;
+
         //fade
         private Fade mFade;
         private Fade mCurrentFade;
@@ -62,10 +64,10 @@ namespace ColorLand
             mSelectableCharacterRed = new SelectableCharacter(new Vector2(160, 310), Color.Red);
             mSelectableCharacterRed.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mSelectableCharacterGreen = new SelectableCharacter(new Vector2(382, 310), Color.Green);
+            mSelectableCharacterGreen = new SelectableCharacter(new Vector2(382 + 15, 310 + 6), Color.Green);
             mSelectableCharacterGreen.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mSelectableCharacterBlue = new SelectableCharacter(new Vector2(625, 308), Color.Blue);
+            mSelectableCharacterBlue = new SelectableCharacter(new Vector2(625 - 5, 308 + 6), Color.Blue);
             mSelectableCharacterBlue.loadContent(Game1.getInstance().getScreenManager().getContent());
 
             SoundManager.LoadSound(cSOUND_HIGHLIGHT);
@@ -85,6 +87,8 @@ namespace ColorLand
             mCursor.update(gameTime);
             updateMouseInput();
             checkCollisions();
+
+            
 
 
             KeyboardState kState = Keyboard.GetState();
@@ -170,46 +174,80 @@ namespace ColorLand
 
         private void updateMouseInput()
         {
-            
 
             MouseState ms = Mouse.GetState();
 
             if (ms.LeftButton == ButtonState.Pressed)
             {
-                mMousePressing = true;
-            }
-            else
-            {
-                /*if (mCurrentHighlightButton != null)
+                if (oldStateMouse.LeftButton != ButtonState.Pressed)
                 {
-
-                    if (mMousePressing)
+                    
+                    if (mCurrentSelectableCharacter != null)
                     {
-                        processButtonAction(mCurrentHighlightButton);
+                        Game1.print("click");
+                        mCurrentSelectableCharacter.changeState(SelectableCharacter.sSTATE_SELECTED);
                     }
-
-                }*/
-
-                mMousePressing = false;
+                }
             }
 
+            oldStateMouse = ms;
 
         }
 
         private void checkCollisions()
         {
-            if (mCursor.collidesWith(mSelectableCharacterRed))
+            if (mSelectableCharacterRed.getState() != SelectableCharacter.sSTATE_SELECTED && mSelectableCharacterRed.getState() != SelectableCharacter.sSTATE_EXPLOSION &&
+                mSelectableCharacterGreen.getState() != SelectableCharacter.sSTATE_SELECTED && mSelectableCharacterGreen.getState() != SelectableCharacter.sSTATE_EXPLOSION &&
+                mSelectableCharacterBlue.getState() != SelectableCharacter.sSTATE_SELECTED && mSelectableCharacterBlue.getState() != SelectableCharacter.sSTATE_EXPLOSION)
             {
-                mCurrentSelectableCharacter = mSelectableCharacterRed;
-            }
-            else
-            if (mCursor.collidesWith(mSelectableCharacterGreen)){
-                mCurrentSelectableCharacter = mSelectableCharacterRed;
-            }else
-            if (mCursor.collidesWith(mSelectableCharacterBlue)){
-                mCurrentSelectableCharacter = mSelectableCharacterRed;
-            }
+                mCurrentSelectableCharacter = null;
+                if (mCursor.collidesWith(mSelectableCharacterRed))
+                {
+                    mCurrentSelectableCharacter = mSelectableCharacterRed;
 
+                    mSelectableCharacterGreen.changeState(SelectableCharacter.sSTATE_UNSELECTED);
+                    mSelectableCharacterBlue.changeState(SelectableCharacter.sSTATE_UNSELECTED);
+                }
+                else
+                {
+                    mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_UNSELECTED);
+
+                    if (mCursor.collidesWith(mSelectableCharacterGreen))
+                    {
+                        mCurrentSelectableCharacter = mSelectableCharacterGreen;
+
+                        mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_UNSELECTED);
+                        mSelectableCharacterBlue.changeState(SelectableCharacter.sSTATE_UNSELECTED);
+                    }
+                    else
+                    {
+
+                        mSelectableCharacterGreen.changeState(SelectableCharacter.sSTATE_UNSELECTED);
+
+                        if (mCursor.collidesWith(mSelectableCharacterBlue))
+                        {
+                            mCurrentSelectableCharacter = mSelectableCharacterBlue;
+
+                            mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_UNSELECTED);
+                            mSelectableCharacterGreen.changeState(SelectableCharacter.sSTATE_UNSELECTED);
+                        }
+                        else
+                        {
+                            mSelectableCharacterBlue.changeState(SelectableCharacter.sSTATE_UNSELECTED);
+                        }
+                    }
+
+                }
+
+                if (mCurrentSelectableCharacter != null && mCurrentSelectableCharacter.getState() == SelectableCharacter.sSTATE_UNSELECTED)
+                {
+                      mCurrentSelectableCharacter.changeState(SelectableCharacter.sSTATE_HIGHLIGHTED);
+                }
+                else
+                {
+
+                }
+            }
         }
 
         //timer
