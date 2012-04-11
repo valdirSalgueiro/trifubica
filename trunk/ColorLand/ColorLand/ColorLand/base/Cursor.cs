@@ -74,7 +74,7 @@ namespace ColorLand
             
             changeToSprite(sSTATE_NORMAL);
 
-            setCollisionRect(20,20,60,60);
+            setCollisionRect(0,0,40,40);
 
             for (int i = 0; i < tracers.Length; i++)
             {
