@@ -234,7 +234,6 @@ namespace ColorLand
                 executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
                 Game1.print("Salvei fase 1");
                 //ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, new ProgressObject(1));
-                //ExtraFunctions.saveProgress(1);
             }
             else if (button == mButtonHelp)
             {

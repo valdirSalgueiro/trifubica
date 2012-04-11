@@ -25,6 +25,8 @@ namespace ColorLand
         private SelectableCharacter mSelectableCharacterGreen;
         private SelectableCharacter mSelectableCharacterBlue;
 
+        private SelectableCharacter mCurrentSelectableCharacter;
+
         private Background mBackgroundImage;
         private Background mCurrentBackground;
 
@@ -63,7 +65,7 @@ namespace ColorLand
             mSelectableCharacterGreen = new SelectableCharacter(new Vector2(382, 310), Color.Green);
             mSelectableCharacterGreen.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mSelectableCharacterBlue = new SelectableCharacter(new Vector2(582, 310), Color.Blue);
+            mSelectableCharacterBlue = new SelectableCharacter(new Vector2(625, 308), Color.Blue);
             mSelectableCharacterBlue.loadContent(Game1.getInstance().getScreenManager().getContent());
 
             SoundManager.LoadSound(cSOUND_HIGHLIGHT);
@@ -92,9 +94,9 @@ namespace ColorLand
 
                 if (!oldState.IsKeyDown(Keys.A))
                 {
-                    //mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_UNSELECTED);
+                    mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_UNSELECTED);
                     //mSelectableCharacterGreen.changeState(SelectableCharacter.sSTATE_UNSELECTED);
-                    mSelectableCharacterBlue.changeState(SelectableCharacter.sSTATE_UNSELECTED);
+                    //mSelectableCharacterBlue.changeState(SelectableCharacter.sSTATE_UNSELECTED);
                 }
 
             }
@@ -104,9 +106,9 @@ namespace ColorLand
 
                 if (!oldState.IsKeyDown(Keys.S))
                 {
-                    //mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_HIGHLIGHTED);
+                    mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_HIGHLIGHTED);
                     //mSelectableCharacterGreen.changeState(SelectableCharacter.sSTATE_HIGHLIGHTED);
-                    mSelectableCharacterBlue.changeState(SelectableCharacter.sSTATE_HIGHLIGHTED);
+                    //mSelectableCharacterBlue.changeState(SelectableCharacter.sSTATE_HIGHLIGHTED);
                 }
 
             }
@@ -116,9 +118,9 @@ namespace ColorLand
 
                 if (!oldState.IsKeyDown(Keys.D))
                 {
-                    //mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_SELECTED);
+                    mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_SELECTED);
                     //mSelectableCharacterGreen.changeState(SelectableCharacter.sSTATE_SELECTED);
-                    mSelectableCharacterBlue.changeState(SelectableCharacter.sSTATE_SELECTED);
+                    //mSelectableCharacterBlue.changeState(SelectableCharacter.sSTATE_SELECTED);
                 }
 
             }
@@ -128,9 +130,9 @@ namespace ColorLand
 
                 if (!oldState.IsKeyDown(Keys.F))
                 {
-                    //mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_EXPLOSION);
+                    mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_EXPLOSION);
                     //mSelectableCharacterGreen.changeState(SelectableCharacter.sSTATE_EXPLOSION);
-                    mSelectableCharacterBlue.changeState(SelectableCharacter.sSTATE_EXPLOSION);
+                    //mSelectableCharacterBlue.changeState(SelectableCharacter.sSTATE_EXPLOSION);
                 }
 
             }
@@ -198,13 +200,16 @@ namespace ColorLand
         {
             if (mCursor.collidesWith(mSelectableCharacterRed))
             {
-                //mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_HIGHLIGHTED);
-               
+                mCurrentSelectableCharacter = mSelectableCharacterRed;
             }
             else
-            {
-               // mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_UNSELECTED);
+            if (mCursor.collidesWith(mSelectableCharacterGreen)){
+                mCurrentSelectableCharacter = mSelectableCharacterRed;
+            }else
+            if (mCursor.collidesWith(mSelectableCharacterBlue)){
+                mCurrentSelectableCharacter = mSelectableCharacterRed;
             }
+
         }
 
         //timer

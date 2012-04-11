@@ -233,7 +233,7 @@ namespace ColorLand
 
                     if (mColor == Color.Red) setCenter(160, 310);
                     if (mColor == Color.Green) setCenter(382 + 15, 310 + 6);
-                    if (mColor == Color.Blue) setCenter(582, 310);
+                    if (mColor == Color.Blue) setCenter(625 - 5, 308 + 6);
                     
                     getCurrentSprite().resetAnimationFlag();
                     break;
@@ -244,7 +244,7 @@ namespace ColorLand
 
                     if (mColor == Color.Red) setCenter(160, 310);
                     if (mColor == Color.Green) setCenter(386 + 15, 312 + 6);
-                    if (mColor == Color.Blue) setCenter(598, 318);
+                    if (mColor == Color.Blue) setCenter(623 - 5, 311 + 6);
 
                     getCurrentSprite().resetAnimationFlag();
                     break;
@@ -257,7 +257,7 @@ namespace ColorLand
 
                         if (mColor == Color.Red) setCenter(262, 322);
                         if (mColor == Color.Green) setCenter(406 + 15, 319 + 6);
-                        if (mColor == Color.Green) setCenter(630, 330);
+                        if (mColor == Color.Blue) setCenter(531 - 5, 311 + 6);
     
                         getCurrentSprite().resetAnimationFlag();
                     }
