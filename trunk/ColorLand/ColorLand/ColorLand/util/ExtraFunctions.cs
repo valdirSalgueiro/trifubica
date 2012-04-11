@@ -91,14 +91,14 @@ namespace ColorLand
         }
 
 
-        public static void saveLevel(int level)
+        public static void saveProgress(ProgressObject po)
         {
-            ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, loadLevel().setCurrentStage(level)); //new ProgressObject(level));
+            ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, po); 
         }
 
         //TODO saveLevelFirstTime
 
-        public static ProgressObject loadLevel()
+        public static ProgressObject loadProgress()
         {
             return ObjectSerialization.Load<ProgressObject>(Game1.sPROGRESS_FILE_NAME);
         }
