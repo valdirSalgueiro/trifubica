@@ -29,6 +29,8 @@ namespace ColorLand
 
         public static bool sKINECT_BASED = false;
 
+        public static ProgressObject progressObject;
+
         //Original structure
         private static Game1 instance;
         ScreenManager mScreenManager;
@@ -39,10 +41,13 @@ namespace ColorLand
 
         public Game1()
         {
-            //int level = 6;
-            //ObjectSerialization.Save<int>("level", level);            
-            //int loadedLevel=ObjectSerialization.Load<int>("level");
-            //Console.WriteLine(loadedLevel);
+            try
+            {
+                progressObject = ExtraFunctions.loadProgress();
+            }
+            catch (Exception e) {
+                progressObject = new ProgressObject(1,ProgressObject.PlayerColor.BLUE);
+            }
 
             graphics = new GraphicsDeviceManager(this);
 
