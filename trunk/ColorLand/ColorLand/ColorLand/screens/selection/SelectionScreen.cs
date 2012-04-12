@@ -32,6 +32,15 @@ namespace ColorLand
 
         MouseState oldStateMouse;
 
+        private Color mColorForAlphaEffect;
+        private float mAlpha = 1f;
+        private bool mReduceAlpha;
+
+        private Rectangle mRect1;
+        private Rectangle mRect2;
+        private Rectangle mRect3;
+
+
         //fade
         private Fade mFade;
         private Fade mCurrentFade;
@@ -45,6 +54,7 @@ namespace ColorLand
             {
                 SoundManager.PlayMusic("sound\\music\\theme");
             }
+            
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
             mBackgroundImage = new Background("gameplay\\selection\\Nuvens_pos");
@@ -58,7 +68,11 @@ namespace ColorLand
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
             mTextureChooseTitle = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\pausescreen\\paused_title");
-            
+
+            mRect1 = new Rectangle(102, 223,150, 155);
+            mRect2 = new Rectangle(327, 223, 150, 155);
+            mRect3 = new Rectangle(565, 223, 150, 155);
+
             //Game1.print("LOC: "  + mGroupButtons.getGameObject(2).getLocation());
 
             mSelectableCharacterRed = new SelectableCharacter(new Vector2(160, 310), Color.Red);
@@ -69,6 +83,8 @@ namespace ColorLand
 
             mSelectableCharacterBlue = new SelectableCharacter(new Vector2(625 - 5, 308 + 6), Color.Blue);
             mSelectableCharacterBlue.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+            mColorForAlphaEffect = Color.White;
 
             SoundManager.LoadSound(cSOUND_HIGHLIGHT);
 
@@ -105,42 +121,6 @@ namespace ColorLand
 
             }
 
-            if (kState.IsKeyDown(Keys.S))
-            {
-
-                if (!oldState.IsKeyDown(Keys.S))
-                {
-                    mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_HIGHLIGHTED);
-                    //mSelectableCharacterGreen.changeState(SelectableCharacter.sSTATE_HIGHLIGHTED);
-                    //mSelectableCharacterBlue.changeState(SelectableCharacter.sSTATE_HIGHLIGHTED);
-                }
-
-            }
-
-            if (kState.IsKeyDown(Keys.D))
-            {
-
-                if (!oldState.IsKeyDown(Keys.D))
-                {
-                    mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_SELECTED);
-                    //mSelectableCharacterGreen.changeState(SelectableCharacter.sSTATE_SELECTED);
-                    //mSelectableCharacterBlue.changeState(SelectableCharacter.sSTATE_SELECTED);
-                }
-
-            }
-
-            if (kState.IsKeyDown(Keys.F))
-            {
-
-                if (!oldState.IsKeyDown(Keys.F))
-                {
-                    mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_EXPLOSION);
-                    //mSelectableCharacterGreen.changeState(SelectableCharacter.sSTATE_EXPLOSION);
-                    //mSelectableCharacterBlue.changeState(SelectableCharacter.sSTATE_EXPLOSION);
-                }
-
-            }
-
             oldState = kState;
 
             if (mFade != null)
@@ -152,15 +132,55 @@ namespace ColorLand
 
         public override void draw(GameTime gameTime)
         {
+
             mSpriteBatch.Begin();
             //mCurrentBackground.draw(mSpriteBatch);
 
             mBackgroundImage.draw(mSpriteBatch);
 
-            mSelectableCharacterRed.draw(mSpriteBatch);
-            mSelectableCharacterGreen.draw(mSpriteBatch);
-            mSelectableCharacterBlue.draw(mSpriteBatch);
+            if (mReduceAlpha)
+            {
+                if (mAlpha > 0)
+                {
+                    mAlpha -= 0.05f;
+                }
+                else
+                {
+                    mAlpha = 0;
+                }
 
+                //só pra garantir o anti-pau
+                if (mCurrentSelectableCharacter != null )
+                {
+                    if (mCurrentSelectableCharacter == mSelectableCharacterRed)
+                    {
+                        mSelectableCharacterRed.draw(mSpriteBatch);
+                        mSelectableCharacterGreen.draw(mSpriteBatch, Color.White * mAlpha);//new Color(255 * mAlpha, 255 * mAlpha, 255 * mAlpha, mAlpha) * mAlpha);
+                        mSelectableCharacterBlue.draw(mSpriteBatch, Color.White * mAlpha);
+                    }
+                    if (mCurrentSelectableCharacter == mSelectableCharacterGreen)
+                    {
+                        mSelectableCharacterRed.draw(mSpriteBatch, Color.White * mAlpha);
+                        mSelectableCharacterGreen.draw(mSpriteBatch);
+                        mSelectableCharacterBlue.draw(mSpriteBatch, Color.White * mAlpha);
+                    }
+                    if (mCurrentSelectableCharacter == mSelectableCharacterBlue)
+                    {
+                        mSelectableCharacterRed.draw(mSpriteBatch, Color.White * mAlpha);
+                        mSelectableCharacterGreen.draw(mSpriteBatch, Color.White * mAlpha);
+                        mSelectableCharacterBlue.draw(mSpriteBatch);
+                    }
+                }
+
+            }
+            else
+            {
+                mSelectableCharacterRed.draw(mSpriteBatch);
+                mSelectableCharacterGreen.draw(mSpriteBatch);
+                mSelectableCharacterBlue.draw(mSpriteBatch); 
+            }
+                       
+            
             mCursor.draw(mSpriteBatch);
 
             /*if (mFade != null)
@@ -186,6 +206,7 @@ namespace ColorLand
                     {
                         Game1.print("click");
                         mCurrentSelectableCharacter.changeState(SelectableCharacter.sSTATE_SELECTED);
+                        mReduceAlpha = true;
                     }
                 }
             }
@@ -201,7 +222,7 @@ namespace ColorLand
                 mSelectableCharacterBlue.getState() != SelectableCharacter.sSTATE_SELECTED && mSelectableCharacterBlue.getState() != SelectableCharacter.sSTATE_EXPLOSION)
             {
                 mCurrentSelectableCharacter = null;
-                if (mCursor.collidesWith(mSelectableCharacterRed))
+                if (mCursor.collidesWith(mRect1))
                 {
                     mCurrentSelectableCharacter = mSelectableCharacterRed;
 
@@ -212,7 +233,7 @@ namespace ColorLand
                 {
                     mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_UNSELECTED);
 
-                    if (mCursor.collidesWith(mSelectableCharacterGreen))
+                    if (mCursor.collidesWith(mRect2))
                     {
                         mCurrentSelectableCharacter = mSelectableCharacterGreen;
 
@@ -224,7 +245,7 @@ namespace ColorLand
 
                         mSelectableCharacterGreen.changeState(SelectableCharacter.sSTATE_UNSELECTED);
 
-                        if (mCursor.collidesWith(mSelectableCharacterBlue))
+                        if (mCursor.collidesWith(mRect3))
                         {
                             mCurrentSelectableCharacter = mSelectableCharacterBlue;
 
@@ -249,6 +270,7 @@ namespace ColorLand
                 }
             }
         }
+
 
         //timer
         /*private void restartTimer()

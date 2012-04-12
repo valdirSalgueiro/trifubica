@@ -92,52 +92,56 @@ namespace ColorLand
             DOWN_LEFT,
             DOWN_RIGHT
         }
-       
+
         public MainCharacter(Color color)
         {
 
             mColor = color;
 
             mData = new MainCharacterData();
-            
-            if (mColor == Color.Blue)
-            {
 
-                int width = 200;
-                int height = 200;
+            String folderColor = "";
 
-                mSpriteStopped  = new Sprite(ExtraFunctions.fillArrayWithImages2 (1, "gameplay\\maincharacter\\blue\\body"), new int[] { 0 }, 7, width, height, false, false);
-                mSpriteTopLeft  = new Sprite(ExtraFunctions.fillArrayWithImages2 (50,4, "gameplay\\maincharacter\\blue\\body"), new int[] { 0,1,2,3 }, 2, width, height, true, false);
-                mSpriteTopRight = new Sprite(ExtraFunctions.fillArrayWithImages2 (17,5, "gameplay\\maincharacter\\blue\\body"), new int[] { 0,1,2,3,4 }, 2, width, height, true, false);
-                mSpriteDownLeft = new Sprite(ExtraFunctions.fillArrayWithImages2 (54,4, "gameplay\\maincharacter\\blue\\body"), new int[] { 0,1,2,3 }, 2, width, height, true, false);
-                mSpriteDownRight = new Sprite(ExtraFunctions.fillArrayWithImages2(22, 4, "gameplay\\maincharacter\\blue\\body"), new int[] { 0,1,2,3 }, 2, width, height, true, false);
+            if (mColor == Color.Blue) folderColor = "blue";
+            if (mColor == Color.Green) folderColor = "green";
+            if (mColor == Color.Red) folderColor = "red";
 
-                mSpriteVictory = new Sprite(ExtraFunctions.fillArrayWithImages2 (1,80, "gameplay\\maincharacter\\blue\\win\\blue_win"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 80 }, 1, width, height, true, false);
-                mSpriteDefeat  = new Sprite(ExtraFunctions.fillArrayWithImages2 (1,89, "gameplay\\maincharacter\\blue\\loose\\lose"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 89 }, 1, width, height, true, false);
 
-                mSpriteInverseTopLeft  = new Sprite(ExtraFunctions.fillArrayWithImages2(50, 4, "gameplay\\maincharacter\\blue\\body"), new int[] { 3,2 }, 2, width, height, true, false);
-                mSpriteInverseTopRight = new Sprite(ExtraFunctions.fillArrayWithImages2(17, 5, "gameplay\\maincharacter\\blue\\body"), new int[] { 4,3 }, 2, width, height, true, false);
-                
+            int width = 200;
+            int height = 200;
 
-                addSprite(mSpriteStopped, sSTATE_STOPPED);
-                addSprite(mSpriteTopLeft, sSTATE_TOP_LEFT);
-                addSprite(mSpriteTopRight, sSTATE_TOP_RIGHT);
-                addSprite(mSpriteDownLeft, sSTATE_BOTTOM_LEFT);
-                addSprite(mSpriteDownRight, sSTATE_BOTTOM_RIGHT);
-                addSprite(mSpriteVictory, sSTATE_VICTORY);
-                addSprite(mSpriteDefeat, sSTATE_LOSE);
-                addSprite(mSpriteInverseTopLeft, sSTATE_INVERSE_TOP_LEFT);
-                addSprite(mSpriteInverseTopRight, sSTATE_INVERSE_TOP_RIGHT);
-                
-                changeToSprite(sSTATE_STOPPED);
+            mSpriteStopped = new Sprite(ExtraFunctions.fillArrayWithImages2(1, "gameplay\\maincharacter\\"+ folderColor +"\\body"), new int[] { 0 }, 7, width, height, false, false);
+            mSpriteTopLeft = new Sprite(ExtraFunctions.fillArrayWithImages2(50, 4, "gameplay\\maincharacter\\" + folderColor + "\\body"), new int[] { 0, 1, 2, 3 }, 2, width, height, true, false);
+            mSpriteTopRight = new Sprite(ExtraFunctions.fillArrayWithImages2(17, 5, "gameplay\\maincharacter\\" + folderColor + "\\body"), new int[] { 0, 1, 2, 3, 4 }, 2, width, height, true, false);
+            mSpriteDownLeft = new Sprite(ExtraFunctions.fillArrayWithImages2(54, 4, "gameplay\\maincharacter\\" + folderColor + "\\body"), new int[] { 0, 1, 2, 3 }, 2, width, height, true, false);
+            mSpriteDownRight = new Sprite(ExtraFunctions.fillArrayWithImages2(22, 4, "gameplay\\maincharacter\\" + folderColor + "\\body"), new int[] { 0, 1, 2, 3 }, 2, width, height, true, false);
 
-                setCollisionRect(90, 150,90,90);
+            mSpriteVictory = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 80, "gameplay\\maincharacter\\" + folderColor + "\\win\\" + folderColor + "_win"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 80 }, 1, width, height, true, false);
+            mSpriteDefeat = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 89, "gameplay\\maincharacter\\" + folderColor + "\\loose\\lose"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 89 }, 1, width, height, true, false);
 
-                mFeet = new Feet();
+            mSpriteInverseTopLeft = new Sprite(ExtraFunctions.fillArrayWithImages2(50, 4, "gameplay\\maincharacter\\" + folderColor + "\\body"), new int[] { 3, 2 }, 2, width, height, true, false);
+            mSpriteInverseTopRight = new Sprite(ExtraFunctions.fillArrayWithImages2(17, 5, "gameplay\\maincharacter\\" + folderColor + "\\body"), new int[] { 4, 3 }, 2, width, height, true, false);
 
-                //hurt();
 
-            }
+            addSprite(mSpriteStopped, sSTATE_STOPPED);
+            addSprite(mSpriteTopLeft, sSTATE_TOP_LEFT);
+            addSprite(mSpriteTopRight, sSTATE_TOP_RIGHT);
+            addSprite(mSpriteDownLeft, sSTATE_BOTTOM_LEFT);
+            addSprite(mSpriteDownRight, sSTATE_BOTTOM_RIGHT);
+            addSprite(mSpriteVictory, sSTATE_VICTORY);
+            addSprite(mSpriteDefeat, sSTATE_LOSE);
+            addSprite(mSpriteInverseTopLeft, sSTATE_INVERSE_TOP_LEFT);
+            addSprite(mSpriteInverseTopRight, sSTATE_INVERSE_TOP_RIGHT);
+
+            changeToSprite(sSTATE_STOPPED);
+
+            setCollisionRect(90, 150, 90, 90);
+
+            mFeet = new Feet(color);
+
+            //hurt();
+
+
 
         }
 
@@ -539,15 +543,21 @@ namespace ColorLand
             private Sprite mSpriteWalkingFeetRight;
             
 
-            public Feet()
+            public Feet(Color color)
             {
 
                 int sizeW = 111;
                 int sizeH = 40;
 
-                mSpriteStoppedFeet = new Sprite(ExtraFunctions.fillArrayWithImages2(1, "gameplay\\maincharacter\\blue\\feet\\left\\blue_feet_walk_left"), new int[] { 0 }, 7, sizeW, sizeH, false, false);
-                mSpriteWalkingFeetLeft = new Sprite(ExtraFunctions.fillArrayWithImages2(17, "gameplay\\maincharacter\\blue\\feet\\left\\blue_feet_walk_left"), new int[] {Sprite.sALL_FRAMES_IN_ORDER,17}, 1, sizeW, sizeH, false, false);
-                mSpriteWalkingFeetRight = new Sprite(ExtraFunctions.fillArrayWithImages2(17, "gameplay\\maincharacter\\blue\\feet\\right\\blue_feet_walk_right"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 17 }, 1, sizeW, sizeH, false, false);
+                String folderColor = "";
+
+                if (color == Color.Blue) folderColor = "blue";
+                if (color == Color.Green) folderColor = "green";
+                if (color == Color.Red) folderColor = "red";
+
+                mSpriteStoppedFeet = new Sprite(ExtraFunctions.fillArrayWithImages2(1, "gameplay\\maincharacter\\" + folderColor + "\\feet\\left\\" + folderColor + "_feet_walk_left"), new int[] { 0 }, 7, sizeW, sizeH, false, false);
+                mSpriteWalkingFeetLeft = new Sprite(ExtraFunctions.fillArrayWithImages2(17, "gameplay\\maincharacter\\" + folderColor + "\\feet\\left\\" + folderColor + "_feet_walk_left"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 17 }, 1, sizeW, sizeH, false, false);
+                mSpriteWalkingFeetRight = new Sprite(ExtraFunctions.fillArrayWithImages2(17, "gameplay\\maincharacter\\" + folderColor + "\\feet\\right\\" + folderColor + "_feet_walk_right"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 17 }, 1, sizeW, sizeH, false, false);
  
                 //mSpriteTackling = new Sprite(imagesTackling, new int[] { 0, 1, 2, 3, 4, 5 }, 1, 65, 80, true, false);
 

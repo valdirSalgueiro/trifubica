@@ -94,17 +94,24 @@ namespace ColorLand
 
             //ExtraFunctions.saveLevel(2);
             //Game1.print(" >>> " + ExtraFunctions.loadLevel().getCurrentStage());
+
+            Game1.progressObject.setCurrentStage(2);
+            ExtraFunctions.saveProgress(Game1.progressObject);
+
             if (ExtraFunctions.loadProgress().getCurrentStage() == 1)
             {
             //    Game1.print("AGAIN 1");
               //  setMacroMapState(MacroMapState.FirstStage);
+                Game1.print("Stage 1");
+                setMacroMapState(MacroMapState.FirstStage);
             }
             else
             {
+                Game1.print("Stage 2");
                 setMacroMapState(MacroMapState.SecondStage); 
             }
 
-            setMacroMapState(MacroMapState.FirstStage);
+            
 
         }
 

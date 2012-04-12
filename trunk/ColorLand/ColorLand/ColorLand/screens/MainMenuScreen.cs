@@ -230,10 +230,12 @@ namespace ColorLand
                 mFade = new Fade(this, "fades\\blackfade");
                 //
                 SoundManager.stopMusic();
-                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_HISTORY, true);
-                executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-                Game1.print("Salvei fase 1");
-                //ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, new ProgressObject(1));
+                
+                //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+
+                Game1.progressObject.setCurrentStage(1);
+                ExtraFunctions.saveProgress(Game1.progressObject);
+                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, true);
             }
             else if (button == mButtonHelp)
             {

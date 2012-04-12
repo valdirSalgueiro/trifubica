@@ -133,7 +133,8 @@ namespace ColorLand
             //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true);
   //          Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, true);
 
-            Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true, true);
+            //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true, true);
+            Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_CHAR_SELECTION, true, true);
 
         }
 
