@@ -206,7 +206,7 @@ namespace ColorLand
                     mBackgroundFront.setLocation(0, 0);
 
 
-                    mMainCharacter = new MainCharacter(Color.Blue);
+                    mMainCharacter = new MainCharacter(Color.Green);
                     mMainCharacter.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 434);
 

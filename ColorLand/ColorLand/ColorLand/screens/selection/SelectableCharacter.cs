@@ -256,6 +256,8 @@ namespace ColorLand
                         if (mColor == Color.Green) setCenter(386 + 15, 312 + 6);
                         if (mColor == Color.Blue) setCenter(623 - 5, 311 + 6);
 
+                        //setCollisionRect(30, 30, 150, 150);
+
                         getCurrentSprite().resetAnimationFlag();
                     }
                     break;
