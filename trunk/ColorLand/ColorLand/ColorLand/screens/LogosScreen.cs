@@ -110,7 +110,7 @@ namespace ColorLand
                 }
                 else
                 {
-                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
+                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_SPLASHSCREEN, true);
                 }
 
             }

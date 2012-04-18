@@ -110,6 +110,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="screens\BaseScreen.cs" />
+    <Compile Include="screens\SplashScreen.cs" />
+    <Compile Include="screens\gameover\GameoverScreen.cs" />
     <Compile Include="screens\selection\SelectableCharacter.cs" />
     <Compile Include="screens\selection\SelectionScreen.cs" />
     <Compile Include="screens\macromap\MacromapShip.cs" />

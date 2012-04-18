@@ -29,6 +29,8 @@ namespace ColorLand
 
         private KeyboardState oldState;
 
+        private Fade mFade;
+        private Fade mCurrentFade;
 
         /***
          * BUTTONS
@@ -86,6 +88,10 @@ namespace ColorLand
 
             SoundManager.LoadSound(cSOUND_HIGHLIGHT);
 
+            mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.ULTRAFAST);
+
+            executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
+
         }
 
 
@@ -96,6 +102,11 @@ namespace ColorLand
             mCursor.update(gameTime);
             updateMouseInput();
             checkCollisions();
+
+            if (mFade != null)
+            {
+                mFade.update(gameTime);
+            }
         }
 
         public override void draw(GameTime gameTime)
@@ -115,6 +126,11 @@ namespace ColorLand
                 mSpriteBatch.Draw(mPrevious, new Rectangle(350, 484, 80, 86), Color.White);
             }
             mCursor.draw(mSpriteBatch);
+
+            if (mFade != null)
+            {
+                mFade.draw(mSpriteBatch);
+            }
 
             mSpriteBatch.End();
 
@@ -244,7 +260,7 @@ namespace ColorLand
             if (button == mButtonBack)
             {
                 SoundManager.PlaySound(cSOUND_HIGHLIGHT);
-                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU,false);
+                executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
             }
 
             if (button == mButtonNext)
@@ -257,6 +273,27 @@ namespace ColorLand
                 previousPage();
             }
            
+        }
+
+        public override void executeFade(Fade fadeObject, int effect)
+        {
+            base.executeFade(fadeObject, effect);
+
+            mCurrentFade = fadeObject;
+            fadeObject.execute(effect);
+        }
+
+        public override void fadeFinished(Fade fadeObject)
+        {
+            //if(fadeObject.getEffect() == Fade.sFADE_IN_EFFECT_GRADATIVE){
+            //}else
+            if (fadeObject.getEffect() == Fade.sFADE_OUT_EFFECT_GRADATIVE)
+            {
+                //SoundManager.stopMusic();
+                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_HISTORY, true);
+                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, false);
+            }
+
         }
  
     }

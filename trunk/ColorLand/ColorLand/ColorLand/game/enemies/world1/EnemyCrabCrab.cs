@@ -83,7 +83,7 @@ namespace ColorLand
         {
             Vector2 playerLocation = getPlayerPosition();
 
-
+            
             //PLAYER IS LEFT FROM CRAB
             if (getPlayerCenter() < getCenterX())
             {
@@ -103,8 +103,11 @@ namespace ColorLand
                 {
                     moveLeft(1);
                 }
-
-                getCurrentSprite().setFlip(false);
+                if (getCurrentSprite().isFlipped())
+                {
+                    setFlip(false);
+                    getCurrentSprite().resetAnimationFlag();
+                }
             }
             else
             {
@@ -127,9 +130,13 @@ namespace ColorLand
                 {
                     moveRight(1);
                 }
-                
-                 getCurrentSprite().setFlip(true);
-                
+
+                // getCurrentSprite().setFlip(true);
+                if (!getCurrentSprite().isFlipped())
+                {
+                    setFlip(true);
+                    getCurrentSprite().resetAnimationFlag();
+                }
             }
 
             if(getState() == sSTATE_ATTACKING){
@@ -150,7 +157,7 @@ namespace ColorLand
                     setAttackRectangle(0,0,0,0);
                 }
             }
-
+            
             base.update(gameTime);//getCurrentSprite().update();
             //LOGICA 
         }

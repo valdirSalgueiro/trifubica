@@ -32,7 +32,6 @@ namespace ColorLand
 
         MouseState oldStateMouse;
 
-        private Color mColorForAlphaEffect;
         private float mAlpha = 1f;
         private bool mReduceAlpha;
 
@@ -40,6 +39,7 @@ namespace ColorLand
         private Rectangle mRect2;
         private Rectangle mRect3;
 
+        private MTimer mTimerAfterSelection;
 
         //fade
         private Fade mFade;
@@ -84,9 +84,10 @@ namespace ColorLand
             mSelectableCharacterBlue = new SelectableCharacter(new Vector2(625 - 5, 308 + 6), Color.Blue);
             mSelectableCharacterBlue.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mColorForAlphaEffect = Color.White;
-
             SoundManager.LoadSound(cSOUND_HIGHLIGHT);
+
+            mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.FAST);
+            executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
 
         }
 
@@ -104,9 +105,9 @@ namespace ColorLand
             updateMouseInput();
             checkCollisions();
 
-            
+            updateTimers(gameTime);
 
-
+            /*
             KeyboardState kState = Keyboard.GetState();
 
             if (kState.IsKeyDown(Keys.A))
@@ -122,10 +123,11 @@ namespace ColorLand
             }
 
             oldState = kState;
-
+            */
+              
             if (mFade != null)
             {
-                //mFade.update(gameTime);
+                mFade.update(gameTime);
             }
         }
 
@@ -188,6 +190,11 @@ namespace ColorLand
                 mFade.draw(mSpriteBatch);
             }*/
 
+            if (mFade != null)
+            {
+                mFade.draw(mSpriteBatch);
+            }
+
             mSpriteBatch.End();
 
         }
@@ -204,9 +211,10 @@ namespace ColorLand
                     
                     if (mCurrentSelectableCharacter != null)
                     {
-                        Game1.print("click");
                         mCurrentSelectableCharacter.changeState(SelectableCharacter.sSTATE_SELECTED);
                         mReduceAlpha = true;
+
+                        mTimerAfterSelection = new MTimer(true);
                     }
                 }
             }
@@ -272,28 +280,41 @@ namespace ColorLand
         }
 
 
-        //timer
-        /*private void restartTimer()
+        private void updateTimers(GameTime gameTime)
         {
-            mTimerFade = new MTimer();
-            mTimerFade.start();
-        }
-        
-      
-        private void updateTimer(GameTime gameTime)
-        {
-            if (mTimerFade != null)
+            if (mTimerAfterSelection != null)
             {
+                mTimerAfterSelection.update(gameTime);
 
-                mTimerFade.update(gameTime);
-
-                if (mTimerFade.getTimeAndLock(3))
+                if (mTimerAfterSelection.getTimeAndLock(5))
                 {
-
+                    executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
                 }
 
             }
-        }*/
+        }
+
+        public override void executeFade(Fade fadeObject, int effect)
+        {
+            base.executeFade(fadeObject, effect);
+
+            mCurrentFade = fadeObject;
+            fadeObject.execute(effect);
+        }
+
+        public override void fadeFinished(Fade fadeObject)
+        {
+            //if(fadeObject.getEffect() == Fade.sFADE_IN_EFFECT_GRADATIVE){
+            //}else
+            if (fadeObject.getEffect() == Fade.sFADE_OUT_EFFECT_GRADATIVE)
+            {
+                //SoundManager.stopMusic();
+                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_HISTORY, true);
+                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, false);
+                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, false);
+            }
+
+        }
 
 
     }

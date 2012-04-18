@@ -78,7 +78,6 @@ namespace ColorLand
                 //Game1.print("TIME: " + time);
                 if (!isBusyForNumber(number) && time == number)
                 {
-                    Game1.print("ENTROU AQUI COMO: " + time);
                     setBusyWithNumber(number);
                     return true;
                 }

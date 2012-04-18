@@ -13,6 +13,8 @@ namespace ColorLand
 
         BaseScreen mContext;
 
+        private float mSpeed;
+
         public const int sFADE_IN_EFFECT_GRADATIVE = 0;
 
         public const int sFADE_OUT_EFFECT_GRADATIVE = 10;
@@ -25,9 +27,16 @@ namespace ColorLand
         private float mAlphaLevel;
 
         private bool mActive;
-        
-
+               
         private bool mRunning;
+
+        public enum SPEED
+        {
+            SLOW,
+            MEDIUM,
+            FAST,
+            ULTRAFAST
+        }
 
         public Fade(BaseScreen context, String fadeImagePath)
         {
@@ -35,7 +44,21 @@ namespace ColorLand
 
             mFadeImage = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>(fadeImagePath);
 
+            mSpeed = 0.02f;
+
         }
+
+        public Fade(BaseScreen context, String fadeImagePath, SPEED speedType) : this(context,fadeImagePath)
+        {
+
+            if (speedType == SPEED.SLOW)   mSpeed = 0.01f;
+            if (speedType == SPEED.MEDIUM) mSpeed = 0.02f;
+            if (speedType == SPEED.FAST)   mSpeed = 0.08f;
+            if (speedType == SPEED.ULTRAFAST) mSpeed = 0.12f;
+                
+        }
+
+
 
         private void initEffect()
         {
@@ -70,7 +93,7 @@ namespace ColorLand
                 switch (mCurrentEffect)
                 {
                     case sFADE_IN_EFFECT_GRADATIVE:
-                            mAlphaLevel -= 0.02f;
+                            mAlphaLevel -= mSpeed;
 
                             if (mAlphaLevel <= 0.0f)
                             {
@@ -79,7 +102,7 @@ namespace ColorLand
                         
                         break;
                     case sFADE_OUT_EFFECT_GRADATIVE:
-                            mAlphaLevel += 0.02f;
+                            mAlphaLevel += mSpeed;
 
                             if (mAlphaLevel >= 1.0f)
                             {
