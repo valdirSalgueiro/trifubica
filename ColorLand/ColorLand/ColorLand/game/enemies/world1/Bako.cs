@@ -126,11 +126,13 @@ namespace ColorLand
             //PLAYER IS LEFT FROM CRAB
             if (getPlayerCenter() < getCenterX())
             {
-                getCurrentSprite().setFlip(true);
+                //getCurrentSprite().setFlip(true);
+                setFlip(true);
             }
             else
             {
-                getCurrentSprite().setFlip(false);
+                //getCurrentSprite().setFlip(false);
+                setFlip(false);
             }
 
             setLocation(spritePos);

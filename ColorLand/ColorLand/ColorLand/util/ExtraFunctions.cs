@@ -76,7 +76,7 @@ namespace ColorLand
                 if (x < 100 - 1) zeros = "00";
                 else
                 if (x < 1000 - 1) zeros = "0";
-                Game1.print("carreguei " + baseName + zeros + "" + (x));
+                //Game1.print("carreguei " + baseName + zeros + "" + (x));
                 a[i] = baseName + zeros + "" + (x);
             }
 
@@ -102,6 +102,35 @@ namespace ColorLand
         {
             return ObjectSerialization.Load<ProgressObject>(Game1.sPROGRESS_FILE_NAME);
         }
+
+
+        /*private void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            mTimer.Stop();
+            mTimer.Enabled = false;
+
+            switch (mGameState)
+            {
+                case GAME_STATE_PREPARANDO:
+
+                    if (mFlagTimer == FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START)
+                    {
+                        this.setGameState(GAME_STATE_EM_JOGO);
+                    }
+
+                    break;
+            }
+
+            
+        }
+
+        private void restartTimer(int seconds)
+        {
+            mTimer = new Timer();
+            mTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            mTimer.Interval = seconds * 1000;
+            mTimer.Enabled = true;
+        }*/
 
     }
 }

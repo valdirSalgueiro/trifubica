@@ -95,8 +95,8 @@ namespace ColorLand
             //ExtraFunctions.saveLevel(2);
             //Game1.print(" >>> " + ExtraFunctions.loadLevel().getCurrentStage());
 
-            Game1.progressObject.setCurrentStage(2);
-            ExtraFunctions.saveProgress(Game1.progressObject);
+            //Game1.progressObject.setCurrentStage(2);
+            //ExtraFunctions.saveProgress(Game1.progressObject);
 
             if (ExtraFunctions.loadProgress().getCurrentStage() == 1)
             {

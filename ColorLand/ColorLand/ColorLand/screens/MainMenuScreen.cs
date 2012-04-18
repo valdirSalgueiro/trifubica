@@ -32,6 +32,14 @@ namespace ColorLand
         private Fade mFade;
         private Fade mCurrentFade;
 
+        private FADE_PARAM mFadeParam;
+
+        public enum FADE_PARAM
+        {
+            START_GAME,
+            EXIT_GAME
+        }
+
 
         /***
          * BUTTONS
@@ -50,7 +58,7 @@ namespace ColorLand
         {
             if (!SoundManager.isPlaying())
             {
-                SoundManager.PlayMusic("sound\\music\\theme");
+                //SoundManager.PlayMusic("sound\\music\\theme");
             }
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
@@ -84,13 +92,17 @@ namespace ColorLand
 
             mGroupButtons.loadContent(Game1.getInstance().getScreenManager().getContent());
 
+            mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.ULTRAFAST);
+
+            executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
+
             //mButtonPlay.loadContent(Game1.getInstance().getScreenManager().getContent());
             //mButtonHelp.loadContent(Game1.getInstance().getScreenManager().getContent());
             //mButtonCredits.loadContent(Game1.getInstance().getScreenManager().getContent());            
 
             //Game1.print("LOC: "  + mGroupButtons.getGameObject(2).getLocation());
 
-           mCursor.backToMenuCursor();
+            mCursor.backToMenuCursor();
 
             SoundManager.LoadSound(cSOUND_HIGHLIGHT);
 
@@ -231,11 +243,9 @@ namespace ColorLand
                 //
                 SoundManager.stopMusic();
                 
-                //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-
-                Game1.progressObject.setCurrentStage(1);
-                ExtraFunctions.saveProgress(Game1.progressObject);
-                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, true);
+                executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                mFadeParam = FADE_PARAM.START_GAME;
+                                
             }
             else if (button == mButtonHelp)
             {
@@ -258,7 +268,8 @@ namespace ColorLand
             }
             else if (button == mButtonExit)
             {
-                Game1.getInstance().Exit();
+                executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                mFadeParam = FADE_PARAM.EXIT_GAME;
             }
             
         }
@@ -277,8 +288,17 @@ namespace ColorLand
             //}else
             if (fadeObject.getEffect() == Fade.sFADE_OUT_EFFECT_GRADATIVE)
             {
-                SoundManager.stopMusic();
-                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_HISTORY, true);
+                //SoundManager.stopMusic();
+                if (mFadeParam == FADE_PARAM.START_GAME)
+                {
+                    Game1.progressObject.setCurrentStage(1);
+                    ExtraFunctions.saveProgress(Game1.progressObject);
+                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_HISTORY, false);
+                }
+                if (mFadeParam == FADE_PARAM.EXIT_GAME)
+                {
+                    Game1.getInstance().Exit();
+                }
             }
 
         }

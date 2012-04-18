@@ -123,7 +123,7 @@ namespace ColorLand
             setMovementAllowed(true);
             setActive(true);
 
-            //showCollisionRect();
+            showCollisionRect();
         }
 
         protected void addSprite(Sprite sprite, int index)
@@ -215,6 +215,7 @@ namespace ColorLand
                 updateCollisionRectLocation((int)mX + mInitialCollisionRectX, (int)mY + mInitialCollisionRectY);
                 updateAttackCollisionRectLocation();
 
+                //Game1.print("MFLIPPED: " + mFlipped);
                 getCurrentSprite().setFlip(mFlipped);
             }
             //}

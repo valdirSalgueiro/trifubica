@@ -108,9 +108,6 @@ namespace ColorLand
         //private GameObjectsGroup<BaseEnemy> mGroup = new GameObjectsGroup<BaseEnemy>();
         private GameObjectsGroup<Collectable> mGroupCollectables = new GameObjectsGroup<Collectable>();
 
-        private Fade mFadeIn;
-        private Fade mFadeOut;
-
         private Camera mCamera;
 
         private ColorChoiceBar mColorChoiceBar;
@@ -118,6 +115,7 @@ namespace ColorLand
 
         private static Timer mTimer;
 
+        private MTimer mTimerStageBegin;
         private MTimer mEndStageTimer;
 
         Explosion mExplosion;
@@ -128,6 +126,23 @@ namespace ColorLand
 
         private float porcentagemRestante=0.0f;
 
+        private Fade mFade;
+        private Fade mCurrentFade;
+        private float mAlphaBackground = 1.0f;
+        private bool mReduceAlpha;
+        private SpriteFont mFontStageBegin;
+        private float mAlphaFontBegin = 0f;
+        private Texture2D mTextureReady;
+        private Texture2D mTextureGO;
+        private bool mShowReady;
+        private bool mShowGo;
+
+
+        /****
+         * INTRO 
+         ****/
+        private bool mShowBlackBackground = true;
+        private Texture2D mBlackBackground;
 
 
         public void manageColorCount()
@@ -161,9 +176,14 @@ namespace ColorLand
 
             //setGameState(GAME_STATE_EM_JOGO);
             setGameState(GAME_STATE_PREPARANDO);
-
+           
 
             mKeyboard = KeyboardManager.getInstance();
+
+            mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.SLOW);
+
+            executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
+            //,
         }
 
         private void loadWorld1(int part)
@@ -178,6 +198,8 @@ namespace ColorLand
                 case 1:
 
                     mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
+
+                    mBlackBackground = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("fades\\blackfade");
 
                     desaturateEffect = Game1.getInstance().getScreenManager().getContent().Load<Effect>("effects\\desaturate");
 
@@ -214,8 +236,11 @@ namespace ColorLand
                     mGroup.addGameObject(new EnemyArc(Color.Blue));
                     mGroup.loadContent(Game1.getInstance().getScreenManager().getContent());
                     */
-                 
 
+                    mFontStageBegin = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("font\\stagebegin_font");
+                    mTextureReady = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\instruction_1");
+                    mTextureGO = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\instruction_3");
+                    
                     mGroupCollectables.loadContent(Game1.getInstance().getScreenManager().getContent());
 
                     mCursor = new Cursor();
@@ -231,40 +256,11 @@ namespace ColorLand
                     mExplosionManager.addExplosion(5, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
                    // mManager.addEnemy(new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED), new Vector2(300, 320));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(300, 190));
-                    /*mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(200, 140));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(100, 140));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Green, new Vector2(100, 140));
-                    
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-100, -70));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(900, 10));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(-300, 430));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(-600, 430));
-                    mManager.accelerateTime();
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-100, -70));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(1000, 140));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(1000, 430));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(1100, -70));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(1000, 430));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-160, 100));
-                    */
+                    //mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(300, 190));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(200, 140));
+                   
+   
 
-                //mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(2000, -20));
-                    //mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(-600, -20));
-                    //mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(-300, 400));
-                    //
-                        
-                //mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(10, 10));
-                    
-                    //mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(300, 320));
-                    /*mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Green, new Vector2(200, 320));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(340, 320));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(0, 320));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Green, new Vector2(100, 320));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(900, 320));
-                    */
- 
-                     
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mManager.start();
 
@@ -302,8 +298,44 @@ namespace ColorLand
             mEndStageTimer.start();
         }
 
-        private void updateTimers()
+        private void updateTimers(GameTime gameTime)
         {
+
+            if (mTimerStageBegin != null)
+            {
+
+                mTimerStageBegin.update(gameTime);
+
+                if (mTimerStageBegin.getTimeAndLock(5))
+                {
+                    mReduceAlpha = true;
+                }
+
+                if (mTimerStageBegin.getTimeAndLock(7))
+                {
+                    mShowReady = true;
+                }
+
+                if (mTimerStageBegin.getTimeAndLock(9))
+                {
+                    mShowReady = false;
+                    mShowGo = true;
+                }
+
+                if (mTimerStageBegin.getTimeAndLock(10))
+                {
+                    mShowGo = false;
+                    setGameState(GAME_STATE_EM_JOGO);
+                }
+                if (mTimerStageBegin.getTimeAndLock(11))
+                {
+                    mTimerStageBegin.stop();
+                    mTimerStageBegin = null;
+                }
+
+                
+
+            }
             /*
             //mTimerMessages alerts
             if (mTimerMessages.isActive())
@@ -420,13 +452,6 @@ namespace ColorLand
             }
         }
 
-        public override void executeFade(Fade fadeObject, int effect)
-        {
-            base.executeFade(fadeObject, effect);
-
-            //fadeObject.activate();
-        }
-
         private void setGameState(int gameState)
         {
 
@@ -441,8 +466,8 @@ namespace ColorLand
                         SoundManager.PlayMusic(cMUSIC_BEGIN, false);
                         //mCamera.setZoom(1.4f);
                         mFlagTimer = FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START;
-                        restartTimer(5);
-
+                        //restartTimer(5);
+                        mTimerStageBegin = new MTimer(true);
                         break;
 
                     case GAME_STATE_EM_JOGO:
@@ -475,12 +500,18 @@ namespace ColorLand
                 {
                     mCamera.update();
 
+                    updateTimers(gameTime);
+
                     switch (mGameState)
                     {
                         case GAME_STATE_PREPARANDO:
 
-                            //mCamera.zoomOut(0.004f);
+                            if (mFade != null)
+                            {
+                                mFade.update(gameTime);
+                            }
 
+                            //mCamera.zoomOut(0.004f);
 
 
                             // mBackgroundBack.update();
@@ -586,33 +617,6 @@ namespace ColorLand
             */
         }
 
-        private void OnTimedEvent(object source, ElapsedEventArgs e)
-        {
-            mTimer.Stop();
-            mTimer.Enabled = false;
-
-            switch (mGameState)
-            {
-                case GAME_STATE_PREPARANDO:
-
-                    if (mFlagTimer == FLAG_TIMER_PREPARANDO_WAIT_BEFORE_START)
-                    {
-                        this.setGameState(GAME_STATE_EM_JOGO);
-                    }
-
-                    break;
-            }
-
-            
-        }
-
-        private void restartTimer(int seconds)
-        {
-            mTimer = new Timer();
-            mTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-            mTimer.Interval = seconds * 1000;
-            mTimer.Enabled = true;
-        }
 
         public override void draw(GameTime gameTime)
         {
@@ -632,39 +636,78 @@ namespace ColorLand
                         mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
 
                 //mBackgroundBack.draw(mSpriteBatch);
-
-                mMainCharacter.draw(mSpriteBatch);
-
-                mManager.draw(mSpriteBatch);
-
-                //mGroup.draw(mSpriteBatch);
-
-                mGroupCollectables.draw(mSpriteBatch);
-
-                mCursor.draw(mSpriteBatch);
-
-                mExplosionManager.draw(mSpriteBatch);
-                
-                //mSpriteBatch.Draw(getFadeImage(), new Rectangle(0, 0, 600, 500), new Color(0, 0, 0, 0.6f));
-                //mFadeIn.draw(mSpriteBatch);
-                //mFadeOut.draw(mSpriteBatch);
-
-                //mColorChoiceBar.draw(mSpriteBatch);
-                
-                /*for (int x = 0; x < mGroupEnemies.getSize(); x++)
+                switch (mGameState)
                 {
-                    if (!mGroupEnemies.getGameObject(x).isActive())
-                    {
-                        total++;
-                    }
-                }*/
-                
+                    case GAME_STATE_PREPARANDO:
 
+                        if (mReduceAlpha)
+                        {
+                            if (mAlphaBackground > 0)
+                            {
+                                mAlphaBackground -= 0.05f;
+                            }
+                            else
+                            {
+                                mAlphaBackground = 0;
+                                mShowBlackBackground = false;
+                                mReduceAlpha = false;
+                            }
+                            
+                        }
+                        if (mShowBlackBackground)
+                        {
+                            mSpriteBatch.Draw(mBlackBackground, new Rectangle(0, 0, 800, 600), Color.Black * mAlphaBackground);
+
+                            if (mAlphaFontBegin < 1.0f) mAlphaFontBegin += 0.05f;
+                            else mAlphaFontBegin = 1.0f;
+                        }
+
+                        mMainCharacter.draw(mSpriteBatch);
+                        mFade.draw(mSpriteBatch);
+
+                        if (mShowReady)
+                        {
+                            mSpriteBatch.Draw(mTextureReady, new Rectangle(400, 200, 100, 90), Color.White);
+                        }
+                        if (mShowGo)
+                        {
+                            mSpriteBatch.Draw(mTextureGO, new Rectangle(400, 200, 100, 90), Color.White);
+                        }
+
+
+                        break;
+
+                    case GAME_STATE_EM_JOGO:
+                        mMainCharacter.draw(mSpriteBatch);
+                        mManager.draw(mSpriteBatch);
+                        mGroupCollectables.draw(mSpriteBatch);
+                        mCursor.draw(mSpriteBatch);
+                        mExplosionManager.draw(mSpriteBatch);
+                        break;
+                }
+                
+    
                 //mSpriteBatch.DrawString(mFontDebug, ""+mUniversalTEXT, new Vector2(10, 100), Color.Red);
                 mSpriteBatch.End();
 
-                drawDesaturation(gameTime, mBackgroundFront);
-
+                
+                if (mShowBlackBackground)
+                {
+                    //FRONT BACKGROUND
+                    drawDesaturation(gameTime, mBackgroundFront);
+                    mSpriteBatch.Begin();
+                    mSpriteBatch.Draw(mBlackBackground, new Rectangle(0, 0, 800, 600), Color.Black * mAlphaBackground);
+                    mMainCharacter.draw(mSpriteBatch);
+                    mFade.draw(mSpriteBatch);
+                    mSpriteBatch.DrawString(mFontStageBegin, "SEACOAST", new Vector2(300, 100), Color.White * mAlphaFontBegin);
+                    mSpriteBatch.End();
+                }
+                else
+                {
+                    //FRONT BACKGROUND
+                    drawDesaturation(gameTime, mBackgroundFront);
+                }
+                
                 if (mGameState == GAME_STATE_EM_JOGO)
                 {
                     mSpriteBatch.Begin();
@@ -902,6 +945,30 @@ namespace ColorLand
             return min + ((float)Math.Sin(time) + 1) / 2 * (max - min);
         }
 
+
+
+        public override void executeFade(Fade fadeObject, int effect)
+        {
+            base.executeFade(fadeObject, effect);
+
+            mCurrentFade = fadeObject;
+            fadeObject.execute(effect);
+        }
+
+        ///////prototipo
+        public override void fadeFinished(Fade fadeObject)
+        {
+            if (fadeObject.getEffect() == Fade.sFADE_IN_EFFECT_GRADATIVE)
+            {
+
+            }
+            else
+                if (fadeObject.getEffect() == Fade.sFADE_OUT_EFFECT_GRADATIVE)
+                {
+                    //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
+                }
+
+        }
       
     }
 }
