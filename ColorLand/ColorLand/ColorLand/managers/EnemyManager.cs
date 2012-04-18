@@ -33,7 +33,8 @@ namespace ColorLand
         {
             CrabCrab,
             Mongo,
-            Bako
+            Bako,
+            Lizardo
         }
 
         public EnemyManager()
@@ -55,6 +56,9 @@ namespace ColorLand
             {
                 case EnemiesTypes.CrabCrab:
                     enemy = new EnemyCrabCrab(c, location);
+                    break;
+                case EnemiesTypes.Lizardo:
+                    enemy = new Lizardo(c, location);
                     break;
                 case EnemiesTypes.Mongo:
                     enemy = new EnemyMongo(c, location);

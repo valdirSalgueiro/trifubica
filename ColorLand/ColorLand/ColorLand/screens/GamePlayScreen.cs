@@ -258,8 +258,8 @@ namespace ColorLand
 
                    // mManager.addEnemy(new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED), new Vector2(300, 320));
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(300, 190));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(200, 140));
-                   
+                    //mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Red, new Vector2(0, getPlayerCenterVector().Y));                
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Red, new Vector2(-100, getPlayerLocation().Y));                
    
 
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
@@ -864,6 +864,16 @@ namespace ColorLand
             }
 
             return 0f;
+        }
+
+        public Vector2 getPlayerCenterVector()
+        {
+            if (mMainCharacter != null)
+            {
+                return mMainCharacter.getCenter();
+            }
+
+            return Vector2.Zero;
         }
 
         public override void handleInput(InputState input)
