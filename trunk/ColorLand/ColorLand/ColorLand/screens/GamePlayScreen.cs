@@ -174,8 +174,9 @@ namespace ColorLand
 
             mPauseScreen = new PauseScreen(this);
 
-            //setGameState(GAME_STATE_EM_JOGO);
-            setGameState(GAME_STATE_PREPARANDO);
+            mShowBlackBackground = false;
+            setGameState(GAME_STATE_EM_JOGO);
+            //setGameState(GAME_STATE_PREPARANDO);
            
 
             mKeyboard = KeyboardManager.getInstance();
