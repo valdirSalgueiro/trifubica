@@ -90,6 +90,7 @@
     <Compile Include="game\enemies\Explosion.cs" />
     <Compile Include="game\enemies\ExplosionManager.cs" />
     <Compile Include="game\enemies\world1\Bako.cs" />
+    <Compile Include="game\enemies\world1\Lizardo.cs" />
     <Compile Include="game\enemies\world1\EnemyMongo.cs" />
     <Compile Include="game\enemies\world1\EnemyCrabCrab.cs" />
     <Compile Include="game\EnemyArc.cs" />
