@@ -318,8 +318,11 @@ namespace ColorLand
             {
                 mTimerStageFinishExplosions.update(gameTime);
                 
-                for(double k=0; k<20; k+=0.1){
-                    if (mTimerStageFinishExplosions.getTimeAndLock(k)) { explodeStageFinish(); };
+                for(double k=0; k<10; k+=1){
+                    if (mTimerStageFinishExplosions.getTimeAndLock(k)) {
+                        Console.WriteLine(k);
+                        explodeStageFinish(); 
+                    }
                 }
                 /*if (mTimerStageFinishExplosions.getTimeAndLock(0.2)) explodeStageFinish();
                 if (mTimerStageFinishExplosions.getTimeAndLock(0.5)) explodeStageFinish();
