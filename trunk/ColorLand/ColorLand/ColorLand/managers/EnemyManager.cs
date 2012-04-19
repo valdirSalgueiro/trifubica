@@ -94,6 +94,7 @@ namespace ColorLand
                 if (b != null)
                 {
                     mGroup.addGameObject(b);
+                    b.appear();
                     startTimer();
                 }
             }

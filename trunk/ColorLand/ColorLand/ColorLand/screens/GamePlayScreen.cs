@@ -28,6 +28,8 @@ namespace ColorLand
 
         private PauseScreen mPauseScreen;
 
+        public const String cSOUND_EXPLOSION = "sound\\fx\\explosao8bit";
+
         /*******************
          * CONSTANTS
          *******************/
@@ -75,6 +77,8 @@ namespace ColorLand
         private MTimer mTimerMessages = new MTimer();
         //private Timer mTimerSucesso = new Timer();
         //private Timer mTimerDerrota= new Timer();
+
+        private MTimer mTimerStageFinishExplosions;
 
         private int mGameState;
 
@@ -218,6 +222,8 @@ namespace ColorLand
                     mBackground.addPart(imagesBG, 2, 200, 200, 40, 500);
                     */
 
+                    SoundManager.LoadSound(cSOUND_EXPLOSION);
+
                     mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\stage1_1_layer2" },1,1000,600,0,0);
                     //mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\stage1_1_layer3" }, 1, 1000, 600, 0, 0);
                     mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\stage1_1_layer4" }, 1, 1000, 600, 0, 0);
@@ -252,12 +258,18 @@ namespace ColorLand
                     HUD.getInstance().loadContent(Game1.getInstance().getScreenManager().getContent());
 
                     mExplosionManager = new ExplosionManager();
-                    mExplosionManager.addExplosion(5, Color.Red, Game1.getInstance().getScreenManager().getContent());
-                    mExplosionManager.addExplosion(5, Color.Green, Game1.getInstance().getScreenManager().getContent());
-                    mExplosionManager.addExplosion(5, Color.Blue, Game1.getInstance().getScreenManager().getContent());
+                    mExplosionManager.addExplosion(20, Color.Red, Game1.getInstance().getScreenManager().getContent());
+                    mExplosionManager.addExplosion(20, Color.Green, Game1.getInstance().getScreenManager().getContent());
+                    mExplosionManager.addExplosion(20, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
                    // mManager.addEnemy(new EnemySimpleFlying(BaseEnemy.sTYPE_SIMPLE_FLYING_RED), new Vector2(300, 320));
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(300, 190));
+
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(200, 0));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(500, 0));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(700, 0));
+                   
+
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Red, new Vector2(0, getPlayerCenterVector().Y));                
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Red, new Vector2(-100, getPlayerLocation().Y));                
    
@@ -301,6 +313,47 @@ namespace ColorLand
 
         private void updateTimers(GameTime gameTime)
         {
+
+            if (mTimerStageFinishExplosions != null)
+            {
+                mTimerStageFinishExplosions.update(gameTime);
+                
+                for(double k=0; k<10; k+=0.2){
+                    if (mTimerStageFinishExplosions.getTimeAndLock(k)) { explodeStageFinish(); };
+                }
+                /*if (mTimerStageFinishExplosions.getTimeAndLock(0.2)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(0.5)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(0.7)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(1)) explodeStageFinish();
+                //if (mTimerStageFinishExplosions.getTimeAndLock(1.3)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(1.7)) explodeStageFinish();
+                //if (mTimerStageFinishExplosions.getTimeAndLock(1.9)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(2.5)) explodeStageFinish();
+                //if (mTimerStageFinishExplosions.getTimeAndLock(2.9)) explodeStageFinish();
+                //if (mTimerStageFinishExplosions.getTimeAndLock(2.9)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(3.1)) explodeStageFinish();
+                //if (mTimerStageFinishExplosions.getTimeAndLock(3.4)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(3.7)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(4)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(4.5)) explodeStageFinish();
+                */
+                /*if (mTimerStageFinishExplosions.getTimeAndLock(1)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(1.3)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(1.6)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(2)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(2.5)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(3)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(3.5)) explodeStageFinish();
+                if (mTimerStageFinishExplosions.getTimeAndLock(4)) explodeStageFinish();*/
+                if (mTimerStageFinishExplosions.getTimeAndLock(5.5))
+                {
+                    SoundManager.PlayMusic(cMUSIC_WIN, false);
+                    mMainCharacter.changeState(MainCharacter.sSTATE_VICTORY);
+                    mCursor.setLocation(0, 1000);
+                }
+
+                
+            }
 
             if (mTimerStageBegin != null)
             {
@@ -483,10 +536,11 @@ namespace ColorLand
                         break;
 
                     case GAME_STATE_SUCESSO:
-                        SoundManager.PlayMusic(cMUSIC_WIN, false);
-                        mMainCharacter.changeState(MainCharacter.sSTATE_VICTORY);
-                        mCursor.setLocation(0, 1000);
-                        startManualTimer();
+                        startStageFinishExplosions();
+                        //SoundManager.PlayMusic(cMUSIC_WIN, false);
+                        //mMainCharacter.changeState(MainCharacter.sSTATE_VICTORY);
+                        //mCursor.setLocation(0, 1000);
+                        ///startManualTimer();
                         break;
                 }
            // }
@@ -588,7 +642,7 @@ namespace ColorLand
                                 }
                                 else
                                 {
-                                    mCamera.zoomIn(0.002f);
+                                    //mCamera.zoomIn(0.002f);
                                 }
                             }
                             
@@ -678,6 +732,7 @@ namespace ColorLand
 
                         break;
 
+                    case GAME_STATE_SUCESSO:
                     case GAME_STATE_EM_JOGO:
                         mMainCharacter.draw(mSpriteBatch);
                         mManager.draw(mSpriteBatch);
@@ -763,6 +818,37 @@ namespace ColorLand
             // End the sprite batch.
             mSpriteBatch.End();
         }
+
+        private void startStageFinishExplosions()
+        {
+            mTimerStageFinishExplosions = new MTimer(true);
+        }
+
+        private void explodeStageFinish()
+        {
+            Random rnd = new Random(DateTime.Now.Millisecond);
+
+            for(int k = 0; k < 2; k++){
+
+                int x = rnd.Next(100, 700);
+                int y = rnd.Next(10, 500);
+                Color c;
+
+                if(x%2 == 0){
+                    c = Color.Red;
+                }else{
+                    if(y%2 == 0){
+                        c = Color.Green;
+                    }else{
+                        c = Color.Blue;
+                    }
+                }
+
+                mExplosionManager.getNextOfColor(c).explode(x, y);
+                SoundManager.PlaySound(cSOUND_EXPLOSION);
+            }
+        }
+
 
         public void togglePauseGame()
         {
@@ -925,6 +1011,7 @@ namespace ColorLand
                     {
                         //incrementProgress();
                         //damage();
+                        explodeStageFinish();
                     }
                 }
                 if (newState.IsKeyDown(Keys.Escape))
