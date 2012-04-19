@@ -71,13 +71,22 @@ namespace ColorLand
 
         public bool getTimeAndLock(double number)
         {
+            //se o timer foi iniciado, ele ta mActive==true
             if (mActive)
             {
+                //isso aqui, eh que um double vem como 4.52349234923942384923. Essa funcao reduzi a 4.5
                 double time = ExtraFunctions.trimDouble(getTime(),1);
 
-                //Game1.print("TIME: " + time);
+                /*!isBusyForNumber(number) ---> o timer alguma vez ja teve o valor igual a NUMBER? Se ja, pode-se dizer que ele ta BUSY pra esse numero...
+                    //isso evita, por exemplo, de se eu querer fazer uma acao no timer = 2 segundos. Se alguma vez o timer já foi igual a 2 segundos, ele ja fica BUSY
+                    //o que esse metodo diz eh: o numero NUMBER ja foi "passado" alguma vez?
+                
+                //time == number  ---> o tempo atual do timer eh igual ao numero que foi passado por parametro?                
+                 */
                 if (!isBusyForNumber(number) && time == number)
                 {
+                    //se pedi, por exemplo, 3 segundos... ele entrou aqui pq: 3 segundos ainda nao tava "ocupado". Logo, a partir de agora
+                      // ele deve ser travado (ou seja, setBusy)
                     setBusyWithNumber(number);
                     return true;
                 }
