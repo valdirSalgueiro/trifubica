@@ -81,85 +81,89 @@ namespace ColorLand
 
         public override void update(GameTime gameTime)
         {
-            Vector2 playerLocation = getPlayerPosition();
-
-            
-            //PLAYER IS LEFT FROM CRAB
-            if (getPlayerCenter() < getCenterX())
+            if (!isGrowingUp())
             {
-                //setFlipDirection(FlipDirection.Left);
-                if (getPlayerCenter() >= getCenterX() - 110)
-                {
-                    if (getState() != sSTATE_ATTACKING)
-                        changeState(sSTATE_ATTACKING);
-                }
-                else
-                {
-                    if (getState() != sSTATE_WALKING)
-                        changeState(sSTATE_WALKING);
-                }
+                Vector2 playerLocation = getPlayerPosition();
 
-                if (getState() == sSTATE_WALKING)
+
+                //PLAYER IS LEFT FROM CRAB
+                if (getPlayerCenter() < getCenterX())
                 {
-                    moveLeft(1);
-                }
-                if (getCurrentSprite().isFlipped())
-                {
-                    setFlip(false);
-                    getCurrentSprite().resetAnimationFlag();
-                }
-            }
-            else
-            {
-               //PLAYER IS RIGHT FROM CRAB
-               
-                if (getPlayerCenter() <=  getCenterX() + 110)
-                {
-                    if (getState() != sSTATE_ATTACKING)
+                    //setFlipDirection(FlipDirection.Left);
+                    if (getPlayerCenter() >= getCenterX() - 110)
                     {
-                        changeState(sSTATE_ATTACKING);
-                    }
-                }
-                else
-                {
-                    if (getState() != sSTATE_WALKING)
-                        changeState(sSTATE_WALKING);
-                }
-
-                if (getState() == sSTATE_WALKING)
-                {
-                    moveRight(1);
-                }
-
-                // getCurrentSprite().setFlip(true);
-                if (!getCurrentSprite().isFlipped())
-                {
-                    setFlip(true);
-                    getCurrentSprite().resetAnimationFlag();
-                }
-            }
-
-            if(getState() == sSTATE_ATTACKING){
-                if (getCurrentSprite().getCurrentFrame() == 7)
-                {
-                    SoundManager.PlaySound(cSOUND_PATADA);
-                    if (getCurrentSprite().isFlipped())
-                    {
-                        setAttackRectangle(140, 0, 135, 100);
+                        if (getState() != sSTATE_ATTACKING)
+                            changeState(sSTATE_ATTACKING);
                     }
                     else
                     {
-                        setAttackRectangle(140 - 135, 0, 135, 100);
+                        if (getState() != sSTATE_WALKING)
+                            changeState(sSTATE_WALKING);
+                    }
+
+                    if (getState() == sSTATE_WALKING)
+                    {
+                        moveLeft(1);
+                    }
+                    if (getCurrentSprite().isFlipped())
+                    {
+                        setFlip(false);
+                        getCurrentSprite().resetAnimationFlag();
                     }
                 }
                 else
                 {
-                    setAttackRectangle(0,0,0,0);
+                    //PLAYER IS RIGHT FROM CRAB
+
+                    if (getPlayerCenter() <= getCenterX() + 110)
+                    {
+                        if (getState() != sSTATE_ATTACKING)
+                        {
+                            changeState(sSTATE_ATTACKING);
+                        }
+                    }
+                    else
+                    {
+                        if (getState() != sSTATE_WALKING)
+                            changeState(sSTATE_WALKING);
+                    }
+
+                    if (getState() == sSTATE_WALKING)
+                    {
+                        moveRight(1);
+                    }
+
+                    // getCurrentSprite().setFlip(true);
+                    if (!getCurrentSprite().isFlipped())
+                    {
+                        setFlip(true);
+                        getCurrentSprite().resetAnimationFlag();
+                    }
+                }
+
+                if (getState() == sSTATE_ATTACKING)
+                {
+                    if (getCurrentSprite().getCurrentFrame() == 7)
+                    {
+                        SoundManager.PlaySound(cSOUND_PATADA);
+                        if (getCurrentSprite().isFlipped())
+                        {
+                            setAttackRectangle(140, 0, 135, 100);
+                        }
+                        else
+                        {
+                            setAttackRectangle(140 - 135, 0, 135, 100);
+                        }
+                    }
+                    else
+                    {
+                        setAttackRectangle(0, 0, 0, 0);
+                    }
                 }
             }
+                base.update(gameTime);//getCurrentSprite().update();
+                //LOGICA 
             
-            base.update(gameTime);//getCurrentSprite().update();
-            //LOGICA 
         }
 
         public void attack()

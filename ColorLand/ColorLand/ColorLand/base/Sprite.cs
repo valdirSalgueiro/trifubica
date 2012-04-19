@@ -402,7 +402,12 @@ namespace ColorLand
                     }
 
                     int imageIndex = mAnimationSequence[mCurrentFrame];
-                    spritebatch.Draw(mImages[imageIndex], new Vector2(mX,mY), srcRectangle(), new Color(R, G, B),angle, Vector2.Zero, zoom, flipEffect, 0);
+
+                    spritebatch.Draw(mImages[imageIndex], new Vector2(mX, mY), srcRectangle(), new Color(R, G, B), angle,
+                            //new Vector2(mImages[imageIndex].Bounds.X + mImages[imageIndex].Width - mImages[imageIndex].Width / 2, mImages[imageIndex].Bounds.Y + mImages[imageIndex].Height - mImages[imageIndex].Height / 2),  //origin 
+                            Vector2.Zero,
+                            zoom, flipEffect, 0);
+                    
                 }
                 else
                 {

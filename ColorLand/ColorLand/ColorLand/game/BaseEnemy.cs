@@ -10,6 +10,9 @@ namespace ColorLand
 {
     public class BaseEnemy : GameObject {
 
+        public float mAlpha = 0;
+        private bool mGrowUp;
+
         public const int sTYPE_SIMPLE_FLYING_RED = 0;
         public const int sTYPE_SIMPLE_FLYING_GREEN = 1;
         public const int sTYPE_SIMPLE_FLYING_BLUE = 2;
@@ -43,8 +46,27 @@ namespace ColorLand
         public override void draw(SpriteBatch spriteBatch) {
             if (isActive())
             {
-                base.draw(spriteBatch);//getCurrentSprite().draw(spriteBatch);
+                if (mGrowUp)
+                {
+                    mAlpha += 0.06f;
+                    if (mAlpha >= 1)
+                    {
+                        mAlpha = 1;
+                        mGrowUp = false;
+                    }
+                }
+
+                //base.draw(spriteBatch);//getCurrentSprite().draw(spriteBatch);
                // spriteBatch.DrawString(mFontDebug, /*" ATE: " + mAlreadyAte + " ColEnabled: " + collisionEnabled() +*/" Rect: " + getCollisionRect(), new Vector2(0, 150), Color.Yellow);
+                if (mGrowUp)
+                {
+                    base.draw(spriteBatch, Color.White * mAlpha);
+                }
+                else
+                {
+                    base.draw(spriteBatch);
+                }
+                //spriteBatch.Draw(getCurrentSprite().getCurrentTexture2D(), new Vector2(mX, mY), new Rectangle(0, 0, getCurrentSprite().getWidth(), getCurrentSprite().getHeight()), Color.White, 0, new Vector2(30, 30), 3f, SpriteEffects.None, 0);
             }
         }
 
@@ -79,6 +101,16 @@ namespace ColorLand
         {
             base.destroy();
             SoundManager.PlaySound(cSOUND_EXPLOSION);
+        }
+
+        public virtual void appear()
+        {
+            mGrowUp = true;
+        }
+
+        public bool isGrowingUp()
+        {
+            return mGrowUp;
         }
 
     }
