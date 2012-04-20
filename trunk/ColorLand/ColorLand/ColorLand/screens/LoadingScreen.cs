@@ -33,6 +33,8 @@ namespace ColorLand
 
         private const int cMAX_BG_COUNTER = 1;
         private int mBackgroundCounter;
+
+        private LoadingLogo mLoadingLogo;
         
 
         public LoadingScreen()
@@ -47,9 +49,13 @@ namespace ColorLand
             mCurrentBackground = mList.ElementAt(0);
 
             mFadeIn = new Fade(this, "fades\\blackfade");
-            
-            executeFade(mFadeIn,Fade.sFADE_IN_EFFECT_GRADATIVE);
 
+            mLoadingLogo = new LoadingLogo(Color.Blue); //TODO fuck this color
+            mLoadingLogo.loadContent(Game1.getInstance().getScreenManager().getContent());
+            mLoadingLogo.setLocation(400, 400);
+
+            executeFade(mFadeIn,Fade.sFADE_IN_EFFECT_GRADATIVE);
+            
         }
 
 
@@ -62,6 +68,8 @@ namespace ColorLand
         {
             mCurrentBackground.update();
 
+            mLoadingLogo.update(gameTime);
+
             mFadeIn.update(gameTime);
            
         }
@@ -72,6 +80,7 @@ namespace ColorLand
 
             mCurrentBackground.draw(mSpriteBatch);
 
+            mLoadingLogo.draw(mSpriteBatch);
             mFadeIn.draw(mSpriteBatch);
             
             mSpriteBatch.End();
@@ -89,10 +98,11 @@ namespace ColorLand
         public override void fadeFinished(Fade fadeObject)
         {
             if(fadeObject.getEffect() == Fade.sFADE_IN_EFFECT_GRADATIVE){
-                restartTimer(1);
+                //restartTimer(1);
             }else
             if (fadeObject.getEffect() == Fade.sFADE_OUT_EFFECT_GRADATIVE)
             {
+                /*
                 mBackgroundCounter++;
                 if (mBackgroundCounter < cMAX_BG_COUNTER)
                 {
@@ -103,7 +113,7 @@ namespace ColorLand
                 {
                     restartTimer(1);
                 }
-
+                */
             }
             
             //GC.KeepAlive(aTimer);
@@ -142,7 +152,58 @@ namespace ColorLand
 
         }
 
+        
 #endif
 
     }
+
+    public class LoadingLogo : GameObject
+    {
+        //INDEXES
+        public const int sSTATE_NORMAL = 0;
+        
+        //SPRITES
+        private Sprite mSpriteNormal;
+
+        public LoadingLogo(Color color)
+        {
+            if (color == Color.Red)
+            {
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(10, "loading\\loading"), new int[] { 0,1,2,3,4}, 1, 200, 200, false, false);
+            }
+            else
+            if (color == Color.Green)
+            {
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(10, "loading\\loading"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1 }, 1, 107, 107, false, false);
+            }
+            else
+            if (color == Color.Blue)
+            {
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(10, "loading\\loading"), new int[] { 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1 }, 2, 107, 107, false, false);
+            }
+
+            addSprite(mSpriteNormal, sSTATE_NORMAL);
+            
+            changeToSprite(sSTATE_NORMAL);
+
+        }
+
+        public override void loadContent(ContentManager content)
+        {
+            base.loadContent(content);
+        }
+
+        public override void update(GameTime gameTime)
+        {
+            base.update(gameTime);//getCurrentSprite().update();
+        }
+
+        public override void draw(SpriteBatch spriteBatch)
+        {
+            base.draw(spriteBatch);//getCurrentSprite().draw(spriteBatch);
+        }
+
+
+    }
+
 }

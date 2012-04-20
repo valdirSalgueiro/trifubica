@@ -21,7 +21,7 @@ namespace ColorLand
         private const float MAX_ZOOM_INT = 2f;
 
 
-        private const int CAMERA_SPEED = 4;
+        private const int CAMERA_SPEED = 1;
 
         protected float _zoom; // Camera Zoom
         public Matrix _transform; // Matrix Transform
