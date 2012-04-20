@@ -63,6 +63,11 @@ namespace ColorLand
             mListParts.Add(s);      
         }
 
+        public Sprite getPart(int index)
+        {
+            return mListParts.ElementAt(index);
+        }
+
         public void setPlayerLayer()
         {
             mListParts.Add(null);

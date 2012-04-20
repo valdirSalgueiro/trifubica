@@ -376,9 +376,9 @@ namespace ColorLand
 
                 if (newState.IsKeyDown(Keys.Left) || newState.IsKeyDown(Keys.A))
                 {
-                    if (mX <= 0)
+                    if (mX <= GamePlayScreen.sCURRENT_STAGE_X)
                     {
-                        mX = 0;
+                        mX = GamePlayScreen.sCURRENT_STAGE_X;
                     }
                  
                     moveLeft(8);
@@ -392,9 +392,9 @@ namespace ColorLand
                         setDirection(Direction.RIGHT);
                         mWalking = true;
 
-                        if (mX >= 600)
+                        if (mX >= 600 + GamePlayScreen.sCURRENT_STAGE_X)
                         {
-                            mX = 600;
+                            mX = 600 + GamePlayScreen.sCURRENT_STAGE_X;
                         }
                     }
                     else

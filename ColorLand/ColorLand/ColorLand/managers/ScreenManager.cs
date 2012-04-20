@@ -38,6 +38,8 @@ namespace ColorLand
         public const int SCREEN_ID_CHAR_SELECTION     = 5;
         public const int SCREEN_ID_GAMEOVER           = 6;
         public const int SCREEN_ID_SPLASHSCREEN       = 7;
+        //test purposes
+        public const int SCREEN_ID_LOADING            = 8;
 
         private BackgroundWorker bw = new BackgroundWorker();
         private BaseScreen mScreenToLoad;
@@ -71,6 +73,7 @@ namespace ColorLand
             //changeScreen(SCREEN_ID_HISTORY, false);
             //changeScreen(SCREEN_ID_GAMEOVER, false, false);
             //changeScreen(SCREEN_ID_SPLASHSCREEN, false, false);
+            //changeScreen(SCREEN_ID_LOADING, false, false);
         }
 
         public void UnloadContent()
@@ -167,7 +170,10 @@ namespace ColorLand
                     baseScreen = new SplashScreen();
                     break;
 
-
+                //test purposes
+                case SCREEN_ID_LOADING:
+                    baseScreen = new LoadingScreen();
+                    break;
             }
             return baseScreen;
         }
