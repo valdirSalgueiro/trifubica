@@ -946,10 +946,7 @@ namespace ColorLand
 
             porcentagemRestante = ExtraFunctions.valueToPercent(energy, 100);
 
-            int larguraDaBarraDoHud = 181;
-            int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
-
-            HUD.getInstance().setPlayerBarLevel(novoValor);
+            HUD.getInstance().setPlayerBarLevel(porcentagemRestante);
         }
 
         public void incrementProgress()
@@ -960,10 +957,7 @@ namespace ColorLand
 
             porcentagemRestante = ExtraFunctions.valueToPercent(progress, numberEnemies);
 
-            int larguraDaBarraDoHud = 182;
-            int novoValor = (int)ExtraFunctions.percentToValue((int)porcentagemRestante, larguraDaBarraDoHud);
-
-            HUD.getInstance().setBarLevel(novoValor);
+            HUD.getInstance().setBarLevel(porcentagemRestante);
             pulse = (int) (porcentagemRestante * 63 / 100.0f);
 
         }

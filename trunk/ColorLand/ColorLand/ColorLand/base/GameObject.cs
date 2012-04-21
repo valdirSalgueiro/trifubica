@@ -123,7 +123,7 @@ namespace ColorLand
             setMovementAllowed(true);
             setActive(true);
 
-            showCollisionRect();
+            //showCollisionRect();
         }
 
         protected void addSprite(Sprite sprite, int index)
