@@ -962,6 +962,20 @@ namespace ColorLand
 
         }
 
+        public bool oneThird() {
+            if (ExtraFunctions.valueToPercent(progress, numberEnemies) > 33)
+                return true;
+            return false;
+        }
+
+        public bool twoThirds()
+        {
+            if (ExtraFunctions.valueToPercent(progress, numberEnemies) > 66)
+                return true;
+            return false;
+        }
+
+
         public void updatePlayerBody()
         {
             if (mMainCharacter.getState() != MainCharacter.sSTATE_TOP_LEFT && mCursor.getX() < mMainCharacter.getX() && mCursor.getY() <= Game1.sHALF_SCREEN_RESOLUTION_HEIGHT)
