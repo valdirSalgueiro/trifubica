@@ -300,7 +300,7 @@ namespace ColorLand
                     mExplosionManager.addExplosion(20, Color.Green, Game1.getInstance().getScreenManager().getContent());
                     mExplosionManager.addExplosion(20, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
-
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Red, new Vector2(100, getPlayerLocation().Y));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(200, 0));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(500, 0));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(700, 60));
