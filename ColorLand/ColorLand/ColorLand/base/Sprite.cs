@@ -43,6 +43,8 @@ namespace ColorLand
         private float mX;
         private float mY;
 
+        public Vector2 offset=Vector2.Zero;
+
         private int mWidth;
         private int mHeight;
 
@@ -447,7 +449,7 @@ namespace ColorLand
 
         public Rectangle destRectangle()
         {
-            return new Rectangle((int)mX, (int)mY, mWidth, mHeight);
+            return new Rectangle((int)mX + (int)offset.X, (int)mY + (int)offset.Y, mWidth, mHeight);
         }
 
         public Rectangle srcRectangle()

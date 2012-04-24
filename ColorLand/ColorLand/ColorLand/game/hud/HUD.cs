@@ -175,7 +175,7 @@ namespace ColorLand
             {
                 mCurrentHighlightButton = (Button)mGroupButtons.getCollidedObject();
 
-                Game1.print(" XOE");
+                //Game1.print(" XOE");
 
                 if (mousePressing)
                 {

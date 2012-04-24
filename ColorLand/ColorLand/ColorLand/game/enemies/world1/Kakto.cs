@@ -34,6 +34,8 @@ namespace ColorLand
         TYPE type;
         Vector2 origin;
         bool left;
+        bool localLeft;
+        Vector2 local;
 
 
         //TODO Construir mecanismo de chamar um delegate method when finish animation
@@ -50,6 +52,7 @@ namespace ColorLand
             type = type_;
             origin = origin_;
             left = false;
+            localLeft = false;
 
 
             if(color == Color.Red)
@@ -105,16 +108,48 @@ namespace ColorLand
 
                 if (type == TYPE.UP)
                 {
-                    mY = origin.Y + 160;
+                    if (!localLeft)
+                    {
+                        if (local.X < 20)
+                            local.X += gameTime.ElapsedGameTime.Milliseconds * 0.05f;
+                        else
+                            localLeft = true;
+                    }
+                    else
+                    {
+                        if (local.X > -20)
+                            local.X -= gameTime.ElapsedGameTime.Milliseconds * 0.05f;
+                        else
+                            localLeft = false;
+                    }
+
+                    mY = origin.Y;
                 }
                 if (type == TYPE.MIDDLE)
                 {
-                    mY = origin.Y + 80;
+                    mY = origin.Y + 70;
                 }
                 if (type == TYPE.DOWN)
                 {
-                    mY = origin.Y;
+                    if (localLeft)
+                    {
+                        if (local.X < 20)
+                            local.X += gameTime.ElapsedGameTime.Milliseconds * 0.05f;
+                        else
+                            localLeft = false;
+                    }
+                    else
+                    {
+                        if (local.X > -20)
+                            local.X -= gameTime.ElapsedGameTime.Milliseconds * 0.05f;
+                        else
+                            localLeft = true;
+                    }
+                    mY = origin.Y + 140;
                 }
+
+                //mX += local.X;
+                getCurrentSprite().offset.X = local.X;
                
             }
 
