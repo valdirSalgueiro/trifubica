@@ -34,6 +34,7 @@ namespace ColorLand
             CrabCrab,
             Mongo,
             Bako,
+            Kaktos,
             Lizardo
         }
 
@@ -65,6 +66,9 @@ namespace ColorLand
                     break;
                 case EnemiesTypes.Bako:
                     enemy = new Bako(c, location);
+                    break;
+                case EnemiesTypes.Kaktos:
+                    enemy = new Kaktos(location);
                     break;
             }
 
