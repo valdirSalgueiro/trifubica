@@ -33,6 +33,7 @@ namespace ColorLand
         {
             CrabCrab,
             Mongo,
+            MongoPirate,
             Bako,
             Kaktos,
             Lizardo
@@ -62,7 +63,10 @@ namespace ColorLand
                     enemy = new Lizardo(c, location);
                     break;
                 case EnemiesTypes.Mongo:
-                    enemy = new EnemyMongo(c, location);
+                    enemy = new EnemyMongo(EnemyMongo.SKIN.Normal, c, location);
+                    break;
+                case EnemiesTypes.MongoPirate:
+                    enemy = new EnemyMongo(EnemyMongo.SKIN.Pirate, c, location);
                     break;
                 case EnemiesTypes.Bako:
                     enemy = new Bako(c, location);

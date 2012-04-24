@@ -16,7 +16,7 @@ namespace ColorLand
         {
             RED,
             BLUE,
-            YELLOW
+            GREEN
         }
 
         private PlayerColor playerColor;
@@ -38,14 +38,22 @@ namespace ColorLand
             return this;
         }
 
-        PlayerColor getColor()
+        public PlayerColor getColor()
         {
             return playerColor;
         }
 
-        void setColor(PlayerColor color)
+        public ProgressObject setColor(PlayerColor color)
         {
             playerColor = color;
+            return this;
+        }
+
+        public ProgressObject setStageAndColor(int stage, PlayerColor color)
+        {
+            mCurrentStage = stage;
+            playerColor = color;
+            return this;
         }
 
 	}

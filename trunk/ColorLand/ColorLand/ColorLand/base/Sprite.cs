@@ -489,6 +489,16 @@ namespace ColorLand
             this.mY -= value;
         }
 
+        public void addX(float value)
+        {
+            this.mX += value;
+        }
+
+        public void reduceX(float value)
+        {
+            this.mX -= value;
+        }
+
         public void setX(float x)
         {
             this.mX = x;

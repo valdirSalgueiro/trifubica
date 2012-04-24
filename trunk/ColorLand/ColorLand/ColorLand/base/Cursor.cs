@@ -187,13 +187,16 @@ namespace ColorLand
             if (color == Color.Blue) changeToSprite(sSTATE_BLUE);
             if (color == Color.Green) changeToSprite(sSTATE_GREEN);
             if (color == Color.Red) changeToSprite(sSTATE_RED);
-            
+
+            setCollisionRect(24, 24, 53, 53);
+
         }
 
         public void backToMenuCursor()
         {
             mCurrentColor = Color.Blue;
             changeToSprite(sSTATE_NORMAL);
+            setCollisionRect(0, 0, 40, 40);
         }
 
         public Color getColor()
@@ -264,7 +267,6 @@ namespace ColorLand
                     if (mZoomClick > 0.7f)
                     {
                         mZoomClick -= 0.04f;
-                        Game1.print("ZOOM level: " + mZoomClick);
                     }
                     else
                     {

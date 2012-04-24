@@ -145,6 +145,22 @@ namespace ColorLand
             }
         }
 
+        public static void setSound(bool enabled)
+        {
+            activated = enabled;
+
+            if (activated)
+            {
+                MediaPlayer.Volume = 1;
+                SetSoundFXVolume(1);
+            }
+            else
+            {
+                MediaPlayer.Volume = 0;
+                SetSoundFXVolume(0);
+            }
+        }
+
         public static void toggleSound()
         {
             activated = !activated;

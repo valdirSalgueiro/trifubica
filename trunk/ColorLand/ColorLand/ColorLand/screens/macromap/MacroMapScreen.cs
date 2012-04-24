@@ -13,7 +13,10 @@ namespace ColorLand
 {
     public class MacroMapScreen : BaseScreen
     {
-        
+
+        private const String cMUSIC_MAP = "sound\\music\\mapa1";
+        private const String cSOUND_FALLING = "sound\\fx\\queda8bit";
+
         private SpriteBatch mSpriteBatch;
               
         private MTimer mTimer;
@@ -23,9 +26,6 @@ namespace ColorLand
         private KeyboardState oldState;
         
         
-        private Fade mFade;
-        private Fade mCurrentFade;
-
         //essa flag eh pra autorizar o update do timer apenas quando o fade-in terminar
         private bool mAuthorizeUpdate;
 
@@ -41,6 +41,8 @@ namespace ColorLand
         private Texture2D mTexturePlayerFalling;
         private float mFallingScale = 2;
 
+        private bool mStartFeatures; //pra verificar quando autoriza a as acoes da tela. EX: demorar 1 segundo antes do boneco cair no mapa
+
         private bool mShowTextureFallingPlayer;
 
         private Texture2D mTextureBussola;
@@ -49,6 +51,10 @@ namespace ColorLand
         private float angleBussola;
 
         private ExplosionManager mExplosionManager;
+
+        //fade
+        private Fade mFade;
+        private Fade mCurrentFade;
 
         public enum MacroMapState
         {
@@ -61,16 +67,14 @@ namespace ColorLand
         
         public MacroMapScreen()
         {
-            //debug purposes oinly
-            ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, new ProgressObject(1, ProgressObject.PlayerColor.BLUE));
-
-            //
             
             if (!SoundManager.isPlaying())
             {
                 //SoundManager.PlayMusic("sound\\music\\historia1");
             }
 
+            SoundManager.LoadSound(cSOUND_FALLING);
+            
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
             
@@ -78,7 +82,7 @@ namespace ColorLand
 
             //load resources
              
-            mFade = new Fade(this, "fades\\blackfade");
+          //  mFade = new Fade(this, "fades\\blackfade");
             //executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
 
             mCursor = new Cursor();
@@ -111,7 +115,11 @@ namespace ColorLand
                 setMacroMapState(MacroMapState.SecondStage); 
             }
 
-            
+            SoundManager.PlayMusic(cMUSIC_MAP);
+
+            mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.FAST);
+
+            executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
 
         }
 
@@ -128,7 +136,18 @@ namespace ColorLand
                     mMacromapPlayer.setVisible(false);
                     mMacromapPlayer.setScale(0.1f);
 
-                    mTexturePlayerFalling = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\caindo_mapa_03");
+                    if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.RED)
+                    {
+                        mTexturePlayerFalling = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\caindo_mapa_02");
+                    }
+                    if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.GREEN)
+                    {
+                        mTexturePlayerFalling = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\caindo_mapa_01");
+                    }
+                    if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.BLUE)
+                    {
+                        mTexturePlayerFalling = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\caindo_mapa_03");
+                    }
 
                     //mMacromapPlayer.setDestiny(500, 500);
                     
@@ -139,6 +158,7 @@ namespace ColorLand
                     mMacromapShip.loadContent(Game1.getInstance().getScreenManager().getContent());
 
                     mShowTextureFallingPlayer = true;
+
                     break;
 
                 case MacroMapState.SecondStage:
@@ -191,7 +211,13 @@ namespace ColorLand
 
                 if (mCurrentMacroMapState == MacroMapState.FirstStage)
                 {
-                    if (mTimer.getTimeAndLock(3))
+                    if (mTimer.getTimeAndLock(1))
+                    {
+                        mStartFeatures = true;
+                        SoundManager.PlaySound(cSOUND_FALLING);
+                    }
+
+                    if (mTimer.getTimeAndLock(4))
                     {
                         mMacromapPlayer.setVisible(true);
                         mMacromapPlayer.growUp(0.1f);
@@ -216,9 +242,9 @@ namespace ColorLand
         private float reduceScale()
         {
             //if(
-            if (mFallingScale > 0.008)
+            if (mFallingScale > 0.010)
             {
-                mFallingScale -= 0.028f;
+                mFallingScale -= 0.050f;
             }
             else
             {
@@ -301,7 +327,8 @@ namespace ColorLand
                 mMacromapShip.draw(mSpriteBatch);
             }
 
-            if (mShowTextureFallingPlayer)
+
+            if (mStartFeatures && mShowTextureFallingPlayer)
             {
                 mSpriteBatch.Draw(mTexturePlayerFalling, new Vector2(176, 235), new Rectangle(0, 0, mTexturePlayerFalling.Width, mTexturePlayerFalling.Height), Color.White, 0f, new Vector2(30, 30), reduceScale(), SpriteEffects.None, 0);
             }

@@ -54,10 +54,10 @@ namespace ColorLand
             mCurrentColor = color;
 
             if(mCurrentColor == Color.Red){
-                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\macromap\\BLUE_ICONE_POS_0"), new int[] { 0 }, 7, 107, 107, false, false);
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\macromap\\RED_ICONE_POS_0"), new int[] { 0 }, 7, 107, 107, false, false);
             }else
             if(mCurrentColor == Color.Green){
-                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\macromap\\BLUE_ICONE_POS_0"), new int[] { 0 }, 7, 107, 107, false, false);
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\macromap\\GREEN_ICONE_POS_0"), new int[] { 0 }, 7, 107, 107, false, false);
             }else
             if(mCurrentColor == Color.Blue){
                 mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\macromap\\BLUE_ICONE_POS_0"), new int[] { 0 }, 7, 107, 107, false, false);
