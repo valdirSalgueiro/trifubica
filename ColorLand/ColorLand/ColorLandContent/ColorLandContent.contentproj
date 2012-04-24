@@ -9137,6 +9137,233 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Kaktos\Blue\01\blue_kaktos0001.png">
+      <Name>blue_kaktos0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Blue\01\blue_kaktos0002.png">
+      <Name>blue_kaktos0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Blue\01\blue_kaktos0003.png">
+      <Name>blue_kaktos0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Blue\01\blue_kaktos0004.png">
+      <Name>blue_kaktos0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Blue\01\blue_kaktos0005.png">
+      <Name>blue_kaktos0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Blue\02\blue_kaktos0001.png">
+      <Name>blue_kaktos0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Blue\02\blue_kaktos0002.png">
+      <Name>blue_kaktos0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Blue\02\blue_kaktos0003.png">
+      <Name>blue_kaktos0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Blue\02\blue_kaktos0004.png">
+      <Name>blue_kaktos0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Blue\02\blue_kaktos0005.png">
+      <Name>blue_kaktos0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Blue\03\blue_kaktos0001.png">
+      <Name>blue_kaktos0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Blue\03\blue_kaktos0002.png">
+      <Name>blue_kaktos0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Blue\03\blue_kaktos0003.png">
+      <Name>blue_kaktos0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Blue\03\blue_kaktos0004.png">
+      <Name>blue_kaktos0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Blue\03\blue_kaktos0005.png">
+      <Name>blue_kaktos0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Green\01\green_kaktos0001.png">
+      <Name>green_kaktos0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Green\01\green_kaktos0002.png">
+      <Name>green_kaktos0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Green\01\green_kaktos0003.png">
+      <Name>green_kaktos0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Green\01\green_kaktos0004.png">
+      <Name>green_kaktos0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Green\01\green_kaktos0005.png">
+      <Name>green_kaktos0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Green\02\green_kaktos0001.png">
+      <Name>green_kaktos0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Green\02\green_kaktos0002.png">
+      <Name>green_kaktos0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Green\02\green_kaktos0003.png">
+      <Name>green_kaktos0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Green\02\green_kaktos0004.png">
+      <Name>green_kaktos0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Green\02\green_kaktos0005.png">
+      <Name>green_kaktos0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Green\03\green_kaktos0001.png">
+      <Name>green_kaktos0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Green\03\green_kaktos0002.png">
+      <Name>green_kaktos0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Green\03\green_kaktos0003.png">
+      <Name>green_kaktos0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Green\03\green_kaktos0004.png">
+      <Name>green_kaktos0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Green\03\green_kaktos0005.png">
+      <Name>green_kaktos0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\01\red_kaktos0001.png">
+      <Name>red_kaktos0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\01\red_kaktos0002.png">
+      <Name>red_kaktos0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\01\red_kaktos0003.png">
+      <Name>red_kaktos0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\01\red_kaktos0004.png">
+      <Name>red_kaktos0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\01\red_kaktos0005.png">
+      <Name>red_kaktos0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\02\red_kaktos0001.png">
+      <Name>red_kaktos0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\02\red_kaktos0002.png">
+      <Name>red_kaktos0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\02\red_kaktos0003.png">
+      <Name>red_kaktos0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\02\red_kaktos0004.png">
+      <Name>red_kaktos0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\02\red_kaktos0005.png">
+      <Name>red_kaktos0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0001.png">
+      <Name>red_kaktos.png0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0002.png">
+      <Name>red_kaktos.png0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0003.png">
+      <Name>red_kaktos.png0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0004.png">
+      <Name>red_kaktos.png0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0005.png">
+      <Name>red_kaktos.png0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
