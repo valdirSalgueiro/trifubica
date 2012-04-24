@@ -71,7 +71,7 @@ namespace ColorLand
 
            changeToSprite(sSTATE_NORMAL);
 
-           setCollisionRect(90,90,111,110);
+           setCollisionRect(15,15,85,85);
 
            oldPosition = spritePos = pos = origin;
            //pos = new Vector2(0, 0);
@@ -89,7 +89,7 @@ namespace ColorLand
             float distance;
             Vector2 playerPosition = getPlayerPosition();
             Vector2.Distance(ref playerPosition, ref spritePos, out distance);
-            Console.WriteLine(distance);
+            //Console.WriteLine(distance);
             if (distance > 60)
             {
                 pos = oldPosition;

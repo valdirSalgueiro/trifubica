@@ -21,6 +21,13 @@ namespace ColorLand
         private bool mMousePressing;
 
         private Texture2D mTextureChooseTitle;
+        private Texture2D mTextureRedNameUnselected;
+        private Texture2D mTextureRedNameSelected;
+        private Texture2D mTextureGreenNameUnselected;
+        private Texture2D mTextureGreenNameSelected;
+        private Texture2D mTextureBlueNameUnselected;
+        private Texture2D mTextureBlueNameSelected;
+                       
         private SelectableCharacter mSelectableCharacterRed;
         private SelectableCharacter mSelectableCharacterGreen;
         private SelectableCharacter mSelectableCharacterBlue;
@@ -67,7 +74,15 @@ namespace ColorLand
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mTextureChooseTitle = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\pausescreen\\paused_title");
+            mTextureChooseTitle = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\selection\\hero_screen");
+
+            mTextureRedNameUnselected   = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\selection\\RedName_unselected");
+            mTextureRedNameSelected     = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\selection\\Redname");
+            mTextureGreenNameUnselected = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\selection\\GreenName_unselected");
+            mTextureGreenNameSelected   = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\selection\\GreenName");
+            mTextureBlueNameUnselected  = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\selection\\BlueName_unselected");
+            mTextureBlueNameSelected    = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\selection\\Bluename"); 
+            
 
             mRect1 = new Rectangle(102, 223,150, 155);
             mRect2 = new Rectangle(327, 223, 150, 155);
@@ -140,6 +155,35 @@ namespace ColorLand
 
             mBackgroundImage.draw(mSpriteBatch);
 
+            mSpriteBatch.Draw(mTextureChooseTitle, new Rectangle(188, 50, mTextureChooseTitle.Width, mTextureChooseTitle.Height), Color.White);
+
+            if (mCurrentSelectableCharacter == mSelectableCharacterRed)
+            {
+                mSpriteBatch.Draw(mTextureRedNameSelected, new Rectangle(120, 430, mTextureRedNameSelected.Width, mTextureRedNameSelected.Height), Color.White * mAlpha);
+                mSpriteBatch.Draw(mTextureGreenNameUnselected, new Rectangle(354, 435, mTextureGreenNameUnselected.Width, mTextureGreenNameUnselected.Height), Color.White * mAlpha);
+                mSpriteBatch.Draw(mTextureBlueNameUnselected, new Rectangle(580, 430, mTextureBlueNameUnselected.Width, mTextureBlueNameUnselected.Height), Color.White * mAlpha);
+            }
+            else
+            if (mCurrentSelectableCharacter == mSelectableCharacterGreen)
+            {
+                mSpriteBatch.Draw(mTextureGreenNameSelected, new Rectangle(354, 435, mTextureGreenNameSelected.Width, mTextureGreenNameSelected.Height), Color.White * mAlpha);
+                mSpriteBatch.Draw(mTextureRedNameUnselected, new Rectangle(120, 430, mTextureRedNameUnselected.Width, mTextureRedNameUnselected.Height), Color.White * mAlpha);
+                mSpriteBatch.Draw(mTextureBlueNameUnselected, new Rectangle(580, 430, mTextureBlueNameUnselected.Width, mTextureBlueNameUnselected.Height), Color.White * mAlpha);
+            }
+            else
+            if (mCurrentSelectableCharacter == mSelectableCharacterBlue)
+            {
+                mSpriteBatch.Draw(mTextureBlueNameSelected, new Rectangle(580, 430, mTextureBlueNameSelected.Width, mTextureBlueNameSelected.Height), Color.White * mAlpha);
+                mSpriteBatch.Draw(mTextureGreenNameUnselected, new Rectangle(354, 435, mTextureGreenNameUnselected.Width, mTextureGreenNameUnselected.Height), Color.White * mAlpha);
+                mSpriteBatch.Draw(mTextureRedNameUnselected, new Rectangle(120, 430, mTextureRedNameUnselected.Width, mTextureRedNameUnselected.Height), Color.White * mAlpha);
+            }
+            else //ninguem selecionado
+            {
+                mSpriteBatch.Draw(mTextureBlueNameUnselected, new Rectangle(580, 430, mTextureBlueNameUnselected.Width, mTextureBlueNameUnselected.Height), Color.White);
+                mSpriteBatch.Draw(mTextureGreenNameUnselected, new Rectangle(354, 435, mTextureGreenNameUnselected.Width, mTextureGreenNameUnselected.Height), Color.White);
+                mSpriteBatch.Draw(mTextureRedNameUnselected, new Rectangle(120, 430, mTextureRedNameUnselected.Width, mTextureRedNameUnselected.Height), Color.White);
+            }
+
             if (mReduceAlpha)
             {
                 if (mAlpha > 0)
@@ -211,6 +255,20 @@ namespace ColorLand
                     
                     if (mCurrentSelectableCharacter != null)
                     {
+
+                        if (mCurrentSelectableCharacter == mSelectableCharacterRed)
+                        {
+                            ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setColor(ProgressObject.PlayerColor.RED));
+                        }else
+                        if (mCurrentSelectableCharacter == mSelectableCharacterGreen)
+                        {
+                            ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setColor(ProgressObject.PlayerColor.GREEN));
+                        }else
+                        if (mCurrentSelectableCharacter == mSelectableCharacterBlue)
+                        {
+                            ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setColor(ProgressObject.PlayerColor.BLUE));
+                        }
+
                         mCurrentSelectableCharacter.changeState(SelectableCharacter.sSTATE_SELECTED);
                         mReduceAlpha = true;
 

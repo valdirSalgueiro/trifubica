@@ -28,17 +28,21 @@ namespace ColorLand
         private Button mCurrentHighlightButton;
         private bool mMousePressing;
 
-        private Texture2D mGamelogo;
-
+        
         private float mAlpha = 0f;
         private bool mIncreaseAlpha;
         private bool mShowBlackBackground = true;
         private Texture2D mBlackBackground;
 
+        private Texture2D mGamelogo;
+        private Texture2D mTextureClickToStart;
         private bool mShowTextClickToStart;
 
+        private bool mClicked; //ready to go to main menu
+
         //FONT
-        private SpriteFont mFont;
+
+        //private SpriteFont mFont;
 
         //fade
         private Fade mFade;
@@ -58,7 +62,12 @@ namespace ColorLand
             }
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
-            mBackgroundImage = new Background("mainmenu\\mainmenubg");
+            mBackgroundImage = new Background("mainmenu\\MainMenu_cehu");
+            mBackgroundImage.addPart(new String[1] { "mainmenu\\MainMenu_barco" },  1, 125, 110, 80, 600 - 211);
+            mBackgroundImage.addPart(new String[1] { "mainmenu\\MainMenu_areia" },  1, 801, 201, 0, 600 - 201);
+            mBackgroundImage.addPart(new String[1] { "mainmenu\\MainMenu_mato01" }, 1, 232, 111, 0, 600 - 111);
+            mBackgroundImage.addPart(new String[1] { "mainmenu\\MainMenu_mato02" }, 1, 345, 135, 800-354, 600 - 95);
+
             mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
 
             mList.Add(mBackgroundImage);
@@ -71,9 +80,9 @@ namespace ColorLand
             mGamelogo = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\logo");
             mBlackBackground = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("fades\\blackfade");
 
-            mFont = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("font\\option_component");
-
-            mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.SLOW);
+            mTextureClickToStart = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\clicktostart");
+            
+            mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.FAST);
             
             SoundManager.LoadSound(cSOUND_HIGHLIGHT);
 
@@ -104,7 +113,7 @@ namespace ColorLand
 
             if (mShowBlackBackground)
             {
-                mSpriteBatch.Draw(mBlackBackground, new Rectangle(0, 0, 800, 600), Color.Black);
+            //    mSpriteBatch.Draw(mBlackBackground, new Rectangle(0, 0, 800, 600), Color.Black);
             }
             else
             {
@@ -130,11 +139,19 @@ namespace ColorLand
                 }
 
             }
-            mSpriteBatch.Draw(mGamelogo, new Rectangle(200, 50, 500, 200), Color.White * mAlpha);
 
-            if (mShowTextClickToStart)
+            //se estiver saindo do splash pro main menu...
+            if (mClicked)
             {
-                mSpriteBatch.DrawString(mFont, "CLICK IN THE SCREEN", new Vector2(40, 440), Color.Red);
+                mAlpha -= 0.25f;
+            }
+
+            mSpriteBatch.Draw(mGamelogo, new Rectangle(200, 50,382, 349), Color.White * mAlpha);
+
+
+            if (mShowTextClickToStart && !mClicked)
+            {
+                mSpriteBatch.Draw(mTextureClickToStart, new Vector2(240, 392), Color.White);
             }
 
             mSpriteBatch.End();
@@ -151,6 +168,8 @@ namespace ColorLand
             {
                 if (oldStateMouse.LeftButton != ButtonState.Pressed)
                 {
+                    mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.FAST);
+                    mClicked = true;
                     executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
                 }
             }
@@ -209,11 +228,11 @@ namespace ColorLand
             {
                 mTimerBlinkText.update(gameTime);
 
-                if (mTimerBlinkText.getTimeAndLock(1))
+                if (mTimerBlinkText.getTimeAndLock(0.2f))
                 {
                     mShowTextClickToStart = true;
                 }
-                if (mTimerBlinkText.getTimeAndLock(2))
+                if (mTimerBlinkText.getTimeAndLock(0.4f))
                 {
                     mShowTextClickToStart = false;
                     mTimerBlinkText.start();

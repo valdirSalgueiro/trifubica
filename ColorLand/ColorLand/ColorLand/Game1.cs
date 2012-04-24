@@ -46,7 +46,7 @@ namespace ColorLand
                 progressObject = ExtraFunctions.loadProgress();
             }
             catch (Exception e) {
-                progressObject = new ProgressObject(1,ProgressObject.PlayerColor.BLUE);
+                progressObject = new ProgressObject(1, ProgressObject.PlayerColor.BLUE);
             }
 
             graphics = new GraphicsDeviceManager(this);

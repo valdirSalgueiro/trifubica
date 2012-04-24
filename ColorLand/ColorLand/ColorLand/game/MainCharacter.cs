@@ -135,7 +135,7 @@ namespace ColorLand
 
             changeToSprite(sSTATE_STOPPED);
 
-            setCollisionRect(90, 150, 90, 90);
+            setCollisionRect(70, 75, 70, 90);
 
             mFeet = new Feet(color);
 
