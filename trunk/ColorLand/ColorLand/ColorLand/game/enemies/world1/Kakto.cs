@@ -24,6 +24,9 @@ namespace ColorLand
         private int mInitY;
         private const int cHORIZONTAL_MARGIN = 40;
 
+        float dy;
+        float ay=9.8f;
+
         public enum TYPE { 
             UP,
             MIDDLE,
@@ -96,8 +99,13 @@ namespace ColorLand
 
                 if (local.Y < downAnimations * 70)
                 {
-                    local.Y += gameTime.ElapsedGameTime.Milliseconds * 0.05f;
+                    dy += ay;
+                    local.Y += gameTime.ElapsedGameTime.Milliseconds * 0.005f * dy;
                 }
+                else {
+                    dy = 0;
+                }
+
 
                 if (!left)
                 {
