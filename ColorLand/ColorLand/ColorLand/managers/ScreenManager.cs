@@ -47,7 +47,7 @@ namespace ColorLand
         private int mScreenID;
 
         public ScreenManager(Game game)
-            : base(game) {
+            : base(game) { 
             
         }
 

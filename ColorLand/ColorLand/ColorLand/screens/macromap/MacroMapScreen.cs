@@ -20,6 +20,7 @@ namespace ColorLand
         private SpriteBatch mSpriteBatch;
               
         private MTimer mTimer;
+        private MTimer mTimerBlinkText;
 
         private Rectangle mRectangleExhibitionTexture;
 
@@ -51,6 +52,12 @@ namespace ColorLand
         private float angleBussola;
 
         private ExplosionManager mExplosionManager;
+
+        private Texture2D mTextureClickToStart;
+        private bool mShowTextClickToStart;
+        private bool mClicked; //ready to go to advance
+
+        private MouseState oldStateMouse;
 
         //fade
         private Fade mFade;
@@ -87,10 +94,7 @@ namespace ColorLand
 
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
-
-            mMacromapPlayer = new MacromapPlayer(Color.Red, new Vector2(100, 130));
-            mMacromapPlayer.loadContent(Game1.getInstance().getScreenManager().getContent());
-
+                        
             mTextureBussola = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\bussola_bg");
             mTextureBussolaPointer = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\bussola_ponteiro2");
 
@@ -121,6 +125,10 @@ namespace ColorLand
 
             executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
 
+            mTextureClickToStart = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\clicktostart");
+
+            mTimerBlinkText = new MTimer(true);
+
         }
 
         public void setMacroMapState(MacroMapState state)
@@ -131,23 +139,28 @@ namespace ColorLand
             switch (state)
             {
                 case MacroMapState.FirstStage:
-
-                    mMacromapPlayer.setCenter(214, 265);
-                    mMacromapPlayer.setVisible(false);
-                    mMacromapPlayer.setScale(0.1f);
-
+                                     
+                                        
                     if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.RED)
                     {
                         mTexturePlayerFalling = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\caindo_mapa_02");
+                        mMacromapPlayer = new MacromapPlayer(Color.Red, new Vector2(100, 130));
                     }
                     if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.GREEN)
                     {
                         mTexturePlayerFalling = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\caindo_mapa_01");
+                        mMacromapPlayer = new MacromapPlayer(Color.Green, new Vector2(100, 130));
                     }
                     if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.BLUE)
                     {
                         mTexturePlayerFalling = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\caindo_mapa_03");
+                        mMacromapPlayer = new MacromapPlayer(Color.Blue, new Vector2(100, 130));
                     }
+
+                    mMacromapPlayer.loadContent(Game1.getInstance().getScreenManager().getContent());
+                    mMacromapPlayer.setCenter(214, 265);
+                    mMacromapPlayer.setVisible(false);
+                    mMacromapPlayer.setScale(0.1f);
 
                     //mMacromapPlayer.setDestiny(500, 500);
                     
@@ -162,6 +175,12 @@ namespace ColorLand
                     break;
 
                 case MacroMapState.SecondStage:
+
+                    if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.RED) mMacromapPlayer = new MacromapPlayer(Color.Red, new Vector2(100, 130));
+                    if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.GREEN) mMacromapPlayer = new MacromapPlayer(Color.Green, new Vector2(100, 130));
+                    if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.BLUE) mMacromapPlayer = new MacromapPlayer(Color.Blue, new Vector2(100, 130));
+                                        
+                    mMacromapPlayer.loadContent(Game1.getInstance().getScreenManager().getContent());
 
                     mMacromapPlayer.setCenter(214, 265);
                     mMacromapPlayer.perfectSize();
@@ -221,6 +240,7 @@ namespace ColorLand
                     {
                         mMacromapPlayer.setVisible(true);
                         mMacromapPlayer.growUp(0.1f);
+                        mTimerBlinkText = new MTimer(true);
                     }
                 }
                 if (mCurrentMacroMapState == MacroMapState.SecondStage)
@@ -234,9 +254,28 @@ namespace ColorLand
                         mExplosionManager.getNextOfColor(Color.Red).explode(75, 316);
                     }
 
+                    
+                    
+
                 }
                
             }
+
+            if (mTimerBlinkText != null)
+            {
+                mTimerBlinkText.update(gameTime);
+
+                if (mTimerBlinkText.getTimeAndLock(0.8f))
+                {
+                    mShowTextClickToStart = true;
+                }
+                if (mTimerBlinkText.getTimeAndLock(1.6f))
+                {
+                    mShowTextClickToStart = false;
+                    mTimerBlinkText.start();
+                }
+            }
+
         }
 
         private float reduceScale()
@@ -261,7 +300,7 @@ namespace ColorLand
             angleBussola = (float)(Math.Atan2(direction.Y, direction.X));
 
             mCursor.update(gameTime);
-
+            updateMouseInput();
             updateTimer(gameTime);
 
             if (mCurrentMacroMapState == MacroMapState.FirstStage)
@@ -335,9 +374,13 @@ namespace ColorLand
 
             mMacromapPlayer.draw(mSpriteBatch);
 
+            if (mShowTextClickToStart && !mClicked)
+            {
+                mSpriteBatch.Draw(mTextureClickToStart, new Vector2(245, 484), Color.White);
+            }
 
             mCursor.draw(mSpriteBatch);
-
+            
             if (mFade != null)
             {
                 mFade.draw(mSpriteBatch);
@@ -392,6 +435,21 @@ namespace ColorLand
                 mMousePressing = false;
             }
 
+
+            MouseState mouseState = Mouse.GetState();
+
+
+            if (mouseState.LeftButton == ButtonState.Pressed)
+            {
+                if (oldStateMouse.LeftButton != ButtonState.Pressed)
+                {
+                    mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.SLOW);
+                    mClicked = true;                    
+                    executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                }
+            }
+
+            oldStateMouse = mouseState;
             //dispara evento
 
         }
@@ -435,6 +493,7 @@ namespace ColorLand
             if (fadeObject.getEffect() == Fade.sFADE_OUT_EFFECT_GRADATIVE)
             {
                 //goToGameScreen();
+                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true, true);
             }
 
         }

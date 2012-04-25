@@ -14,7 +14,7 @@ namespace ColorLand
 
         private List<T> mList;
 
-        private T mCollidedObject;
+        private GameObject mCollidedObject;
         private T mCollidedPassiveObject;
 
         private int mManualIndex; //only for the getNext() method. Do not touch this 
@@ -74,10 +74,27 @@ namespace ColorLand
             for (int x = 0; x < mList.Count; x++)
             {
                //  Game1.print("X,Y ELEMENT: " + mList.ElementAt(x).getX() + mList.ElementAt(x).getY() + "--- X,Y BUCCET: " + gameObject.getX() + gameObject.getY());
+                if (mList.ElementAt(x) is Kaktos)
+                {
+                    GameObject kaktos = (GameObject)mList.ElementAt(x);
+                    Kaktos k = (Kaktos)kaktos;
+                        
+                    if (k.checkCollisionWithMembers(gameObject))
+                    {
+                        Game1.print("COLLIDIU COM KAKTOO");
+
+                        mCollidedObject = k.getCollided();
+                        return true;
+                    }
+
+                }else{
+                
                 if (mList.ElementAt(x).collidesWith(gameObject))
                 {
                     mCollidedObject = mList.ElementAt(x);
                     return true;
+                }
+
                 }
             }
 
@@ -124,7 +141,7 @@ namespace ColorLand
             return false;
         }*/
 
-        public T getCollidedObject()
+        public GameObject getCollidedObject()
         {
             return mCollidedObject;
         }
