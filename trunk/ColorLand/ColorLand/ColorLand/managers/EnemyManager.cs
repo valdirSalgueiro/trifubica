@@ -82,7 +82,15 @@ namespace ColorLand
 
         public int getTotalEnemies()
         {
-            return mList.Count;
+            int plusKaktos = 0;
+            foreach(BaseEnemy b in mList){
+                if (b is Kaktos)
+                {
+                    plusKaktos += 2;
+                }
+            }
+
+            return mList.Count + plusKaktos;
         }
 
         public void loadContent(ContentManager content)
@@ -240,6 +248,7 @@ namespace ColorLand
             }
             else
             {
+                Game1.print("not finished: " + (mGroup.getSize() == 0) + " $$$ " + (mCurrentIndex >= mList.Count - 1));
                 return false;
             }
         }

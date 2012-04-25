@@ -18,6 +18,7 @@ namespace ColorLand
         private Kakto mCollided;
 
 
+
         //TODO Construir mecanismo de chamar um delegate method when finish animation
 
 
@@ -114,6 +115,12 @@ namespace ColorLand
             up.draw(spriteBatch);
             middle.draw(spriteBatch);
             down.draw(spriteBatch);
+        }
+
+        public bool isEmpty()
+        {
+            Game1.print("----------> " + (!up.isActive() && !middle.isActive() && !down.isActive()));
+            return !up.isActive() && !middle.isActive() && !down.isActive();
         }
 
     }
