@@ -159,7 +159,8 @@ namespace ColorLand
 
             if (getState() != sSTATE_VICTORY && getState() != sSTATE_LOSE)
             {
-                UpdateInput();
+                //UpdateInput();
+                UpdateInput(gameTime);
                 updateHand();
                 updateFeet(gameTime);
 
@@ -304,9 +305,9 @@ namespace ColorLand
                 float dx= vec.X + (float)Math.Cos(mRightHandAngle) * 60;
                 float dy= vec.Y + (float)Math.Sin(mRightHandAngle) * 60;
 
-                mFeet.draw(spriteBatch);
                 //spriteBatch.Draw(mLeftHandTexture, new Vector2(mX + 40, mY + 40), null, Color.White, mLeftHandAngle - (float)Math.PI, new Vector2(800, 331), 0.1f, SpriteEffects.None, 0f);
                 spriteBatch.Draw(mRightHandTexture, new Vector2(dx + 20 , dy + 40), null, Color.White, mRightHandAngle + (float)Math.PI / 2, new Vector2(13, 22), 1.2f, SpriteEffects.None, 0f);
+                mFeet.draw(spriteBatch);
             }
 
             base.draw(spriteBatch);
@@ -322,7 +323,8 @@ namespace ColorLand
         }
 
 
-        private void UpdateInput()
+        //private void UpdateInput()
+        private void UpdateInput(GameTime gameTime)
         {
 
             if (Game1.sKINECT_BASED == true)
@@ -380,15 +382,18 @@ namespace ColorLand
                     {
                         mX = GamePlayScreen.sCURRENT_STAGE_X;
                     }
-                 
-                    moveLeft(8);
+                    float f = gameTime.ElapsedGameTime.Milliseconds * 0.19f;
+                    moveLeft(f);
+                    //moveLeft(8);
                     setDirection(Direction.LEFT);
                     mWalking = true;
                     
                 }else
                     if (newState.IsKeyDown(Keys.Right) || newState.IsKeyDown(Keys.D))
                     {
-                        moveRight(8);
+                        float f = gameTime.ElapsedGameTime.Milliseconds * 0.19f;
+                        moveRight(f);
+                        //moveRight(8);
                         setDirection(Direction.RIGHT);
                         mWalking = true;
 

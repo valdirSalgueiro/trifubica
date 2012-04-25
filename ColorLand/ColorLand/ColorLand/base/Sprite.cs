@@ -358,6 +358,37 @@ namespace ColorLand
 
         }
 
+        //praticamente copia do draw anterior
+        //TODO melhorar
+        public void draw(SpriteBatch spritebatch, double angle, Rectangle rotationPosition, Vector2 origin)
+        {
+            if (mVisible)
+            {
+                //se der um caralho aqui foi culpa da cor, digo logo. Volta pra Color.WHITE
+                if (mIndividualImages)
+                {
+                    //flip effect
+                    SpriteEffects flipEffect;
+                    if (mFlip)
+                    {
+                        flipEffect = SpriteEffects.FlipHorizontally;
+                    }
+                    else
+                    {
+                        flipEffect = SpriteEffects.None;
+                    }
+
+                    int imageIndex = mAnimationSequence[mCurrentFrame];
+                    spritebatch.Draw(mImages[imageIndex], rotationPosition, srcRectangle(), new Color(R, G, B), (float)angle, origin, flipEffect, 0);
+                }
+                else
+                {
+                    spritebatch.Draw(mImage, destRectangle(), srcRectangle(), new Color(R, G, B), (float)angle, Vector2.Zero, SpriteEffects.None, 0);
+                }
+            }
+
+        }
+
         public void draw(SpriteBatch spritebatch, double angle, Vector2 rotationPosition, Vector2 rotationOrigin)
         {
             if (mVisible)
