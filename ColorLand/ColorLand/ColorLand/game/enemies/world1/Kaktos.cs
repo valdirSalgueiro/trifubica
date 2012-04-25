@@ -15,9 +15,7 @@ namespace ColorLand
         Kakto middle;
         Kakto down;
 
-        private Kakto mCollided;
-        private Kakto mOldCollided;
-        int collisions = 0;
+        private Kakto mCollided;     
 
 
 
@@ -74,13 +72,11 @@ namespace ColorLand
             bool collideWithAny = false;
             if (down.collidesWith(gameobject))
             {
-                collisions++;
                 mCollided = down;
                 collideWithAny = true;
             }
             if (middle.collidesWith(gameobject))
             {
-                collisions++;
                 mCollided = middle;
                 collideWithAny = true;
             }
@@ -88,21 +84,7 @@ namespace ColorLand
             {
                 mCollided = up;
                 collideWithAny = true;
-            }
-            if (mCollided != up && mCollided != mOldCollided)
-            {
-                up.goDown(collisions);
-            }
-            if (mCollided != middle && mCollided != mOldCollided)
-            {
-                middle.goDown(collisions);
-            }
-
-            if (mCollided != mOldCollided)
-            {
-                mOldCollided = mCollided;
-            }
-            
+            }            
             return collideWithAny;
         }
 
@@ -121,6 +103,15 @@ namespace ColorLand
 
         public override void update(GameTime gameTime)
         {
+            int collisions = 0;
+            if (!down.isActive())
+                collisions++;
+            if (!middle.isActive())
+                collisions++;
+
+            up.goDown(collisions);
+            middle.goDown(collisions);
+
             up.update(gameTime);
             middle.update(gameTime);
             down.update(gameTime);
