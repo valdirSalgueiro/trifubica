@@ -50,6 +50,10 @@ namespace ColorLand
         int numberEnemies = 40;
         int pulse = 0;
 
+        private bool mOneThirdDone;
+        private bool mSecondThirdDone;
+
+
         //debug
         public bool DEBUG = true;
         //private PaperObject mCurrentDebugPaperObject;
@@ -320,14 +324,14 @@ namespace ColorLand
 
 
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Red, new Vector2(100, getPlayerLocation().Y));
-                    /*mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(200, 0));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(200, 0));
                     
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(500, 0));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(700, 60));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(40, 110));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(100, 200));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(150, 300));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(200, 400));*/
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(200, 400));
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Red, new Vector2(-100, getPlayerLocation().Y));                
    
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
@@ -516,6 +520,19 @@ namespace ColorLand
                         be.destroy();
                         incrementProgress();
 
+                        if (!mOneThirdDone && oneThird())
+                        {
+                            sCURRENT_STAGE_X += cSPACE_TO_WALK;
+                            mWalkCamera = true;
+                            mOneThirdDone = true;
+                        }
+
+                        if (!mSecondThirdDone && twoThirds())
+                        {
+                            sCURRENT_STAGE_X += cSPACE_TO_WALK;
+                            mWalkCamera = true;
+                            mSecondThirdDone = true;
+                        }
 
                         //COMBO
                         if (mComboCounter == 0)
@@ -884,7 +901,7 @@ namespace ColorLand
                         null,
                         null,
                         mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
-                    mCursor.draw(mSpriteBatch);
+                   // mCursor.draw(mSpriteBatch);
                     mSpriteBatch.End();
 
                 }
@@ -947,7 +964,7 @@ namespace ColorLand
 
             for(int k = 0; k < 2; k++){
 
-                int x = rnd.Next(100, 700);
+                int x = rnd.Next(GamePlayScreen.sCURRENT_STAGE_X+100, 700 + GamePlayScreen.sCURRENT_STAGE_X);
                 int y = rnd.Next(10, 500);
                 Color c;
 
@@ -1137,7 +1154,7 @@ namespace ColorLand
                         //incrementProgress();
                         //damage();
                         explodeStageFinish();
-
+                        
                         sCURRENT_STAGE_X += cSPACE_TO_WALK;
                         mWalkCamera = true;
                     }
