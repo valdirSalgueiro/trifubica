@@ -60,6 +60,7 @@ namespace ColorLand
             for (int x = 0; x < mList.Count; x++) {
                 //if (mList.ElementAt(x) is Airplane)
                mList.ElementAt(x).update(gameTime);
+                              
             }
         }
 
@@ -76,15 +77,24 @@ namespace ColorLand
                //  Game1.print("X,Y ELEMENT: " + mList.ElementAt(x).getX() + mList.ElementAt(x).getY() + "--- X,Y BUCCET: " + gameObject.getX() + gameObject.getY());
                 if (mList.ElementAt(x) is Kaktos)
                 {
+                    
                     GameObject kaktos = (GameObject)mList.ElementAt(x);
                     Kaktos k = (Kaktos)kaktos;
-                        
-                    if (k.checkCollisionWithMembers(gameObject))
-                    {
-                        Game1.print("COLLIDIU COM KAKTOO");
 
-                        mCollidedObject = k.getCollided();
-                        return true;
+                    if (!k.isEmpty())
+                    {
+
+                        if (k.checkCollisionWithMembers(gameObject))
+                        {
+                            Game1.print("COLLIDIU COM KAKTOO");
+
+                            mCollidedObject = k.getCollided();
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        k.destroy();
                     }
 
                 }else{

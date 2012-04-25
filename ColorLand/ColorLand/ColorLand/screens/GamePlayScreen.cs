@@ -318,14 +318,16 @@ namespace ColorLand
                     mExplosionManager.addExplosion(20, Color.Green, Game1.getInstance().getScreenManager().getContent());
                     mExplosionManager.addExplosion(20, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
+
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Red, new Vector2(100, getPlayerLocation().Y));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(200, 0));
+                    /*mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(200, 0));
+                    
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(500, 0));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(700, 60));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(40, 110));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(100, 200));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(150, 300));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(200, 400));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(200, 400));*/
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Red, new Vector2(-100, getPlayerLocation().Y));                
    
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
@@ -506,7 +508,7 @@ namespace ColorLand
 
                 if (be.getColor() == mCursor.getColor())
                 {
-                    if (!mCursor.isParalyzed())
+                    if (!mCursor.isParalyzed())         
                     {
                         int x = (int)be.getX();
                         int y = (int)be.getY();
@@ -514,6 +516,8 @@ namespace ColorLand
                         be.destroy();
                         incrementProgress();
 
+
+                        //COMBO
                         if (mComboCounter == 0)
                         {
                             mTimerCombo = new MTimer(true);
@@ -628,7 +632,7 @@ namespace ColorLand
                     case GAME_STATE_SUCESSO:
                         startStageFinishExplosions();
                         mMustZoomAtFinish = true;
-                        Game1.progressObject.setCurrentStage(mCurrentStage++);
+                        Game1.progressObject.setCurrentStage(++mCurrentStage);
                         ExtraFunctions.saveProgress(Game1.progressObject);
             
 
