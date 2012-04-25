@@ -30,6 +30,8 @@ namespace ColorLand
             DOWN
         }
 
+        int downAnimations=0;
+
 
         TYPE type;
         Vector2 origin;
@@ -92,6 +94,11 @@ namespace ColorLand
             {
                 Vector2 playerLocation = getPlayerPosition();
 
+                if (local.Y < downAnimations * 70)
+                {
+                    local.Y += gameTime.ElapsedGameTime.Milliseconds * 0.05f;
+                }
+
                 if (!left)
                 {
                     if (mX > getCurrentSprite().getWidth())
@@ -123,11 +130,11 @@ namespace ColorLand
                             localLeft = false;
                     }
 
-                    mY = origin.Y;
+                    mY = origin.Y + local.Y;
                 }
                 if (type == TYPE.MIDDLE)
                 {
-                    mY = origin.Y + 70;
+                    mY = origin.Y + 70 + local.Y;
                 }
                 if (type == TYPE.DOWN)
                 {
@@ -148,7 +155,6 @@ namespace ColorLand
                     mY = origin.Y + 140;
                 }
 
-                //mX += local.X;
                 getCurrentSprite().offset.X = local.X;
                
             }
@@ -158,6 +164,10 @@ namespace ColorLand
             base.update(gameTime);//getCurrentSprite().update();
             //LOGICA 
             
+        }
+
+        public void goDown(int down) {
+            downAnimations = down;
         }
 
         public void attack()
