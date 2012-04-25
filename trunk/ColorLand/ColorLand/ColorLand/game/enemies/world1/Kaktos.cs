@@ -15,6 +15,7 @@ namespace ColorLand
         Kakto middle;
         Kakto down;
 
+        private Kakto mCollided;
 
 
         //TODO Construir mecanismo de chamar um delegate method when finish animation
@@ -61,6 +62,35 @@ namespace ColorLand
                     down = new Kakto(Color.Green, origin, Kakto.TYPE.DOWN);
                     break;
             }
+
+            setCollisionRect(0,0,0,0);
+        }
+
+        public bool checkCollisionWithMembers(GameObject gameobject)
+        {
+            bool collideWithAny = false;
+            if (up.collidesWith(gameobject))
+            {
+                mCollided = up;
+                collideWithAny = true;
+            }
+            if (middle.collidesWith(gameobject))
+            {
+                mCollided = middle;
+                collideWithAny = true;
+            }
+            if (down.collidesWith(gameobject))
+            {
+                mCollided = down;
+                collideWithAny = true;
+            }
+            
+            return collideWithAny;
+        }
+
+        public Kakto getCollided()
+        {
+            return mCollided;
         }
 
 

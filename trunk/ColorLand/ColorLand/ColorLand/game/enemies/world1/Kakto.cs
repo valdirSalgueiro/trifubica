@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace ColorLand
 {
-    class Kakto : BaseEnemy
+    public class Kakto : BaseEnemy
     {
 
         //SpriteFont mFontDebug = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("debug");
@@ -73,7 +73,7 @@ namespace ColorLand
             changeToSprite(sSTATE_WALKING);
 
             setCenterHotspot(new Vector2(274, 101));
-            setCollisionRect(30,30,220,80);
+            setCollisionRect(0,0,90,90);
             setLocation(origin);
 
         }

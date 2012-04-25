@@ -119,8 +119,7 @@ namespace ColorLand
             {
                 mCurrentBackground.draw(mSpriteBatch);
             }
-                        
-            mCursor.draw(mSpriteBatch);
+           
 
             if (mFade != null)
             {
@@ -154,6 +153,8 @@ namespace ColorLand
                 mSpriteBatch.Draw(mTextureClickToStart, new Vector2(240, 392), Color.White);
             }
 
+            mCursor.draw(mSpriteBatch);
+
             mSpriteBatch.End();
 
         }
@@ -173,6 +174,8 @@ namespace ColorLand
                     executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
                 }
             }
+
+            oldStateMouse = mouseState;
 
         }
 

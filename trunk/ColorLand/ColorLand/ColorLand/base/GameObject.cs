@@ -405,6 +405,33 @@ namespace ColorLand
         {
             if (mCollisionEnabled)
             {
+                /*if (mList.ElementAt(x) is Kaktos)
+                    {
+                        GameObject kaktos = (GameObject)mList.ElementAt(x);
+                        Kaktos k = (Kaktos)kaktos;
+                        Game1.print("COLLIDIU COM KAKTOOOOS");
+                        mCollidedObject = (T)k.checkCollisionWithMembers(gameObject);
+
+                    }else{
+                        
+                    }
+
+                //
+                if (this is Kaktos)
+                {
+                    GameObject kaktos = (GameObject)mList.ElementAt(x);
+                    Kaktos k = (Kaktos)kaktos;
+                    Game1.print("COLLIDIU COM KAKTOOOOS");
+                    T)k.checkCollisionWithMembers(gameObject);
+
+                }
+                else
+                {
+
+                }*/
+
+                //
+
                 if (mCollisionRect.Intersects(gameObject.getCollisionRect()))
                 {
                     return true;

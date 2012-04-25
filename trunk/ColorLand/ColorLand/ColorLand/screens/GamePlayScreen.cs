@@ -486,7 +486,7 @@ namespace ColorLand
 
             if (mManager.checkCollision(mMainCharacter))
             {
-                BaseEnemy be = mManager.getGameObjectsGroup().getCollidedObject();
+                BaseEnemy be = (BaseEnemy)mManager.getGameObjectsGroup().getCollidedObject();
 
                 if (be is Bako)
                 {
@@ -501,7 +501,7 @@ namespace ColorLand
 
             if (mManager.checkCollision(mCursor))
             {   
-                BaseEnemy be = mManager.getGameObjectsGroup().getCollidedObject();
+                BaseEnemy be = (BaseEnemy)mManager.getGameObjectsGroup().getCollidedObject();
                 //mExplosionManager.getNextOfColor().explode((int)be.getX(), (int)be.getY());
 
                 if (be.getColor() == mCursor.getColor())
