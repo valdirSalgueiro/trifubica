@@ -123,7 +123,7 @@ namespace ColorLand
             setMovementAllowed(true);
             setActive(true);
 
-            showCollisionRect();
+            //showCollisionRect();
         }
 
         protected void addSprite(Sprite sprite, int index)
@@ -327,6 +327,25 @@ namespace ColorLand
                 }
             }
         }
+
+        public virtual void draw(SpriteBatch spriteBatch, float rotationAngle, Rectangle rotationPosition, Vector2 origin)
+        {
+            if (mIsActive)
+            {
+                if (mIsVisible)
+                {
+                    //mCurrentSprite.draw(spriteBatch, angle);
+                    mCurrentSprite.draw(spriteBatch, rotationAngle, rotationPosition, origin);
+
+                    if (mCollisionTexture != null)
+                    {
+                        spriteBatch.Draw(mCollisionTexture, getCollisionRect(), new Color(0, 0, 0, 0.5f));
+                        spriteBatch.Draw(mCollisionTexture, getAttackRectangle(), new Color(0, 0, 0, 0.9f));
+                    }
+                }
+            }
+        }
+
 
         public virtual void draw(SpriteBatch spriteBatch, float rotationAngle, float zoomScale)
         {
@@ -556,6 +575,16 @@ namespace ColorLand
         }
 
         public void moveRight(int pixels)
+        {
+            mX += pixels;
+        }
+
+        public void moveLeft(float pixels)
+        {
+            mX -= pixels;
+        }
+
+        public void moveRight(float pixels)
         {
             mX += pixels;
         }

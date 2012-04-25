@@ -111,7 +111,8 @@ namespace ColorLand
                 //{
                     MouseState mouseState = Mouse.GetState();
                     //setCenter(mouseState.X, mouseState.Y);
-                    setLocation(mouseState.X, mouseState.Y);
+                    setLocation(mouseState.X, mouseState.Y); //half half image
+                    //setLocation(mouseState.X - 40, mouseState.Y - 40); //half half image
                 //}
             }
             else
@@ -169,7 +170,7 @@ namespace ColorLand
                 }
                 else
                 {
-                    base.draw(spriteBatch, mRotation += 0.4f);
+                    base.draw(spriteBatch, mRotation += 0.4f, new Rectangle((int)mX + 40, (int)mY + 40, 80, 80), new Vector2(80, 80)); //0.4
                 }
 
             }
