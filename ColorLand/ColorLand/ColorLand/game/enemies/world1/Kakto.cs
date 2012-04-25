@@ -100,7 +100,7 @@ namespace ColorLand
                 if (local.Y < downAnimations * 70)
                 {
                     dy += ay;
-                    local.Y += gameTime.ElapsedGameTime.Milliseconds * 0.005f * dy;
+                    local.Y += (float)gameTime.ElapsedGameTime.TotalSeconds * dy;
                 }
                 else {
                     dy = 0;
