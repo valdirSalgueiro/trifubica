@@ -172,7 +172,9 @@ namespace ColorLand
                 mFade.update(gameTime);
             }
 
-            mBackgroundImage.getPart(0).addX(0.05f);
+            //mBackgroundImage.getPart(0).addX(0.05f);
+            mBackgroundImage.getPart(0).addX(gameTime.ElapsedGameTime.Milliseconds * 0.005f);
+            
                        
         }
 

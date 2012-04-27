@@ -16,8 +16,7 @@ namespace ColorLand
         //player energy
         //coin icon
         //coin level
-        private const String cSOUND_COLOR = "sound\\fx\\colorswap8bit";
-
+        
         private Texture2D mTextureHudBG;
         private Texture2D mTextureHudBGHead;       
         private Texture2D mTexturePlayerHead;
@@ -43,13 +42,20 @@ namespace ColorLand
         private Rectangle mRectBarEnergy;
         private Rectangle mRectBar;
 
+        //location das cores
+        private Rectangle mRectColorSlot1;
+        private Rectangle mRectColorSlot2;
+        private Rectangle mRectColorSlot3;
+
         private static HUD instance;
 
         private GameObjectsGroup<Button> mGroupButtons;
         Button mCurrentHighlightButton;
 
-        float energy=1;
+        float energy=1f;
         float level=0;
+
+        private static GamePlayScreen sContext;
 
 
         private HUD()
@@ -79,40 +85,59 @@ namespace ColorLand
                             182,
                             27);
 
-            mButtonRed = new Button("gameplay\\hud\\new\\balde_red", "gameplay\\hud\\new\\balde_red_selected", "gameplay\\hud\\new\\balde_red_selected", new Rectangle(574, 535, 70, 70));
-            mButtonGreen = new Button("gameplay\\hud\\new\\balde_green", "gameplay\\hud\\new\\balde_green_selected", "gameplay\\hud\\new\\balde_green_selected", new Rectangle(634, 512, 70, 70));
-            mButtonBlue = new Button("gameplay\\hud\\new\\balde_blue", "gameplay\\hud\\new\\balde_blue_selected", "gameplay\\hud\\new\\balde_blue_selected", new Rectangle(695, 535, 70, 70));
+            
+            mRectColorSlot1 = new Rectangle(574, 535, 70, 70);
+            mRectColorSlot2 = new Rectangle(634, 512, 70, 70);
+            mRectColorSlot3 = new Rectangle(695, 535, 70, 66);
 
-            mButtonPause = new Button("gameplay\\hud\\new\\pause", "gameplay\\hud\\new\\pause_select", "gameplay\\hud\\new\\pause_selected", new Rectangle(727, 28, 54, 63));
+            mButtonRed = new Button("gameplay\\hud\\new\\balde_red", "gameplay\\hud\\new\\balde_red_selected", "gameplay\\hud\\new\\balde_red_selected", mRectColorSlot1);
+            mButtonGreen = new Button("gameplay\\hud\\new\\balde_green", "gameplay\\hud\\new\\balde_green_selected", "gameplay\\hud\\new\\balde_green_selected", mRectColorSlot2);
+            mButtonBlue = new Button("gameplay\\hud\\new\\balde_blue", "gameplay\\hud\\new\\balde_blue_selected", "gameplay\\hud\\new\\balde_blue_selected", mRectColorSlot3);
+
+            //mButtonPause = new Button("gameplay\\hud\\new\\pause", "gameplay\\hud\\new\\pause_select", "gameplay\\hud\\new\\pause_selected", new Rectangle(727, 28, 54, 63));
 
             mButtonRed.setCollisionRect(0, 0, 70, 70);
             mButtonGreen.setCollisionRect(0, 0, 70, 70);
             mButtonBlue.setCollisionRect(0, 0, 70, 70);
-            mButtonPause.setCollisionRect(0, 0, 70, 70);
+            //mButtonPause.setCollisionRect(0, 0, 70, 70);
 
             mGroupButtons = new GameObjectsGroup<Button>();
             mGroupButtons.addGameObject(mButtonRed);
             mGroupButtons.addGameObject(mButtonGreen);
             mGroupButtons.addGameObject(mButtonBlue);
-            mGroupButtons.addGameObject(mButtonPause);
-            
+            //mGroupButtons.addGameObject(mButtonPause);
             
 
         }
 
-        public static HUD getInstance()
+        public static HUD getInstance(GamePlayScreen context)
         {
             if (instance == null)
             {
                 instance = new HUD();
             }
+
+            sContext = context;
+
             return instance;
         }
 
 
         public void loadContent(ContentManager contentManager)
-        {       
-            mTexturePlayerHead = contentManager.Load<Texture2D>("gameplay\\hud\\new\\blue");
+        {
+            if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.BLUE)
+            {
+                mTexturePlayerHead = contentManager.Load<Texture2D>("gameplay\\hud\\new\\blue");
+            }
+            if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.GREEN)
+            {
+                mTexturePlayerHead = contentManager.Load<Texture2D>("gameplay\\hud\\new\\green");
+            }
+            if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.RED)
+            {
+                mTexturePlayerHead = contentManager.Load<Texture2D>("gameplay\\hud\\new\\red");
+            }
+
             mTextureHudBGHead = contentManager.Load<Texture2D>("gameplay\\hud\\new\\hud_bg");
             mTextureHudBG = contentManager.Load<Texture2D>("gameplay\\hud\\new\\hud_bg_colors");
 
@@ -125,8 +150,7 @@ namespace ColorLand
             mBarraORight = contentManager.Load<Texture2D>("gameplay\\hud\\new\\barra_oright");
 
             mGroupButtons.loadContent(Game1.getInstance().getScreenManager().getContent());
-
-            SoundManager.LoadSound(cSOUND_COLOR);
+                       
               
         }
 
@@ -134,7 +158,52 @@ namespace ColorLand
         {
             mGroupButtons.update(gameTime);
             //checkCollisions();
+
+            /*if (sContext.getCursor().getColor() == Color.Red)
+            {
+                //red
+                mGroupButtons.getGameObject(0).setLocation(mRectColorSlot2.X, mRectColorSlot2.Y);
+                //green
+                mGroupButtons.getGameObject(1).setLocation(mRectColorSlot3.X, mRectColorSlot3.Y);
+                //blue
+                mGroupButtons.getGameObject(2).setLocation(mRectColorSlot1.X, mRectColorSlot1.Y);
+
+                mButtonRed.changeState(Button.sSTATE_HIGHLIGH);
+                mButtonGreen.changeState(Button.sSTATE_NORMAL);
+                mButtonBlue.changeState(Button.sSTATE_NORMAL);
+            }else
+            if (sContext.getCursor().getColor() == Color.Green)
+            {
+                //red
+                mGroupButtons.getGameObject(0).setLocation(mRectColorSlot1.X, mRectColorSlot1.Y);
+                //green
+                mGroupButtons.getGameObject(1).setLocation(mRectColorSlot2.X, mRectColorSlot2.Y);
+                //blue
+                mGroupButtons.getGameObject(2).setLocation(mRectColorSlot3.X, mRectColorSlot3.Y);
+
+                mButtonRed.changeState(Button.sSTATE_NORMAL);
+                mButtonGreen.changeState(Button.sSTATE_HIGHLIGH);
+                mButtonBlue.changeState(Button.sSTATE_NORMAL);
+            }
+
+            if (sContext.getCursor().getColor() == Color.Blue)
+            {
+                //red
+                mGroupButtons.getGameObject(0).setLocation(mRectColorSlot3.X, mRectColorSlot3.Y);
+                //green
+                mGroupButtons.getGameObject(1).setLocation(mRectColorSlot1.X, mRectColorSlot1.Y);
+                //blue
+                mGroupButtons.getGameObject(2).setLocation(mRectColorSlot2.X, mRectColorSlot2.Y);
+
+                mButtonRed.changeState(Button.sSTATE_NORMAL);
+                mButtonGreen.changeState(Button.sSTATE_NORMAL);
+                mButtonBlue.changeState(Button.sSTATE_HIGHLIGH);
+            }*/
         }
+
+        /*
+         * public void realignButtons (to be called manually)
+         * */
 
         public void draw(SpriteBatch spriteBatch)
         {
@@ -155,6 +224,7 @@ namespace ColorLand
                 spriteBatch.Draw(mBarraORight, new Rectangle(114 + 7 + (int)(level * 147), 60 + 19, 7, 8), Color.White);
             }
             mGroupButtons.draw(spriteBatch);
+                        
             spriteBatch.Draw(mTexturePlayerHead, mRectHead, Color.White);
         }
         
@@ -185,7 +255,6 @@ namespace ColorLand
                         {
                             cursor.changeColor(Color.Red);
                             //play sound
-                            SoundManager.PlaySound(cSOUND_COLOR);
                         }
                     }else
                     if (mCurrentHighlightButton == mButtonGreen)
@@ -193,7 +262,6 @@ namespace ColorLand
                         if (cursor.getColor() != Color.Green)
                         {
                             cursor.changeColor(Color.Green);
-                            SoundManager.PlaySound(cSOUND_COLOR);
                         }
                     }else
                     if (mCurrentHighlightButton == mButtonBlue)
@@ -201,7 +269,6 @@ namespace ColorLand
                         if (cursor.getColor() != Color.Blue)
                         {
                             cursor.changeColor(Color.Blue);
-                            SoundManager.PlaySound(cSOUND_COLOR);
                         }
                     }
                     else
@@ -209,7 +276,7 @@ namespace ColorLand
                         {
                         }
                 }
-
+                
 
             }
 
