@@ -111,7 +111,7 @@ namespace ColorLand
                 //{
                     MouseState mouseState = Mouse.GetState();
                     //setCenter(mouseState.X, mouseState.Y);
-                    setLocation(mouseState.X, mouseState.Y); //half half image
+                    setLocation(mouseState.X + GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE, mouseState.Y); //half half image
                     //setLocation(mouseState.X - 40, mouseState.Y - 40); //half half image
                 //}
             }
@@ -170,7 +170,7 @@ namespace ColorLand
                 }
                 else
                 {
-                    base.draw(spriteBatch, mRotation += 0.4f, new Rectangle((int)mX + 40, (int)mY + 40, 80, 80), new Vector2(80, 80)); //0.4
+                    base.draw(spriteBatch, mRotation += 0.8f, new Rectangle((int)mX + 40, (int)mY + 40, 80, 80), new Vector2(80, 80)); //0.4
                 }
 
             }
@@ -224,6 +224,12 @@ namespace ColorLand
                         mCurrentColor = Color.Green;
                         changeToSprite(sSTATE_GREEN);
                     }
+        }
+
+        public void previousColor()
+        {
+            nextColor();
+            nextColor();
         }
 
         //must be called while colliding with a button

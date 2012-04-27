@@ -182,5 +182,10 @@ namespace ColorLand
             return this._zoom;
         }
 
+        public float getX()
+        {
+            return _pos.X - Game1.sHALF_SCREEN_RESOLUTION_WIDTH;
+        }
+
     }
 }
