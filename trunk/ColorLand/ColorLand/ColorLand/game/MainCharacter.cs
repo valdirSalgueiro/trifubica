@@ -154,6 +154,15 @@ namespace ColorLand
         }
 
         public override void update(GameTime gameTime) {
+
+
+            //corrige bug do scrolling
+            if(mX <= GamePlayScreen.sCURRENT_STAGE_X){
+                //moveRight(1f);
+                //mX = GamePlayScreen.sCURRENT_STAGE_X;
+                mX = GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE;
+            }
+
             mY += mDy * gameTime.ElapsedGameTime.Milliseconds;
             base.update(gameTime);//getCurrentSprite().update();
 
@@ -349,12 +358,12 @@ namespace ColorLand
                 KeyboardState newState = Keyboard.GetState();
 
                 // Is the SPACE key down?
-                if (newState.IsKeyDown(Keys.Space))
+                if (newState.IsKeyDown(Keys.W))
                 {
                     // If not down last update, key has just been pressed.
-                    if (!oldState.IsKeyDown(Keys.Space))
+                    if (!oldState.IsKeyDown(Keys.W))
                     {
-                        //Jump();
+                        Jump();
                         //changeState(sSTATE_VICTORY);
                     }
                 }else
@@ -380,7 +389,7 @@ namespace ColorLand
                 {
                     if (mX <= GamePlayScreen.sCURRENT_STAGE_X)
                     {
-                        mX = GamePlayScreen.sCURRENT_STAGE_X;
+                    //    mX = GamePlayScreen.sCURRENT_STAGE_X;
                     }
                     float f = gameTime.ElapsedGameTime.Milliseconds * 0.19f;
                     moveLeft(f);

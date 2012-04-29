@@ -160,6 +160,7 @@ namespace ColorLand
                         setAttackRectangle(0, 0, 0, 0);
                     }
                 }
+
             }
                 base.update(gameTime);//getCurrentSprite().update();
                 //LOGICA 
