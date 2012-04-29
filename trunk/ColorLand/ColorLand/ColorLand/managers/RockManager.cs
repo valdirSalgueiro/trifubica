@@ -45,14 +45,15 @@ namespace ColorLand.managers
 
         public void update(GameTime time)
         {
-            foreach (Rock rock in objects)
+            for (int i = 0; i < objects.Count;i++ )
             {
+                Rock rock = objects[i];
                 BaseScreen currentScreen = Game1.getInstance().getScreenManager().getCurrentScreen();
 
                 if (rock.collisionRect.Intersects(((GamePlayScreen)currentScreen).getPlayer().getCollisionRect()))
                 {
-                    removeObject(rock);
-                    continue;
+                    ((GamePlayScreen)currentScreen).hurt();
+                    rock.notifyCollision();
                 }
 
                 if (!rock.update(time))
