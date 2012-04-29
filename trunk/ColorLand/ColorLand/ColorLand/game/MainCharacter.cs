@@ -12,7 +12,7 @@ using ColorLand.game;
 
 namespace ColorLand
 {
-    class MainCharacter : GameObject {
+    public class MainCharacter : GameObject {
 
         private const int cHURT_TIME = 3; //seconds
 

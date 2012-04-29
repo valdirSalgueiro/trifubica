@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ColorLand
 {
-    class MainCharacterData
+    public class MainCharacterData
     {
 
         private int mEnergy;
