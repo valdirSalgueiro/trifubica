@@ -27,6 +27,8 @@ namespace ColorLand
         float dy;
         float ay=9.8f;
 
+        const int SPACING = 53;
+
         public enum TYPE { 
             UP,
             MIDDLE,
@@ -46,6 +48,9 @@ namespace ColorLand
         //TODO Construir mecanismo de chamar um delegate method when finish animation
 
         
+            
+
+        
         public Kakto(Color color, TYPE type) : this (color, new Vector2(0,0), type)
         {
             
@@ -58,19 +63,53 @@ namespace ColorLand
             origin = origin_;
             left = false;
             localLeft = false;
-
+            Random rand = new Random(DateTime.Now.Millisecond);
 
             if(color == Color.Red)
             {
-                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 5, "enemies\\Kaktos\\Red\\01\\red_kaktos"), new int[] { 0, 1, 2, 3, 4 }, 9, 95, 95, false, false);
+                switch(rand.Next(2)){
+                    case 0:
+                        mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 5, "enemies\\Kaktos\\Red\\03\\red_kaktos"), new int[] { 0, 1, 2, 3, 4 }, 9, 95, 95, false, false);
+                        break;
+                    case 1:
+                        mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 5, "enemies\\Kaktos\\Red\\01\\red_kaktos"), new int[] { 0, 1, 2, 3, 4 }, 9, 95, 95, false, false);
+                    break;
+                    case 2:
+                        mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 5, "enemies\\Kaktos\\Red\\02\\red_kaktos"), new int[] { 0, 1, 2, 3, 4 }, 9, 95, 95, false, false);
+                    break;
+
+                }
             }
             if (color == Color.Blue)
             {
-                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 5, "enemies\\Kaktos\\Blue\\01\\blue_kaktos"), new int[] { 0, 1, 2, 3, 4 }, 9, 95, 95, false, false);
+                switch (rand.Next(2))
+                {
+                    case 0:
+                        mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 5, "enemies\\Kaktos\\Blue\\03\\blue_kaktos"), new int[] { 0, 1, 2, 3, 4 }, 9, 95, 95, false, false);
+                        break;
+                    case 1:
+                        mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 5, "enemies\\Kaktos\\Blue\\01\\blue_kaktos"), new int[] { 0, 1, 2, 3, 4 }, 9, 95, 95, false, false);
+                        break;
+                    case 2:
+                        mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 5, "enemies\\Kaktos\\Blue\\02\\blue_kaktos"), new int[] { 0, 1, 2, 3, 4 }, 9, 95, 95, false, false);
+                        break;
+                }
             }
             if (color == Color.Green)
             {
-                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 5, "enemies\\Kaktos\\Green\\01\\green_kaktos"), new int[] { 0, 1, 2, 3, 4 }, 9, 95, 95, false, false);
+                switch (rand.Next(2))
+                {
+                    case 0:
+                        mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 5, "enemies\\Kaktos\\Green\\03\\green_kaktos"), new int[] { 0, 1, 2, 3, 4 }, 9, 95, 95, false, false);
+                        break;
+                    case 1:
+                        mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 5, "enemies\\Kaktos\\Green\\01\\green_kaktos"), new int[] { 0, 1, 2, 3, 4 }, 9, 95, 95, false, false);
+                        break;
+                    case 2:
+                        mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 5, "enemies\\Kaktos\\Green\\02\\green_kaktos"), new int[] { 0, 1, 2, 3, 4 }, 9, 95, 95, false, false);
+                        break;
+                }
+                
             }
 
             addSprite(mSpriteWalking, sSTATE_WALKING);
@@ -93,11 +132,12 @@ namespace ColorLand
 
         public override void update(GameTime gameTime)
         {
+            
             if (!isGrowingUp())
             {
                 Vector2 playerLocation = getPlayerPosition();
 
-                if (local.Y < downAnimations * 70)
+                if (local.Y < downAnimations * SPACING)
                 {
                     dy += ay;
                     local.Y += (float)gameTime.ElapsedGameTime.TotalSeconds * dy;
@@ -142,7 +182,7 @@ namespace ColorLand
                 }
                 if (type == TYPE.MIDDLE)
                 {
-                    mY = origin.Y + 70 + local.Y;
+                    mY = origin.Y + SPACING + local.Y;
                 }
                 if (type == TYPE.DOWN)
                 {
@@ -160,7 +200,7 @@ namespace ColorLand
                         else
                             localLeft = true;
                     }
-                    mY = origin.Y + 140;
+                    mY = origin.Y + SPACING*2;
                 }
 
                 getCurrentSprite().offset.X = local.X;

@@ -120,9 +120,11 @@ namespace ColorLand
 
         public override void draw(SpriteBatch spriteBatch)
         {
-            up.draw(spriteBatch);
-            middle.draw(spriteBatch);
             down.draw(spriteBatch);
+            middle.draw(spriteBatch);
+            up.draw(spriteBatch);
+            
+            
         }
 
         public bool isEmpty()
