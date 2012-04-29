@@ -349,6 +349,7 @@ namespace ColorLand
                     mExplosionManager.addExplosion(20, Color.Green, Game1.getInstance().getScreenManager().getContent());
                     mExplosionManager.addExplosion(20, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Red, new Vector2(0, 350));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(150, 300));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(200, 400));
 

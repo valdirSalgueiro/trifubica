@@ -9607,31 +9607,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0001.png">
-      <Name>red_kaktos.png0001</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0002.png">
-      <Name>red_kaktos.png0002</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0003.png">
-      <Name>red_kaktos.png0003</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0004.png">
-      <Name>red_kaktos.png0004</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0005.png">
-      <Name>red_kaktos.png0005</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="sound\fx\narration\story1.wav">
@@ -9693,6 +9668,33 @@
       <Name>story9</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos0001.png">
+      <Name>red_kaktos0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos0002.png">
+      <Name>red_kaktos0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos0003.png">
+      <Name>red_kaktos0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos0004.png">
+      <Name>red_kaktos0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos0005.png">
+      <Name>red_kaktos0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
