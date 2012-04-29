@@ -9607,6 +9607,31 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0001.png">
+      <Name>red_kaktos.png0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0002.png">
+      <Name>red_kaktos.png0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0003.png">
+      <Name>red_kaktos.png0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0004.png">
+      <Name>red_kaktos.png0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0005.png">
+      <Name>red_kaktos.png0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="sound\fx\narration\story1.wav">
@@ -9671,28 +9696,1137 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="enemies\Kaktos\Red\03\red_kaktos0001.png">
-      <Name>red_kaktos0001</Name>
+    <Compile Include="story\mapa_bg_03.png">
+      <Name>mapa_bg_03</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="enemies\Kaktos\Red\03\red_kaktos0002.png">
-      <Name>red_kaktos0002</Name>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="story\videos\Story.wmv">
+      <Name>Story</Name>
+      <Importer>WmvImporter</Importer>
+      <Processor>VideoProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0000.png">
+      <Name>lizard_attack0000</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="enemies\Kaktos\Red\03\red_kaktos0003.png">
-      <Name>red_kaktos0003</Name>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0001.png">
+      <Name>lizard_attack0001</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="enemies\Kaktos\Red\03\red_kaktos0004.png">
-      <Name>red_kaktos0004</Name>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0002.png">
+      <Name>lizard_attack0002</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="enemies\Kaktos\Red\03\red_kaktos0005.png">
-      <Name>red_kaktos0005</Name>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0003.png">
+      <Name>lizard_attack0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0004.png">
+      <Name>lizard_attack0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0005.png">
+      <Name>lizard_attack0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0006.png">
+      <Name>lizard_attack0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0007.png">
+      <Name>lizard_attack0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0008.png">
+      <Name>lizard_attack0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0009.png">
+      <Name>lizard_attack0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0010.png">
+      <Name>lizard_attack0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0011.png">
+      <Name>lizard_attack0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0012.png">
+      <Name>lizard_attack0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0013.png">
+      <Name>lizard_attack0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0014.png">
+      <Name>lizard_attack0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0015.png">
+      <Name>lizard_attack0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0016.png">
+      <Name>lizard_attack0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0017.png">
+      <Name>lizard_attack0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0018.png">
+      <Name>lizard_attack0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0019.png">
+      <Name>lizard_attack0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0020.png">
+      <Name>lizard_attack0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0021.png">
+      <Name>lizard_attack0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0022.png">
+      <Name>lizard_attack0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0023.png">
+      <Name>lizard_attack0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0024.png">
+      <Name>lizard_attack0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0025.png">
+      <Name>lizard_attack0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0026.png">
+      <Name>lizard_attack0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0027.png">
+      <Name>lizard_attack0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0028.png">
+      <Name>lizard_attack0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0029.png">
+      <Name>lizard_attack0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0030.png">
+      <Name>lizard_attack0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0031.png">
+      <Name>lizard_attack0031</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0032.png">
+      <Name>lizard_attack0032</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0033.png">
+      <Name>lizard_attack0033</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0034.png">
+      <Name>lizard_attack0034</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0035.png">
+      <Name>lizard_attack0035</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0036.png">
+      <Name>lizard_attack0036</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0037.png">
+      <Name>lizard_attack0037</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0038.png">
+      <Name>lizard_attack0038</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0039.png">
+      <Name>lizard_attack0039</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\attack\lizard_attack0040.png">
+      <Name>lizard_attack0040</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0002.png">
+      <Name>lizard_walk0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0003.png">
+      <Name>lizard_walk0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0004.png">
+      <Name>lizard_walk0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0005.png">
+      <Name>lizard_walk0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0006.png">
+      <Name>lizard_walk0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0007.png">
+      <Name>lizard_walk0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0008.png">
+      <Name>lizard_walk0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0009.png">
+      <Name>lizard_walk0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0010.png">
+      <Name>lizard_walk0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0011.png">
+      <Name>lizard_walk0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0012.png">
+      <Name>lizard_walk0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0013.png">
+      <Name>lizard_walk0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0014.png">
+      <Name>lizard_walk0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0015.png">
+      <Name>lizard_walk0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0016.png">
+      <Name>lizard_walk0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0017.png">
+      <Name>lizard_walk0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0018.png">
+      <Name>lizard_walk0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0019.png">
+      <Name>lizard_walk0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0020.png">
+      <Name>lizard_walk0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0021.png">
+      <Name>lizard_walk0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0022.png">
+      <Name>lizard_walk0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0023.png">
+      <Name>lizard_walk0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0024.png">
+      <Name>lizard_walk0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0025.png">
+      <Name>lizard_walk0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0026.png">
+      <Name>lizard_walk0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0027.png">
+      <Name>lizard_walk0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\blue\walk\lizard_walk0028.png">
+      <Name>lizard_walk0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0000.png">
+      <Name>lizard_attack0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0001.png">
+      <Name>lizard_attack0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0002.png">
+      <Name>lizard_attack0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0003.png">
+      <Name>lizard_attack0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0004.png">
+      <Name>lizard_attack0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0005.png">
+      <Name>lizard_attack0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0006.png">
+      <Name>lizard_attack0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0007.png">
+      <Name>lizard_attack0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0008.png">
+      <Name>lizard_attack0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0009.png">
+      <Name>lizard_attack0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0010.png">
+      <Name>lizard_attack0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0011.png">
+      <Name>lizard_attack0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0012.png">
+      <Name>lizard_attack0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0013.png">
+      <Name>lizard_attack0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0014.png">
+      <Name>lizard_attack0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0015.png">
+      <Name>lizard_attack0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0016.png">
+      <Name>lizard_attack0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0017.png">
+      <Name>lizard_attack0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0018.png">
+      <Name>lizard_attack0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0019.png">
+      <Name>lizard_attack0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0020.png">
+      <Name>lizard_attack0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0021.png">
+      <Name>lizard_attack0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0022.png">
+      <Name>lizard_attack0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0023.png">
+      <Name>lizard_attack0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0024.png">
+      <Name>lizard_attack0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0025.png">
+      <Name>lizard_attack0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0026.png">
+      <Name>lizard_attack0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0027.png">
+      <Name>lizard_attack0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0028.png">
+      <Name>lizard_attack0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0029.png">
+      <Name>lizard_attack0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0030.png">
+      <Name>lizard_attack0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0031.png">
+      <Name>lizard_attack0031</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0032.png">
+      <Name>lizard_attack0032</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0033.png">
+      <Name>lizard_attack0033</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0034.png">
+      <Name>lizard_attack0034</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0035.png">
+      <Name>lizard_attack0035</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0036.png">
+      <Name>lizard_attack0036</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0037.png">
+      <Name>lizard_attack0037</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0038.png">
+      <Name>lizard_attack0038</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0039.png">
+      <Name>lizard_attack0039</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\attack\lizard_attack0040.png">
+      <Name>lizard_attack0040</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0002.png">
+      <Name>lizard_walk0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0003.png">
+      <Name>lizard_walk0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0004.png">
+      <Name>lizard_walk0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0005.png">
+      <Name>lizard_walk0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0006.png">
+      <Name>lizard_walk0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0007.png">
+      <Name>lizard_walk0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0008.png">
+      <Name>lizard_walk0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0009.png">
+      <Name>lizard_walk0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0010.png">
+      <Name>lizard_walk0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0011.png">
+      <Name>lizard_walk0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0012.png">
+      <Name>lizard_walk0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0013.png">
+      <Name>lizard_walk0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0014.png">
+      <Name>lizard_walk0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0015.png">
+      <Name>lizard_walk0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0016.png">
+      <Name>lizard_walk0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0017.png">
+      <Name>lizard_walk0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0018.png">
+      <Name>lizard_walk0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0019.png">
+      <Name>lizard_walk0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0020.png">
+      <Name>lizard_walk0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0021.png">
+      <Name>lizard_walk0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0022.png">
+      <Name>lizard_walk0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0023.png">
+      <Name>lizard_walk0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0024.png">
+      <Name>lizard_walk0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0025.png">
+      <Name>lizard_walk0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0026.png">
+      <Name>lizard_walk0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0027.png">
+      <Name>lizard_walk0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\green\walk\lizard_walk0028.png">
+      <Name>lizard_walk0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0000.png">
+      <Name>lizard_attack0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0001.png">
+      <Name>lizard_attack0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0002.png">
+      <Name>lizard_attack0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0003.png">
+      <Name>lizard_attack0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0004.png">
+      <Name>lizard_attack0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0005.png">
+      <Name>lizard_attack0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0006.png">
+      <Name>lizard_attack0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0007.png">
+      <Name>lizard_attack0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0008.png">
+      <Name>lizard_attack0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0009.png">
+      <Name>lizard_attack0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0010.png">
+      <Name>lizard_attack0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0011.png">
+      <Name>lizard_attack0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0012.png">
+      <Name>lizard_attack0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0013.png">
+      <Name>lizard_attack0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0014.png">
+      <Name>lizard_attack0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0015.png">
+      <Name>lizard_attack0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0016.png">
+      <Name>lizard_attack0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0017.png">
+      <Name>lizard_attack0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0018.png">
+      <Name>lizard_attack0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0019.png">
+      <Name>lizard_attack0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0020.png">
+      <Name>lizard_attack0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0021.png">
+      <Name>lizard_attack0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0022.png">
+      <Name>lizard_attack0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0023.png">
+      <Name>lizard_attack0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0024.png">
+      <Name>lizard_attack0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0025.png">
+      <Name>lizard_attack0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0026.png">
+      <Name>lizard_attack0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0027.png">
+      <Name>lizard_attack0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0028.png">
+      <Name>lizard_attack0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0029.png">
+      <Name>lizard_attack0029</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0030.png">
+      <Name>lizard_attack0030</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0031.png">
+      <Name>lizard_attack0031</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0032.png">
+      <Name>lizard_attack0032</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0033.png">
+      <Name>lizard_attack0033</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0034.png">
+      <Name>lizard_attack0034</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0035.png">
+      <Name>lizard_attack0035</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0036.png">
+      <Name>lizard_attack0036</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0037.png">
+      <Name>lizard_attack0037</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0038.png">
+      <Name>lizard_attack0038</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0039.png">
+      <Name>lizard_attack0039</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\attack\lizard_attack0040.png">
+      <Name>lizard_attack0040</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0002.png">
+      <Name>lizard_walk0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0003.png">
+      <Name>lizard_walk0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0004.png">
+      <Name>lizard_walk0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0005.png">
+      <Name>lizard_walk0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0006.png">
+      <Name>lizard_walk0006</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0007.png">
+      <Name>lizard_walk0007</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0008.png">
+      <Name>lizard_walk0008</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0009.png">
+      <Name>lizard_walk0009</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0010.png">
+      <Name>lizard_walk0010</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0011.png">
+      <Name>lizard_walk0011</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0012.png">
+      <Name>lizard_walk0012</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0013.png">
+      <Name>lizard_walk0013</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0014.png">
+      <Name>lizard_walk0014</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0015.png">
+      <Name>lizard_walk0015</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0016.png">
+      <Name>lizard_walk0016</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0017.png">
+      <Name>lizard_walk0017</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0018.png">
+      <Name>lizard_walk0018</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0019.png">
+      <Name>lizard_walk0019</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0020.png">
+      <Name>lizard_walk0020</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0021.png">
+      <Name>lizard_walk0021</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0022.png">
+      <Name>lizard_walk0022</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0023.png">
+      <Name>lizard_walk0023</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0024.png">
+      <Name>lizard_walk0024</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0025.png">
+      <Name>lizard_walk0025</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0026.png">
+      <Name>lizard_walk0026</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0027.png">
+      <Name>lizard_walk0027</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Lizardo\red\walk\lizard_walk0028.png">
+      <Name>lizard_walk0028</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\rocker\blue\blue0000.png">
+      <Name>blue0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\rocker\blue\blue0001.png">
+      <Name>blue0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\rocker\blue\blue0002.png">
+      <Name>blue0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\rocker\blue\blue0003.png">
+      <Name>blue0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\rocker\green\green0000.png">
+      <Name>green0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\rocker\green\green0001.png">
+      <Name>green0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\rocker\green\green0002.png">
+      <Name>green0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\rocker\green\green0003.png">
+      <Name>green0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\rocker\red\red0000.png">
+      <Name>red0000</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\rocker\red\red0001.png">
+      <Name>red0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\rocker\red\red0002.png">
+      <Name>red0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\rocker\red\red0003.png">
+      <Name>red0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\rocker\rock\Pedra.png">
+      <Name>Pedra</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\rocker\wings\asas0001.png">
+      <Name>asas0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\rocker\wings\asas0002.png">
+      <Name>asas0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\rocker\wings\asas0003.png">
+      <Name>asas0003</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

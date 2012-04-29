@@ -279,6 +279,9 @@ namespace ColorLand
             {
                 mMainCharacter = new MainCharacter(Color.Red);
             }
+
+            mMainCharacter = new MainCharacter(Color.Red);
+
             mMainCharacter.loadContent(Game1.getInstance().getScreenManager().getContent());
             mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 434);
 
@@ -309,9 +312,9 @@ namespace ColorLand
                     mExplosionManager.addExplosion(20, Color.Green, Game1.getInstance().getScreenManager().getContent());
                     mExplosionManager.addExplosion(20, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(200, 0));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(500, 0));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(700, 0));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(100, 400));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(500, 0));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(700, 0));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(-100, getPlayerLocation().Y));                
    
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
@@ -356,8 +359,8 @@ namespace ColorLand
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Red, new Vector2(100, getPlayerLocation().Y));
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(200, 0));
                     
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(500, 0));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(700, 60));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(200, 400));
+                    /*mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(700, 60));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(500, 0));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(700, 60));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(40, 110));
@@ -365,19 +368,8 @@ namespace ColorLand
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(150, 300));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(200, 400));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(700, 60));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(800, 300));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(700, 60));
-                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(500, 0));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(700, 60));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(500, 0));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(700, 60));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(40, 110));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(100, 200));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(150, 300));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(200, 400));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(700, 60));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(800, 300));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(700, 60));
+                    */
+                      
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Red, new Vector2(-100, getPlayerLocation().Y));                
    
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
@@ -527,8 +519,6 @@ namespace ColorLand
                 }
             }
             
-
-
         }
 
 

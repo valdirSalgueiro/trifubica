@@ -84,8 +84,8 @@ namespace ColorLand
             MediaPlayer.IsRepeating = false;
             MediaPlayer.Play(currentSong);
 
-            Game1.print("VOLUME: " + MediaPlayer.Volume);
-            Game1.print("SOUND: " + soundVolume);
+            //Game1.print("VOLUME: " + MediaPlayer.Volume);
+            //Game1.print("SOUND: " + soundVolume);
         }
 
         public static void PlayMusic(string name, bool repeat)
@@ -105,7 +105,6 @@ namespace ColorLand
             MediaPlayer.IsRepeating = repeat;
             MediaPlayer.Play(currentSong);
         }
-
 
         /// <summary>
         /// Stops the background music.

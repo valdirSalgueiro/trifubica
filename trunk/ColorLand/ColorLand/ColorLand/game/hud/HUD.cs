@@ -159,7 +159,7 @@ namespace ColorLand
             mGroupButtons.update(gameTime);
             //checkCollisions();
 
-            /*if (sContext.getCursor().getColor() == Color.Red)
+            if (sContext.getCursor().getColor() == Color.Red)
             {
                 //red
                 mGroupButtons.getGameObject(0).setLocation(mRectColorSlot2.X, mRectColorSlot2.Y);
@@ -198,7 +198,7 @@ namespace ColorLand
                 mButtonRed.changeState(Button.sSTATE_NORMAL);
                 mButtonGreen.changeState(Button.sSTATE_NORMAL);
                 mButtonBlue.changeState(Button.sSTATE_HIGHLIGH);
-            }*/
+            }
         }
 
         /*
