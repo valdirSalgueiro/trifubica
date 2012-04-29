@@ -90,7 +90,7 @@ namespace ColorLand
             Vector2 playerPosition = getPlayerPosition();
             Vector2.Distance(ref playerPosition, ref spritePos, out distance);
             //Console.WriteLine(distance);
-            if (distance > 60)
+            if (distance > 20)
             {
                 pos = oldPosition;
                 //altere aqui para fazer a onda do seno mais rapidamente/devagarmente :p
