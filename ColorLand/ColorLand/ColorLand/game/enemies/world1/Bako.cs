@@ -87,7 +87,8 @@ namespace ColorLand
         public override void update(GameTime gameTime)
         {
             float distance;
-            Vector2 playerPosition = getPlayerPosition();
+            BaseScreen currentScreen = Game1.getInstance().getScreenManager().getCurrentScreen();
+            Vector2 playerPosition = ((GamePlayScreen)currentScreen).getPlayerLocation();
             Vector2.Distance(ref playerPosition, ref spritePos, out distance);
             //Console.WriteLine(distance);
             if (distance > 20)
