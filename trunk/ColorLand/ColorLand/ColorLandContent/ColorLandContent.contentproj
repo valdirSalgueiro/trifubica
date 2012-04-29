@@ -9607,31 +9607,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0001.png">
-      <Name>red_kaktos.png0001</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0002.png">
-      <Name>red_kaktos.png0002</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0003.png">
-      <Name>red_kaktos.png0003</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0004.png">
-      <Name>red_kaktos.png0004</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="enemies\Kaktos\Red\03\red_kaktos.png0005.png">
-      <Name>red_kaktos.png0005</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="sound\fx\narration\story1.wav">
@@ -10827,6 +10802,33 @@
     </Compile>
     <Compile Include="enemies\rocker\wings\asas0003.png">
       <Name>asas0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos0001.png">
+      <Name>red_kaktos0001</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos0002.png">
+      <Name>red_kaktos0002</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos0003.png">
+      <Name>red_kaktos0003</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos0004.png">
+      <Name>red_kaktos0004</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="enemies\Kaktos\Red\03\red_kaktos0005.png">
+      <Name>red_kaktos0005</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
