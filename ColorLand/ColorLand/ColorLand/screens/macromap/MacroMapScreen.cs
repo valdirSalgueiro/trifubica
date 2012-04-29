@@ -119,6 +119,8 @@ namespace ColorLand
                 setMacroMapState(MacroMapState.SecondStage); 
             }
 
+            setMacroMapState(MacroMapState.FirstStage);
+
             SoundManager.PlayMusic(cMUSIC_MAP);
 
             mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.FAST);

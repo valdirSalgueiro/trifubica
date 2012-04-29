@@ -62,22 +62,24 @@ namespace ColorLand
             : base(color, origin)
         {
 
+            String colorString = "";
+
             if (color == Color.Red)
             {
-                //os sprites andando do red sao diferentes. Tem que ter cuidado caso for mexer
-                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 16, "enemies\\CrabCrab\\red\\Crab_walk"), new int[] { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }, 2, 300, 110, false, false);
-                mSpriteAttacking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 11, "enemies\\CrabCrab\\red\\Crab_attack"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 }, 2, 300, 110, false, false);
+                colorString = "red";
             }
             if (color == Color.Blue)
             {
-                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 16, "enemies\\CrabCrab\\blue\\Crab_walk"), new int[] { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }, 2, 300, 110, false, false);
-                mSpriteAttacking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 11, "enemies\\CrabCrab\\blue\\Crab_attack"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 }, 2, 300, 110, false, false);
+                colorString = "blue";
             }
             if (color == Color.Green)
             {
-                mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 16, "enemies\\CrabCrab\\green\\Crab_walk"), new int[] { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }, 2, 300, 110, false, false);
-                mSpriteAttacking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 11, "enemies\\CrabCrab\\green\\Crab_attack"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 }, 2, 300, 110, false, false);
+                colorString = "green";
+                
             }
+
+            mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(2, 26, "enemies\\Lizardo\\" + colorString + "\\walk\\lizard_walk"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 26 }, 2, 300, 110, false, false);
+            mSpriteAttacking = new Sprite(ExtraFunctions.fillArrayWithImages2(0, 40, "enemies\\Lizardo\\" + colorString + "\\attack\\lizard_attack"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 }, 2, 300, 110, false, false);
 
             addSprite(mSpriteWalking, sSTATE_WALKING);
             addSprite(mSpriteAttacking, sSTATE_ATTACKING);
