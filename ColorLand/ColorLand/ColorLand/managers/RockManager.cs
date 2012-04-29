@@ -52,7 +52,7 @@ namespace ColorLand.managers
 
                 if (rock.collisionRect.Intersects(((GamePlayScreen)currentScreen).getPlayer().getCollisionRect()))
                 {
-                    ((GamePlayScreen)currentScreen).hurt();
+                    ((GamePlayScreen)currentScreen).damage();
                     rock.notifyCollision();
                 }
 

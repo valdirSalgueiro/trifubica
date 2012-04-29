@@ -41,8 +41,10 @@ namespace ColorLand
         private int mSecs;
 
 
-        private float mZoomClick = 1.0f;
+        private float mAlphaClick = 1.0f; //only for game cursor
+        private float mZoomClick = 1.0f; //only for menu cursor
 
+        private bool mInnofensive;
 
         private MTimer mTimerParalyzed;//when hit an enemy of wrong color
 
@@ -61,11 +63,11 @@ namespace ColorLand
         public Cursor()
         {
 
-            int size = 170;
-            mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\cursors\\cursor"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 1 }, 1, 93, 150, false, false);                            
-            mSpriteBlue = new Sprite(ExtraFunctions.fillArrayWithImages2(14, "gameplay\\cursors\\blue\\cursor"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 1, 100, 100, false, false);
-            mSpriteGreen = new Sprite(ExtraFunctions.fillArrayWithImages2(14, "gameplay\\cursors\\green\\cursor"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 1, 100, 100, false, false);
-            mSpriteRed = new Sprite(ExtraFunctions.fillArrayWithImages2(14, "gameplay\\cursors\\red\\cursor"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 1, 100, 100, false, false);
+            int sizeBrushInGame = 90;
+            mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages(1, "gameplay\\cursors\\cursor"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 1 }, 1, 93, 150, false, false);
+            mSpriteBlue = new Sprite(ExtraFunctions.fillArrayWithImages2(14, "gameplay\\cursors\\blue\\cursor"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 1, sizeBrushInGame, sizeBrushInGame, false, false);
+            mSpriteGreen = new Sprite(ExtraFunctions.fillArrayWithImages2(14, "gameplay\\cursors\\green\\cursor"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 1, sizeBrushInGame, sizeBrushInGame, false, false);
+            mSpriteRed = new Sprite(ExtraFunctions.fillArrayWithImages2(14, "gameplay\\cursors\\red\\cursor"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 14 }, 1, sizeBrushInGame, sizeBrushInGame, false, false);
             
             addSprite(mSpriteNormal, sSTATE_NORMAL);
             addSprite(mSpriteBlue,   sSTATE_BLUE);
@@ -114,6 +116,15 @@ namespace ColorLand
                     setLocation(mouseState.X + GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE, mouseState.Y); //half half image
                     //setLocation(mouseState.X - 40, mouseState.Y - 40); //half half image
                 //}
+
+                    if (mAlphaClick < 1f)
+                    {
+                        mInnofensive = true;
+                    }
+                    else
+                    {
+                        mInnofensive = false;
+                    }
             }
             else
             {
@@ -144,6 +155,7 @@ namespace ColorLand
             }
             frames++;   */     
         }
+               
 
         public override void draw(SpriteBatch spriteBatch)
         {
@@ -163,14 +175,14 @@ namespace ColorLand
             }
             else
             {
-
                 if (mCanMove)
                 {
-                    base.draw(spriteBatch);
+                    //base.draw(spriteBatch);
+                    base.draw(spriteBatch, Color.White * mAlphaClick); //0.4
                 }
                 else
                 {
-                    base.draw(spriteBatch, mRotation += 0.8f, new Rectangle((int)mX + 40, (int)mY + 40, 80, 80), new Vector2(80, 80)); //0.4
+                    base.draw(spriteBatch, mRotation += 0.8f, new Rectangle((int)mX + 40, (int)mY + 40, 80, 80), new Vector2(80, 80), Color.White * mAlphaClick); //0.4
                 }
 
             }
@@ -191,6 +203,11 @@ namespace ColorLand
 
             setCollisionRect(24, 24, 53, 53);
 
+        }
+
+        public bool isInnofensive()
+        {
+            return this.mInnofensive;
         }
 
         public void backToMenuCursor()
@@ -271,13 +288,13 @@ namespace ColorLand
 
                 if (mouseState.LeftButton == ButtonState.Pressed)
                 {
-                    if (mZoomClick > 0.7f)
+                    if (mZoomClick > 0.6f)
                     {
                         mZoomClick -= 0.04f;
                     }
                     else
                     {
-                        mZoomClick = 0.7f;
+                        mZoomClick = 0.6f;
                     }
 
                 }
@@ -285,7 +302,7 @@ namespace ColorLand
                 {
                     if (mZoomClick < 1.0f)
                     {
-                        mZoomClick += 0.04f;
+                        mZoomClick += 0.09f;
                     }
                     else
                     {
@@ -294,6 +311,36 @@ namespace ColorLand
                 }
 
             }
+            else
+            {
+                MouseState mouseState = Mouse.GetState();
+
+                if (mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    if (mAlphaClick > 0.6f)
+                    {
+                        mAlphaClick -= 0.04f;
+                    }
+                    else
+                    {
+                        mAlphaClick = 0.6f;
+                    }
+
+                }
+                else
+                {
+                    if (mAlphaClick < 1.0f)
+                    {
+                        mAlphaClick += 0.04f;
+                    }
+                    else
+                    {
+                        mAlphaClick = 1.0f;
+                    }
+                }
+            }
+
+          
         }
 
         private void updateTimer(GameTime gameTime)

@@ -109,7 +109,7 @@ namespace ColorLand
             {
                 return ((GamePlayScreen)currentScreen).getPlayerLocation();
             }
-
+            
             return new Vector2();
         }
         //// 
@@ -123,7 +123,7 @@ namespace ColorLand
             setMovementAllowed(true);
             setActive(true);
 
-            //showCollisionRect();
+            showCollisionRect();
         }
 
         protected void addSprite(Sprite sprite, int index)
@@ -202,6 +202,27 @@ namespace ColorLand
                 mAttackCollisionRect.Y = (int)mY + mInitialAttackCollisionRectY;
             }
         }
+
+        public void addY(float value)
+        {
+            this.mY += value;
+        }
+
+        public void reduceY(float value)
+        {
+            this.mY -= value;
+        }
+
+        public void addX(float value)
+        {
+            this.mX += value;
+        }
+
+        public void reduceX(float value)
+        {
+            this.mX -= value;
+        }
+
 
         public virtual void update(GameTime gameTime)
         {
@@ -336,6 +357,24 @@ namespace ColorLand
                 {
                     //mCurrentSprite.draw(spriteBatch, angle);
                     mCurrentSprite.draw(spriteBatch, rotationAngle, rotationPosition, origin);
+
+                    if (mCollisionTexture != null)
+                    {
+                        spriteBatch.Draw(mCollisionTexture, getCollisionRect(), new Color(0, 0, 0, 0.5f));
+                        spriteBatch.Draw(mCollisionTexture, getAttackRectangle(), new Color(0, 0, 0, 0.9f));
+                    }
+                }
+            }
+        }
+
+        public virtual void draw(SpriteBatch spriteBatch, float rotationAngle, Rectangle rotationPosition, Vector2 origin, Color color)
+        {
+            if (mIsActive)
+            {
+                if (mIsVisible)
+                {
+                    //mCurrentSprite.draw(spriteBatch, angle);
+                    mCurrentSprite.draw(spriteBatch, rotationAngle, rotationPosition, origin, color);
 
                     if (mCollisionTexture != null)
                     {

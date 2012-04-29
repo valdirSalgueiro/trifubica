@@ -96,9 +96,9 @@ namespace ColorLand
 
             //mButtonPause = new Button("gameplay\\hud\\new\\pause", "gameplay\\hud\\new\\pause_select", "gameplay\\hud\\new\\pause_selected", new Rectangle(727, 28, 54, 63));
 
-            mButtonRed.setCollisionRect(0, 0, 70, 70);
-            mButtonGreen.setCollisionRect(0, 0, 70, 70);
-            mButtonBlue.setCollisionRect(0, 0, 70, 70);
+            mButtonRed.setCollisionRect(19, 19, 33, 33);
+            mButtonGreen.setCollisionRect(19, 19, 33, 33);
+            mButtonBlue.setCollisionRect(19, 19, 33, 33);
             //mButtonPause.setCollisionRect(0, 0, 70, 70);
 
             mGroupButtons = new GameObjectsGroup<Button>();
@@ -159,7 +159,22 @@ namespace ColorLand
             mGroupButtons.update(gameTime);
             //checkCollisions();
 
-            if (sContext.getCursor().getColor() == Color.Red)
+            Game1.print("X DO VERMELHO> " + mButtonRed.getX());
+
+            if (GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE < GamePlayScreen.sCURRENT_STAGE_X)
+            {
+                //Game1.print("Fuuuuck");
+                mButtonRed.addX(1);
+                mButtonGreen.addX(1);
+                mButtonBlue.addX(1);
+                //mButtonGreen.addX(GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE);
+                /*mButtonGreen.addX(GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE);
+                mButtonBlue.addX (GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE);
+
+                mButtonGreen.addX(GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE);
+                mButtonBlue.addX(GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE);*/
+            }
+            /*if (sContext.getCursor().getColor() == Color.Red)
             {
                 //red
                 mGroupButtons.getGameObject(0).setLocation(mRectColorSlot2.X, mRectColorSlot2.Y);
@@ -199,6 +214,9 @@ namespace ColorLand
                 mButtonGreen.changeState(Button.sSTATE_NORMAL);
                 mButtonBlue.changeState(Button.sSTATE_HIGHLIGH);
             }
+             * 
+             * */
+
         }
 
         /*
@@ -207,24 +225,27 @@ namespace ColorLand
 
         public void draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(mTextureHudBG, new Rectangle(550,Game1.sSCREEN_RESOLUTION_HEIGHT-96, 238, 96), Color.White);
-            spriteBatch.Draw(mTextureHudBGHead, new Rectangle(42, 38, 285, 64), Color.White);
+            int complement = (int)GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE;
+
+            spriteBatch.Draw(mTextureHudBG, new Rectangle(550 + complement, Game1.sSCREEN_RESOLUTION_HEIGHT - 96, 238, 96), Color.White);
+            spriteBatch.Draw(mTextureHudBGHead, new Rectangle(42 + complement, 38, 285, 64), Color.White);
 
             if (energy > 0)
             {
-                spriteBatch.Draw(mBarraBLeft, new Rectangle(115, 38 + 15, 7, 20), Color.White);
-                spriteBatch.Draw(mBarraBMiddle, new Rectangle(115 + 7, 38 + 15, (int)(energy * 185), 20), Color.White);
-                spriteBatch.Draw(mBarraBRight, new Rectangle(114 + 7 + (int)(energy * 185), 38 + 15, 7, 20), Color.White);
+                spriteBatch.Draw(mBarraBLeft, new Rectangle(115 + complement, 38 + 15, 7, 20), Color.White);
+                spriteBatch.Draw(mBarraBMiddle, new Rectangle(115 + 7 + complement, 38 + 15, (int)(energy * 185), 20), Color.White);
+                spriteBatch.Draw(mBarraBRight, new Rectangle(114 + 7 + (int)(energy * 185) + complement, 38 + 15, 7, 20), Color.White);
             }
 
             if (level > 0)
             {
-                spriteBatch.Draw(mBarraOLeft, new Rectangle(114, 60 + 19, 7, 8), Color.White);
-                spriteBatch.Draw(mBarraOMiddle, new Rectangle(114 + 7, 60 + 19, (int)(level * 147), 8), Color.White);
-                spriteBatch.Draw(mBarraORight, new Rectangle(114 + 7 + (int)(level * 147), 60 + 19, 7, 8), Color.White);
+                spriteBatch.Draw(mBarraOLeft, new Rectangle(114 + complement, 60 + 19, 7, 8), Color.White);
+                spriteBatch.Draw(mBarraOMiddle, new Rectangle(114 + 7 + complement, 60 + 19, (int)(level * 147), 8), Color.White);
+                spriteBatch.Draw(mBarraORight, new Rectangle(114 + 7 + (int)(level * 147) + complement, 60 + 19, 7, 8), Color.White);
             }
             mGroupButtons.draw(spriteBatch);
-                        
+
+            mRectHead = new Rectangle(20 + complement, mRectHead.Y, mRectHead.Width, mRectHead.Height);
             spriteBatch.Draw(mTexturePlayerHead, mRectHead, Color.White);
         }
         
@@ -247,7 +268,32 @@ namespace ColorLand
 
                 //Game1.print(" XOE");
 
-                if (mousePressing)
+                if (mCurrentHighlightButton == mButtonRed)
+                {
+                    if (cursor.getColor() != Color.Red)
+                    {
+                        cursor.changeColor(Color.Red);
+                        //play sound
+                    }
+                }
+                else
+                    if (mCurrentHighlightButton == mButtonGreen)
+                    {
+                        if (cursor.getColor() != Color.Green)
+                        {
+                            cursor.changeColor(Color.Green);
+                        }
+                    }
+                    else
+                        if (mCurrentHighlightButton == mButtonBlue)
+                        {
+                            if (cursor.getColor() != Color.Blue)
+                            {
+                                cursor.changeColor(Color.Blue);
+                            }
+                        }
+
+                /*if (mousePressing)
                 {
                     if (mCurrentHighlightButton == mButtonRed)
                     {
@@ -276,7 +322,7 @@ namespace ColorLand
                         {
                         }
                 }
-                
+                */
 
             }
 
