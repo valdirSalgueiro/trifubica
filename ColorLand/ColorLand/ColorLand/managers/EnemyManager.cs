@@ -36,7 +36,8 @@ namespace ColorLand
             MongoPirate,
             Bako,
             Kaktos,
-            Lizardo
+            Lizardo,
+            Rocker
         }
 
         public EnemyManager()
@@ -73,6 +74,9 @@ namespace ColorLand
                     break;
                 case EnemiesTypes.Kaktos:
                     enemy = new Kaktos(location);
+                    break;
+                case EnemiesTypes.Rocker:
+                    enemy = new Rocker(c, location);
                     break;
             }
 

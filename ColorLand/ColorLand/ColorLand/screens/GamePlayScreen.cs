@@ -11,6 +11,7 @@ using System.IO;
 using Microsoft.Xna.Framework.Input;
 //using Microsoft.Xna.Framework.Input.Touch;
 using System.Timers;
+using ColorLand.managers;
 
 
 namespace ColorLand
@@ -230,8 +231,8 @@ namespace ColorLand
             mPauseScreen = new PauseScreen(this);
 
             mShowBlackBackground = false;
-            //setGameState(GAME_STATE_EM_JOGO);
-            setGameState(GAME_STATE_PREPARANDO);
+            setGameState(GAME_STATE_EM_JOGO);
+            //setGameState(GAME_STATE_PREPARANDO);
            
             mKeyboard = KeyboardManager.getInstance();
 
@@ -352,14 +353,15 @@ namespace ColorLand
                     mExplosionManager.addExplosion(20, Color.Green, Game1.getInstance().getScreenManager().getContent());
                     mExplosionManager.addExplosion(20, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Red, new Vector2(0, 350));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(150, 300));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(200, 400));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Rocker, Color.Red, new Vector2(0, 50));
+                    //mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Red, new Vector2(0, 350));
+                    //mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(150, 300));
+                    //mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(200, 400));
 
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Red, new Vector2(100, getPlayerLocation().Y));
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(200, 0));
                     
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(200, 400));
+                    //mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(200, 400));
                     /*mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(700, 60));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(500, 0));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(700, 60));
@@ -762,7 +764,7 @@ namespace ColorLand
                             mExplosionManager.update(gameTime);
 
                             mManager.update(gameTime);
-                            
+                            RockManager.getInstance().update(gameTime);
                             break;
 
                         case GAME_STATE_DERROTA:
@@ -916,6 +918,7 @@ namespace ColorLand
                         }
                         mMainCharacter.draw(mSpriteBatch);
                         mManager.draw(mSpriteBatch);
+                        RockManager.getInstance().draw(mSpriteBatch);
                         mGroupCollectables.draw(mSpriteBatch);
                         mExplosionManager.draw(mSpriteBatch);
                         break;
@@ -923,6 +926,7 @@ namespace ColorLand
                     case GAME_STATE_EM_JOGO:
                         mMainCharacter.draw(mSpriteBatch);
                         mManager.draw(mSpriteBatch);
+                        RockManager.getInstance().draw(mSpriteBatch);
                         mGroupCollectables.draw(mSpriteBatch);
                         //mCursor.draw(mSpriteBatch);
                         mExplosionManager.draw(mSpriteBatch);
@@ -1162,6 +1166,11 @@ namespace ColorLand
 
             return 0f;
         }
+
+        public MainCharacter getPlayer() {
+            return mMainCharacter;
+        }
+
 
         public Vector2 getPlayerCenterVector()
         {

@@ -91,6 +91,7 @@
     <Compile Include="game\enemies\Explosion.cs" />
     <Compile Include="game\enemies\ExplosionManager.cs" />
     <Compile Include="game\enemies\world1\Bako.cs" />
+    <Compile Include="game\enemies\world1\Rocker.cs" />
     <Compile Include="game\enemies\world1\Kakto.cs" />
     <Compile Include="game\enemies\world1\Kaktos.cs" />
     <Compile Include="game\enemies\world1\Lizardo.cs" />
@@ -103,12 +104,14 @@
     <Compile Include="game\hud\HUD.cs" />
     <Compile Include="game\MainCharacter.cs" />
     <Compile Include="game\MainCharacterData.cs" />
+    <Compile Include="game\Rock.cs" />
     <Compile Include="game\Tracer.cs" />
     <Compile Include="managers\EnemyManager.cs" />
     <Compile Include="managers\InputState.cs" />
     <Compile Include="managers\JoystickManager.cs" />
     <Compile Include="managers\KeyboardManager.cs" />
     <Compile Include="managers\KinectManager.cs" />
+    <Compile Include="managers\RockManager.cs" />
     <Compile Include="managers\ScreenManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

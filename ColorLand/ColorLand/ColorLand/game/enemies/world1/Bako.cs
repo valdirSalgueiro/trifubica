@@ -88,16 +88,16 @@ namespace ColorLand
         {
             float distance;
             BaseScreen currentScreen = Game1.getInstance().getScreenManager().getCurrentScreen();
-            Vector2 playerPosition = ((GamePlayScreen)currentScreen).getPlayerLocation();
+            Vector2 playerPosition = ((GamePlayScreen)currentScreen).getPlayerCenterVector();
             Vector2.Distance(ref playerPosition, ref spritePos, out distance);
             //Console.WriteLine(distance);
-            if (distance > 20)
+            if (distance > 15)
             {
                 pos = oldPosition;
                 //altere aqui para fazer a onda do seno mais rapidamente/devagarmente :p
                 x += 0.1f;
 
-                destAngle = Math.Atan2(getPlayerPosition().Y - pos.Y, getPlayerPosition().X - pos.X);
+                destAngle = Math.Atan2(playerPosition.Y - pos.Y, playerPosition.X - pos.X);
                 if (destAngle < 0){
                     destAngle = posAngle;
                 }else{
@@ -108,7 +108,7 @@ namespace ColorLand
                 pos.X += 2.0f * (float)Math.Cos(destAngle);
                 pos.Y += 2.0f * (float)Math.Sin(destAngle);
 
-                Vector2 direction = getPlayerPosition() - oldPosition;
+                Vector2 direction = playerPosition - oldPosition;
 
                 Vector2 perpendicular = new Vector2(direction.Y, -direction.X);
                 perpendicular.Normalize();
