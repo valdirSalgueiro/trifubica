@@ -493,7 +493,7 @@ namespace ColorLand
                     break;
             }
 
-
+            RockManager.getInstance().em = mExplosionManager;
         }
 
 
@@ -1024,8 +1024,8 @@ namespace ColorLand
                     case GAME_STATE_SUCESSO:
                     case GAME_STATE_EM_JOGO:
                         mMainCharacter.draw(mSpriteBatch);
-                        mManager.draw(mSpriteBatch);
                         RockManager.getInstance().draw(mSpriteBatch);
+                        mManager.draw(mSpriteBatch);
                         mGroupCollectables.draw(mSpriteBatch);
                         //mCursor.draw(mSpriteBatch);
                         mExplosionManager.draw(mSpriteBatch);
