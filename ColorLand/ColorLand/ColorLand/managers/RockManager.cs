@@ -12,6 +12,7 @@ namespace ColorLand.managers
     {
         public static RockManager instance;
         private static List<Rock> objects = new List<Rock>();
+        public ExplosionManager em;
 
         public static RockManager getInstance()
         {
@@ -20,12 +21,18 @@ namespace ColorLand.managers
             return instance;
         }
 
-        public void createObject(Vector2 position)
+        public void createObject(Vector2 position, Vector2 vel, Color rockType)
         {
-            Rock rock = new Rock();
+            Rock rock = new Rock(vel);
             rock.loadContent(Game1.getInstance().getScreenManager().getContent());
             rock.pos = position;
+            rock.type = rockType;
             addObject(rock);
+        }
+
+        public void createObject(Vector2 position)
+        {
+            createObject(position,new Vector2(0,0), Color.White);
         }
 
         public void addObject(Rock enemy)
@@ -54,6 +61,14 @@ namespace ColorLand.managers
                 {
                     ((GamePlayScreen)currentScreen).damage();
                     rock.notifyCollision();
+                }
+
+                Cursor cursor=((GamePlayScreen)currentScreen).getCursor();
+                if (!cursor.isInnofensive() && rock.type==cursor.getColor() && rock.collisionRect.Intersects(cursor.getCollisionRect()))
+                {
+                    em.getNextOfColor(rock.type).explode(rock.pos);
+                    removeObject(rock);
+                    continue;
                 }
 
                 if (!rock.update(time))

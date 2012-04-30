@@ -104,7 +104,7 @@
     <Compile Include="game\hud\HUD.cs" />
     <Compile Include="game\MainCharacter.cs" />
     <Compile Include="game\MainCharacterData.cs" />
-    <Compile Include="game\Rock.cs" />
+    <Compile Include="game\enemies\world1\Rock.cs" />
     <Compile Include="game\Tracer.cs" />
     <Compile Include="managers\EnemyManager.cs" />
     <Compile Include="managers\InputState.cs" />
