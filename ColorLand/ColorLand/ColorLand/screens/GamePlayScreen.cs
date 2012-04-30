@@ -1149,7 +1149,6 @@ namespace ColorLand
             if (!mMainCharacter.isHurt())
             {
                 mMainCharacter.hurt();
-                damage();
             }
 
         }
