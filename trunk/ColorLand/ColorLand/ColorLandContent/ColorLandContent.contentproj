@@ -37,7 +37,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="gameplay\backgrounds\stage1_4\" />
     <Folder Include="gameplay\collectable\" />
     <Folder Include="gameplay\maincharacter\blue\stopped\" />
     <Folder Include="gameplay\maincharacter\red\stopped\" />
@@ -10883,6 +10882,92 @@
     </Compile>
     <Compile Include="enemies\Kaktos\Red\03\red_kaktos0005.png">
       <Name>red_kaktos0005</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="texts\ready.png">
+      <Name>ready</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\backgrounds\stage1_1\new\fase1_2.JPG">
+      <Name>fase1_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\backgrounds\stage1_1\new\fase1_bg.png">
+      <Name>fase1_bg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\backgrounds\stage1_1\new\fase1_plataforma03.png">
+      <Name>fase1_plataforma03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\backgrounds\stage1_1\new\fase1_plataforma04.png">
+      <Name>fase1_plataforma04</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\backgrounds\stage1_1\new\fase1_plataforma_02.png">
+      <Name>fase1_plataforma_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\backgrounds\stage1_1\new\fase1_re_01.png">
+      <Name>fase1_re_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\backgrounds\stage1_1\new\fase1_re_03.png">
+      <Name>fase1_re_03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\backgrounds\stage1_1\new\fase1_re_06.png">
+      <Name>fase1_re_06</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\backgrounds\stage1_1\new\fase1_re_09.png">
+      <Name>fase1_re_09</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\backgrounds\stage1_4\fase42.0.JPG">
+      <Name>fase42.0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\backgrounds\stage1_4\fase4_02.png">
+      <Name>fase4_02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\backgrounds\stage1_4\fase4_03.png">
+      <Name>fase4_03</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\backgrounds\stage1_4\fase4_05.png">
+      <Name>fase4_05</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\backgrounds\stage1_4\fase4_bg.png">
+      <Name>fase4_bg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\backgrounds\stage1_4\fase4_plataforma.png">
+      <Name>fase4_plataforma</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
