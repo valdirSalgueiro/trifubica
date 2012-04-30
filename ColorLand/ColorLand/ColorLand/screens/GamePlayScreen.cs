@@ -273,7 +273,7 @@ namespace ColorLand
             SoundManager.LoadSound(cSOUND_COLORLAND_COMBO);
             
             mFontStageBegin = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("font\\stagebegin_font");
-            mTextureReady = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\instruction_1");
+            mTextureReady = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\ready");
             mTextureGO = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\instruction_3");
 
             mCursor = new Cursor();
@@ -309,12 +309,17 @@ namespace ColorLand
 
                 case sSTAGE_1:
 
-                    mBackgroundBack = new Background("gameplay\\backgrounds\\stage1_1\\stage1_1_layer1");
-                    mBackgroundFront = new Background("gameplay\\backgrounds\\stage1_1\\stage1_1_layer3");
+                    mBackgroundBack = new Background("gameplay\\backgrounds\\stage1_1\\new\\fase1_bg");
+                    mBackgroundFront = new Background();//new Background("gameplay\\backgrounds\\stage1_1\\new\\stage1_1_layer3");
             
-                    mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\stage1_1_layer2" },1,1000,600,0,0);
-                    //mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\stage1_1_layer3" }, 1, 1000, 600, 0, 0);
-                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\stage1_1_layer4" }, 1, 1000, 600, 0, 0);
+                    mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\new\\fase1_plataforma_02" },1,1000,163,0,600-163); //plataforma
+                    
+                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\new\\fase1_plataforma03" }, 1, 78, 147, 120, 600-147); //madeira esq
+                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\new\\fase1_plataforma04" }, 1, 65, 126, 730, 600 - 126); //madeira dir
+                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\new\\fase1_re_06" }, 1, 112, 185, 0, 600 - 185); //pato bottom left
+                    mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\new\\fase1_re_01" }, 1, 424, 221, 0, 0); //folhas top left
+                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\new\\fase1_re_03" }, 1, 229, 163, 1000-229, 0); //folhas top right
+                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\new\\fase1_re_09" }, 1, 121, 145, 1000-121, 600-145); //mato bottom down
 
                     mBackgroundBack.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mBackgroundBack.setLocation(0, 0);
@@ -405,7 +410,49 @@ namespace ColorLand
 
                     break;
 
+                //SELVA
                 case sSTAGE_3:
+
+                    mBackgroundBack = new Background("gameplay\\backgrounds\\stage1_4\\fase42.0");//"gameplay\\backgrounds\\stage1_1\\stage1_1_layer1");
+                    mBackgroundFront = new Background();
+
+                    //mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_3\\fase3_plataforma" }, 1, 1000, 133, 0, 400);
+                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_4\\fase4_02" }, 1, 211, 367, 0, 600-367); //mato esquerda
+                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_4\\fase4_05" }, 1, 177, 307, 1000-177, 600 - 307);
+                    
+
+                    mBackgroundBack.loadContent(Game1.getInstance().getScreenManager().getContent());
+                    mBackgroundBack.setLocation(0, 0);
+
+                    mBackgroundFront.loadContent(Game1.getInstance().getScreenManager().getContent());
+                    mBackgroundFront.setLocation(0, 0);
+
+                    mGroupCollectables.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    HUD.getInstance(this).loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    mExplosionManager = new ExplosionManager();
+
+                    mExplosionManager.addExplosion(20, Color.Red, Game1.getInstance().getScreenManager().getContent());
+                    mExplosionManager.addExplosion(20, Color.Green, Game1.getInstance().getScreenManager().getContent());
+                    mExplosionManager.addExplosion(20, Color.Blue, Game1.getInstance().getScreenManager().getContent());
+
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 100));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 200));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 300));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(200, 400));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Red, new Vector2(400, 400));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Blue, new Vector2(700, 400));
+
+                    mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
+                    mManager.start();
+
+                    mTimerBackgroundMovement = new MTimer(true);
+
+                    break;
+
+                //DESERTO
+                case sSTAGE_4:
 
                     mBackgroundBack = new Background("gameplay\\backgrounds\\stage1_3\\fase3_bg");//"gameplay\\backgrounds\\stage1_1\\stage1_1_layer1");
                     mBackgroundFront = new Background();
@@ -628,23 +675,7 @@ namespace ColorLand
                         mExplosionManager.getNextOfColor(be.getColor()).explode(be.getCenter());
                         be.destroy();
                         incrementProgress();
-
-                        if (!mOneThirdDone && oneThird())
-                        {
-                            sCURRENT_STAGE_X += cSPACE_TO_WALK;
-                            mWalkCamera = true;
-                            mOneThirdDone = true;
-                            SoundManager.PlaySound(cSOUND_CHECKPOINT1);
-                        }
                         
-                        if (!mSecondThirdDone && twoThirds())
-                        {
-                            sCURRENT_STAGE_X += cSPACE_TO_WALK;
-                            mWalkCamera = true;
-                            mSecondThirdDone = true;
-                            SoundManager.PlaySound(cSOUND_CHECKPOINT2);
-                        }
-
                         //COMBO
                         if (mComboCounter == 0)
                         {
@@ -969,7 +1000,7 @@ namespace ColorLand
 
                         if (mShowReady)
                         {
-                            mSpriteBatch.Draw(mTextureReady, new Rectangle(400, 200, 100, 90), Color.White);
+                            mSpriteBatch.Draw(mTextureReady, new Rectangle(300, 280, 265, 64), Color.White);
                         }
                         if (mShowGo)
                         {
@@ -1053,6 +1084,26 @@ namespace ColorLand
                 mPauseScreen.draw(gameTime);
             }
    
+        }
+
+        //item do carai de asa - destruicao em massa
+        public void instantInk(Color color)
+        {
+            for (int k = 0; k < mManager.getGameObjectsGroup().getSize(); k++)
+            {
+                BaseEnemy be = (BaseEnemy)mManager.getGameObjectsGroup().getGameObject(k);
+
+                if (be.getColor() == color)
+                {
+                    int x = (int)be.getX();
+                    int y = (int)be.getY();
+                    mExplosionManager.getNextOfColor(be.getColor()).explode(be.getCenter());
+                    be.destroy();
+                    incrementProgress();
+                }
+            }
+            
+
         }
 
         void drawDesaturation(GameTime gameTime, Background background)
@@ -1163,6 +1214,22 @@ namespace ColorLand
             HUD.getInstance(this).setBarLevel(porcentagemRestante);
             pulse = (int) (porcentagemRestante * 63 / 100.0f);
 
+
+            if (!mOneThirdDone && oneThird())
+            {
+                sCURRENT_STAGE_X += cSPACE_TO_WALK;
+                mWalkCamera = true;
+                mOneThirdDone = true;
+                SoundManager.PlaySound(cSOUND_CHECKPOINT1);
+            }
+
+            if (!mSecondThirdDone && twoThirds())
+            {
+                sCURRENT_STAGE_X += cSPACE_TO_WALK;
+                mWalkCamera = true;
+                mSecondThirdDone = true;
+                SoundManager.PlaySound(cSOUND_CHECKPOINT2);
+            }
         }
 
         public bool oneThird() {
@@ -1309,10 +1376,14 @@ namespace ColorLand
                     // If not down last update, key has just been pressed.
                     if (!oldState.IsKeyDown(Keys.Space))
                     {
+                        instantInk(mCursor.getColor());
+
                         //incrementProgress();
                         //damage();
-                        explodeStageFinish();
+                        /*explodeStageFinish();
                         
+                        sCURRENT_STAGE_X += cSPACE_TO_WALK;
+                        mWalkCamera = true;*/
                         sCURRENT_STAGE_X += cSPACE_TO_WALK;
                         mWalkCamera = true;
                     }

@@ -49,11 +49,17 @@ namespace ColorLand
 
         private static HUD instance;
 
+        private MouseState oldStateMouse;
+
         private GameObjectsGroup<Button> mGroupButtons;
         Button mCurrentHighlightButton;
 
         float energy=1f;
         float level=0;
+
+        private int mInstantInks;
+
+        private const int cMAX_INSTANT_INKS = 3;
 
         private static GamePlayScreen sContext;
 
@@ -86,13 +92,17 @@ namespace ColorLand
                             27);
 
             
-            mRectColorSlot1 = new Rectangle(574, 535, 70, 70);
+            /*mRectColorSlot1 = new Rectangle(574, 535, 70, 70);
             mRectColorSlot2 = new Rectangle(634, 512, 70, 70);
             mRectColorSlot3 = new Rectangle(695, 535, 70, 66);
-
-            mButtonRed = new Button("gameplay\\hud\\new\\balde_red", "gameplay\\hud\\new\\balde_red_selected", "gameplay\\hud\\new\\balde_red_selected", mRectColorSlot1);
+            */
+            mRectColorSlot1 = new Rectangle(574 - 260, 535, 70, 70);
+            mRectColorSlot2 = new Rectangle(634 - 260, 512, 70, 70);
+            mRectColorSlot3 = new Rectangle(695 - 260, 535, 70, 66);
+            
+            mButtonRed   = new Button("gameplay\\hud\\new\\balde_red", "gameplay\\hud\\new\\balde_red_selected", "gameplay\\hud\\new\\balde_red_selected", mRectColorSlot1);
             mButtonGreen = new Button("gameplay\\hud\\new\\balde_green", "gameplay\\hud\\new\\balde_green_selected", "gameplay\\hud\\new\\balde_green_selected", mRectColorSlot2);
-            mButtonBlue = new Button("gameplay\\hud\\new\\balde_blue", "gameplay\\hud\\new\\balde_blue_selected", "gameplay\\hud\\new\\balde_blue_selected", mRectColorSlot3);
+            mButtonBlue  = new Button("gameplay\\hud\\new\\balde_blue", "gameplay\\hud\\new\\balde_blue_selected", "gameplay\\hud\\new\\balde_blue_selected", mRectColorSlot3);
 
             //mButtonPause = new Button("gameplay\\hud\\new\\pause", "gameplay\\hud\\new\\pause_select", "gameplay\\hud\\new\\pause_selected", new Rectangle(727, 28, 54, 63));
 
@@ -158,8 +168,6 @@ namespace ColorLand
         {
             mGroupButtons.update(gameTime);
             //checkCollisions();
-
-            Game1.print("X DO VERMELHO> " + mButtonRed.getX());
 
             if (GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE < GamePlayScreen.sCURRENT_STAGE_X)
             {
@@ -227,7 +235,7 @@ namespace ColorLand
         {
             int complement = (int)GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE;
 
-            spriteBatch.Draw(mTextureHudBG, new Rectangle(550 + complement, Game1.sSCREEN_RESOLUTION_HEIGHT - 96, 238, 96), Color.White);
+            spriteBatch.Draw(mTextureHudBG, new Rectangle(550 + complement - 260, Game1.sSCREEN_RESOLUTION_HEIGHT - 96, 238, 96), Color.White);
             spriteBatch.Draw(mTextureHudBGHead, new Rectangle(42 + complement, 38, 285, 64), Color.White);
 
             if (energy > 0)
@@ -293,7 +301,7 @@ namespace ColorLand
                             }
                         }
 
-                /*if (mousePressing)
+                if (mousePressing)
                 {
                     if (mCurrentHighlightButton == mButtonRed)
                     {
@@ -322,7 +330,7 @@ namespace ColorLand
                         {
                         }
                 }
-                */
+                
 
             }
 
@@ -374,7 +382,32 @@ namespace ColorLand
             }
 
         }
- 
+
+        public int getInstantInks()
+        {
+            return this.mInstantInks;
+        }
+
+        public void addInstantInk()
+        {
+            if (mInstantInks < cMAX_INSTANT_INKS)
+            {
+                this.mInstantInks++;
+            }
+        }
+
+        public void removeInstantInk()
+        {
+            if (mInstantInks > 0)
+            {
+                this.mInstantInks--;
+            }
+        }
+
+        public void setInstantInk(int amount)
+        {
+            this.mInstantInks = amount;
+        }
 
     }
 }
