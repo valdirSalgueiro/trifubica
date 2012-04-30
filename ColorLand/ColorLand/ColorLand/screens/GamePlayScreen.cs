@@ -1136,18 +1136,17 @@ namespace ColorLand
 
         public void damage()
         {
-            energy -= 10;
-
-            if (energy < 0)
-                energy = 0;
-         
-
-            porcentagemRestante = ExtraFunctions.valueToPercent(energy, 100);
-
-            HUD.getInstance(this).setPlayerBarLevel(porcentagemRestante);
-
             if (!mMainCharacter.isHurt())
             {
+                energy -= 10;
+
+                if (energy < 0)
+                    energy = 0;
+
+
+                porcentagemRestante = ExtraFunctions.valueToPercent(energy, 100);
+
+                HUD.getInstance(this).setPlayerBarLevel(porcentagemRestante);
                 mMainCharacter.hurt();
             }
 
