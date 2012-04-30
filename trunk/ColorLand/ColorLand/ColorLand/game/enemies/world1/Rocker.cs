@@ -75,17 +75,18 @@ namespace ColorLand
             }
             if (color == Color.Blue)
             {
-                mSpriteFlyingRight = new Sprite(ExtraFunctions.fillArrayWithImages2(0,4, "enemies\\rocker\\red\\red"), new int[] { 2 }, 4, 72, 110, false, false);
-                mSpriteFlyingLeft = new Sprite(ExtraFunctions.fillArrayWithImages2(0, 4, "enemies\\rocker\\red\\red"), new int[] { 3 }, 4, 72, 110, false, false);
-                mSpriteFlyingStopped = new Sprite(ExtraFunctions.fillArrayWithImages2(0, 4, "enemies\\rocker\\red\\red"), new int[] { 0 }, 4, 72, 110, false, false);
-                mSpriteFlyingAttacking = new Sprite(ExtraFunctions.fillArrayWithImages2(0, 4, "enemies\\rocker\\red\\red"), new int[] { 1 }, 4, 72, 110, false, false);
+                mSpriteFlyingRight = new Sprite(ExtraFunctions.fillArrayWithImages2(0, 4, "enemies\\rocker\\blue\\blue"), new int[] { 2 }, 4, 72, 110, false, false);
+                mSpriteFlyingLeft = new Sprite(ExtraFunctions.fillArrayWithImages2(0, 4, "enemies\\rocker\\blue\\blue"), new int[] { 3 }, 4, 72, 110, false, false);
+                mSpriteFlyingStopped = new Sprite(ExtraFunctions.fillArrayWithImages2(0, 4, "enemies\\rocker\\blue\\blue"), new int[] { 0 }, 4, 72, 110, false, false);
+                mSpriteFlyingAttacking = new Sprite(ExtraFunctions.fillArrayWithImages2(0, 4, "enemies\\rocker\\blue\\blue"), new int[] { 1 }, 4, 72, 110, false, false);
             }
             if (color == Color.Green)
             {
-                mSpriteFlyingRight = new Sprite(ExtraFunctions.fillArrayWithImages2(0,4, "enemies\\rocker\\red\\red"), new int[] { 2 }, 4, 72, 110, false, false);
-                mSpriteFlyingLeft = new Sprite(ExtraFunctions.fillArrayWithImages2(0, 4, "enemies\\rocker\\red\\red"), new int[] { 3 }, 4, 72, 110, false, false);
-                mSpriteFlyingStopped = new Sprite(ExtraFunctions.fillArrayWithImages2(0, 4, "enemies\\rocker\\red\\red"), new int[] { 0 }, 4, 72, 110, false, false);
-                mSpriteFlyingAttacking = new Sprite(ExtraFunctions.fillArrayWithImages2(0, 4, "enemies\\rocker\\red\\red"), new int[] { 1 }, 4, 72, 110, false, false);
+
+                mSpriteFlyingRight = new Sprite(ExtraFunctions.fillArrayWithImages2(0, 4, "enemies\\rocker\\green\\green"), new int[] { 2 }, 4, 72, 110, false, false);
+                mSpriteFlyingLeft = new Sprite(ExtraFunctions.fillArrayWithImages2(0, 4, "enemies\\rocker\\green\\green"), new int[] { 3 }, 4, 72, 110, false, false);
+                mSpriteFlyingStopped = new Sprite(ExtraFunctions.fillArrayWithImages2(0, 4, "enemies\\rocker\\green\\green"), new int[] { 0 }, 4, 72, 110, false, false);
+                mSpriteFlyingAttacking = new Sprite(ExtraFunctions.fillArrayWithImages2(0, 4, "enemies\\rocker\\green\\green"), new int[] { 1 }, 4, 72, 110, false, false);
             }
 
             addSprite(mSpriteFlyingRight, sSTATE_FLYING_RIGHT);
