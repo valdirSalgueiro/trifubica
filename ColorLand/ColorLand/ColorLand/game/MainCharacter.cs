@@ -310,9 +310,9 @@ namespace ColorLand
 
             if (getState() != sSTATE_VICTORY && getState() != sSTATE_LOSE)
             {
-                Vector2 vec = new Vector2(mX + 100, mY + 100);
-                float dx= vec.X + (float)Math.Cos(mRightHandAngle) * 60;
-                float dy= vec.Y + (float)Math.Sin(mRightHandAngle) * 60;
+                Vector2 vec = new Vector2(mX + 93, mY + 100);
+                float dx= vec.X + (float)Math.Cos(mRightHandAngle) * 70;
+                float dy= vec.Y + (float)Math.Sin(mRightHandAngle) * 70;
 
                 //spriteBatch.Draw(mLeftHandTexture, new Vector2(mX + 40, mY + 40), null, Color.White, mLeftHandAngle - (float)Math.PI, new Vector2(800, 331), 0.1f, SpriteEffects.None, 0f);
                 spriteBatch.Draw(mRightHandTexture, new Vector2(dx + 20 , dy + 40), null, Color.White, mRightHandAngle + (float)Math.PI / 2, new Vector2(13, 22), 1.2f, SpriteEffects.None, 0f);
@@ -328,7 +328,13 @@ namespace ColorLand
             Vector2 directionRightHand = new Vector2(Mouse.GetState().X,Mouse.GetState().Y) - new Vector2(mX + 100, mY + 100);
             float angleHandCursor = (float)(Math.Atan2(directionRightHand.Y, directionRightHand.X));
 
-            mRightHandAngle = angleHandCursor;
+
+            if( !(Mouse.GetState().Y > mY && (Mouse.GetState().X > mX-125 && Mouse.GetState().X < mX + 230))){
+                mRightHandAngle = angleHandCursor;
+            }else{
+                
+            }
+                        
         }
 
 

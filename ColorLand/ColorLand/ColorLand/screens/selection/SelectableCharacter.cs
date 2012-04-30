@@ -10,6 +10,10 @@ namespace ColorLand
 {
     class SelectableCharacter : GameObject
     {
+        
+        private const String cSOUND_HIGHLIGHT = "sound\\fx\\colorswap8bit";
+        private const String cSOUND_SELECT    = "sound\\fx\\charselect-8bit";//
+        public const String  cSOUND_SELECTION = "sound\\fx\\charselected-8bits";
 
         //SpriteFont mFontDebug = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("debug");
 
@@ -103,6 +107,11 @@ namespace ColorLand
         public override void loadContent(ContentManager content)
         {
             base.loadContent(content);
+
+            SoundManager.LoadSound(cSOUND_HIGHLIGHT);
+            SoundManager.LoadSound(cSOUND_SELECT);
+            SoundManager.LoadSound(cSOUND_SELECTION);
+
         }
 
 
@@ -163,7 +172,8 @@ namespace ColorLand
                 changeState(sSTATE_EXPLOSION);
                 Game1.print("PRIU");
             }
-           
+
+                      
 
             base.update(gameTime);//getCurrentSprite().update();
             //LOGICA 
@@ -249,6 +259,7 @@ namespace ColorLand
                 case sSTATE_HIGHLIGHTED:
                     if (getState() != sSTATE_HIGHLIGHTED)
                     {
+                        SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                         setState(sSTATE_HIGHLIGHTED);
                         changeToSprite(sSTATE_HIGHLIGHTED);
 
@@ -264,6 +275,7 @@ namespace ColorLand
                 case sSTATE_SELECTED:
                     if (getState() != sSTATE_SELECTED)
                     {
+                        SoundManager.PlaySound(cSOUND_SELECT);
                         setState(sSTATE_SELECTED);
                         changeToSprite(sSTATE_SELECTED);
 
@@ -278,6 +290,7 @@ namespace ColorLand
                 case sSTATE_EXPLOSION:
                     if (getState() != sSTATE_EXPLOSION)
                     {
+                        SoundManager.PlaySound(cSOUND_SELECTION);
                         setState(sSTATE_EXPLOSION);
                         changeToSprite(sSTATE_EXPLOSION);
 
