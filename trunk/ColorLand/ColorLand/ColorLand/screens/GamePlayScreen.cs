@@ -53,7 +53,7 @@ namespace ColorLand
          *******************/
         public static int sGROUND_WORLD_1_1 = 500;
 
-        int energy = 100;
+        int energy = 1;//100;
         int progress = 0;
         int numberEnemies = 40;
         int pulse = 0;
@@ -237,14 +237,14 @@ namespace ColorLand
             mPauseScreen = new PauseScreen(this);
 
             mShowBlackBackground = false;
-            setGameState(GAME_STATE_EM_JOGO);
-            //setGameState(GAME_STATE_PREPARANDO);
+            //setGameState(GAME_STATE_EM_JOGO);
+            setGameState(GAME_STATE_PREPARANDO);
            
             mKeyboard = KeyboardManager.getInstance();
 
             mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.SLOW);
 
-            SoundManager.SetMusicVolume(0.4f);
+            SoundManager.SetMusicVolume(0.8f);
             
             executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
             //,
@@ -302,7 +302,7 @@ namespace ColorLand
 
 
             //TODO debug
-            mCurrentStage = 3;
+            mCurrentStage = 4;
 
             switch (mCurrentStage)
             {
@@ -336,11 +336,11 @@ namespace ColorLand
                     mExplosionManager.addExplosion(20, Color.Green, Game1.getInstance().getScreenManager().getContent());
                     mExplosionManager.addExplosion(20, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(100, 400));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(500, 0));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(700, 0));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(-100, getPlayerLocation().Y));                
-   
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(100, 400));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(100, 400));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(100, 400));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(100, 400));
+                    
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mManager.start();
                    
@@ -1109,6 +1109,14 @@ namespace ColorLand
         void drawDesaturation(GameTime gameTime, Background background)
         {
             // Begin the sprite batch, using our custom effect.
+            if (mCurrentStage == sSTAGE_4)
+            {
+                desaturateEffect.Parameters["fTimer"].SetValue((float)gameTime.TotalGameTime.TotalSeconds);
+                desaturateEffect.Parameters["iSeed"].SetValue(1337);
+                desaturateEffect.Parameters["fNoiseAmount"].SetValue(0.002f);
+                desaturateEffect.Parameters["bHeat"].SetValue(true);
+            }
+            
             mSpriteBatch.Begin(0, null, null, null, null, desaturateEffect, mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
 
             // Draw four copies of the same sprite with different saturation levels.

@@ -276,7 +276,7 @@ namespace ColorLand
 
                 //Game1.print(" XOE");
 
-                if (mCurrentHighlightButton == mButtonRed)
+               /* if (mCurrentHighlightButton == mButtonRed)
                 {
                     if (cursor.getColor() != Color.Red)
                     {
@@ -299,7 +299,7 @@ namespace ColorLand
                             {
                                 cursor.changeColor(Color.Blue);
                             }
-                        }
+                        }*/
 
                 if (mousePressing)
                 {

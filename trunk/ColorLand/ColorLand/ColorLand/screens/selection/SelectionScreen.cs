@@ -12,7 +12,8 @@ namespace ColorLand
 {
     public class SelectionScreen : BaseScreen
     {
-        private const String cSOUND_HIGHLIGHT = "sound\\fx\\highlight8bit";
+        
+        //private const String cSOUND_HIGHLIGHT = "sound\\fx\\highlight8bit";
         private SpriteBatch mSpriteBatch;
 
         //Lista dos backgrounds
@@ -98,8 +99,6 @@ namespace ColorLand
 
             mSelectableCharacterBlue = new SelectableCharacter(new Vector2(625 - 5, 308 + 6), Color.Blue);
             mSelectableCharacterBlue.loadContent(Game1.getInstance().getScreenManager().getContent());
-
-            SoundManager.LoadSound(cSOUND_HIGHLIGHT);
 
             mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.FAST);
             executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
@@ -290,6 +289,8 @@ namespace ColorLand
                 mCurrentSelectableCharacter = null;
                 if (mCursor.collidesWith(mRect1))
                 {
+                    //SoundManager.PlaySound(cSOUND_SELECT);
+                    
                     mCurrentSelectableCharacter = mSelectableCharacterRed;
 
                     mSelectableCharacterGreen.changeState(SelectableCharacter.sSTATE_UNSELECTED);
@@ -301,6 +302,8 @@ namespace ColorLand
 
                     if (mCursor.collidesWith(mRect2))
                     {
+                        //SoundManager.PlaySound(cSOUND_SELECT);
+
                         mCurrentSelectableCharacter = mSelectableCharacterGreen;
 
                         mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_UNSELECTED);
@@ -313,6 +316,8 @@ namespace ColorLand
 
                         if (mCursor.collidesWith(mRect3))
                         {
+
+                            //SoundManager.PlaySound(cSOUND_SELECT);
                             mCurrentSelectableCharacter = mSelectableCharacterBlue;
 
                             mSelectableCharacterRed.changeState(SelectableCharacter.sSTATE_UNSELECTED);
