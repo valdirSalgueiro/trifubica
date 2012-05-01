@@ -279,7 +279,7 @@ namespace ColorLand
 
         private void loadStage(int stage)
         {
-
+            RockManager.getInstance().cleanUp();
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
             //mBlackBackground = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("fades\\blackfade");
             desaturateEffect = Game1.getInstance().getScreenManager().getContent().Load<Effect>("effects\\desaturate");
