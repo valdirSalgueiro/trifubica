@@ -213,7 +213,7 @@ namespace ColorLand
                     mMacromapPlayer.perfectSize();
                     //mMacromapPlayer.setVisible(true);
 
-                    mBackgroundBefore = new Background("gameplay\\macromap\\mapa_bg_00");
+                    mBackgroundBefore = new Background("gameplay\\macromap\\mapa_bg_01");
                     mBackgroundBefore.loadContent(Game1.getInstance().getScreenManager().getContent());
 
                     mBackgroundImage = new Background("gameplay\\macromap\\mapa_bg_04");
