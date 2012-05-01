@@ -1110,6 +1110,7 @@ namespace ColorLand
         {
             // Begin the sprite batch, using our custom effect.
             desaturateEffect.Parameters["fTimer"].SetValue((float)gameTime.TotalGameTime.TotalSeconds);
+            desaturateEffect.Parameters["bShip"].SetValue(mCurrentStage == sSTAGE_2);
             if (mCurrentStage == sSTAGE_4)
             {               
                 desaturateEffect.Parameters["iSeed"].SetValue(1337);
