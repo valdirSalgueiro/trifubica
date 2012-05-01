@@ -18,6 +18,7 @@ namespace ColorLand
         private int mCurrentIndex = -1;
         private MTimer mTimer;
 
+        private int mTimeIntervalBetweenEnemies;
 
         public void accelerateTime()
         {
@@ -44,12 +45,28 @@ namespace ColorLand
         {
             mList = new List<BaseEnemy>();
             mGroup = new GameObjectsGroup<BaseEnemy>();
+
+            mTimeIntervalBetweenEnemies = cTIME_BETWEEN_ENEMIES;
         }
 
         public void start()
         {
             mTimer = new MTimer();
             mTimer.start();
+        }
+
+        public int getTimeBetweenEnemies()
+        {
+            return this.mTimeIntervalBetweenEnemies;
+        }
+
+        public void restartTimeInterval(int interval)
+        {
+            if (mTimeIntervalBetweenEnemies != interval)
+            {
+                mTimeIntervalBetweenEnemies = interval;
+                mTimer = new MTimer(true);
+            }
         }
 
         public void addEnemy(EnemiesTypes type, Color c, Vector2 location)
@@ -138,6 +155,7 @@ namespace ColorLand
             return null;
         }
 
+       
         private BaseEnemy checkNext()
         {
 
@@ -175,7 +193,7 @@ namespace ColorLand
 
                 mTimer.update(gameTime);
 
-                if (mTimer.getTimeAndLock(cTIME_BETWEEN_ENEMIES))
+                if (mTimer.getTimeAndLock(mTimeIntervalBetweenEnemies))
                 {
                     if (checkNext() != null)
                     {
