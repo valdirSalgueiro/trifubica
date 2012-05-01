@@ -12,6 +12,7 @@ float fNoiseAmount;
 int iSeed;
 
 bool bHeat;
+bool bShip;
 
 float4 main(float4 color : COLOR0, float2 texCoord : TEXCOORD0) : COLOR0
 {
@@ -28,10 +29,11 @@ float4 main(float4 color : COLOR0, float2 texCoord : TEXCOORD0) : COLOR0
 
 	// Look up the texture color.
     float4 tex;
-	texCoord.y=texCoord.y+sin(fTimer)*0.02f;
     
 	if(bHeat){
 		tex = tex2D(TextureSampler, texCoord+DistortTex);
+    }if(bShip){
+		tex = tex2D(TextureSampler, float2(texCoord.x,texCoord.y+sin(fTimer)*0.02f));
     }else{
 		tex = tex2D(TextureSampler, texCoord);
 	}
