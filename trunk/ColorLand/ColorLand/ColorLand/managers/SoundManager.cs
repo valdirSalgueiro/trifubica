@@ -11,7 +11,7 @@ namespace ColorLand
 {
     public static class SoundManager
     {
-        private static bool activated = true;
+        private static bool activated = false;
 
         //the sound effects for our game
         static Dictionary<string, SoundEffect> sounds =
