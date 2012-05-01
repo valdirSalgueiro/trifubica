@@ -21,6 +21,11 @@ namespace ColorLand.managers
             return instance;
         }
 
+        public void restart()
+        {
+            instance = null;
+        }
+
         public void createObject(Vector2 position, Vector2 vel, Color rockType)
         {
             Rock rock = new Rock(vel);

@@ -397,5 +397,43 @@ namespace ColorLand
 
         }
 
+
+        public void changeState(int state)
+        {
+
+            switch (state)
+            {
+                case sSTATE_NORMAL:
+                    
+                        setState(sSTATE_NORMAL);
+                        changeToSprite(sSTATE_NORMAL);
+                    
+                    break;
+                case sSTATE_BLUE:
+                    if (getState() != sSTATE_BLUE)
+                    {
+                        setState(sSTATE_BLUE);
+                        changeToSprite(sSTATE_BLUE);
+                    }
+                    break;
+                case sSTATE_GREEN:
+                    if (getState() != sSTATE_GREEN)
+                    {
+                        setState(sSTATE_GREEN);
+                        changeToSprite(sSTATE_GREEN);
+                    }
+                    break;
+                case sSTATE_RED:
+                    if (getState() != sSTATE_RED)
+                    {
+                        setState(sSTATE_RED);
+                        changeToSprite(sSTATE_RED);
+                    }
+                    break;
+               
+            }
+
+        }
+
     }
 }
