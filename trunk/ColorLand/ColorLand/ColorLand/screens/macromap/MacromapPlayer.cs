@@ -131,8 +131,7 @@ namespace ColorLand
             {
                 increaseScaleIn(mGrowValue);
             }
-
-            
+                       
 
             base.update(gameTime);//getCurrentSprite().update();
             //LOGICA 

@@ -80,8 +80,6 @@ namespace ColorLand
                 //SoundManager.PlayMusic("sound\\music\\historia1");
             }
 
-            SoundManager.LoadSound(cSOUND_FALLING);
-            
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
             
@@ -110,6 +108,7 @@ namespace ColorLand
             {
             //    Game1.print("AGAIN 1");
               //  setMacroMapState(MacroMapState.FirstStage);
+                SoundManager.LoadSound(cSOUND_FALLING);
                 Game1.print("Stage 1");
                 setMacroMapState(MacroMapState.FirstStage);
             }
@@ -119,7 +118,7 @@ namespace ColorLand
                 setMacroMapState(MacroMapState.SecondStage); 
             }
 
-            setMacroMapState(MacroMapState.FirstStage);
+            setMacroMapState(MacroMapState.SecondStage);
 
             SoundManager.PlayMusic(cMUSIC_MAP);
 
@@ -141,8 +140,7 @@ namespace ColorLand
             switch (state)
             {
                 case MacroMapState.FirstStage:
-                                     
-                                        
+                                                                             
                     if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.RED)
                     {
                         mTexturePlayerFalling = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\caindo_mapa_02");
@@ -187,8 +185,33 @@ namespace ColorLand
                     mMacromapPlayer.setCenter(214, 265);
                     mMacromapPlayer.perfectSize();
                     //mMacromapPlayer.setVisible(true);
-                    mMacromapPlayer.setDestiny(83, 117);
-                    mMacromapPlayer.moveTo(new Vector2(83, 117));
+                    
+                    mBackgroundBefore = new Background("gameplay\\macromap\\mapa_bg_00");
+                    mBackgroundBefore.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    mBackgroundImage = new Background("gameplay\\macromap\\mapa_bg_04");
+                    mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    mMacromapShip = new MacromapShip(new Vector2(40, 100), MacromapShip.ColorStatus.Black_And_White);
+                    mMacromapShip.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    mExplosionManager = new ExplosionManager();
+                    mExplosionManager.addExplosion(10, Color.Red, Game1.getInstance().getScreenManager().getContent());
+
+                    mShowTextureFallingPlayer = false;
+                    break;
+
+                case MacroMapState.ThirdStage:
+
+                    if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.RED) mMacromapPlayer = new MacromapPlayer(Color.Red, new Vector2(100, 130));
+                    if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.GREEN) mMacromapPlayer = new MacromapPlayer(Color.Green, new Vector2(100, 130));
+                    if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.BLUE) mMacromapPlayer = new MacromapPlayer(Color.Blue, new Vector2(100, 130));
+
+                    mMacromapPlayer.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    mMacromapPlayer.setCenter(44, 465);
+                    mMacromapPlayer.perfectSize();
+                    //mMacromapPlayer.setVisible(true);
 
                     mBackgroundBefore = new Background("gameplay\\macromap\\mapa_bg_00");
                     mBackgroundBefore.loadContent(Game1.getInstance().getScreenManager().getContent());
@@ -206,17 +229,6 @@ namespace ColorLand
                     break;
             }
         }
-
-        /*
-        private void goToGameScreen()
-        {
-            if (mTimer != null)
-            {
-                mTimer.stop();
-                mTimer = null;
-            }
-            Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true);
-        }*/
 
         private void restartTimer()
         {
@@ -247,6 +259,7 @@ namespace ColorLand
                 }
                 if (mCurrentMacroMapState == MacroMapState.SecondStage)
                 {
+                    //explode cenario
                     if (mTimer.getTimeAndLock(1))
                     {
                         mBackgroundBefore = null;
@@ -256,8 +269,53 @@ namespace ColorLand
                         mExplosionManager.getNextOfColor(Color.Red).explode(75, 316);
                     }
 
-                    
-                    
+                    //anda em direcao ao barco
+                    if (mTimer.getTimeAndLock(3))
+                    {
+                        mMacromapPlayer.setDestiny(83, 117);
+                        mMacromapPlayer.moveTo(new Vector2(83, 117));
+                    }
+
+                    //barco anda junto com jogador pra fora da tela
+                    if (mTimer.getTimeAndLock(7))
+                    {
+                        mMacromapShip.setFlip(true);
+                        mMacromapShip.moveTo(new Vector2(-180, (int)mMacromapShip.mY));
+
+                        mMacromapPlayer.setDestiny(-180, (int)mMacromapShip.mY);
+                        mMacromapPlayer.moveTo(new Vector2(-180, (int)mMacromapShip.mY));
+                    }
+                 
+                }
+                if (mCurrentMacroMapState == MacroMapState.ThirdStage)
+                {
+                    //explode cenario
+                    if (mTimer.getTimeAndLock(1))
+                    {
+                        mBackgroundBefore = null;
+                        mExplosionManager.getNextOfColor(Color.Red).explode(224, 140);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(185, 205);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(109, 225);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(75, 316);
+                    }
+
+                    //anda em direcao ao barco
+                    if (mTimer.getTimeAndLock(3))
+                    {
+                        mMacromapPlayer.setDestiny(83, 117);
+                        mMacromapPlayer.moveTo(new Vector2(83, 117));
+                    }
+
+                    //barco anda junto com jogador pra fora da tela
+                    if (mTimer.getTimeAndLock(7))
+                    {
+                        mMacromapShip.setFlip(true);
+                        mMacromapShip.moveTo(new Vector2(-180, (int)mMacromapShip.mY));
+
+                        mMacromapPlayer.setDestiny(-180, (int)mMacromapShip.mY);
+                        mMacromapPlayer.moveTo(new Vector2(-180, (int)mMacromapShip.mY));
+                    }
+
 
                 }
                

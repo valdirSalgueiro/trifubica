@@ -404,16 +404,16 @@ namespace ColorLand
             switch (state)
             {
                 case sSTATE_NORMAL:
-                    
+                        setCollisionRect(0, 0, 40, 40);
                         setState(sSTATE_NORMAL);
                         changeToSprite(sSTATE_NORMAL);
-                    
                     break;
                 case sSTATE_BLUE:
                     if (getState() != sSTATE_BLUE)
                     {
                         setState(sSTATE_BLUE);
                         changeToSprite(sSTATE_BLUE);
+                        setCollisionRect(24, 24, 53, 53);
                     }
                     break;
                 case sSTATE_GREEN:
@@ -421,6 +421,7 @@ namespace ColorLand
                     {
                         setState(sSTATE_GREEN);
                         changeToSprite(sSTATE_GREEN);
+                        setCollisionRect(24, 24, 53, 53);
                     }
                     break;
                 case sSTATE_RED:
@@ -428,6 +429,7 @@ namespace ColorLand
                     {
                         setState(sSTATE_RED);
                         changeToSprite(sSTATE_RED);
+                        setCollisionRect(24, 24, 53, 53);
                     }
                     break;
                
