@@ -46,31 +46,14 @@ namespace ColorLand
         public const String cSOUND_CHAR_GREAT_COMBO    = "sound\\fx\\charsounds\\great_combo";
         public const String cSOUND_COLORLAND_COMBO     = "sound\\fx\\charsounds\\colorland_combo";
         public const String cSOUND_COLORLAND_OUCH      = "sound\\fx\\charsounds\\OUCH";
-
-
         
-        /*******************
-         * GAMEOVER CONTENT
-         *******************/
-        private bool mCollidingWithSomeButton;
-
-        private Button mCurrentHighlightButton;
-        private GameObjectsGroup<Button> mGroupButtons;
-
-        private Texture2D mGameOverTitle;
-        private Texture2D mGameOverQuestion;
-        private Button    mGameOverButtonTryAgain;
-        private Button    mGameOverButtonTryLater;
-
-        private bool mShowGameoverContent;
-        private float mAlphaGameoverContent = 0f;
 
         /*******************
          * CONSTANTS
          *******************/
         public static int sGROUND_WORLD_1_1 = 500;
 
-        int energy = 100;
+        int energy = 1;//100;
         int progress = 0;
         int numberEnemies = 40;
         int pulse = 0;
@@ -162,11 +145,7 @@ namespace ColorLand
         /* ******************
         * FADE PARAMS
         * *************/
-        private Texture2D mBackgroundGameoverBlack = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("fades\\blackfade");
         private Texture2D mBlackBackground = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("fades\\blackfade");
-
-        private bool mShowBackgroundGameOverBlack;
-        private float mAlphaBackgroundGameOverBlack;
 
         private FADE_PARAM mFadeParam;
 
@@ -174,11 +153,8 @@ namespace ColorLand
         {
             NEXT_STAGE,
             GAME_OVER,
-            RESTART_STAGE,
-            QUIT_TO_MAIN_MENU,
         }
 
-        
 
         private Background mBackgroundBack;
         private Background mBackgroundFront;
@@ -189,10 +165,6 @@ namespace ColorLand
         private GameObjectsGroup<Collectable> mGroupCollectables = new GameObjectsGroup<Collectable>();
 
         private Camera mCamera;
-        //private Camera mCameraFront;
-
-        private MTimer mTimerFrontalBG;
-        private bool mMoveFrontalBG;
 
         private ColorChoiceBar mColorChoiceBar;
         private int mColorCount;
@@ -257,8 +229,7 @@ namespace ColorLand
             mGameState = GAME_STATE_SUCESSO;
 
             mCamera = new Camera();
-            //mCameraFront = new Camera();      
-      
+                        
             mCurrentStage = ExtraFunctions.loadProgress().getCurrentStage();
             mCurrentStage = 2; //debug
             loadStage(mCurrentStage);
@@ -266,8 +237,8 @@ namespace ColorLand
             mPauseScreen = new PauseScreen(this);
 
             mShowBlackBackground = false;
-            setGameState(GAME_STATE_EM_JOGO);
-            //setGameState(GAME_STATE_PREPARANDO);
+            //setGameState(GAME_STATE_EM_JOGO);
+            setGameState(GAME_STATE_PREPARANDO);
            
             mKeyboard = KeyboardManager.getInstance();
 
@@ -330,20 +301,8 @@ namespace ColorLand
             mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 434);
 
 
-            ////////////////////GAME OVER
-            mGameOverTitle = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\gameover\\game_over_title");
-            mGameOverQuestion = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\gameover\\gameover_playagain");
-            mGameOverButtonTryAgain = new Button("gameplay\\gameover\\gameover_now", "gameplay\\gameover\\gameover_now_select", "gameplay\\gameover\\gameover_now_selected", new Rectangle(240, 305, 185, 101));
-            mGameOverButtonTryLater = new Button("gameplay\\gameover\\gameover_later", "gameplay\\gameover\\gameover_later_select", "gameplay\\gameover\\gameover_later_selected", new Rectangle(395, 305, 185, 101)); ;
-
-            mGroupButtons = new GameObjectsGroup<Button>();
-            mGroupButtons.addGameObject(mGameOverButtonTryAgain);
-            mGroupButtons.addGameObject(mGameOverButtonTryLater);
-
-            mGroupButtons.loadContent(Game1.getInstance().getScreenManager().getContent());
-
             //TODO debug
-            mCurrentStage = 4;
+            mCurrentStage = 2;
 
             switch (mCurrentStage)
             {
@@ -369,6 +328,8 @@ namespace ColorLand
                     mBackgroundFront.setLocation(0, 0);
                    
                     mGroupCollectables.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    HUD.getInstance(this).loadContent(Game1.getInstance().getScreenManager().getContent());
 
                     mExplosionManager = new ExplosionManager();
                     mExplosionManager.addExplosion(20, Color.Red, Game1.getInstance().getScreenManager().getContent());
@@ -397,7 +358,7 @@ namespace ColorLand
                     mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_2\\agua_fase2_plataforma" }, 1, 1000, 105, 0, 600-105);
                     //mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\stage1_1_layer3" }, 1, 1000, 600, 0, 0);
                     mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_2\\agua_fase2_caixasleft" }, 1, 321, 222, 0, 600-222);
-                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_2\\agua_fase2_caixasright" }, 1, 247, 222, /*1000 - 247*/ 945, 600 - 198);
+                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_2\\agua_fase2_caixasright" }, 1, 247, 222, 1000 - 247, 600 - 222);
 
                     mBackgroundBack.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mBackgroundBack.setLocation(0, 0);
@@ -407,14 +368,14 @@ namespace ColorLand
                    
                     mGroupCollectables.loadContent(Game1.getInstance().getScreenManager().getContent());
 
+                    HUD.getInstance(this).loadContent(Game1.getInstance().getScreenManager().getContent());
+
                     mExplosionManager = new ExplosionManager();
 
                     mExplosionManager.addExplosion(20, Color.Red, Game1.getInstance().getScreenManager().getContent());
                     mExplosionManager.addExplosion(20, Color.Green, Game1.getInstance().getScreenManager().getContent());
                     mExplosionManager.addExplosion(20, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(0, 100));
-                    
                     /*mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Red, new Vector2(0, 350));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(150, 300));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(200, 400));
@@ -445,20 +406,21 @@ namespace ColorLand
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mManager.start();
 
-                    mTimerBackgroundMovement = new MTimer(true);
+                    //mTimerBackgroundMovement = new MTimer(true);
 
                     break;
 
                 //SELVA
                 case sSTAGE_3:
 
-                    mBackgroundBack = new Background("gameplay\\backgrounds\\stage1_4\\fase4_bg");//"gameplay\\backgrounds\\stage1_1\\stage1_1_layer1");
+                    mBackgroundBack = new Background("gameplay\\backgrounds\\stage1_4\\fase42.0");//"gameplay\\backgrounds\\stage1_1\\stage1_1_layer1");
                     mBackgroundFront = new Background();
 
-                    mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_4\\fase4_plataforma" }, 1, 1000, 100, 0, 500);
+                    //mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_3\\fase3_plataforma" }, 1, 1000, 133, 0, 400);
                     mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_4\\fase4_02" }, 1, 211, 367, 0, 600-367); //mato esquerda
-                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_4\\fase4_05" }, 1, 177, 307, 1015, 600 - 307); //mato direita
+                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_4\\fase4_05" }, 1, 177, 307, 1000-177, 600 - 307);
                     
+
                     mBackgroundBack.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mBackgroundBack.setLocation(0, 0);
 
@@ -466,6 +428,8 @@ namespace ColorLand
                     mBackgroundFront.setLocation(0, 0);
 
                     mGroupCollectables.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    HUD.getInstance(this).loadContent(Game1.getInstance().getScreenManager().getContent());
 
                     mExplosionManager = new ExplosionManager();
 
@@ -493,10 +457,10 @@ namespace ColorLand
                     mBackgroundBack = new Background("gameplay\\backgrounds\\stage1_3\\fase3_bg");//"gameplay\\backgrounds\\stage1_1\\stage1_1_layer1");
                     mBackgroundFront = new Background();
 
-                    mBackgroundBack.addPart(new String[1]  { "gameplay\\backgrounds\\stage1_3\\fase3_plataforma"}, 1, 1000, 133, 0, 600-133);
+                    mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_3\\fase3_plataforma" }, 1, 1000, 133, 0, 400);
                     mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_3\\fase3_02"}, 1, 237, 176, 0, 600 - 176);
                     mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_3\\fase3_05_03"}, 1, 83, 77, 500, 600 - 77);
-                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_3\\fase3_06"}, 1, 83, 116, 800, 600 - 116);
+                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_3\\fase3_06"}, 1, 83, 116, 500, 600 - 116);
                     
                     mBackgroundBack.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mBackgroundBack.setLocation(0, 0);
@@ -505,7 +469,8 @@ namespace ColorLand
                     mBackgroundFront.setLocation(0, 0);
 
                     mGroupCollectables.loadContent(Game1.getInstance().getScreenManager().getContent());
-                                       
+
+                    HUD.getInstance(this).loadContent(Game1.getInstance().getScreenManager().getContent());
 
                     mExplosionManager = new ExplosionManager();
 
@@ -513,10 +478,12 @@ namespace ColorLand
                     mExplosionManager.addExplosion(20, Color.Green, Game1.getInstance().getScreenManager().getContent());
                     mExplosionManager.addExplosion(20, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(200, 400));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 100));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 200));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 300));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(200, 400));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Red, new Vector2(400, 400));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Blue, new Vector2(700, 400));
-                   
                     
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mManager.start();
@@ -526,10 +493,6 @@ namespace ColorLand
                     break;
             }
 
-            HUD.getInstance(this).restart();
-            HUD.getInstance(this).loadContent(Game1.getInstance().getScreenManager().getContent());
-
-            RockManager.getInstance().restart();
             RockManager.getInstance().em = mExplosionManager;
         }
 
@@ -559,7 +522,7 @@ namespace ColorLand
                     mTimerCombo.stop();
                     mTimerCombo = null;
                     mComboCounter = 0;
-                    Game1.print("---CABOSSE O COMBO----");
+                    Game1.print("----CABOSSE O COMBO----");
                 }
 
             }
@@ -592,7 +555,6 @@ namespace ColorLand
                 if (mMustZoomAtFinish)
                 {
                     mCamera.setZoom(mCamera.getZoomLevel() + 0.0005f);
-                    //mCameraFront.setZoom(mCamera.getZoomLevel() + 0.0005f);
                 }
                 // mCamera.updateMalucoCenterCam(mMainCharacter.getX(), mMainCharacter.getY());
             }
@@ -638,7 +600,7 @@ namespace ColorLand
                 if (mCurrentStage == sSTAGE_2)
                 {
 
-                    for (double x = 0; x < 2.5; x += 0.1)
+                    for (double x = 0; x < 3; x += 0.1)
                     {
                         if (mTimerBackgroundMovement.getTimeAndLock(x))
                         {
@@ -654,7 +616,7 @@ namespace ColorLand
                     mBackgroundBack.getPart(2).addX(0.1f); //barco esquerda anda pra direita
                     mBackgroundBack.getPart(1).reduceX(0.1f); //barco direita anda pra esquerda
 
-                    for (double x = 2.5; x < 4.9; x += 0.1)
+                    for (double x = 3; x < 6; x += 0.1)
                     {
                         if (mTimerBackgroundMovement.getTimeAndLock(x))
                         {
@@ -676,176 +638,96 @@ namespace ColorLand
 
 
             }
-
-            //so pra movimentar o background frontal na lateal nos thirds
-            if (mTimerFrontalBG != null)
-            {
-                mTimerFrontalBG.update(gameTime);
-
-                if (mTimerFrontalBG.getTimeAndLock(3.4))
-                {
-                    mTimerFrontalBG = null;
-                    mMoveFrontalBG = false;
-                }
-            }
             
         }
 
 
         private void checkCollisions()
         {
-            if (mGameState == GAME_STATE_EM_JOGO)
+            HUD.getInstance(this).checkCollisions(mCursor, mMousePressing);
+
+            if (mManager.checkCollision(mMainCharacter))
             {
-                HUD.getInstance(this).checkCollisions(mCursor, mMousePressing);
+                BaseEnemy be = (BaseEnemy)mManager.getGameObjectsGroup().getCollidedObject();
 
-                if (mManager.checkCollision(mMainCharacter))
+                if (be is Bako)
                 {
-                    BaseEnemy be = (BaseEnemy)mManager.getGameObjectsGroup().getCollidedObject();
+                    int x = (int)be.getX();
+                    int y = (int)be.getY();
+                    mExplosionManager.getNextOfColor(be.getColor()).explode(be.getCenter());
+                    be.destroy();
+                    incrementProgress();
+                    damage();
+                }
+            }
 
-                    if (be is Bako)
+            if (!mCursor.isInnofensive() && mManager.checkCollision(mCursor))
+            {   
+                BaseEnemy be = (BaseEnemy)mManager.getGameObjectsGroup().getCollidedObject();
+                //mExplosionManager.getNextOfColor().explode((int)be.getX(), (int)be.getY());
+
+                if (be.getColor() == mCursor.getColor())
+                {
+                    if (!mCursor.isParalyzed())         
                     {
                         int x = (int)be.getX();
                         int y = (int)be.getY();
                         mExplosionManager.getNextOfColor(be.getColor()).explode(be.getCenter());
                         be.destroy();
                         incrementProgress();
-                        damage();
-                    }
-                }
-
-                if (!mCursor.isInnofensive() && mManager.checkCollision(mCursor))
-                {
-                    BaseEnemy be = (BaseEnemy)mManager.getGameObjectsGroup().getCollidedObject();
-                    //mExplosionManager.getNextOfColor().explode((int)be.getX(), (int)be.getY());
-
-                    if (be.getColor() == mCursor.getColor())
-                    {
-                        if (!mCursor.isParalyzed())
-                        {
-                            int x = (int)be.getX();
-                            int y = (int)be.getY();
-                            mExplosionManager.getNextOfColor(be.getColor()).explode(be.getCenter());
-                            be.destroy();
-                            incrementProgress();
-
-                            //COMBO
-                            if (mComboCounter == 0)
-                            {
-                                mTimerCombo = new MTimer(true);
-                            }
-                            mComboCounter++;
-                            if (mComboCounter == 3)
-                            {
-                                SoundManager.PlaySound(cSOUND_CHAR_NICE_COMBO);
-                            }
-                            if (mComboCounter == 6)
-                            {
-                                SoundManager.PlaySound(cSOUND_CHAR_GREAT_COMBO);
-                                if (mTimerCombo != null)
-                                {
-                                    mTimerCombo.start();
-                                }
-                            }
-                            if (mComboCounter == 9)
-                            {
-                                SoundManager.PlaySound(cSOUND_COLORLAND_COMBO);
-                                if (mTimerCombo != null)
-                                {
-                                    mTimerCombo.start();
-                                }
-                            }
-
-                        }
-                        //Collectable c = mGroupCollectables.getNext();
-                        //c.appear(x, y);
-                    }
-                    else
-                    {
-                        //FUDEU
-                        if (!mCursor.isParalyzed())
-                        {
-                            SoundManager.PlaySound(cSOUND_CHAR_OOPS);
-                            mCursor.paralyze();
-                        }
-
-                    }
-                    //mGroup.remove(be);
-
-
-
-                }
-
-                if (mManager.checkAttackCollision(mMainCharacter))
-                {
-                    damage();
-                }
-            }
-
-
-            if (mGameState == GAME_STATE_DERROTA)
-            {
-                if (mGroupButtons.checkCollisionWith(mCursor))
-                {
-                    mCurrentHighlightButton = (Button)mGroupButtons.getCollidedObject();
-
-                    solveHighlightBug();
-
-                    if (mMousePressing)
-                    {
                         
-                        if (mCurrentHighlightButton.getState() != Button.sSTATE_PRESSED)
+                        //COMBO
+                        if (mComboCounter == 0)
                         {
-                            mCurrentHighlightButton.changeState(Button.sSTATE_PRESSED);
+                            mTimerCombo = new MTimer(true);
                         }
-                    }
-                    else
-                    {
-
-                        if (mCurrentHighlightButton.getState() != Button.sSTATE_HIGHLIGH)
+                        mComboCounter++;
+                        if (mComboCounter == 3)
                         {
-                            mCurrentHighlightButton.changeState(Button.sSTATE_HIGHLIGH);
+                            SoundManager.PlaySound(cSOUND_CHAR_NICE_COMBO);
+                        }
+                        if (mComboCounter == 6)
+                        {
+                            SoundManager.PlaySound(cSOUND_CHAR_GREAT_COMBO);
+                            if (mTimerCombo != null)
+                            {
+                                mTimerCombo.start();
+                            }
+                        }
+                        if (mComboCounter == 9)
+                        {
+                            SoundManager.PlaySound(cSOUND_COLORLAND_COMBO);
+                            if (mTimerCombo != null)
+                            {
+                                mTimerCombo.start();
+                            }
                         }
 
                     }
-
-                    mCollidingWithSomeButton = true;
-
+                    //Collectable c = mGroupCollectables.getNext();
+                    //c.appear(x, y);
                 }
                 else
                 {
-                    mCollidingWithSomeButton = false;
-
-                    if (mCurrentHighlightButton != null)// && mCurrentHighlightButton.getState() != Button.sSTATE_PRESSED)
+                    //FUDEU
+                    if (!mCursor.isParalyzed())
                     {
-                        mCurrentHighlightButton.changeState(Button.sSTATE_NORMAL);
+                        SoundManager.PlaySound(cSOUND_CHAR_OOPS);
+                        mCursor.paralyze();
                     }
-                    mCurrentHighlightButton = null;
+
                 }
+                //mGroup.remove(be);
+
+                
+                
             }
-            
 
-        }
-
-        //hehehehehe
-        private void solveHighlightBug()
-        {
-            if (mCurrentHighlightButton != null)
+            if (mManager.checkAttackCollision(mMainCharacter))
             {
-                for (int x = 0; x < mGroupButtons.getSize(); x++)
-                {
-
-                    Button b = mGroupButtons.getGameObject(x);
-
-                    if (b != mCurrentHighlightButton)
-                    {
-
-                        b.changeState(Button.sSTATE_NORMAL);
-
-                    }
-
-                }
-
+                damage();
             }
+
         }
 
 
@@ -854,10 +736,8 @@ namespace ColorLand
             //if (mMainCharacter.getData().getEnergy() == 0)
             if (energy == 0)
             {
-                if (mGameState == GAME_STATE_EM_JOGO)
-                {
-                    setGameState(GAME_STATE_DERROTA);
-                }
+                setGameState(GAME_STATE_DERROTA);
+
                 //mGameState = GAME_STATE_DERROTA;
             }
 
@@ -868,10 +748,7 @@ namespace ColorLand
             if (mManager.enemiesAreOver())
             {
                 //Game1.print("FINISH. YOU WIN");
-                if (mGameState == GAME_STATE_EM_JOGO)
-                {
-                    setGameState(GAME_STATE_SUCESSO);
-                }
+                setGameState(GAME_STATE_SUCESSO);
             }
         }
 
@@ -902,10 +779,7 @@ namespace ColorLand
                         SoundManager.PlayMusic(cMUSIC_LOSE, false);
                         mMainCharacter.changeState(MainCharacter.sSTATE_LOSE);
                         mCursor.setLocation(0, 1000);
-                        mCursor.changeState(Cursor.sSTATE_NORMAL);
-
                         mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.SLOW);
-
                         //fffffffffffffff
                         startManualTimer();
                         break;
@@ -914,7 +788,7 @@ namespace ColorLand
                         SoundManager.PlaySound(cSOUND_CHECKPOINT3);
                         startStageFinishExplosions();
                         mMustZoomAtFinish = true;
-                        Game1.progressObject.setCurrentStage((mCurrentStage+1));
+                        Game1.progressObject.setCurrentStage(++mCurrentStage);
                         ExtraFunctions.saveProgress(Game1.progressObject);
             
 
@@ -939,157 +813,126 @@ namespace ColorLand
             {
                 // if (mCurrentStage == sSTAGE_1)
                 //{
-                
+                    mCamera.update();
 
-                mCamera.update();
-                //mCameraFront.update();
+                    updateTimers(gameTime);
 
-                updateTimers(gameTime);
+                    switch (mGameState)
+                    {
+                        case GAME_STATE_PREPARANDO:
 
-                switch (mGameState)
-                {
-                    case GAME_STATE_PREPARANDO:
-
-                        if (mFade != null)
-                        {
-                            mFade.update(gameTime);
-                        }
-
-                        //mCamera.zoomOut(0.004f);
-
-
-                        // mBackgroundBack.update();
-                        // mBackgroundFront.update();
-
-                        mMainCharacter.update(gameTime);
-                        updatePlayerBody();
-                        break;
-
-                    case GAME_STATE_EM_JOGO:
-
-                        if (mWalkCamera)
-                        {
-                            mCamera.centerCamTo(Game1.sHALF_SCREEN_RESOLUTION_WIDTH + sCURRENT_STAGE_X, Game1.sHALF_SCREEN_RESOLUTION_HEIGHT);
-                            //mCameraFront.setSpeed(1.4f);
-                            //mCameraFront.centerCamTo(Game1.sHALF_SCREEN_RESOLUTION_WIDTH + sCURRENT_STAGE_X, Game1.sHALF_SCREEN_RESOLUTION_HEIGHT);
-
-                            //Game1.print("Walk");
-                        }
-
-                        if (mMoveFrontalBG)
-                        {
-                            Game1.print("reducing");
-                            mBackgroundFront.reduceXToAllParts(1.9f);
-                        }
-
-                        mBackgroundBack.update();
-                        mBackgroundFront.update();
-
-                        mMainCharacter.update(gameTime);
-
-                        //mGroup.update(gameTime);
-                        mGroupCollectables.update(gameTime);
-
-                        updatePlayerBody();
-                        checkVictoryCondition();
-                        checkGameOverCondition();
-                        checkCollisions();
-
-                        mCursor.update(gameTime);
-                        MouseState mouseState = Mouse.GetState();
-
-                        HUD.getInstance(this).update(gameTime);
-
-                        mExplosionManager.update(gameTime);
-
-                        mManager.update(gameTime);
-                        RockManager.getInstance().update(gameTime);
-                        break;
-
-                    case GAME_STATE_DERROTA:
-
-                        if (mFade != null)
-                        {
-                            mFade.update(gameTime);
-                        }
-
-                        mGroupButtons.update(gameTime);
-                        mCursor.update(gameTime);
-                        updateMouseInput();
-                        checkCollisions();
-
-                        if (mEndStageTimer != null)
-                        {
-                            mEndStageTimer.update(gameTime);
-                            //Game1.print("#STARTED MANUAL TIMER - $22");
-                            if (mEndStageTimer.getTimeAndLock(3))
+                            if (mFade != null)
                             {
-                                //Game1.print("AE");
-                                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
-                                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
-
-                                //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-                                //mFadeParam = FADE_PARAM.GAME_OVER;
-                                mShowBackgroundGameOverBlack = true;
-                            }
-                            if (mEndStageTimer.getTimeAndLock(5))
-                            {
-                                //Game1.print("AE");
-                                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
-                                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
-
-                                //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-                                //mFadeParam = FADE_PARAM.GAME_OVER;
-                                mShowGameoverContent = true;
+                                mFade.update(gameTime);
                             }
 
-
-                        }
-                        /*
-                         * 
-                         * */
-
-                        mBackgroundBack.update();
-                        mBackgroundFront.update();
-                        mGroupCollectables.update(gameTime);
-                        mMainCharacter.update(gameTime);
-                        mMainCharacter.setVisible(true);
-                        mExplosionManager.update(gameTime);
-
-                        //mManager.update(gameTime);
-                        mMainCharacter.update(gameTime);
-                        mMainCharacter.setCollisionRect(0, 0, 0, 0);
-                        mMainCharacter.setVisible(true);
-
-                        break;
-
-                    case GAME_STATE_SUCESSO:
+                            //mCamera.zoomOut(0.004f);
 
 
-                        if (mEndStageTimer != null)
-                        {
-                            mEndStageTimer.update(gameTime);
+                            // mBackgroundBack.update();
+                            // mBackgroundFront.update();
 
-                            if (mEndStageTimer.getTimeAndLock(5))
+                            mMainCharacter.update(gameTime);
+                            updatePlayerBody();
+                            break;
+
+                        case GAME_STATE_EM_JOGO:
+                            if (mWalkCamera)
                             {
-                                //Game1.print("CABOSSE");
-                                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
+                                mCamera.centerCamTo(Game1.sHALF_SCREEN_RESOLUTION_WIDTH + sCURRENT_STAGE_X, Game1.sHALF_SCREEN_RESOLUTION_HEIGHT);
                             }
-                            else
-                            {
-                                //mCamera.zoomIn(0.002f);
-                            }
-                        }
+                            
+                            mBackgroundBack.update();
+                            mBackgroundFront.update();
 
-                        mBackgroundBack.update();
-                        mBackgroundFront.update();
-                        mGroupCollectables.update(gameTime);
-                        mMainCharacter.update(gameTime);
-                        mMainCharacter.setVisible(true);
-                        mExplosionManager.update(gameTime);
-                        mCursor.update(gameTime);
-                        break;
-                }
+                            mMainCharacter.update(gameTime);
+
+                            //mGroup.update(gameTime);
+                            mGroupCollectables.update(gameTime);
+
+                            updatePlayerBody();
+                            checkVictoryCondition();
+                            checkGameOverCondition();
+                            checkCollisions();
+
+                            mCursor.update(gameTime);
+                            MouseState mouseState = Mouse.GetState();
+
+                            HUD.getInstance(this).update(gameTime);
+
+                            mExplosionManager.update(gameTime);
+
+                            mManager.update(gameTime);
+                            RockManager.getInstance().update(gameTime);
+                            break;
+
+                        case GAME_STATE_DERROTA:
+
+                            if (mFade != null)
+                            {
+                                mFade.update(gameTime);
+                            }
+
+                            if (mEndStageTimer != null)
+                            {
+                                mEndStageTimer.update(gameTime);
+                                //Game1.print("#STARTED MANUAL TIMER - $22");
+                                if (mEndStageTimer.getTimeAndLock(3))
+                                {
+                                    //Game1.print("AE");
+                                    //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
+                                    //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
+                                    executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                                    mFadeParam = FADE_PARAM.GAME_OVER;
+
+                                    Game1.print("#STARTED MANUAL TIMER - $2");
+                                }
+                            }
+                            /*
+                             * 
+                             * */
+
+                            mBackgroundBack.update();
+                            mBackgroundFront.update();
+                            mGroupCollectables.update(gameTime);
+                            mMainCharacter.update(gameTime);
+                            mMainCharacter.setVisible(true);
+                            mExplosionManager.update(gameTime);
+                            mCursor.update(gameTime);
+                            //mManager.update(gameTime);
+                            mMainCharacter.update(gameTime);
+                            mMainCharacter.setCollisionRect(0, 0, 0, 0);
+                            mMainCharacter.setVisible(true);
+                                                        
+                            break;
+
+                        case GAME_STATE_SUCESSO:
+
+
+                            if (mEndStageTimer != null)
+                            {
+                                mEndStageTimer.update(gameTime);
+
+                                if (mEndStageTimer.getTimeAndLock(5))
+                                {
+                                    //Game1.print("CABOSSE");
+                                    //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true);
+                                }
+                                else
+                                {
+                                    //mCamera.zoomIn(0.002f);
+                                }
+                            }
+
+                            mBackgroundBack.update();
+                            mBackgroundFront.update();
+                            mGroupCollectables.update(gameTime);
+                            mMainCharacter.update(gameTime);
+                            mMainCharacter.setVisible(true);
+                            mExplosionManager.update(gameTime);
+                            mCursor.update(gameTime);
+                            break;
+                    }
 
 
                 //}
@@ -1168,23 +1011,15 @@ namespace ColorLand
                         break;
 
                     case GAME_STATE_DERROTA:
-                        
+                        if (mFade != null)
+                        {
+                            mFade.draw(mSpriteBatch);
+                        }
+                        mMainCharacter.draw(mSpriteBatch);
                         mManager.draw(mSpriteBatch);
                         RockManager.getInstance().draw(mSpriteBatch);
                         mGroupCollectables.draw(mSpriteBatch);
                         mExplosionManager.draw(mSpriteBatch);
-                        
-                        if(mShowBackgroundGameOverBlack){
-                            
-                            if(mAlphaBackgroundGameOverBlack < 0.7f){
-                                mAlphaBackgroundGameOverBlack += 0.01f;
-                            }
-                            
-                            mSpriteBatch.Draw(mBackgroundGameoverBlack,new Rectangle(0,0,1000,600),Color.Black * mAlphaBackgroundGameOverBlack);
-                        }
-
-                        mMainCharacter.draw(mSpriteBatch);
-                        
                         break;
                     case GAME_STATE_SUCESSO:
                     case GAME_STATE_EM_JOGO:
@@ -1215,43 +1050,8 @@ namespace ColorLand
                 }
                 else
                 {
-
                     //FRONT BACKGROUND
                     drawDesaturation(gameTime, mBackgroundFront);
-
-                    if (mGameState == GAME_STATE_DERROTA)
-                    {
-                        if (mShowBackgroundGameOverBlack)
-                        {
-                            mSpriteBatch.Begin();
-                            mSpriteBatch.Draw(mBackgroundGameoverBlack, new Rectangle(0, 0, 1000, 600), Color.Black * mAlphaBackgroundGameOverBlack);
-
-                            if (mShowGameoverContent)
-                            {
-                                if (mAlphaGameoverContent < 1f)
-                                {
-                                    mAlphaGameoverContent += 0.01f;
-                                }
-
-                                mSpriteBatch.Draw(mGameOverTitle, new Rectangle(275, 140, 283, 68), Color.White * mAlphaGameoverContent);
-                                mSpriteBatch.Draw(mGameOverQuestion, new Rectangle(275, 225, 283, 68), Color.White * mAlphaGameoverContent);
-                                //mGameOverButtonTryAgain.draw(mSpriteBatch, Color.White * mAlphaGameoverContent);
-                                //mGameOverButtonTryLater.draw(mSpriteBatch, Color.White * mAlphaGameoverContent);
-                                mGroupButtons.draw(mSpriteBatch, Color.White * mAlphaGameoverContent);
-
-
-                                mCursor.draw(mSpriteBatch);
-                            }
-
-                            if (mFade != null)
-                            {
-                                mFade.draw(mSpriteBatch);
-                            }
-
-                            mSpriteBatch.End();
-
-                        }
-                    }
                 }
                 
                 if (mGameState == GAME_STATE_EM_JOGO)
@@ -1309,16 +1109,12 @@ namespace ColorLand
         void drawDesaturation(GameTime gameTime, Background background)
         {
             // Begin the sprite batch, using our custom effect.
+            desaturateEffect.Parameters["fTimer"].SetValue((float)gameTime.TotalGameTime.TotalSeconds);
             if (mCurrentStage == sSTAGE_4)
-            {
-                desaturateEffect.Parameters["fTimer"].SetValue((float)gameTime.TotalGameTime.TotalSeconds);
+            {               
                 desaturateEffect.Parameters["iSeed"].SetValue(1337);
                 desaturateEffect.Parameters["fNoiseAmount"].SetValue(0.002f);
                 desaturateEffect.Parameters["bHeat"].SetValue(true);
-            }
-            else
-            {
-                desaturateEffect.Parameters["bHeat"].SetValue(false);
             }
             
             mSpriteBatch.Begin(0, null, null, null, null, desaturateEffect, mCamera.get_transformation(Game1.getInstance().GraphicsDevice));
@@ -1341,21 +1137,18 @@ namespace ColorLand
             if (background == mBackgroundBack)
             {
                 mBackgroundBack.draw(mSpriteBatch, new Color(255, 255, 255, pulse));
+            }else
+            if (background == mBackgroundFront)
+            {
+                mBackgroundFront.draw(mSpriteBatch, new Color(255, 255, 255, pulse));
             }
-            
+
            /* mSpriteBatch.Draw(mBackgroundBack.getTexture(),
                              mBackgroundBack.getRectangle(),
                 //new Rectangle(0,0,Game1.sSCREEN_RESOLUTION_WIDTH,Game1.sSCREEN_RESOLUTION_HEIGHT),
                              new Color(255, 255, 255, pulse));
             */
             // End the sprite batch.
-            mSpriteBatch.End();
-
-            mSpriteBatch.Begin(0, null, null, null, null, desaturateEffect);
-            if (background == mBackgroundFront)
-            {
-                mBackgroundFront.draw(mSpriteBatch, new Color(255, 255, 255, pulse));
-            }
             mSpriteBatch.End();
         }
 
@@ -1436,8 +1229,6 @@ namespace ColorLand
                 mWalkCamera = true;
                 mOneThirdDone = true;
                 SoundManager.PlaySound(cSOUND_CHECKPOINT1);
-                mTimerFrontalBG = new MTimer(true);
-                mMoveFrontalBG = true;
             }
 
             if (!mSecondThirdDone && twoThirds())
@@ -1446,8 +1237,6 @@ namespace ColorLand
                 mWalkCamera = true;
                 mSecondThirdDone = true;
                 SoundManager.PlaySound(cSOUND_CHECKPOINT2);
-                mTimerFrontalBG = new MTimer(true);
-                mMoveFrontalBG = true;
             }
         }
 
@@ -1462,57 +1251,6 @@ namespace ColorLand
             if (ExtraFunctions.valueToPercent(progress, numberEnemies) > 66)
                 return true;
             return false;
-        }
-
-        private void updateMouseInput()
-        {
-            MouseState ms = Mouse.GetState();
-
-            if (ms.LeftButton == ButtonState.Pressed)
-            {
-                mMousePressing = true;
-            }
-            else
-            {
-                if (mCurrentHighlightButton != null)
-                {
-
-                    if (mMousePressing)
-                    {
-                        //Game1.print("PRESSING");
-                        //processButtonAction(mCurrentHighlightButton);
-                    }
-                    else
-                    {
-                        //Game1.print("NOT?");
-                    }
-
-                }
-
-                mMousePressing = false;
-            }
-
-            //dispara evento
-
-        }
-
-        private void processButtonAction(Button button)
-        {
-            if (button == mGameOverButtonTryAgain)
-            {
-                Game1.print("TRY AGAIN");
-                executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-                mFadeParam = FADE_PARAM.RESTART_STAGE;
-            }
-            if (button == mGameOverButtonTryLater)
-            {
-                Game1.print("LATER....");
-                
-                executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-                mFadeParam = FADE_PARAM.QUIT_TO_MAIN_MENU;
-
-            }
-
         }
 
         public Cursor getCursor()
@@ -1603,16 +1341,15 @@ namespace ColorLand
             {
                 MouseState mouseState = Mouse.GetState();
 
+
                 if (mouseState.LeftButton == ButtonState.Pressed)
                 {
                     if (oldStateMouse.LeftButton != ButtonState.Pressed)
                     {
-                        if (mGameState == GAME_STATE_DERROTA)
+                        if (mGameState == GAME_STATE_EM_JOGO)
                         {
-                            if (mCurrentHighlightButton != null)
-                            {
-                                processButtonAction(mCurrentHighlightButton);
-                            }
+                            //SoundManager.PlaySound(cSOUND_COLOR);
+                            //mCursor.nextColor();
                         }
                     }
                 }
@@ -1655,12 +1392,8 @@ namespace ColorLand
                         
                         sCURRENT_STAGE_X += cSPACE_TO_WALK;
                         mWalkCamera = true;*/
-                        
                         sCURRENT_STAGE_X += cSPACE_TO_WALK;
                         mWalkCamera = true;
-                        
-                        mTimerFrontalBG = new MTimer(true);
-                        mMoveFrontalBG = true;
                     }
 
                 }
@@ -1739,14 +1472,6 @@ namespace ColorLand
                 if (mFadeParam == FADE_PARAM.GAME_OVER)
                 {
                     //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEOVER, false,false);
-                }
-                if (mFadeParam == FADE_PARAM.RESTART_STAGE)
-                {
-                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_GAMEPLAY, true,true);
-                }
-                if (mFadeParam == FADE_PARAM.QUIT_TO_MAIN_MENU)
-                {
-                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true, true);
                 }
 
             }
