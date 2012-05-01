@@ -16,6 +16,8 @@ namespace ColorLand
         //player energy
         //coin icon
         //coin level
+
+        private const String cSOUND_COLOR = "sound\\fx\\colorswap8bit";
         
         private Texture2D mTextureHudBG;
         private Texture2D mTextureHudBGHead;       
@@ -110,6 +112,8 @@ namespace ColorLand
             mButtonGreen.setCollisionRect(19, 19, 33, 33);
             mButtonBlue.setCollisionRect(19, 19, 33, 33);
             //mButtonPause.setCollisionRect(0, 0, 70, 70);
+
+            SoundManager.LoadSound(cSOUND_COLOR);
 
             mGroupButtons = new GameObjectsGroup<Button>();
             mGroupButtons.addGameObject(mButtonRed);
@@ -311,7 +315,7 @@ namespace ColorLand
                         if (cursor.getColor() != Color.Red)
                         {
                             cursor.changeColor(Color.Red);
-                            //play sound
+                            SoundManager.PlaySound(cSOUND_COLOR);
                         }
                     }else
                     if (mCurrentHighlightButton == mButtonGreen)
@@ -319,6 +323,7 @@ namespace ColorLand
                         if (cursor.getColor() != Color.Green)
                         {
                             cursor.changeColor(Color.Green);
+                            SoundManager.PlaySound(cSOUND_COLOR);
                         }
                     }else
                     if (mCurrentHighlightButton == mButtonBlue)
@@ -326,6 +331,7 @@ namespace ColorLand
                         if (cursor.getColor() != Color.Blue)
                         {
                             cursor.changeColor(Color.Blue);
+                            SoundManager.PlaySound(cSOUND_COLOR);
                         }
                     }
                     else

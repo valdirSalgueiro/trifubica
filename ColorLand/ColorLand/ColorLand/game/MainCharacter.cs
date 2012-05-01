@@ -160,7 +160,8 @@ namespace ColorLand
             if(mX <= GamePlayScreen.sCURRENT_STAGE_X){
                 //moveRight(1f);
                 //mX = GamePlayScreen.sCURRENT_STAGE_X;
-                mX = GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE;
+                //mX = GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE;
+                mX += gameTime.ElapsedGameTime.Milliseconds * 0.19f;
             }
 
             mY += mDy * gameTime.ElapsedGameTime.Milliseconds;
@@ -327,13 +328,13 @@ namespace ColorLand
             //cursor.getLocation()
             Vector2 directionRightHand = new Vector2(Mouse.GetState().X,Mouse.GetState().Y) - new Vector2(mX + 100, mY + 100);
             float angleHandCursor = (float)(Math.Atan2(directionRightHand.Y, directionRightHand.X));
+            mRightHandAngle = angleHandCursor;
 
-
-            if( !(Mouse.GetState().Y > mY && (Mouse.GetState().X > mX-125 && Mouse.GetState().X < mX + 230))){
+            /*if( !(Mouse.GetState().Y > mY + 90 && (Mouse.GetState().X > mX-125 && Mouse.GetState().X < mX + 230))){
                 mRightHandAngle = angleHandCursor;
             }else{
                 
-            }
+            }*/
                         
         }
 
@@ -369,7 +370,7 @@ namespace ColorLand
                     // If not down last update, key has just been pressed.
                     if (!oldState.IsKeyDown(Keys.W))
                     {
-                        Jump();
+                        //Jump();
                         //changeState(sSTATE_VICTORY);
                     }
                 }else

@@ -25,7 +25,8 @@ namespace ColorLand
         private Rectangle mRectangleExhibitionTexture;
 
         private KeyboardState oldState;
-        
+
+        private bool mPlayerInsideShip;
         
         //essa flag eh pra autorizar o update do timer apenas quando o fade-in terminar
         private bool mAuthorizeUpdate;
@@ -68,7 +69,8 @@ namespace ColorLand
             FirstStage,
             SecondStage,
             ThirdStage,
-            FourthStage
+            FourthStage,
+            Finish
         }
 
         
@@ -112,13 +114,21 @@ namespace ColorLand
                 Game1.print("Stage 1");
                 setMacroMapState(MacroMapState.FirstStage);
             }
-            else
+            if (ExtraFunctions.loadProgress().getCurrentStage() == 2)
             {
                 Game1.print("Stage 2");
                 setMacroMapState(MacroMapState.SecondStage); 
             }
+            if (ExtraFunctions.loadProgress().getCurrentStage() == 3)
+            {
+                setMacroMapState(MacroMapState.ThirdStage); 
+            }
+            if (ExtraFunctions.loadProgress().getCurrentStage() == 4)
+            {
+                setMacroMapState(MacroMapState.FourthStage);
+            }
 
-            setMacroMapState(MacroMapState.SecondStage);
+            setMacroMapState(MacroMapState.FourthStage);
 
             SoundManager.PlayMusic(cMUSIC_MAP);
 
@@ -203,24 +213,53 @@ namespace ColorLand
 
                 case MacroMapState.ThirdStage:
 
+                    mPlayerInsideShip = true;
+
+                    if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.RED) mMacromapPlayer = new MacromapPlayer(Color.Red, new Vector2(100, 130));
+                    if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.GREEN) mMacromapPlayer = new MacromapPlayer(Color.Green, new Vector2(100, 130));
+                    if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.BLUE) mMacromapPlayer = new MacromapPlayer(Color.Blue, new Vector2(100, 130));
+
+                    mMacromapPlayer.loadContent(Game1.getInstance().getScreenManager().getContent());
+                                      
+                    mBackgroundBefore = new Background("gameplay\\macromap\\mapa_bg_04");
+                    mBackgroundBefore.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    mBackgroundImage = new Background("gameplay\\macromap\\mapa_bg_01");
+                    mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    mMacromapShip = new MacromapShip(new Vector2(-100, 465), MacromapShip.ColorStatus.Colored);
+                    mMacromapShip.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    mMacromapPlayer.setCenter(mMacromapShip.getX() + 100, mMacromapShip.getY() + 70);
+                    mMacromapPlayer.perfectSize();
+
+                    mExplosionManager = new ExplosionManager();
+                    mExplosionManager.addExplosion(10, Color.Red, Game1.getInstance().getScreenManager().getContent());
+
+                    mShowTextureFallingPlayer = false;
+                    break;
+
+                case MacroMapState.FourthStage:
+
+                    mPlayerInsideShip = true;
+
                     if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.RED) mMacromapPlayer = new MacromapPlayer(Color.Red, new Vector2(100, 130));
                     if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.GREEN) mMacromapPlayer = new MacromapPlayer(Color.Green, new Vector2(100, 130));
                     if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.BLUE) mMacromapPlayer = new MacromapPlayer(Color.Blue, new Vector2(100, 130));
 
                     mMacromapPlayer.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-                    mMacromapPlayer.setCenter(44, 465);
-                    mMacromapPlayer.perfectSize();
-                    //mMacromapPlayer.setVisible(true);
-
                     mBackgroundBefore = new Background("gameplay\\macromap\\mapa_bg_01");
                     mBackgroundBefore.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-                    mBackgroundImage = new Background("gameplay\\macromap\\mapa_bg_04");
+                    mBackgroundImage = new Background("gameplay\\macromap\\mapa_bg_02");
                     mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-                    mMacromapShip = new MacromapShip(new Vector2(40, 100), MacromapShip.ColorStatus.Black_And_White);
+                    mMacromapShip = new MacromapShip(new Vector2(251, 335), MacromapShip.ColorStatus.Colored);
                     mMacromapShip.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+                    mMacromapPlayer.setCenter(507, 302);
+                    mMacromapPlayer.perfectSize();
 
                     mExplosionManager = new ExplosionManager();
                     mExplosionManager.addExplosion(10, Color.Red, Game1.getInstance().getScreenManager().getContent());
@@ -293,29 +332,44 @@ namespace ColorLand
                     if (mTimer.getTimeAndLock(1))
                     {
                         mBackgroundBefore = null;
-                        mExplosionManager.getNextOfColor(Color.Red).explode(224, 140);
-                        mExplosionManager.getNextOfColor(Color.Red).explode(185, 205);
-                        mExplosionManager.getNextOfColor(Color.Red).explode(109, 225);
-                        mExplosionManager.getNextOfColor(Color.Red).explode(75, 316);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(224, 10);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(185, 25);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(109, 305);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(75, 40);
+                        
+                        mMacromapShip.setFlip(false);
+                        mMacromapShip.moveTo(new Vector2(40, 465));
                     }
 
-                    //anda em direcao ao barco
-                    if (mTimer.getTimeAndLock(3))
+                    if (mTimer.getTimeAndLock(5))
                     {
-                        mMacromapPlayer.setDestiny(83, 117);
-                        mMacromapPlayer.moveTo(new Vector2(83, 117));
+                        mMacromapShip.setFlip(false);
+                        mMacromapShip.moveTo(new Vector2(251, 335));
                     }
 
-                    //barco anda junto com jogador pra fora da tela
-                    if (mTimer.getTimeAndLock(7))
+                    if (mTimer.getTimeAndLock(15))
                     {
-                        mMacromapShip.setFlip(true);
-                        mMacromapShip.moveTo(new Vector2(-180, (int)mMacromapShip.mY));
-
-                        mMacromapPlayer.setDestiny(-180, (int)mMacromapShip.mY);
-                        mMacromapPlayer.moveTo(new Vector2(-180, (int)mMacromapShip.mY));
+                        mMacromapPlayer.moveTo(new Vector2(360, 285));
                     }
 
+                }
+                if (mCurrentMacroMapState == MacroMapState.FourthStage)
+                {
+                    //explode cenario
+                    if (mTimer.getTimeAndLock(1))
+                    {
+                        mBackgroundBefore = null;
+                        mExplosionManager.getNextOfColor(Color.Red).explode(524, 10);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(385, 25);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(409, 305);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(275, 40);
+
+                    }
+
+                    if (mTimer.getTimeAndLock(5))
+                    {
+                        mMacromapPlayer.moveTo(new Vector2(629, 172));
+                    }
 
                 }
                
@@ -370,13 +424,7 @@ namespace ColorLand
                 {
                     mMacromapShip.update(gameTime);
                 }
-
-               
-
-                //if stage 1
-                //mTimer.update(gameTime);
-                //updateTimer aqui no caso de bug
-
+                
             }else
             if (mCurrentMacroMapState == MacroMapState.SecondStage)
             {
@@ -388,6 +436,33 @@ namespace ColorLand
                     //mMacromapShip.getCurrentSprite().setFlip(true);
                 }
 
+            }else
+            if (mCurrentMacroMapState == MacroMapState.ThirdStage)
+            {
+                mExplosionManager.update(gameTime);
+
+                if (mMacromapShip != null)
+                {
+                    mMacromapShip.update(gameTime);
+                }
+
+
+                if (mPlayerInsideShip)
+                {
+                    mMacromapPlayer.setCenter(mMacromapShip.getX() + 100, mMacromapShip.getY() + 70);
+                    mMacromapPlayer.perfectSize();
+                }
+
+            }else
+            if (mCurrentMacroMapState == MacroMapState.FourthStage)
+            {
+                mExplosionManager.update(gameTime);
+
+                if (mMacromapShip != null)
+                {
+                    mMacromapShip.update(gameTime);
+                }
+                               
             }
 
             mMacromapPlayer.update(gameTime);

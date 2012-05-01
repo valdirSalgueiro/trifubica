@@ -17,7 +17,9 @@ namespace ColorLand
         public const int sTYPE_SIMPLE_FLYING_GREEN = 1;
         public const int sTYPE_SIMPLE_FLYING_BLUE = 2;
 
+        public const String cSOUND_MONSTER_APPEAR = "sound\\fx\\monstrosurg1-8bit";
         public const String cSOUND_EXPLOSION = "sound\\fx\\explosao8bit";
+
         private Color mColor;
         
         public BaseEnemy(Color color)
@@ -34,6 +36,7 @@ namespace ColorLand
         public override void loadContent(ContentManager content) {
             base.loadContent(content);
             SoundManager.LoadSound(cSOUND_EXPLOSION);
+            SoundManager.LoadSound(cSOUND_MONSTER_APPEAR);
         }
 
         public override void update(GameTime gameTime) {
@@ -106,6 +109,7 @@ namespace ColorLand
         public virtual void appear()
         {
             mGrowUp = true;
+            SoundManager.PlaySound(cSOUND_MONSTER_APPEAR);
         }
 
         public bool isGrowingUp()

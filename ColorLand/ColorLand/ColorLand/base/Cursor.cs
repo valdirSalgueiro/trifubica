@@ -315,7 +315,7 @@ namespace ColorLand
             {
                 MouseState mouseState = Mouse.GetState();
 
-                if (mouseState.LeftButton == ButtonState.Pressed)
+                if (mouseState.RightButton == ButtonState.Pressed)
                 {
                     if (mAlphaClick > 0.6f)
                     {

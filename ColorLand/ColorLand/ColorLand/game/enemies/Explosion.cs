@@ -30,15 +30,15 @@ namespace ColorLand
             }*/
             if (color == Color.Red)
             {
-                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(27, "enemies\\explosion\\red\\Red"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 27 }, 1, 210, 210, true, false);
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(27, "enemies\\explosion\\red\\Red"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 27 }, 1, 230, 230, true, false);
             }
             if (color == Color.Green)
             {
-                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(27, "enemies\\explosion\\green\\Green"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 27 }, 1, 210, 210, true, false);
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(27, "enemies\\explosion\\green\\Green"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 27 }, 1, 230, 230, true, false);
             }
             if (color == Color.Blue)
             {
-                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(27, "enemies\\explosion\\blue\\Blue"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 27 }, 1, 210, 210, true, false);
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(27, "enemies\\explosion\\blue\\Blue"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 27 }, 1, 230, 230, true, false);
             }
                 //mSpriteTackling = new Sprite(imagesTackling, new int[] { 0, 1, 2, 3, 4, 5 }, 1, 65, 80, true, false);
 
