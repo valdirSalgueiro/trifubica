@@ -89,7 +89,7 @@
     <Compile Include="game\ColorChoiceBar.cs" />
     <Compile Include="game\Collectable.cs" />
     <Compile Include="game\enemies\Explosion.cs" />
-    <Compile Include="game\enemies\ExplosionManager.cs" />
+    <Compile Include="game\hud\ExplosionManager.cs" />
     <Compile Include="game\enemies\world1\Bako.cs" />
     <Compile Include="game\enemies\world1\Rocker.cs" />
     <Compile Include="game\enemies\world1\Kakto.cs" />
