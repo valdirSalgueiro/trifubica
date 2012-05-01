@@ -252,7 +252,7 @@ namespace ColorLand
             }
             else
             {
-                Game1.print("not finished: " + (mGroup.getSize() == 0) + " $$$ " + (mCurrentIndex >= mList.Count - 1));
+                //Game1.print("not finished: " + (mGroup.getSize() == 0) + " $$$ " + (mCurrentIndex >= mList.Count - 1));
                 return false;
             }
         }

@@ -94,7 +94,7 @@ namespace ColorLand
             changeToSprite(sSTATE_WALKING);
 
             setCenterHotspot(new Vector2(274, 101));
-            setCollisionRect(30, 30, 220, 80);
+            setCollisionRect(20, 20, 56, 56);
             setLocation(origin);
 
         }

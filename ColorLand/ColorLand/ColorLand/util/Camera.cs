@@ -33,6 +33,7 @@ namespace ColorLand
 
         private float speed = CAMERA_SPEED;
 
+        private bool mStopped = true;
 
         public Camera()
         {
@@ -131,9 +132,11 @@ namespace ColorLand
             {
                 _pos.X = _destiny.X;
                 _pos.Y = _destiny.Y;
+                mStopped = true;
             }
             else
             {
+                mStopped = false;
                 double angle = Math.Atan2(y, x); //180
                 //double graus = angle * 180 / Math.PI;//Console.WriteLine("dx:"+_destiny.X +"px:"+_pos.X+"/y:"+y+"/ang:"+angle);
                 _pos.X += speed * (float)Math.Cos(angle);
@@ -141,6 +144,11 @@ namespace ColorLand
             }
 
             // Console.WriteLine(_pos.X + "/" + _pos.Y);
+        }
+
+        public bool isStopped()
+        {
+            return this.mStopped;
         }
 
         //chama essa gambiarra só
@@ -185,6 +193,11 @@ namespace ColorLand
         public float getX()
         {
             return _pos.X - Game1.sHALF_SCREEN_RESOLUTION_WIDTH;
+        }
+
+        public void setSpeed(float speed)
+        {
+            this.speed = speed;
         }
 
     }

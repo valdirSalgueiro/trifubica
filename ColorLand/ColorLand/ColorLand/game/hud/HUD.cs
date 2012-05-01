@@ -67,9 +67,9 @@ namespace ColorLand
         private HUD()
         {
             mRectHead = new Rectangle(20,
-                                        10,
-                                        100,
-                                        100);
+                                           10,
+                                           100,
+                                           100);
 
             mRectPlayerBarEnergy = new Rectangle(128,
                                         566,
@@ -78,7 +78,7 @@ namespace ColorLand
 
             mRectPlayerBar = new Rectangle(128,
                             564,
-                            181,    
+                            181,
                             27);
 
             mRectBarEnergy = new Rectangle(315,
@@ -91,7 +91,7 @@ namespace ColorLand
                             182,
                             27);
 
-            
+
             /*mRectColorSlot1 = new Rectangle(574, 535, 70, 70);
             mRectColorSlot2 = new Rectangle(634, 512, 70, 70);
             mRectColorSlot3 = new Rectangle(695, 535, 70, 66);
@@ -99,10 +99,10 @@ namespace ColorLand
             mRectColorSlot1 = new Rectangle(574 - 260, 535, 70, 70);
             mRectColorSlot2 = new Rectangle(634 - 260, 512, 70, 70);
             mRectColorSlot3 = new Rectangle(695 - 260, 535, 70, 66);
-            
-            mButtonRed   = new Button("gameplay\\hud\\new\\balde_red", "gameplay\\hud\\new\\balde_red_selected", "gameplay\\hud\\new\\balde_red_selected", mRectColorSlot1);
+
+            mButtonRed = new Button("gameplay\\hud\\new\\balde_red", "gameplay\\hud\\new\\balde_red_selected", "gameplay\\hud\\new\\balde_red_selected", mRectColorSlot1);
             mButtonGreen = new Button("gameplay\\hud\\new\\balde_green", "gameplay\\hud\\new\\balde_green_selected", "gameplay\\hud\\new\\balde_green_selected", mRectColorSlot2);
-            mButtonBlue  = new Button("gameplay\\hud\\new\\balde_blue", "gameplay\\hud\\new\\balde_blue_selected", "gameplay\\hud\\new\\balde_blue_selected", mRectColorSlot3);
+            mButtonBlue = new Button("gameplay\\hud\\new\\balde_blue", "gameplay\\hud\\new\\balde_blue_selected", "gameplay\\hud\\new\\balde_blue_selected", mRectColorSlot3);
 
             //mButtonPause = new Button("gameplay\\hud\\new\\pause", "gameplay\\hud\\new\\pause_select", "gameplay\\hud\\new\\pause_selected", new Rectangle(727, 28, 54, 63));
 
@@ -115,9 +115,12 @@ namespace ColorLand
             mGroupButtons.addGameObject(mButtonRed);
             mGroupButtons.addGameObject(mButtonGreen);
             mGroupButtons.addGameObject(mButtonBlue);
-            //mGroupButtons.addGameObject(mButtonPause);
-            
+            //mGroupButtons.addGameObject(mButtonPause);  
+        }
 
+        public void restart()
+        {
+            instance = null;
         }
 
         public static HUD getInstance(GamePlayScreen context)

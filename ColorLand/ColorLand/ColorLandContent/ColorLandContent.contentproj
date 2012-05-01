@@ -10987,13 +10987,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="mainmenu\ester.png">
-      <Name>ester</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="sound\fx\charselect-8bit.wav">
       <Name>charselect-8bit</Name>
       <Importer>WavImporter</Importer>
@@ -11003,6 +10996,48 @@
       <Name>charselected-8bits</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gameplay\gameover\gameover_later.png">
+      <Name>gameover_later</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\gameover\gameover_later_select.png">
+      <Name>gameover_later_select</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\gameover\gameover_later_selected.png">
+      <Name>gameover_later_selected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\gameover\gameover_now.png">
+      <Name>gameover_now</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\gameover\gameover_now_select.png">
+      <Name>gameover_now_select</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\gameover\gameover_now_selected.png">
+      <Name>gameover_now_selected</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\gameover\gameover_playagain.png">
+      <Name>gameover_playagain</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gameplay\gameover\game_over_title.png">
+      <Name>game_over_title</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

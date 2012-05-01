@@ -222,7 +222,6 @@ namespace ColorLand
         private void updateMouseInput()
         {
             
-
             MouseState ms = Mouse.GetState();
 
             if (ms.LeftButton == ButtonState.Pressed)

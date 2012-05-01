@@ -179,6 +179,22 @@ namespace ColorLand
 
         }
 
+        public void addXToAllParts(float x)
+        {
+            foreach (Sprite s in mListParts)
+            {
+                s.addX(x);
+            }
+        }
+
+        public void reduceXToAllParts(float x)
+        {
+            foreach (Sprite s in mListParts)
+            {
+                s.reduceX(x);
+            }
+        }
+
         public bool touchedMe(int x, int y)
         {
             Point p = new Point(x, y);

@@ -70,6 +70,14 @@ namespace ColorLand
             }
         }
 
+        public void draw(SpriteBatch spriteBatch, Color color)
+        {
+            for (int x = 0; x < mList.Count; x++)
+            {
+                mList.ElementAt(x).draw(spriteBatch,color);
+            }
+        }
+
         public bool checkCollisionWith(GameObject gameObject)
         {
             for (int x = 0; x < mList.Count; x++)
