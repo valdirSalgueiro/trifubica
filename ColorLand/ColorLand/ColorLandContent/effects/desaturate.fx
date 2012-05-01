@@ -18,7 +18,7 @@ float4 main(float4 color : COLOR0, float2 texCoord : TEXCOORD0) : COLOR0
 {
     float NoiseX = iSeed * fTimer * sin(texCoord.x * texCoord.y+fTimer);
 	NoiseX=fmod(NoiseX,8) * fmod(NoiseX,4);	
-
+	
 	// Use our distortion factor to compute how much it will affect each
 	// texture coordinate
 	float DistortX = fmod(NoiseX,fNoiseAmount);

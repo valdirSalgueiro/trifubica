@@ -92,14 +92,14 @@ namespace ColorLand
                             27);
 
 
-            /*mRectColorSlot1 = new Rectangle(574, 535, 70, 70);
+            mRectColorSlot1 = new Rectangle(574, 535, 70, 70);
             mRectColorSlot2 = new Rectangle(634, 512, 70, 70);
             mRectColorSlot3 = new Rectangle(695, 535, 70, 66);
-            */
-            mRectColorSlot1 = new Rectangle(574 - 260, 535, 70, 70);
+            
+            /*mRectColorSlot1 = new Rectangle(574 - 260, 535, 70, 70);
             mRectColorSlot2 = new Rectangle(634 - 260, 512, 70, 70);
             mRectColorSlot3 = new Rectangle(695 - 260, 535, 70, 66);
-
+            */
             mButtonRed = new Button("gameplay\\hud\\new\\balde_red", "gameplay\\hud\\new\\balde_red_selected", "gameplay\\hud\\new\\balde_red_selected", mRectColorSlot1);
             mButtonGreen = new Button("gameplay\\hud\\new\\balde_green", "gameplay\\hud\\new\\balde_green_selected", "gameplay\\hud\\new\\balde_green_selected", mRectColorSlot2);
             mButtonBlue = new Button("gameplay\\hud\\new\\balde_blue", "gameplay\\hud\\new\\balde_blue_selected", "gameplay\\hud\\new\\balde_blue_selected", mRectColorSlot3);
@@ -238,7 +238,7 @@ namespace ColorLand
         {
             int complement = (int)GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE;
 
-            spriteBatch.Draw(mTextureHudBG, new Rectangle(550 + complement - 260, Game1.sSCREEN_RESOLUTION_HEIGHT - 96, 238, 96), Color.White);
+            spriteBatch.Draw(mTextureHudBG, new Rectangle(550 + complement /*- 260*/, Game1.sSCREEN_RESOLUTION_HEIGHT - 96, 238, 96), Color.White);
             spriteBatch.Draw(mTextureHudBGHead, new Rectangle(42 + complement, 38, 285, 64), Color.White);
 
             if (energy > 0)
