@@ -302,7 +302,7 @@ namespace ColorLand
 
 
             //TODO debug
-            mCurrentStage = 2;
+            mCurrentStage = 4;
 
             switch (mCurrentStage)
             {
