@@ -123,7 +123,7 @@ namespace ColorLand
             setMovementAllowed(true);
             setActive(true);
 
-            //showCollisionRect();
+            showCollisionRect();
         }
 
         protected void addSprite(Sprite sprite, int index)
@@ -626,6 +626,16 @@ namespace ColorLand
         public void moveRight(float pixels)
         {
             mX += pixels;
+        }
+
+        public void moveDown(float pixels)
+        {
+            mY += pixels;
+        }
+
+        public void moveUp(float pixels)
+        {
+            mY -= pixels;
         }
 
         public void setDirection(Direction direction)

@@ -434,7 +434,7 @@ namespace ColorLand
                     break;
                
             }
-
+            update(null);
         }
 
     }

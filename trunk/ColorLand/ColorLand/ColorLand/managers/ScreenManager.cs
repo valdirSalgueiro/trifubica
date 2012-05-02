@@ -105,12 +105,18 @@ namespace ColorLand
 
         public void changeScreen(int id, bool releaseCurrentScreen)
         {
+            GamePlayScreen.sCURRENT_STAGE_X = 0;
+            GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE = 0;
+
             changeScreen(id, releaseCurrentScreen, false);
         }
 
 
         public void changeScreen(int id, bool releaseCurrentScreen, bool threaded)
         {
+            GamePlayScreen.sCURRENT_STAGE_X = 0;
+            GamePlayScreen.sCURRENT_STAGE_X_PROGRESSIVE = 0;
+            
             mScreenID = id;
             if (releaseCurrentScreen)
             {

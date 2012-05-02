@@ -24,8 +24,8 @@ namespace ColorLand
         private const String cMUSIC_BEGIN = "sound\\music\\begin";
         private const String cMUSIC_STAGE1 = "sound\\music\\stage11";
         private const String cMUSIC_STAGE2 = "sound\\music\\loop2";
-        private const String cMUSIC_STAGE3 = "sound\\music\\loop3";
-        private const String cMUSIC_STAGE4 = "sound\\music\\loop4";
+        private const String cMUSIC_STAGE3 = "sound\\music\\loop4";
+        private const String cMUSIC_STAGE4 = "sound\\music\\loop3";
         //private const String cMUSIC_BEGIN = "sound\\music\\begin";
         private const String cMUSIC_WIN = "sound\\music\\win";
         private const String cMUSIC_LOSE = "sound\\music\\loose";
@@ -153,6 +153,7 @@ namespace ColorLand
          * *******************/
         private const int cCOMBO_TIME = 4;
         private MTimer mTimerCombo;
+        private MTimer mTimerComboCheck; // para evitar atropelos
         private int mComboCounter;
 
         /* ******************
@@ -221,19 +222,31 @@ namespace ColorLand
         private bool mReduceAlpha;
         private SpriteFont mFontStageBegin;
         private float mAlphaFontBegin = 0f;
+        
+        private Rectangle mRectStageName;
+        private Texture2D mTextureStageName;
         private Texture2D mTextureReady;
         private Texture2D mTextureGO;
         private Texture2D mTextureCOMBO;
         private Texture2D mTextureGREATCOMBO;
         private Texture2D mTextureCOLORLANDCOMBO;
+        private Texture2D mTextureWeDidIt;
+
+        private bool mShowTextureStageName;
         private bool mShowReady;
         private bool mShowGo;
         private bool mShowCombo;
         private bool mShowGreatCombo;
         private bool mShowColorlandCombo;
+        private bool mShowWeDidIt;
+
+        private float mAlphaTextureStageName;
         private float mAlphaCombo;
         private float mAlphaGreatCombo;
         private float mAlphaColorlandCombo;
+        private float mAlphaWeDidIt;
+        
+
         private MTimer mTimerShowCombo;
         private MTimer mTimerShowGreatCombo;
         private MTimer mTimerShowColorlandCombo;
@@ -282,8 +295,8 @@ namespace ColorLand
             mPauseScreen = new PauseScreen(this);
 
             mShowBlackBackground = false;
-            setGameState(GAME_STATE_EM_JOGO);
-            //setGameState(GAME_STATE_PREPARANDO);
+            //setGameState(GAME_STATE_EM_JOGO);
+            setGameState(GAME_STATE_PREPARANDO);
            
             mKeyboard = KeyboardManager.getInstance();
 
@@ -316,11 +329,26 @@ namespace ColorLand
             SoundManager.LoadSound(cSOUND_COLORLAND_COMBO);
             
             mFontStageBegin = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("font\\stagebegin_font");
+            
             mTextureReady = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\ready");
-            mTextureGO = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\go");
+
+            if (ExtraFunctions.convertSavedColorToColor() == Color.Blue)
+            {
+                mTextureGO = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\go");
+            }
+            if (ExtraFunctions.convertSavedColorToColor() == Color.Green)
+            {
+                mTextureGO = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\go_green");
+            }
+            if (ExtraFunctions.convertSavedColorToColor() == Color.Red)
+            {
+                mTextureGO = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\go_red");
+            }
+
             mTextureCOMBO = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\combo_01");
             mTextureGREATCOMBO = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\combo_02");
             mTextureCOLORLANDCOMBO = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\combo_03");
+            mTextureWeDidIt = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\wedidit");
 
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
@@ -328,7 +356,7 @@ namespace ColorLand
             mCursor.setCenter(20, 20);
             mCursor.changeColor(Color.Blue);
 
-            if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.BLUE)
+            /*if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.BLUE)
             {
                 mMainCharacter = new MainCharacter(Color.Blue);
             }
@@ -339,9 +367,9 @@ namespace ColorLand
             if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.RED)
             {
                 mMainCharacter = new MainCharacter(Color.Red);
-            }
-
-            mMainCharacter = new MainCharacter(Color.Red);
+            }*/
+            
+            mMainCharacter = new MainCharacter(ExtraFunctions.convertSavedColorToColor());
 
             mMainCharacter.loadContent(Game1.getInstance().getScreenManager().getContent());
             mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 434);
@@ -357,15 +385,17 @@ namespace ColorLand
             mGroupButtons.addGameObject(mGameOverButtonTryLater);
 
             mGroupButtons.loadContent(Game1.getInstance().getScreenManager().getContent());
-
-
+            
             //TODO debug
-            mCurrentStage = 1;
+            mCurrentStage = 4;
 
             switch (mCurrentStage)
             {
 
                 case sSTAGE_1:
+
+                    mTextureStageName = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\fase01");
+                    mRectStageName = new Rectangle(200, 200, 427, 109);
 
                     mBackgroundBack = new Background("gameplay\\backgrounds\\stage1_1\\new\\fase1_bg");
                     mBackgroundFront = new Background();//new Background("gameplay\\backgrounds\\stage1_1\\new\\stage1_1_layer3");
@@ -394,8 +424,7 @@ namespace ColorLand
                     
                     mManager.restartTimeInterval(4);
                     mManager.setMaxEnemiesPerScreen(3);
-
-
+                    
                     //one third
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(0, 100));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(600, 100));
@@ -455,6 +484,9 @@ namespace ColorLand
 
                 case sSTAGE_2:
 
+                    mTextureStageName = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\fase02");
+                    mRectStageName = new Rectangle(200, 200, 423, 109);
+
                     mBackgroundBack = new Background("gameplay\\backgrounds\\stage1_2\\agua_fase2_cehu");//"gameplay\\backgrounds\\stage1_1\\stage1_1_layer1");
                     mBackgroundFront = new Background();
 
@@ -465,7 +497,7 @@ namespace ColorLand
                     mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_2\\agua_fase2_plataforma" }, 1, 1000, 105, 0, 600-105);
                     //mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_1\\stage1_1_layer3" }, 1, 1000, 600, 0, 0);
                     mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_2\\agua_fase2_caixasleft" }, 1, 321, 222, 0, 600-222);
-                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_2\\agua_fase2_caixasright" }, 1, 247, 222, 1000 - 247, 600 - 222);
+                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_2\\agua_fase2_caixasright" }, 1, 247, 222, 1150, 600 - 222);
 
                     mBackgroundBack.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mBackgroundBack.setLocation(0, 0);
@@ -493,10 +525,44 @@ namespace ColorLand
                     */
                     
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Red, new Vector2(100, getPlayerLocation().Y));
+                    mManager.restartTimeInterval(1);
+                    mManager.setMaxEnemiesPerScreen(3);
+
+
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(200, 0));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(200, 0));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(200, 0));
+
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(800, 300));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(800, 300));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(800, 340));
+
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(60, 300));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(60, 300));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(60, 300));
                     
+                    //slow down 
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(30, 10));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(20, 10));
+
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(60, 200));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(60, 400));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(680, 300));
+
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(30, 10));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(20, 10));
+
+                    //go fast
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(1000, 200));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(1000, 200));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(1000, 200));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(1000, 200));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(1000, 200));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(1000, 200));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(1000, 200));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(1000, 200));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(1000, 200));
+
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(200, 400));
                     /*mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(700, 60));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(500, 0));
@@ -517,15 +583,19 @@ namespace ColorLand
 
                     break;
 
-                //SELVA
+                //DESERTO
                 case sSTAGE_3:
-                     mBackgroundBack = new Background("gameplay\\backgrounds\\stage1_3\\fase3_bg");//"gameplay\\backgrounds\\stage1_1\\stage1_1_layer1");
+
+                    mTextureStageName = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\fase03");
+                    mRectStageName = new Rectangle(230, 200, 333, 109);
+
+                    mBackgroundBack = new Background("gameplay\\backgrounds\\stage1_3\\fase3_bg");//"gameplay\\backgrounds\\stage1_1\\stage1_1_layer1");
                     mBackgroundFront = new Background();
 
-                    mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_3\\fase3_plataforma" }, 1, 1000, 133, 0, 400);
+                    mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_3\\fase3_plataforma" }, 1, 1000, 133, 0, 600-133); //plataforma
                     mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_3\\fase3_02"}, 1, 237, 176, 0, 600 - 176);
-                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_3\\fase3_05_03"}, 1, 83, 77, 500, 600 - 77);
-                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_3\\fase3_06"}, 1, 83, 116, 500, 600 - 116);
+                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_3\\fase3_05_03"}, 1, 83, 77, 600, 600 - 77);
+                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_3\\fase3_06"}, 1, 83, 116, 1000, 600 - 116);
                     
                     mBackgroundBack.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mBackgroundBack.setLocation(0, 0);
@@ -551,26 +621,28 @@ namespace ColorLand
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mManager.start();
 
-                    //mTimerBackgroundMovement = new MTimer(true);
+                    mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 450);
 
-                    //////@@@@@@
-                    
+                    //mTimerBackgroundMovement = new MTimer(true);
 
                     break;
 
-                //DESERTO
+                //FLORESTA
                 case sSTAGE_4:
 
-                    mBackgroundBack = new Background("gameplay\\backgrounds\\stage1_4\\fase42.0");//"gameplay\\backgrounds\\stage1_1\\stage1_1_layer1");
+                    mTextureStageName = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\fase04");
+                    mRectStageName = new Rectangle(240, 230, 333, 109);
+
+                    mBackgroundBack = new Background("gameplay\\backgrounds\\stage1_4\\fase4_bg");//"gameplay\\backgrounds\\stage1_1\\stage1_1_layer1");
                     mBackgroundFront = new Background();
 
+                    mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_4\\fase4_03" }, 1, 147, 356, 1000-147, 600-400); //cogumelão
                     mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_4\\fase4_plataforma" }, 1, 1000, 130, 0, 600-130); //plataforma
                     //mBackgroundBack.addPart(new String[1] { "gameplay\\backgrounds\\stage1_3\\fase3_plataforma" }, 1, 1000, 133, 0, 400);
 
                     mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_4\\fase4_02" }, 1, 211, 367, 0, 600-367); //mato esquerda
-                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_4\\fase4_05" }, 1, 177, 307, 1000-177, 600 - 307);
+                    mBackgroundFront.addPart(new String[1] { "gameplay\\backgrounds\\stage1_4\\fase4_05" }, 1, 177, 307, 1230, 600 - 307); //mato direita
                     
-
                     mBackgroundBack.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mBackgroundBack.setLocation(0, 0);
 
@@ -595,6 +667,8 @@ namespace ColorLand
                     */
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mManager.start();
+
+                    mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 438);
 
                     //mTimerBackgroundMovement = new MTimer(true);
 
@@ -625,6 +699,18 @@ namespace ColorLand
             }
             if (mCurrentStage == sSTAGE_2)
             {
+                //9 primeiros mongos
+                if (mDestroyedEnemies == 9)
+                {
+                    mManager.restartTimeInterval(2);
+                }
+
+                //16 primeiros mongos ... reacelera. Hora do prazer
+                if (mDestroyedEnemies == 16)
+                {
+                    mManager.setMaxEnemiesPerScreen(9);
+                    mManager.restartTimeInterval(1);
+                }
 
             }
             if (mCurrentStage == sSTAGE_3)
@@ -718,12 +804,23 @@ namespace ColorLand
                     mMainCharacter.changeState(MainCharacter.sSTATE_VICTORY);
                     mCursor.setLocation(0, 1000);
                 }
+                if (mTimerStageFinishExplosions.getTimeAndLock(7))
+                {
+                    mShowWeDidIt = true;
+                }
+
+                if (mTimerStageFinishExplosions.getTimeAndLock(12))
+                {
+                    mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.MEDIUM);
+                    executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                    mFadeParam = FADE_PARAM.NEXT_STAGE;
+                    
+                }
 
                 if (mTimerStageFinishExplosions.getTimeAndLock(1.5))
                 {
                     //mCamera.zoomIn();
                                         //mCamera.centerCamTo(mMainCharacter);
-                    
                 }
 
                 if (mMustZoomAtFinish)
@@ -738,28 +835,34 @@ namespace ColorLand
 
                 mTimerStageBegin.update(gameTime);
 
-                if (mTimerStageBegin.getTimeAndLock(5))
+                if (mTimerStageBegin.getTimeAndLock(4))
+                {
+                    mShowTextureStageName = true;
+                }
+                
+                if (mTimerStageBegin.getTimeAndLock(7))
                 {
                     mReduceAlpha = true;
+                    mShowTextureStageName = false;
                 }
 
-                if (mTimerStageBegin.getTimeAndLock(7))
+                if (mTimerStageBegin.getTimeAndLock(9))
                 {
                     mShowReady = true;
                 }
 
-                if (mTimerStageBegin.getTimeAndLock(9))
+                if (mTimerStageBegin.getTimeAndLock(11))
                 {
                     mShowReady = false;
                     mShowGo = true;
                 }
 
-                if (mTimerStageBegin.getTimeAndLock(10))
+                if (mTimerStageBegin.getTimeAndLock(12))
                 {
                     mShowGo = false;
                     setGameState(GAME_STATE_EM_JOGO);
                 }
-                if (mTimerStageBegin.getTimeAndLock(11))
+                if (mTimerStageBegin.getTimeAndLock(13))
                 {
                     mTimerStageBegin.stop();
                     mTimerStageBegin = null;
@@ -839,7 +942,7 @@ namespace ColorLand
                 {
                     BaseEnemy be = (BaseEnemy)mManager.getGameObjectsGroup().getCollidedObject();
 
-                    if (be is Bako)
+                    if (be is Bako || be is EnemyMongo)
                     {
                         int x = (int)be.getX();
                         int y = (int)be.getY();
@@ -1064,6 +1167,7 @@ namespace ColorLand
                         break;
 
                     case GAME_STATE_SUCESSO:
+                        mFade = null;
                         SoundManager.PlaySound(cSOUND_CHECKPOINT3);
                         startStageFinishExplosions();
                         mMustZoomAtFinish = true;
@@ -1206,6 +1310,10 @@ namespace ColorLand
 
                         case GAME_STATE_SUCESSO:
 
+                            if (mFade != null)
+                            {
+                                mFade.update(gameTime);
+                            }
 
                             if (mEndStageTimer != null)
                             {
@@ -1300,8 +1408,28 @@ namespace ColorLand
                     }
                     if (mShowGo)
                     {
-                        mSpriteBatch.Draw(mTextureGO, new Rectangle(295, 200, 262, 157), Color.White);
+                        mSpriteBatch.Draw(mTextureGO, new Rectangle(290, 212, 262, 157), Color.White);
                     }
+
+                    //////////////////////////////////////
+                    //stage name
+                    //////////////////////////////////////
+                    if (mShowTextureStageName)
+                    {
+                        if (mAlphaTextureStageName < 1f)
+                        {
+                            mAlphaTextureStageName += 0.05f;
+                        }
+                    }
+                    else
+                    {
+                        if (mAlphaTextureStageName > 0f)
+                        {
+                            mAlphaTextureStageName -= 0.05f;
+                        }
+                    }
+
+                    mSpriteBatch.Draw(mTextureStageName, mRectStageName, Color.White * mAlphaTextureStageName);
                     
                     break;
 
@@ -1327,7 +1455,17 @@ namespace ColorLand
 
                     break;
                 case GAME_STATE_SUCESSO:
-                case GAME_STATE_EM_JOGO:
+
+                    if (mShowWeDidIt)
+                    {
+                        if (mAlphaWeDidIt < 1f)
+                        {
+                            mAlphaWeDidIt += 0.05f;
+                        }
+
+                        mSpriteBatch.Draw(mTextureWeDidIt, new Rectangle(187 + (int)sCURRENT_STAGE_X_PROGRESSIVE, 100, 463, 275), Color.White * mAlphaWeDidIt);
+
+                    }
                     mMainCharacter.draw(mSpriteBatch);
                     RockManager.getInstance().draw(mSpriteBatch);
                     mManager.draw(mSpriteBatch);
@@ -1335,12 +1473,21 @@ namespace ColorLand
                     //mCursor.draw(mSpriteBatch);
                     mExplosionManager.draw(mSpriteBatch);
 
-                   
-                    //if (mShowGreatCombo)
-                   // {
-                     //   mSpriteBatch.Draw(mTextureGO, new Rectangle(295, 200, 262, 157), Color.White);
-                   // }
+                    if (mFade != null)
+                    {
+                        mFade.draw(mSpriteBatch);
+                    }
 
+                    break;
+
+                case GAME_STATE_EM_JOGO:
+                    mMainCharacter.draw(mSpriteBatch);
+                    RockManager.getInstance().draw(mSpriteBatch);
+                    mManager.draw(mSpriteBatch);
+                    mGroupCollectables.draw(mSpriteBatch);
+                    //mCursor.draw(mSpriteBatch);
+                    mExplosionManager.draw(mSpriteBatch);
+                    
                     break;
             }
 
@@ -1971,7 +2118,7 @@ namespace ColorLand
 
                 if (mFadeParam == FADE_PARAM.NEXT_STAGE)
                 {
-
+                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, true, true);
                 }
                 else
                 if (mFadeParam == FADE_PARAM.GAME_OVER)
