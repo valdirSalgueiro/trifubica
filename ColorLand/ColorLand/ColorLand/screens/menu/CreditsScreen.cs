@@ -36,13 +36,17 @@ namespace ColorLand
         private Fade mFade;
         private Fade mCurrentFade;
 
+        MainMenuScreen owner;
 
-        public CreditsScreen()
+        public CreditsScreen(MainMenuScreen owner_)
         {
+            owner = owner_;
+
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
-            mBackgroundImage = new Background("mainmenu\\mainmenu_credits_bg");
+            mBackgroundImage = new Background("mainmenu\\help\\Menu_credits");
             mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
+            mBackgroundImage.setLocation(0, 50);
 
             mList.Add(mBackgroundImage);
 
@@ -199,13 +203,12 @@ namespace ColorLand
 
         public override void fadeFinished(Fade fadeObject)
         {
-            //if(fadeObject.getEffect() == Fade.sFADE_IN_EFFECT_GRADATIVE){
-            //}else
             if (fadeObject.getEffect() == Fade.sFADE_OUT_EFFECT_GRADATIVE)
             {
                 //SoundManager.stopMusic();
                 //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_HISTORY, true);
-                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, false);
+                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, false);
+                owner.cSCREEN = MainMenuScreen.SCREENS.MAINMENU_SCREEN;
             }
 
         }

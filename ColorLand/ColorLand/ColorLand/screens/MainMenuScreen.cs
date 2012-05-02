@@ -68,7 +68,8 @@ namespace ColorLand
         public enum SCREENS
         {
             MAINMENU_SCREEN,
-            HELP_SCREEN
+            HELP_SCREEN,
+            CREDITS_SCREEN
         }
 
         public SCREENS cSCREEN;
@@ -317,35 +318,38 @@ namespace ColorLand
             mSpriteBatch.Begin();
             mCurrentBackground.draw(mSpriteBatch);
 
-            if (mShowContinueScreen)
+            if (cSCREEN == MainMenuScreen.SCREENS.MAINMENU_SCREEN)
             {
-                mButtonContinue.setVisible(true); mButtonContinue.enableCollision(true);
-                mButtonNewGame.setVisible(true); mButtonNewGame.enableCollision(true);
+                if (mShowContinueScreen)
+                {
+                    mButtonContinue.setVisible(true); mButtonContinue.enableCollision(true);
+                    mButtonNewGame.setVisible(true); mButtonNewGame.enableCollision(true);
 
-                mButtonPlay.setVisible(false); mButtonPlay.enableCollision(false);
-                mButtonHelp.setVisible(false); mButtonHelp.enableCollision(false);
-                mButtonCredits.setVisible(false); mButtonCredits.enableCollision(false);
-                mButtonExit.setVisible(false); mButtonExit.enableCollision(false);
-            }
-            else
-            {
-                mButtonContinue.setVisible(false); mButtonContinue.enableCollision(false);
-                mButtonNewGame.setVisible(false); mButtonNewGame.enableCollision(false);
+                    mButtonPlay.setVisible(false); mButtonPlay.enableCollision(false);
+                    mButtonHelp.setVisible(false); mButtonHelp.enableCollision(false);
+                    mButtonCredits.setVisible(false); mButtonCredits.enableCollision(false);
+                    mButtonExit.setVisible(false); mButtonExit.enableCollision(false);
+                }
+                else
+                {
+                    mButtonContinue.setVisible(false); mButtonContinue.enableCollision(false);
+                    mButtonNewGame.setVisible(false); mButtonNewGame.enableCollision(false);
 
-                mButtonPlay.setVisible(true); mButtonPlay.enableCollision(true);
-                mButtonHelp.setVisible(true); mButtonHelp.enableCollision(true);
-                mButtonCredits.setVisible(true); mButtonCredits.enableCollision(true);
-                mButtonExit.setVisible(true); mButtonExit.enableCollision(true);
-            }
+                    mButtonPlay.setVisible(true); mButtonPlay.enableCollision(true);
+                    mButtonHelp.setVisible(true); mButtonHelp.enableCollision(true);
+                    mButtonCredits.setVisible(true); mButtonCredits.enableCollision(true);
+                    mButtonExit.setVisible(true); mButtonExit.enableCollision(true);
+                }
 
-            mGroupButtons.draw(mSpriteBatch);
-            mSoundIcon.draw(mSpriteBatch);
+                mGroupButtons.draw(mSpriteBatch);
+                mSoundIcon.draw(mSpriteBatch);
 
-            mCursor.draw(mSpriteBatch);
+                mCursor.draw(mSpriteBatch);
 
-            if (mFade != null)
-            {
-                mFade.draw(mSpriteBatch);
+                if (mFade != null)
+                {
+                    mFade.draw(mSpriteBatch);
+                }
             }
 
             mSpriteBatch.End();
@@ -589,8 +593,10 @@ namespace ColorLand
                     }
                     else if (button == mButtonCredits)
                     {
+                        currentScreen = new CreditsScreen(this);
+                        cSCREEN = SCREENS.CREDITS_SCREEN;
                         SoundManager.PlaySound(cSOUND_HIGHLIGHT);
-                        Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU_CREDITS, false);
+                        //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU_CREDITS, false);
                     }
                     else if (button == mButtonFullscreen)
                     {

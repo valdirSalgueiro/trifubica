@@ -157,7 +157,7 @@ namespace ColorLand
                     break;
 
                 case SCREEN_ID_MAIN_MENU_CREDITS:
-                    baseScreen = new CreditsScreen();
+                    baseScreen = new CreditsScreen(null);
                     break;
 
                 case SCREEN_ID_HISTORY:
