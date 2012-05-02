@@ -40,11 +40,15 @@ namespace ColorLand
          * BUTTONS
          * */
         private Button mButtonContinue;
+        private Button mButtonHelp;
         private Button mButtonExit;
 
         private GamePlayScreen mOwner;
 
         private GameObjectsGroup<Button> mGroupButtons;
+
+        public bool bHelpScreen;
+        private HelpScreen helpScreen;
 
         public PauseScreen(GamePlayScreen owner)
         {
@@ -57,7 +61,7 @@ namespace ColorLand
             }
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
-            mBackgroundImage = new Background("mainmenu\\mainmenubg");
+            mBackgroundImage = new Background("mainmenu\\help\\bg_listras");
             mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
 
             mList.Add(mBackgroundImage);
@@ -67,16 +71,18 @@ namespace ColorLand
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mButtonContinue = new Button("gameplay\\pausescreen\\continue", "gameplay\\pausescreen\\continue_select", "gameplay\\pausescreen\\continue_selected", new Rectangle(400 - 319 / 2, 300 - 117/2 - 50, 319, 117));
-            mButtonExit = new Button("gameplay\\pausescreen\\exit", "gameplay\\pausescreen\\exit_select", "gameplay\\pausescreen\\exit_selected", new Rectangle(400 - 290 / 2, 300 - 115 / 2 + 80, 290, 115));
+            mButtonContinue = new Button("mainmenu\\buttons\\adventure_continue", "mainmenu\\buttons\\adventure_continue_select", "mainmenu\\buttons\\adventure_continue_selected", new Rectangle(400 - 286 / 2, 300 - 103 / 2 - 50, 286, 103));
+            mButtonHelp = new Button("mainmenu\\buttons\\mainmenu_help", "mainmenu\\buttons\\mainmenu_help_select", "mainmenu\\buttons\\mainmenu_help_selected", new Rectangle(400 - 225 / 2, 300 - 103 / 2 + 50, 225, 103));
+            mButtonExit = new Button("mainmenu\\buttons\\exit", "mainmenu\\buttons\\exit_select", "mainmenu\\buttons\\exit_selected", new Rectangle(400 - 225 / 2, 300 - 103 / 2 + 150, 225, 103));            
 
-            mPauseTitleTexture = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\pausescreen\\paused_title");
-            mPauseBackgroundTexture = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("fades\\blackfade");
+            mPauseTitleTexture = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\paused_title_03");
+            mPauseBackgroundTexture = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\help\\bg_listras");
 
             mGroupButtons = new GameObjectsGroup<Button>();
             //mGroupButtons.addGameObject(mButtonContinue);
             mGroupButtons.addGameObject(mButtonContinue);
             mGroupButtons.addGameObject(mButtonExit);
+            mGroupButtons.addGameObject(mButtonHelp);
             
             mGroupButtons.loadContent(Game1.getInstance().getScreenManager().getContent());
 
@@ -95,14 +101,21 @@ namespace ColorLand
         {
             //checkCollisions();
             mCurrentBackground.update();
-            mGroupButtons.update(gameTime);
-            mCursor.update(gameTime);
-            updateMouseInput();
-            checkCollisions();
 
-            if (mFade != null)
+            if (!bHelpScreen)
             {
-                //mFade.update(gameTime);
+                mGroupButtons.update(gameTime);
+                mCursor.update(gameTime);
+                updateMouseInput();
+                checkCollisions();
+
+                if (mFade != null)
+                {
+                    //mFade.update(gameTime);
+                }
+            }
+            else {
+                helpScreen.update(gameTime);
             }
         }
 
@@ -114,17 +127,26 @@ namespace ColorLand
 
             mSpriteBatch.Draw(mPauseBackgroundTexture, new Rectangle(0, 0, 800, 600), new Color(0, 0, 0, 0.5f));
 
-            mSpriteBatch.Draw(mPauseTitleTexture, new Rectangle(150, 0, 577, 222), Color.White);
-            
-            mGroupButtons.draw(mSpriteBatch);
-            mCursor.draw(mSpriteBatch);
-
-            /*if (mFade != null)
+            if (!bHelpScreen)
             {
-                mFade.draw(mSpriteBatch);
-            }*/
+
+                mSpriteBatch.Draw(mPauseTitleTexture, new Rectangle(400 - 182 / 2, 100, 182, 43), Color.White);
+
+                mGroupButtons.draw(mSpriteBatch);
+                mCursor.draw(mSpriteBatch);
+
+                /*if (mFade != null)
+                {
+                    mFade.draw(mSpriteBatch);
+                }*/
+            }
 
             mSpriteBatch.End();
+
+            if (bHelpScreen)
+            {
+                helpScreen.draw(gameTime);
+            }
 
         }
 
@@ -229,6 +251,12 @@ namespace ColorLand
                 //mFade = new Fade(this, "fades\\blackfade");
                 //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
                 Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true,true);
+            }
+
+            if (button == mButtonHelp)
+            {
+                helpScreen = new HelpScreen(this);
+                bHelpScreen = true;
             }
            
         }
