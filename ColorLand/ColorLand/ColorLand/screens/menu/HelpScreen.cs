@@ -49,22 +49,38 @@ namespace ColorLand
 
         private GameObjectsGroup<Button> mGroupButtons;
 
+        MainMenuScreen owner;
 
-        public HelpScreen()
+        Background mBackground;
+
+
+        public HelpScreen(MainMenuScreen owner_)
         {
+            owner = owner_;
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
-            mBackgroundImage = new Background("mainmenu\\instruction_1");
+            mBackground = new Background("mainmenu\\help\\bg_listras");
+            mBackground.loadContent(Game1.getInstance().getScreenManager().getContent());
+
+            mBackgroundImage = new Background("mainmenu\\help\\01_objective");
             mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
+            mBackgroundImage.setLocation(0, 50);
             mList.Add(mBackgroundImage);
-            mBackgroundImage = new Background("mainmenu\\instruction_2");
+            mBackgroundImage = new Background("mainmenu\\help\\02_movement");
             mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
+            mBackgroundImage.setLocation(0, 50);
             mList.Add(mBackgroundImage);
-            mBackgroundImage = new Background("mainmenu\\instruction_3");
+            mBackgroundImage = new Background("mainmenu\\help\\03_payattention");
             mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
+            mBackgroundImage.setLocation(0, 50);
             mList.Add(mBackgroundImage);
-            mBackgroundImage = new Background("mainmenu\\instruction_4");
+            mBackgroundImage = new Background("mainmenu\\help\\04_mouseclicks");
             mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
+            mBackgroundImage.setLocation(0, 50);
+            mList.Add(mBackgroundImage);
+            mBackgroundImage = new Background("mainmenu\\help\\05_items");
+            mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
+            mBackgroundImage.setLocation(0, 50);
             mList.Add(mBackgroundImage);
 
             mCurrentBackground = mList.ElementAt(0);
@@ -72,9 +88,9 @@ namespace ColorLand
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mButtonBack = new Button("mainmenu\\buttons\\menu_credits_help_back", "mainmenu\\buttons\\menu_credits_help_back_select", "mainmenu\\buttons\\menu_credits_help_back_selected", new Rectangle(50, 464, 175, 124));
-            mButtonPrevious = new Button("mainmenu\\buttons\\previous", "mainmenu\\buttons\\previous_select", "mainmenu\\buttons\\previous_selected", new Rectangle(350, 484, 80, 86));
-            mButtonNext = new Button("mainmenu\\buttons\\next", "mainmenu\\buttons\\next_select", "mainmenu\\buttons\\next_selected", new Rectangle(586, 484, 80, 86));
+            mButtonBack = new Button("mainmenu\\help\\Menu_back", "mainmenu\\help\\Menu_back_select", "mainmenu\\help\\Menu_back_selected", new Rectangle(45, 450, 178, 128));
+            mButtonPrevious = new Button("mainmenu\\help\\previous", "mainmenu\\help\\previous_select", "mainmenu\\help\\previous_selected", new Rectangle(350, 474, 80, 86));
+            mButtonNext = new Button("mainmenu\\help\\next", "mainmenu\\help\\next_select", "mainmenu\\help\\next_selected", new Rectangle(586, 474, 80, 86));
 
             mGroupButtons = new GameObjectsGroup<Button>();
             mGroupButtons.addGameObject(mButtonBack);
@@ -82,8 +98,8 @@ namespace ColorLand
             mGroupButtons.addGameObject(mButtonNext);
             mGroupButtons.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mNext = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\buttons\\next_disabled");
-            mPrevious = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\buttons\\previous_disabled");
+            mNext = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\help\\next_disabled");
+            mPrevious = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\help\\previous_disabled");
             //mMenu = new MenuGrade();
 
             SoundManager.LoadSound(cSOUND_HIGHLIGHT);
@@ -114,16 +130,18 @@ namespace ColorLand
 
             mSpriteBatch.Begin();
 
+            mBackground.draw(mSpriteBatch);
+
             mCurrentBackground.draw(mSpriteBatch);
 
             mGroupButtons.draw(mSpriteBatch);
-            if (currentScreen == 3)
+            if (currentScreen == 4)
             {
-                mSpriteBatch.Draw(mNext, new Rectangle(586, 484, 80, 86), Color.White);
+                mSpriteBatch.Draw(mNext, new Rectangle(586, 474, 80, 86), Color.White);
             }
             if (currentScreen == 0)
             {
-                mSpriteBatch.Draw(mPrevious, new Rectangle(350, 484, 80, 86), Color.White);
+                mSpriteBatch.Draw(mPrevious, new Rectangle(350, 474, 80, 86), Color.White);
             }
             mCursor.draw(mSpriteBatch);
 
@@ -133,8 +151,8 @@ namespace ColorLand
             }
 
             mSpriteBatch.End();
-
         }
+
 
         private void updateMouseInput()
         {
@@ -235,7 +253,7 @@ namespace ColorLand
 
         private void nextPage()
         {
-            if (currentScreen == 3)
+            if (currentScreen == 4)
                 return;
             else
                 currentScreen++;
@@ -289,9 +307,7 @@ namespace ColorLand
             //}else
             if (fadeObject.getEffect() == Fade.sFADE_OUT_EFFECT_GRADATIVE)
             {
-                //SoundManager.stopMusic();
-                //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_HISTORY, true);
-                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, false);
+                owner.cSCREEN = MainMenuScreen.SCREENS.MAINMENU_SCREEN;
             }
 
         }
