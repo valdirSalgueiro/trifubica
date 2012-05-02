@@ -64,12 +64,12 @@ namespace ColorLand
         {
             switch(mCurrentEffect){
                 case sFADE_IN_EFFECT_GRADATIVE:
-                    mRectangle = new Rectangle(0,0,Game1.sSCREEN_RESOLUTION_WIDTH,Game1.sSCREEN_RESOLUTION_HEIGHT);
+                    mRectangle = new Rectangle(0,0,Game1.sSCREEN_RESOLUTION_WIDTH + 200,Game1.sSCREEN_RESOLUTION_HEIGHT);
                     mAlphaLevel = 1;
                                         
                     break;
                 case sFADE_OUT_EFFECT_GRADATIVE:
-                    mRectangle = new Rectangle(0, 0, Game1.sSCREEN_RESOLUTION_WIDTH, Game1.sSCREEN_RESOLUTION_HEIGHT);
+                    mRectangle = new Rectangle(0, 0, Game1.sSCREEN_RESOLUTION_WIDTH + 200, Game1.sSCREEN_RESOLUTION_HEIGHT);
                     mAlphaLevel = 0;
 
                     break;

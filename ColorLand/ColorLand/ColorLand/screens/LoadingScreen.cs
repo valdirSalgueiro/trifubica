@@ -41,7 +41,7 @@ namespace ColorLand
         {
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
-            mBackgroundLoading = new Background("story\\Imagem_01_pos");
+            mBackgroundLoading = new Background("fades\\blackfade");
             mBackgroundLoading.loadContent(Game1.getInstance().getScreenManager().getContent());
 
             mList.Add(mBackgroundLoading);
@@ -52,7 +52,7 @@ namespace ColorLand
 
             mLoadingLogo = new LoadingLogo(Color.Blue); //TODO fuck this color
             mLoadingLogo.loadContent(Game1.getInstance().getScreenManager().getContent());
-            mLoadingLogo.setLocation(400, 400);
+            mLoadingLogo.setLocation(610, 450);
 
             executeFade(mFadeIn,Fade.sFADE_IN_EFFECT_GRADATIVE);
             
@@ -167,6 +167,7 @@ namespace ColorLand
 
         public LoadingLogo(Color color)
         {
+            /*color = Color.Blue;
             if (color == Color.Red)
             {
                 mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(10, "loading\\loading"), new int[] { 0,1,2,3,4}, 1, 200, 200, false, false);
@@ -174,13 +175,14 @@ namespace ColorLand
             else
             if (color == Color.Green)
             {
-                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(10, "loading\\loading"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1 }, 1, 107, 107, false, false);
+                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(10, "loading\\loading"), new int[] { 0,1,2,3,4,5,6 }, 1, 107, 107, false, false);
             }
             else
             if (color == Color.Blue)
             {
-                mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(10, "loading\\loading"), new int[] { 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1 }, 2, 107, 107, false, false);
-            }
+                
+            }*/
+            mSpriteNormal = new Sprite(ExtraFunctions.fillArrayWithImages2(117, "loading\\loading"), new int[] { Sprite.sALL_FRAMES_IN_ORDER, 117/**/}, 1, 117, 117, false, false);
 
             addSprite(mSpriteNormal, sSTATE_NORMAL);
             

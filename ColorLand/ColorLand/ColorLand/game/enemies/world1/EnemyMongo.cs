@@ -26,6 +26,8 @@ namespace ColorLand
         private int mInitY;
         private const int cHORIZONTAL_MARGIN = 40;
 
+        private float mSinComplement = 5.0f;
+
         private bool tempMove;
         private float x;
 
@@ -109,6 +111,11 @@ namespace ColorLand
             if (mX < GamePlayScreen.sCURRENT_STAGE_X && tempMove == false)
             {
                 tempMove = true;
+                moveDown(4);
+                if (mSinComplement < 18)
+                {
+                    mSinComplement += 2;
+                }
             }
 
             if (tempMove == true)
@@ -119,6 +126,11 @@ namespace ColorLand
             if (mX > GamePlayScreen.sCURRENT_STAGE_X+800-120 && tempMove == true)
             {
                 tempMove = false;
+                moveDown(4);
+                if (mSinComplement < 18)
+                {
+                    mSinComplement += 2;
+                }
             }
 
             if (tempMove == false)
@@ -127,7 +139,7 @@ namespace ColorLand
             }
 
             x += 0.1f;
-            float sinMov = 5.0f * (float)Math.Sin(x);
+            float sinMov = mSinComplement * (float)Math.Sin(x);
             mY += sinMov;
 
 

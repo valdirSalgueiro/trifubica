@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.Xna.Framework;
 
 
 namespace ColorLand
@@ -103,6 +108,21 @@ namespace ColorLand
             return ObjectSerialization.Load<ProgressObject>(Game1.sPROGRESS_FILE_NAME);
         }
 
+        public static Color convertSavedColorToColor()
+        {
+            ProgressObject.PlayerColor p = ExtraFunctions.loadProgress().getColor();
+
+            if(p == ProgressObject.PlayerColor.RED){
+                return Color.Red;
+            }else
+            if (p == ProgressObject.PlayerColor.GREEN)
+            {
+                return Color.Green;
+            }else
+            {
+                return Color.Blue;
+            }
+        }
 
         /*private void OnTimedEvent(object source, ElapsedEventArgs e)
         {
