@@ -61,7 +61,7 @@ namespace ColorLand
 
             mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.ULTRAFAST);
 
-            executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
+            //executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
 
             //mMenu = new MenuGrade();
             SoundManager.LoadSound(cSOUND_HIGHLIGHT);
@@ -188,7 +188,8 @@ namespace ColorLand
             {
                 SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                 //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU,false);
-                executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                owner.cSCREEN = MainMenuScreen.SCREENS.MAINMENU_SCREEN;
             }
            
         }
@@ -208,7 +209,8 @@ namespace ColorLand
                 //SoundManager.stopMusic();
                 //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_HISTORY, true);
                 //Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, false);
-                owner.cSCREEN = MainMenuScreen.SCREENS.MAINMENU_SCREEN;
+                
+                //owner.cSCREEN = MainMenuScreen.SCREENS.MAINMENU_SCREEN;
             }
 
         }

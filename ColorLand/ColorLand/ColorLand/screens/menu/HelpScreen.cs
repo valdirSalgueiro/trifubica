@@ -52,16 +52,20 @@ namespace ColorLand
         MainMenuScreen owner;
         PauseScreen owner2;
 
+        private bool mFromMainMenu;
+
         Background mBackground;
 
         public HelpScreen(PauseScreen owner_)
         {
+            mFromMainMenu = false;
             owner2 = owner_;
             init();
         }
 
         public HelpScreen(MainMenuScreen owner_)
         {
+            mFromMainMenu = true;
             owner = owner_;
             init();
 
@@ -118,7 +122,7 @@ namespace ColorLand
 
             mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.ULTRAFAST);
 
-            executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
+            //executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
         }
 
 
@@ -289,7 +293,15 @@ namespace ColorLand
             if (button == mButtonBack)
             {
                 SoundManager.PlaySound(cSOUND_HIGHLIGHT);
-                executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+
+                if (mFromMainMenu)
+                {
+                    owner.cSCREEN = MainMenuScreen.SCREENS.MAINMENU_SCREEN;
+                }
+                else
+                {
+                    executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                }
             }
 
             if (button == mButtonNext)

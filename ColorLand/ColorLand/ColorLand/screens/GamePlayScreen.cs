@@ -151,10 +151,12 @@ namespace ColorLand
         /* ******************
          * COMBO SYSTEM
          * *******************/
-        private const int cCOMBO_TIME = 4;
+        private const float cCOMBO_TIME = 2.5f;
         private MTimer mTimerCombo;
         private MTimer mTimerComboCheck; // para evitar atropelos
         private int mComboCounter;
+
+        private bool mCheckComboNotifications;
 
         /* ******************
          * CAMERA WALKING
@@ -387,7 +389,7 @@ namespace ColorLand
             mGroupButtons.loadContent(Game1.getInstance().getScreenManager().getContent());
             
             //TODO debug
-            mCurrentStage = 4;
+            mCurrentStage = 3;
 
             switch (mCurrentStage)
             {
@@ -562,6 +564,10 @@ namespace ColorLand
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(1000, 200));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(1000, 200));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(1000, 200));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(1000, 200));
+
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(30, 200));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(20, 200));
 
                     //mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(200, 400));
                     /*mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(700, 60));
@@ -611,12 +617,13 @@ namespace ColorLand
                     mExplosionManager.addExplosion(20, Color.Green, Game1.getInstance().getScreenManager().getContent());
                     mExplosionManager.addExplosion(20, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 100));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 200));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 300));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(200, 400));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Red, new Vector2(400, 400));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Blue, new Vector2(700, 400));
+
+                    mManager.setMaxEnemiesPerScreen(2);
+                    mManager.restartTimeInterval(3);
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Green, new Vector2(0, 340));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Green, new Vector2(-10, 340));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Green, new Vector2(-50, 340));
+                                       
                     
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mManager.start();
@@ -657,7 +664,7 @@ namespace ColorLand
                     mExplosionManager.addExplosion(20, Color.Green, Game1.getInstance().getScreenManager().getContent());
                     mExplosionManager.addExplosion(20, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(200, 410));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(200, 412));
                     /*mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 100));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 200));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 300));
@@ -715,6 +722,10 @@ namespace ColorLand
             }
             if (mCurrentStage == sSTAGE_3)
             {
+                if (mDestroyedEnemies == 2)
+                {
+                    mManager.restartTimeInterval(2);
+                }
 
             }
             if (mCurrentStage == sSTAGE_4)
@@ -751,7 +762,7 @@ namespace ColorLand
                 {
                     mTimerCombo.stop();
                     mTimerCombo = null;
-                    mComboCounter = 0;
+                    mCheckComboNotifications = true;
                     Game1.print("----CABOSSE O COMBO----");
                 }
 
@@ -951,6 +962,11 @@ namespace ColorLand
                         incrementProgress();
                         damage();
                     }
+
+                    if (be is Kakto)
+                    {
+                        damage();
+                    }
                 }
 
                 if (!mCursor.isInnofensive() && mManager.checkCollision(mCursor))
@@ -972,46 +988,16 @@ namespace ColorLand
                             if (mComboCounter == 0)
                             {
                                 mTimerCombo = new MTimer(true);
+                                mCheckComboNotifications = false;
                             }
                             mComboCounter++;
-                            if (mComboCounter == 3)
-                            {
-                                SoundManager.PlaySound(cSOUND_CHAR_NICE_COMBO);
-                                mShowColorlandCombo = false;
-                                mShowGreatCombo = false;
-                                mShowCombo = true;
-                                mTimerShowCombo = new MTimer(true);
-                            }
-                            if (mComboCounter == 6)
-                            {
-                                mShowCombo = false;
-                                mShowColorlandCombo = false;
-                                mShowGreatCombo = true;
-                                SoundManager.PlaySound(cSOUND_CHAR_GREAT_COMBO);
-                                if (mTimerCombo != null)
-                                {
-                                    mTimerCombo.start();
-                                }
-                                mTimerShowGreatCombo = new MTimer(true);
-                            }
-                            if (mComboCounter == 9)
-                            {
-                                mShowCombo = false;
-                                mShowGreatCombo = false;
-                                mShowColorlandCombo = true;
 
-                                SoundManager.PlaySound(cSOUND_COLORLAND_COMBO);
-                                if (mTimerCombo != null)
-                                {
-                                    mTimerCombo.start();
-                                }
 
-                                mTimerShowColorlandCombo = new MTimer(true);
-                            }
-
+                            //combo code era aqui
+                            
                         }
-                        //Collectable c = mGroupCollectables.getNext();
-                        //c.appear(x, y);
+                        Collectable c = mGroupCollectables.getNext();
+                        c.appear(100, 100);
                     }
                     else
                     {
@@ -1027,6 +1013,48 @@ namespace ColorLand
                     //mGroup.remove(be);
 
                 }
+
+                //aafffe
+                if (mCheckComboNotifications)
+                {
+                    if (mComboCounter >= 3 && mComboCounter <= 5)
+                    {
+                        SoundManager.PlaySound(cSOUND_CHAR_NICE_COMBO);
+                        mShowColorlandCombo = false;
+                        mShowGreatCombo = false;
+                        mShowCombo = true;
+                        mTimerShowCombo = new MTimer(true);
+                    }
+                    if (mComboCounter >= 6 &&  mComboCounter <= 8)
+                    {
+                        mShowCombo = false;
+                        mShowColorlandCombo = false;
+                        mShowGreatCombo = true;
+                        SoundManager.PlaySound(cSOUND_CHAR_GREAT_COMBO);
+                        /*if (mTimerCombo != null)
+                        {
+                            mTimerCombo.start();
+                        }*/
+                        mTimerShowGreatCombo = new MTimer(true);
+                    }
+                    if (mComboCounter >= 9)
+                    {
+                        mShowCombo = false;
+                        mShowGreatCombo = false;
+                        mShowColorlandCombo = true;
+
+                        SoundManager.PlaySound(cSOUND_COLORLAND_COMBO);
+                        /*if (mTimerCombo != null)
+                        {
+                            mTimerCombo.start();
+                        }*/
+
+                        mTimerShowColorlandCombo = new MTimer(true);
+                    }
+
+                    mComboCounter = 0;
+                }
+
             }
 
             if (mGameState == GAME_STATE_DERROTA)

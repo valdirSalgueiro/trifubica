@@ -25,8 +25,8 @@ namespace ColorLand
         public Kaktos(Vector2 origin)
             : base(Color.White, origin)
         {
-            Random rand=new Random(5);
-            switch(rand.Next(3)){
+            Random rand = new Random(DateTime.Now.Millisecond);
+            switch(rand.Next(0,3)){
                 case 0:
                     up = new Kakto(Color.Blue, origin, Kakto.TYPE.UP);
                     break;
@@ -38,7 +38,7 @@ namespace ColorLand
                     break;
             }
 
-            switch (rand.Next(3))
+            switch (rand.Next(0,3))
             {
                 case 0:
                     middle = new Kakto(Color.Blue, origin, Kakto.TYPE.MIDDLE);
@@ -51,7 +51,7 @@ namespace ColorLand
                     break;
             }
 
-            switch (rand.Next(3))
+            switch (rand.Next(0,3))
             {
                 case 0:
                     down = new Kakto(Color.Blue, origin, Kakto.TYPE.DOWN);
@@ -124,7 +124,14 @@ namespace ColorLand
             middle.draw(spriteBatch);
             up.draw(spriteBatch);
             
-            
+        }
+
+        public override void appear()
+        {
+            base.appear();
+            up.appear();
+            middle.appear();
+            down.appear();
         }
 
         public bool isEmpty()

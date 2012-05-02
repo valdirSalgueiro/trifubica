@@ -47,6 +47,7 @@ namespace ColorLand
 
         private bool mShowTextureFallingPlayer;
 
+        private Texture2D mTextureBorder;
         private Texture2D mTextureBussola;
         private Texture2D mTextureBussolaPointer;
 
@@ -94,9 +95,10 @@ namespace ColorLand
 
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
-                        
+
+            mTextureBorder = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\mapaborda");
             mTextureBussola = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\bussola_bg");
-            mTextureBussolaPointer = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\bussola_ponteiro2");
+            mTextureBussolaPointer = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\macromap\\bussola_ponteiro");
 
             mTimer = new MTimer(true);
 
@@ -128,7 +130,7 @@ namespace ColorLand
                 setMacroMapState(MacroMapState.FourthStage);
             }
 
-            setMacroMapState(MacroMapState.FourthStage);
+            //setMacroMapState(MacroMapState.FourthStage);
 
             SoundManager.PlayMusic(cMUSIC_MAP);
 
@@ -136,7 +138,7 @@ namespace ColorLand
 
             executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
 
-            mTextureClickToStart = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\clicktostart");
+            mTextureClickToStart = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\clicktoskip");
 
             mTimerBlinkText = new MTimer(true);
 
@@ -195,7 +197,7 @@ namespace ColorLand
                     mMacromapPlayer.setCenter(214, 265);
                     mMacromapPlayer.perfectSize();
                     //mMacromapPlayer.setVisible(true);
-                    
+
                     mBackgroundBefore = new Background("gameplay\\macromap\\mapa_bg_00");
                     mBackgroundBefore.loadContent(Game1.getInstance().getScreenManager().getContent());
 
@@ -207,6 +209,8 @@ namespace ColorLand
 
                     mExplosionManager = new ExplosionManager();
                     mExplosionManager.addExplosion(10, Color.Red, Game1.getInstance().getScreenManager().getContent());
+                    mExplosionManager.addExplosion(10, Color.Green, Game1.getInstance().getScreenManager().getContent());
+                    mExplosionManager.addExplosion(10, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
                     mShowTextureFallingPlayer = false;
                     break;
@@ -234,7 +238,9 @@ namespace ColorLand
                     mMacromapPlayer.perfectSize();
 
                     mExplosionManager = new ExplosionManager();
-                    mExplosionManager.addExplosion(10, Color.Red, Game1.getInstance().getScreenManager().getContent());
+                     mExplosionManager.addExplosion(10, Color.Red, Game1.getInstance().getScreenManager().getContent());
+                    mExplosionManager.addExplosion(10, Color.Green, Game1.getInstance().getScreenManager().getContent());
+                    mExplosionManager.addExplosion(10, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
                     mShowTextureFallingPlayer = false;
                     break;
@@ -262,7 +268,9 @@ namespace ColorLand
                     mMacromapPlayer.perfectSize();
 
                     mExplosionManager = new ExplosionManager();
-                    mExplosionManager.addExplosion(10, Color.Red, Game1.getInstance().getScreenManager().getContent());
+                     mExplosionManager.addExplosion(10, Color.Red, Game1.getInstance().getScreenManager().getContent());
+                    mExplosionManager.addExplosion(10, Color.Green, Game1.getInstance().getScreenManager().getContent());
+                    mExplosionManager.addExplosion(10, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
                     mShowTextureFallingPlayer = false;
                     break;
@@ -283,8 +291,10 @@ namespace ColorLand
 
                 if (mCurrentMacroMapState == MacroMapState.FirstStage)
                 {
+                    
                     if (mTimer.getTimeAndLock(1))
                     {
+                        Game1.print("stage1");
                         mStartFeatures = true;
                         SoundManager.PlaySound(cSOUND_FALLING);
                     }
@@ -298,14 +308,20 @@ namespace ColorLand
                 }
                 if (mCurrentMacroMapState == MacroMapState.SecondStage)
                 {
+                    Game1.print("stage2");
                     //explode cenario
                     if (mTimer.getTimeAndLock(1))
                     {
                         mBackgroundBefore = null;
-                        mExplosionManager.getNextOfColor(Color.Red).explode(224,140);
-                        mExplosionManager.getNextOfColor(Color.Red).explode(185,205);
-                        mExplosionManager.getNextOfColor(Color.Red).explode(109,225);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(200,140);
+                        mExplosionManager.getNextOfColor(Color.Green).explode(185,205);
+                        mExplosionManager.getNextOfColor(Color.Blue).explode(109,225);
                         mExplosionManager.getNextOfColor(Color.Red).explode(75, 316);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(144, 387);
+                        mExplosionManager.getNextOfColor(Color.Green).explode(214, 344);
+                        mExplosionManager.getNextOfColor(Color.Green).explode(102, 223);
+                        mExplosionManager.getNextOfColor(Color.Blue).explode(108, 143);
+                        mExplosionManager.getNextOfColor(Color.Green).explode(131, 285);
                     }
 
                     //anda em direcao ao barco
@@ -332,11 +348,19 @@ namespace ColorLand
                     if (mTimer.getTimeAndLock(1))
                     {
                         mBackgroundBefore = null;
-                        mExplosionManager.getNextOfColor(Color.Red).explode(224, 10);
+                        mExplosionManager.getNextOfColor(Color.Blue).explode(224, 10);
                         mExplosionManager.getNextOfColor(Color.Red).explode(185, 25);
-                        mExplosionManager.getNextOfColor(Color.Red).explode(109, 305);
-                        mExplosionManager.getNextOfColor(Color.Red).explode(75, 40);
-                        
+                        mExplosionManager.getNextOfColor(Color.Blue).explode(66, 75);
+                        mExplosionManager.getNextOfColor(Color.Green).explode(243, 107);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(224, 10);
+                        mExplosionManager.getNextOfColor(Color.Green).explode(185, 25);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(76, 473);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(355, 151);
+                        mExplosionManager.getNextOfColor(Color.Blue).explode(201, 477);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(52, 170);
+                        mExplosionManager.getNextOfColor(Color.Green).explode(216, 205);
+                        mExplosionManager.getNextOfColor(Color.Green).explode(229, 402);
+
                         mMacromapShip.setFlip(false);
                         mMacromapShip.moveTo(new Vector2(40, 465));
                     }
@@ -359,11 +383,17 @@ namespace ColorLand
                     if (mTimer.getTimeAndLock(1))
                     {
                         mBackgroundBefore = null;
-                        mExplosionManager.getNextOfColor(Color.Red).explode(524, 10);
-                        mExplosionManager.getNextOfColor(Color.Red).explode(385, 25);
-                        mExplosionManager.getNextOfColor(Color.Red).explode(409, 305);
-                        mExplosionManager.getNextOfColor(Color.Red).explode(275, 40);
-
+                        mExplosionManager.getNextOfColor(Color.Red).explode(387, 393);
+                        mExplosionManager.getNextOfColor(Color.Green).explode(385, 55);
+                        mExplosionManager.getNextOfColor(Color.Blue).explode(409, 305);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(437, 123);
+                        mExplosionManager.getNextOfColor(Color.Blue).explode(600, 273);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(487, 512);
+                        mExplosionManager.getNextOfColor(Color.Green).explode(651, 463);
+                        mExplosionManager.getNextOfColor(Color.Red).explode(335,489);
+                        mExplosionManager.getNextOfColor(Color.Blue).explode(260, 246);
+                        mExplosionManager.getNextOfColor(Color.Blue).explode(551, 362);
+                        mExplosionManager.getNextOfColor(Color.Green).explode(479, 212);
                     }
 
                     if (mTimer.getTimeAndLock(5))
@@ -488,18 +518,22 @@ namespace ColorLand
                 mBackgroundImage.draw(mSpriteBatch);
             }
 
-            mSpriteBatch.Draw(mTextureBussola, new Rectangle(659, 452,mTextureBussola.Width + 40,mTextureBussola.Height + 40), Color.White);
-            mSpriteBatch.Draw(mTextureBussolaPointer, new Vector2(712 + mTextureBussolaPointer.Width / 2, 497 + mTextureBussolaPointer.Height / 2), null, Color.White, angleBussola-(float)Math.PI/2, new Vector2(mTextureBussolaPointer.Width / 2, mTextureBussolaPointer.Height / 2), 1, SpriteEffects.None, 0f);
+            if (mMacromapShip != null)
+            {
+                mMacromapShip.draw(mSpriteBatch);
+            }
+
+            mMacromapPlayer.draw(mSpriteBatch);
+
+            mSpriteBatch.Draw(mTextureBorder, new Rectangle(0, 0, 800, 600), Color.White); 
+            mSpriteBatch.Draw(mTextureBussola, new Rectangle(800-168, 422, 158, 165), Color.White);
+            mSpriteBatch.Draw(mTextureBussolaPointer, new Vector2(710, 516), null, Color.White, angleBussola - (float)Math.PI / 2, new Vector2(mTextureBussolaPointer.Width / 2, mTextureBussolaPointer.Height / 2), 1, SpriteEffects.None, 0f);
 
             if (mExplosionManager != null)
             {
                 mExplosionManager.draw(mSpriteBatch);
             }
-            
-            if (mMacromapShip != null)
-            {
-                mMacromapShip.draw(mSpriteBatch);
-            }
+                     
 
 
             if (mStartFeatures && mShowTextureFallingPlayer)
@@ -507,7 +541,7 @@ namespace ColorLand
                 mSpriteBatch.Draw(mTexturePlayerFalling, new Vector2(176, 235), new Rectangle(0, 0, mTexturePlayerFalling.Width, mTexturePlayerFalling.Height), Color.White, 0f, new Vector2(30, 30), reduceScale(), SpriteEffects.None, 0);
             }
 
-            mMacromapPlayer.draw(mSpriteBatch);
+            
 
             if (mShowTextClickToStart && !mClicked)
             {
