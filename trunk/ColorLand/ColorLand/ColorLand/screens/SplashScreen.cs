@@ -62,11 +62,11 @@ namespace ColorLand
             }
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
-            mBackgroundImage = new Background("mainmenu\\MainMenu_cehu");
+            mBackgroundImage = new Background("mainmenu\\MainMenu_bg");
             mBackgroundImage.addPart(new String[1] { "mainmenu\\MainMenu_barco" },  1, 125, 110, 80, 600 - 211);
             mBackgroundImage.addPart(new String[1] { "mainmenu\\MainMenu_areia" },  1, 801, 201, 0, 600 - 201);
             mBackgroundImage.addPart(new String[1] { "mainmenu\\MainMenu_mato01" }, 1, 232, 111, 0, 600 - 111);
-            mBackgroundImage.addPart(new String[1] { "mainmenu\\MainMenu_mato02" }, 1, 345, 135, 800-354, 600 - 95);
+            mBackgroundImage.addPart(new String[1] { "mainmenu\\MainMenu_mato02" }, 1, 345, 135, 800-345, 600 - 95);
 
             mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
 

@@ -67,7 +67,7 @@ namespace ColorLand
 
             if(color == Color.Red)
             {
-                switch(rand.Next(2)){
+                switch(rand.Next(0,3)){
                     case 0:
                         mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 5, "enemies\\Kaktos\\Red\\03\\red_kaktos"), new int[] { 0, 1, 2, 3, 4 }, 9, 95, 95, false, false);
                         break;
@@ -82,7 +82,7 @@ namespace ColorLand
             }
             if (color == Color.Blue)
             {
-                switch (rand.Next(2))
+                switch (rand.Next(0, 3))
                 {
                     case 0:
                         mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 5, "enemies\\Kaktos\\Blue\\03\\blue_kaktos"), new int[] { 0, 1, 2, 3, 4 }, 9, 95, 95, false, false);
@@ -97,7 +97,7 @@ namespace ColorLand
             }
             if (color == Color.Green)
             {
-                switch (rand.Next(2))
+                switch (rand.Next(0, 3))
                 {
                     case 0:
                         mSpriteWalking = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 5, "enemies\\Kaktos\\Green\\03\\green_kaktos"), new int[] { 0, 1, 2, 3, 4 }, 9, 95, 95, false, false);

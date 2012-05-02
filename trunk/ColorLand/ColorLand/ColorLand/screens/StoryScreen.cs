@@ -23,10 +23,18 @@ namespace ColorLand
 
         private MTimer mTimer;
 
-        private Rectangle mRectangleExhibitionTexture;
+        private Texture2D mTextureClickToStart;
 
+        private MTimer mTimerBlinkText;
+
+        private Rectangle mRectangleExhibitionTexture;
+        private MouseState oldStateMouse;
         private bool mMousePressing;
         private KeyboardState oldState;
+
+        private bool mShowTextClickToStart;
+
+        private bool mClicked; //ready to go to main menu
 
         private Fade mFade;
         private Fade mCurrentFade;
@@ -48,6 +56,10 @@ namespace ColorLand
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
             mTimer = new MTimer(true);
+
+            mTextureClickToStart = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\clicktoskip");
+
+            mTimerBlinkText = new MTimer(true);
 
         }
                 
@@ -77,7 +89,7 @@ namespace ColorLand
 
                 mTimer.update(gameTime);
 
-                if (mTimer.getTimeAndLock(102))
+                if (mTimer.getTimeAndLock(115))
                 {
                     executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
                     //TODO diminuir volume da musica
@@ -96,6 +108,7 @@ namespace ColorLand
             mCursor.update(gameTime);
             updateMouseInput();
             updateTimer(gameTime);
+            updateTimerBlinkText(gameTime);
 
             /*mCamera.update();
             
@@ -137,9 +150,17 @@ namespace ColorLand
                 mSpriteBatch.End();
             }
 
+
+            if (mShowTextClickToStart && !mClicked)
+            {
+                mSpriteBatch.Begin();
+                mSpriteBatch.Draw(mTextureClickToStart, new Vector2(280, 520), Color.White);
+                mSpriteBatch.End();
+            }
+
             mSpriteBatch.Begin();
             mCursor.draw(mSpriteBatch);
-
+            
             if (mFade != null)
             {
                 mFade.draw(mSpriteBatch);
@@ -192,7 +213,7 @@ namespace ColorLand
 
         private void updateMouseInput()
         {
-            MouseState ms = Mouse.GetState();
+           /*MouseState ms = Mouse.GetState();
 
             if (ms.LeftButton == ButtonState.Pressed)
             {
@@ -206,7 +227,21 @@ namespace ColorLand
 
                 mMousePressing = false;
             }
+            */
+            MouseState mouseState = Mouse.GetState();
 
+
+            if (mouseState.LeftButton == ButtonState.Pressed)
+            {
+                if (oldStateMouse.LeftButton != ButtonState.Pressed)
+                {
+                    mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.FAST);
+                    mClicked = true;
+                    executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                }
+            }
+
+            oldStateMouse = mouseState;
             //dispara evento
 
         }
@@ -222,8 +257,7 @@ namespace ColorLand
             }*/
 
         }
-
-
+        
 
         /**************************
          * 
@@ -249,6 +283,24 @@ namespace ColorLand
                 goToGameScreen();
             }
 
+        }
+
+        private void updateTimerBlinkText(GameTime gameTime)
+        {
+            if (mTimerBlinkText != null)
+            {
+                mTimerBlinkText.update(gameTime);
+
+                if (mTimerBlinkText.getTimeAndLock(0.2f))
+                {
+                    mShowTextClickToStart = true;
+                }
+                if (mTimerBlinkText.getTimeAndLock(0.4f))
+                {
+                    mShowTextClickToStart = false;
+                    mTimerBlinkText.start();
+                }
+            }
         }
 
     }
