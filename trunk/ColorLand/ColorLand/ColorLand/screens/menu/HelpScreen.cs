@@ -50,13 +50,25 @@ namespace ColorLand
         private GameObjectsGroup<Button> mGroupButtons;
 
         MainMenuScreen owner;
+        PauseScreen owner2;
 
         Background mBackground;
 
+        public HelpScreen(PauseScreen owner_)
+        {
+            owner2 = owner_;
+            init();
+        }
 
         public HelpScreen(MainMenuScreen owner_)
         {
             owner = owner_;
+            init();
+
+        }
+
+        private void init()
+        {
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
             mBackground = new Background("mainmenu\\help\\bg_listras");
@@ -107,7 +119,6 @@ namespace ColorLand
             mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.ULTRAFAST);
 
             executeFade(mFade, Fade.sFADE_IN_EFFECT_GRADATIVE);
-
         }
 
 
@@ -307,7 +318,13 @@ namespace ColorLand
             //}else
             if (fadeObject.getEffect() == Fade.sFADE_OUT_EFFECT_GRADATIVE)
             {
-                owner.cSCREEN = MainMenuScreen.SCREENS.MAINMENU_SCREEN;
+                if (owner != null)
+                {
+                    owner.cSCREEN = MainMenuScreen.SCREENS.MAINMENU_SCREEN;
+                }
+                else if (owner2 != null) {
+                    owner2.bHelpScreen = false;
+                }
             }
 
         }
