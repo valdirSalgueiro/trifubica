@@ -62,10 +62,20 @@ namespace ColorLand
             EXIT_GAME
         }
 
+        public BaseScreen currentScreen;
+
+
+        public enum SCREENS
+        {
+            MAINMENU_SCREEN,
+            HELP_SCREEN
+        }
+
+        public SCREENS cSCREEN;
 
         /***
          * BUTTONS
-         * */    
+         * */
         private Button mButtonPlay;
         private Button mButtonHelp;
         private Button mButtonCredits;
@@ -163,7 +173,7 @@ namespace ColorLand
                                                      "mainmenu\\Mato02\\Mato02__00033",
                                                      "mainmenu\\Mato02\\Mato02__00034",
                                                      "mainmenu\\Mato02\\Mato02__00035",
-            }, 1, 223, 111, 800-223, 600 - 111);
+            }, 1, 223, 111, 800 - 223, 600 - 111);
 
             mBackgroundImage.addPart(new String[36] { "mainmenu\\Mato03\\Mato03_00000",
                                                      "mainmenu\\Mato03\\Mato03_00001",
@@ -214,11 +224,11 @@ namespace ColorLand
             ProgressObject p = ExtraFunctions.loadProgress();
             Game1.print("INFORMACAO: P--->STAGE: " + p.getCurrentStage());
             Game1.print("INFORMACAO: P--->COLOR: " + p.getColor());
-            
+
             mList.Add(mBackgroundImage);
 
             mCurrentBackground = mList.ElementAt(0);
-            
+
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
@@ -228,14 +238,14 @@ namespace ColorLand
             mButtonContinue.loadContent(Game1.getInstance().getScreenManager().getContent());
             mButtonNewGame.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            
-            mButtonPlay     = new Button("mainmenu\\buttons\\mainmenu_play", "mainmenu\\buttons\\mainmenu_play_select", "mainmenu\\buttons\\mainmenu_play_selected", new Rectangle(275, 155, 286, 103));
-            mButtonHelp     = new Button("mainmenu\\buttons\\mainmenu_help", "mainmenu\\buttons\\mainmenu_help_select", "mainmenu\\buttons\\mainmenu_help_selected", new Rectangle(304, 255, 225, 93));
-            mButtonCredits  = new Button("mainmenu\\buttons\\mainmenu_credits", "mainmenu\\buttons\\mainmenu_credits_select", "mainmenu\\buttons\\mainmenu_credits_selected", new Rectangle(/*800-45*/ 10, 550, 38, 39));
+
+            mButtonPlay = new Button("mainmenu\\buttons\\mainmenu_play", "mainmenu\\buttons\\mainmenu_play_select", "mainmenu\\buttons\\mainmenu_play_selected", new Rectangle(275, 155, 286, 103));
+            mButtonHelp = new Button("mainmenu\\buttons\\mainmenu_help", "mainmenu\\buttons\\mainmenu_help_select", "mainmenu\\buttons\\mainmenu_help_selected", new Rectangle(304, 255, 225, 93));
+            mButtonCredits = new Button("mainmenu\\buttons\\mainmenu_credits", "mainmenu\\buttons\\mainmenu_credits_select", "mainmenu\\buttons\\mainmenu_credits_selected", new Rectangle(/*800-45*/ 10, 550, 38, 39));
             mButtonExit = new Button("mainmenu\\buttons\\exit", "mainmenu\\buttons\\exit_select", "mainmenu\\buttons\\exit_selected", new Rectangle(304, 355, 225, 93));
 
             mButtonFullscreen = new Button("mainmenu\\buttons\\full", "mainmenu\\buttons\\full_select", "mainmenu\\buttons\\full_selected", new Rectangle(650, 530, 64, 47));
-         
+
             mGroupButtons = new GameObjectsGroup<Button>();
             //mGroupButtons.addGameObject(mButtonContinue);
             mGroupButtons.addGameObject(mButtonPlay);
@@ -246,12 +256,12 @@ namespace ColorLand
 
             mGroupButtons.addGameObject(mButtonContinue);
             mGroupButtons.addGameObject(mButtonNewGame);
-            
+
             mGroupButtons.loadContent(Game1.getInstance().getScreenManager().getContent());
 
             mSoundIcon = new SoundIcon(new Vector2(710, 514));
             mSoundIcon.loadContent(Game1.getInstance().getScreenManager().getContent());
-                        
+
 
             mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.FAST);
 
@@ -274,23 +284,31 @@ namespace ColorLand
         {
             //checkCollisions();
             mCurrentBackground.update();
-
-            mGroupButtons.update(gameTime);
-            
-            mSoundIcon.update(gameTime);
-            mCursor.update(gameTime);
-            updateMouseInput();
-            checkCollisions();
-
-            if (mFade != null)
+            if (cSCREEN == MainMenuScreen.SCREENS.MAINMENU_SCREEN)
             {
-                mFade.update(gameTime);
+
+                mGroupButtons.update(gameTime);
+
+                mSoundIcon.update(gameTime);
+                mCursor.update(gameTime);
+                updateMouseInput();
+                checkCollisions();
+
+                if (mFade != null)
+                {
+                    mFade.update(gameTime);
+                }
             }
 
             //mBackgroundImage.getPart(0).addX(0.05f);
             mBackgroundImage.getPart(0).addX(gameTime.ElapsedGameTime.Milliseconds * 0.005f);
-            
-                       
+
+            if (cSCREEN != MainMenuScreen.SCREENS.MAINMENU_SCREEN)
+            {
+                currentScreen.update(gameTime);
+            }
+
+
         }
 
 
@@ -302,27 +320,27 @@ namespace ColorLand
             if (mShowContinueScreen)
             {
                 mButtonContinue.setVisible(true); mButtonContinue.enableCollision(true);
-                mButtonNewGame.setVisible(true);  mButtonNewGame.enableCollision(true);
+                mButtonNewGame.setVisible(true); mButtonNewGame.enableCollision(true);
 
-                mButtonPlay.setVisible(false);    mButtonPlay.enableCollision(false);
-                mButtonHelp.setVisible(false);    mButtonHelp.enableCollision(false);
+                mButtonPlay.setVisible(false); mButtonPlay.enableCollision(false);
+                mButtonHelp.setVisible(false); mButtonHelp.enableCollision(false);
                 mButtonCredits.setVisible(false); mButtonCredits.enableCollision(false);
-                mButtonExit.setVisible(false);    mButtonExit.enableCollision(false);
+                mButtonExit.setVisible(false); mButtonExit.enableCollision(false);
             }
             else
             {
                 mButtonContinue.setVisible(false); mButtonContinue.enableCollision(false);
-                mButtonNewGame.setVisible(false);  mButtonNewGame.enableCollision(false);
+                mButtonNewGame.setVisible(false); mButtonNewGame.enableCollision(false);
 
-                mButtonPlay.setVisible(true);    mButtonPlay.enableCollision(true);
-                mButtonHelp.setVisible(true);    mButtonHelp.enableCollision(true);
+                mButtonPlay.setVisible(true); mButtonPlay.enableCollision(true);
+                mButtonHelp.setVisible(true); mButtonHelp.enableCollision(true);
                 mButtonCredits.setVisible(true); mButtonCredits.enableCollision(true);
-                mButtonExit.setVisible(true);    mButtonExit.enableCollision(true);
+                mButtonExit.setVisible(true); mButtonExit.enableCollision(true);
             }
-            
+
             mGroupButtons.draw(mSpriteBatch);
-            mSoundIcon.draw(mSpriteBatch);                
-            
+            mSoundIcon.draw(mSpriteBatch);
+
             mCursor.draw(mSpriteBatch);
 
             if (mFade != null)
@@ -332,11 +350,15 @@ namespace ColorLand
 
             mSpriteBatch.End();
 
+            if (cSCREEN != MainMenuScreen.SCREENS.MAINMENU_SCREEN)
+            {
+                currentScreen.draw(gameTime);
+            }
         }
 
         private void updateMouseInput()
         {
-            
+
             MouseState ms = Mouse.GetState();
 
             if (ms.LeftButton == ButtonState.Pressed)
@@ -369,16 +391,17 @@ namespace ColorLand
                         {
                             mSoundIcon.changeState(SoundIcon.sSTATE_OFF);
                             SoundManager.setSound(false);
-                        }else
-                        if (mSoundIcon.getState() == SoundIcon.sSTATE_OFF)
-                        {
-                            mSoundIcon.changeState(SoundIcon.sSTATE_NORMAL);
-                            SoundManager.setSound(true);
                         }
+                        else
+                            if (mSoundIcon.getState() == SoundIcon.sSTATE_OFF)
+                            {
+                                mSoundIcon.changeState(SoundIcon.sSTATE_NORMAL);
+                                SoundManager.setSound(true);
+                            }
                     }
                 }
             }
-            
+
             oldStateMouse = ms;
 
         }
@@ -386,7 +409,7 @@ namespace ColorLand
         public override void handleInput(InputState input)
         {
             base.handleInput(input);
-                        
+
             KeyboardState newState = Keyboard.GetState();
 
             if (newState.IsKeyDown(Keys.Escape))
@@ -404,7 +427,7 @@ namespace ColorLand
                     }
                 }
 
-                
+
             }
 
             oldstateKeyboard = newState;
@@ -421,12 +444,13 @@ namespace ColorLand
         {
             if (mCurrentHighlightButton != null)
             {
-                for (int x = 0; x < mGroupButtons.getSize(); x++ )
+                for (int x = 0; x < mGroupButtons.getSize(); x++)
                 {
 
                     Button b = mGroupButtons.getGameObject(x);
 
-                    if(b != mCurrentHighlightButton){
+                    if (b != mCurrentHighlightButton)
+                    {
 
                         b.changeState(Button.sSTATE_NORMAL);
 
@@ -483,7 +507,9 @@ namespace ColorLand
 
                 mCollidingWithSomeButton = true;
 
-            }else{
+            }
+            else
+            {
                 mCollidingWithSomeButton = false;
 
                 if (mCurrentHighlightButton != null)// && mCurrentHighlightButton.getState() != Button.sSTATE_PRESSED)
@@ -497,7 +523,7 @@ namespace ColorLand
 
         private void processButtonAction(Button button)
         {
-           
+
             if (button == mButtonPlay)
             {
                 SoundManager.PlaySound(cSOUND_HIGHLIGHT);
@@ -526,53 +552,57 @@ namespace ColorLand
                 }
 
                 /*
-                  */              
-            }else
-            if (button == mButtonContinue)
-            {
-                //SoundManager.PlaySound(cSOUND_HIGHLIGHT);
-                //mFade = new Fade(this, "fades\\blackfade");
-                //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-                SoundManager.stopMusic();
-                Game1.print("<<CONTINUE BUTTON>>");
-                executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-                mFadeParam = FADE_PARAM.CONTINUE_GAME;
+                  */
+            }
+            else
+                if (button == mButtonContinue)
+                {
+                    //SoundManager.PlaySound(cSOUND_HIGHLIGHT);
+                    //mFade = new Fade(this, "fades\\blackfade");
+                    //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                    SoundManager.stopMusic();
+                    Game1.print("<<CONTINUE BUTTON>>");
+                    executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                    mFadeParam = FADE_PARAM.CONTINUE_GAME;
 
-            }else
-            if (button == mButtonNewGame)
-            {
-                //SoundManager.PlaySound(cSOUND_HIGHLIGHT);
-                //mFade = new Fade(this, "fades\\blackfade");
-                //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-                Game1.print("<<NEW GAME BUTTON>>");
-                SoundManager.stopMusic();
+                }
+                else
+                    if (button == mButtonNewGame)
+                    {
+                        //SoundManager.PlaySound(cSOUND_HIGHLIGHT);
+                        //mFade = new Fade(this, "fades\\blackfade");
+                        //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                        Game1.print("<<NEW GAME BUTTON>>");
+                        SoundManager.stopMusic();
 
-                ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setCurrentStage(1));
-                executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-                mFadeParam = FADE_PARAM.START_GAME;
+                        ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setCurrentStage(1));
+                        executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                        mFadeParam = FADE_PARAM.START_GAME;
 
-            }
-            else if (button == mButtonHelp)
-            {
-                SoundManager.PlaySound(cSOUND_HIGHLIGHT);
-                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU_HELP, false);
-            }
-            else if (button == mButtonCredits)
-            {
-                SoundManager.PlaySound(cSOUND_HIGHLIGHT);
-                Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU_CREDITS, false);
-            }
-            else if (button == mButtonFullscreen)
-            {
-                SoundManager.PlaySound(cSOUND_HIGHLIGHT);
-                Game1.getInstance().toggleFullscreen();
-            }
-            else if (button == mButtonExit)
-            {
-                executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-                mFadeParam = FADE_PARAM.EXIT_GAME;
-            }
-            
+                    }
+                    else if (button == mButtonHelp)
+                    {
+                        currentScreen = new HelpScreen(this);
+                        cSCREEN = SCREENS.HELP_SCREEN;
+                        SoundManager.PlaySound(cSOUND_HIGHLIGHT);
+                        // Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU_HELP, false);
+                    }
+                    else if (button == mButtonCredits)
+                    {
+                        SoundManager.PlaySound(cSOUND_HIGHLIGHT);
+                        Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU_CREDITS, false);
+                    }
+                    else if (button == mButtonFullscreen)
+                    {
+                        SoundManager.PlaySound(cSOUND_HIGHLIGHT);
+                        Game1.getInstance().toggleFullscreen();
+                    }
+                    else if (button == mButtonExit)
+                    {
+                        executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                        mFadeParam = FADE_PARAM.EXIT_GAME;
+                    }
+
         }
 
         public override void executeFade(Fade fadeObject, int effect)
@@ -583,7 +613,7 @@ namespace ColorLand
             fadeObject.execute(effect);
         }
 
-         public override void fadeFinished(Fade fadeObject)
+        public override void fadeFinished(Fade fadeObject)
         {
             //if(fadeObject.getEffect() == Fade.sFADE_IN_EFFECT_GRADATIVE){
             //}else
@@ -609,6 +639,6 @@ namespace ColorLand
 
         }
 
-        
+
     }
 }
