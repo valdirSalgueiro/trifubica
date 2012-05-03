@@ -434,6 +434,44 @@ namespace ColorLand
 
             }
 
+            ///HOT KEYS
+
+            if (newState.IsKeyDown(Keys.F1))
+            {
+                if (!oldstateKeyboard.IsKeyDown(Keys.F1))
+                {
+                    ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setStageAndColor(1, ProgressObject.PlayerColor.BLUE));
+                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, true,true);
+                }
+            }
+            if (newState.IsKeyDown(Keys.F2))
+            {
+                if (!oldstateKeyboard.IsKeyDown(Keys.F2))
+                {
+                    ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setStageAndColor(2, ProgressObject.PlayerColor.BLUE));
+                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, true, true);
+                }
+            }
+            if (newState.IsKeyDown(Keys.F3))
+            {
+                if (!oldstateKeyboard.IsKeyDown(Keys.F3))
+                {
+                    ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setStageAndColor(3, ProgressObject.PlayerColor.BLUE));
+                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, true, true);
+                }
+            }
+            if (newState.IsKeyDown(Keys.F4))
+            {
+                if (!oldstateKeyboard.IsKeyDown(Keys.F4))
+                {
+                    ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setStageAndColor(4, ProgressObject.PlayerColor.BLUE));
+                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, true, true);
+                }
+            }
+
+
+            
+
             oldstateKeyboard = newState;
         }//sabe uma notificação que fizeram ontem. Brinco formal demais
 
