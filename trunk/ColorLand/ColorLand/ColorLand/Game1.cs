@@ -41,13 +41,7 @@ namespace ColorLand
 
         public Game1()
         {
-            try
-            {
-                progressObject = ExtraFunctions.loadProgress();
-            }
-            catch (Exception e) {
-                progressObject = new ProgressObject(1, ProgressObject.PlayerColor.BLUE);
-            }
+            progressObject = ExtraFunctions.loadProgress();
 
             graphics = new GraphicsDeviceManager(this);
 
