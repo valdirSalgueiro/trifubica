@@ -30,6 +30,14 @@ namespace ColorLand
 
         Texture2D bubble;
 
+
+        float elapsedTime;
+
+        Random rand=new Random();
+
+        Color enemyColor;
+
+        Dictionary<Color, Sprite> dic = new Dictionary<Color, Sprite>();
         
         //TODO Construir mecanismo de chamar um delegate method when finish animation
 
@@ -41,19 +49,11 @@ namespace ColorLand
         public Balloon(Color color, Vector2 origin)
             : base(color, origin)
         {
-            if(color == Color.Red)
-            {
-                mSpriteFlying = new Sprite(ExtraFunctions.fillArrayWithImages2(1,12, "enemies\\balloon\\red\\red"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, 100, 100, false, false);
-            }
-            if (color == Color.Blue)
-            {
-                mSpriteFlying = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 12, "enemies\\balloon\\blue\\blue"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, 100, 100, false, false);
-            }
-            if (color == Color.Green)
-            {
-                mSpriteFlying = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 12, "enemies\\balloon\\green\\green"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, 100, 100, false, false);
-            }
-
+            enemyColor = color;
+            dic[Color.Red]=new Sprite(ExtraFunctions.fillArrayWithImages2(1,12, "enemies\\balloon\\red\\red"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, 100, 100, false, false);
+            dic[Color.Blue] = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 12, "enemies\\balloon\\blue\\blue"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, 100, 100, false, false);
+            dic[Color.Green] = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 12, "enemies\\balloon\\green\\green"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, 100, 100, false, false);
+            mSpriteFlying = dic[enemyColor];
             addSprite(mSpriteFlying, sSTATE_FLYING);
 
             changeToSprite(sSTATE_FLYING);
@@ -96,12 +96,37 @@ namespace ColorLand
             x += 0.05f;
             float sinMov = 2*(float)Math.Sin(x);
             mY += sinMov;
+
+            elapsedTime += (float)(gameTime.ElapsedGameTime.Milliseconds);
+
+            if (elapsedTime > 3000)
+            {
+                elapsedTime = 0;
+                Color oldColor;
+                do
+                {
+                    int random = rand.Next(0, 2);
+                    oldColor = enemyColor;
+                    switch (random)
+                    {
+                        case 0:
+                            enemyColor = Color.Red;
+                            break;
+                        case 1:
+                            enemyColor = Color.Blue;
+                            break;
+                        case 2:
+                            enemyColor = Color.Green;
+                            break;
+                    }
+                } while (enemyColor == oldColor);
+            }
         }
 
         public override void draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(bubble, new Rectangle((int)(mX - 50),(int) (mY - 50), 100, 100),Color.White);
             spriteBatch.Draw(bubble, new Rectangle((int)(mX), (int)(mY), 100, 100), Color.White);
+            mSpriteFlying = dic[enemyColor];
             base.draw(spriteBatch);
         }
 
