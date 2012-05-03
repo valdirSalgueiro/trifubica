@@ -37,6 +37,10 @@ namespace ColorLand.game
 
         int curFrame = 0;
 
+        float elapsedTime;
+
+        Random rand = new Random();
+
         string[] sequenceBlue = new string[]{
                         "enemies\\Lizardo\\shoots\\blue\\blue0001",
                         "enemies\\Lizardo\\shoots\\blue\\blue0002",
@@ -241,7 +245,8 @@ namespace ColorLand.game
             if(item==ITEM.NONE)
                 collisionRect = new Rectangle((int)pos.X, (int)pos.Y, 44, 45);
             else
-                collisionRect = new Rectangle((int)pos.X-80, (int)pos.Y-80, 160, 160);
+                collisionRect = new Rectangle((int)pos.X-40, (int)pos.Y-40, 80, 80);
+
             return isActive;
         }
 
