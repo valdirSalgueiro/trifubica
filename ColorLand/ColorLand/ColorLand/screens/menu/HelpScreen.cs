@@ -94,10 +94,10 @@ namespace ColorLand
             mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
             mBackgroundImage.setLocation(0, 50);
             mList.Add(mBackgroundImage);
-            mBackgroundImage = new Background("mainmenu\\help\\05_items");
-            mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
-            mBackgroundImage.setLocation(0, 50);
-            mList.Add(mBackgroundImage);
+            //mBackgroundImage = new Background("mainmenu\\help\\05_items");
+            //mBackgroundImage.loadContent(Game1.getInstance().getScreenManager().getContent());
+            //mBackgroundImage.setLocation(0, 50);
+            //mList.Add(mBackgroundImage);
 
             mCurrentBackground = mList.ElementAt(0);
 
@@ -150,7 +150,7 @@ namespace ColorLand
             mCurrentBackground.draw(mSpriteBatch);
 
             mGroupButtons.draw(mSpriteBatch);
-            if (currentScreen == 4)
+            if (currentScreen == mList.Count() - 1)
             {
                 mSpriteBatch.Draw(mNext, new Rectangle(586, 474, 80, 86), Color.White);
             }
@@ -268,7 +268,7 @@ namespace ColorLand
 
         private void nextPage()
         {
-            if (currentScreen == 4)
+            if (currentScreen == mList.Count()-1)
                 return;
             else
                 currentScreen++;
