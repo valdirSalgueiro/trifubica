@@ -122,17 +122,22 @@ namespace ColorLand
 
             if (appearing)
             {
-                appearing = false;
+                if(count>2)
+                    appearing = false;
+
                 if (!up.mGrowUp)
                 {
+                    count++;
                     up.appear();
                 }
                 if (!down.mGrowUp)
                 {
+                    count++;
                     down.appear();
                 }
                 if (!middle.mGrowUp)
                 {
+                    count++;
                     middle.appear();
                 }
             }
