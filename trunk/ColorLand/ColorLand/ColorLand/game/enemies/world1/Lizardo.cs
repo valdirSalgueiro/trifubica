@@ -12,7 +12,7 @@ namespace ColorLand
     class Lizardo : BaseEnemy
     {
 
-        private const String cSOUND_PATADA = "sound\\fx\\patada8bit";
+        public const String cSOUND_SHOOT = "sound\\fx\\charsounds\\lizardo";
 
         //SpriteFont mFontDebug = Game1.getInstance().getScreenManager().getContent().Load<SpriteFont>("debug");
 
@@ -105,7 +105,7 @@ namespace ColorLand
         {
 
             base.loadContent(content);
-            SoundManager.LoadSound(cSOUND_PATADA);
+            SoundManager.LoadSound(cSOUND_SHOOT);
         }
 
         public override void update(GameTime gameTime)
@@ -168,6 +168,8 @@ namespace ColorLand
                 {
                     RockManager.getInstance().createObject(pos + new Vector2(30,20), new Vector2(getCurrentSprite().isFlipped()? 10:-10,-200),color_);
                     shotBullet = true;
+
+                    SoundManager.PlaySound(cSOUND_SHOOT);
                 }
                 else
                     shotBullet = false;

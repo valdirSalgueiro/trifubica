@@ -70,7 +70,7 @@ namespace ColorLand
         public static void PlayMusic(string name)
         {
             currentSong = null;
-            
+            SetMusicVolume(0.8f);
             try
             {
                 currentSong = content.Load<Song>(name);
@@ -91,7 +91,7 @@ namespace ColorLand
         public static void PlayMusic(string name, bool repeat)
         {
             currentSong = null;
-
+            SetMusicVolume(0.8f);
             try
             {
                 currentSong = content.Load<Song>(name);

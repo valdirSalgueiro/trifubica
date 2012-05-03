@@ -37,6 +37,11 @@ namespace ColorLand
         public const String cSOUND_STAGE3_TITLE = "sound\\fx\\charsounds\\sdesert";
         public const String cSOUND_STAGE4_TITLE = "sound\\fx\\charsounds\\sjungle";
 
+        private const String cSOUND_LETSPAINT = "sound\\fx\\charsounds\\niceletspaint";
+        private const String cSOUND_VERYGOOD = "sound\\fx\\charsounds\\verygood";
+
+        private const String cSOUND_GAMEOVER = "sound\\fx\\charsounds\\gameover";
+        private const String cSOUND_WETRYLATER = "sound\\fx\\charsounds\\wetrylater";
         private const String cSOUND_HIGHLIGHT = "sound\\fx\\highlight8bit";
         public const String cSOUND_WE_DID_IT = "sound\\fx\\charsounds\\yeah_we_did_it";
         public const String cSOUND_READY = "sound\\fx\\charsounds\\ready";
@@ -87,7 +92,7 @@ namespace ColorLand
          *******************/
         public static int sGROUND_WORLD_1_1 = 500;
 
-        int energy = 100; //100
+        int energy = 1; //100
         int progress = 0;
         int numberEnemies = 40;
         int pulse = 0;
@@ -330,6 +335,10 @@ namespace ColorLand
             SoundManager.LoadSound(cSOUND_READY);
             SoundManager.LoadSound(cSOUND_GO);
             SoundManager.LoadSound(cSOUND_YES);
+            SoundManager.LoadSound(cSOUND_GAMEOVER);
+            SoundManager.LoadSound(cSOUND_LETSPAINT);
+            SoundManager.LoadSound(cSOUND_VERYGOOD);
+            SoundManager.LoadSound(cSOUND_WETRYLATER);
             SoundManager.LoadSound(cSOUND_HIGHLIGHT);
             SoundManager.LoadSound(cSOUND_WE_DID_IT);
             SoundManager.LoadSound(cSOUND_EXPLOSION);
@@ -402,12 +411,15 @@ namespace ColorLand
             mGroupButtons.addGameObject(mGameOverButtonTryLater);
 
             mGroupButtons.loadContent(Game1.getInstance().getScreenManager().getContent());
-            
+
+            SoundManager.SetMusicVolume(0.8f);
+
             //TODO debug
-            mCurrentStage = 2;
-            mMainCharacter = new MainCharacter(Color.Red);
+            /*mCurrentStage = 4;
+            mMainCharacter = new MainCharacter(Color.Blue);
             mMainCharacter.loadContent(Game1.getInstance().getScreenManager().getContent());
             mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 434);
+            */
 
             switch (mCurrentStage)
             {
@@ -456,12 +468,12 @@ namespace ColorLand
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(0, 100));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(0, 100));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Green, new Vector2(20, 426));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Blue, new Vector2(20, 426));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(800, 0));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(300, 90));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(300, 100));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(300, 110));
                     
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(0, 0));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(300, 90));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(300, 90));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(10, 110));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.CrabCrab, Color.Red, new Vector2(20, 426));
                    
                 //
 
@@ -528,7 +540,7 @@ namespace ColorLand
 
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(800, 100));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(700, 100));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(600, 340));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(600, 100));
 
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(60, 300));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(60, 300));
@@ -539,8 +551,12 @@ namespace ColorLand
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(20, 10));
 
                     mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Green, new Vector2(60, 200));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(60, 400));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(680, 300));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(200, 200));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Red, new Vector2(680, 200));
+
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(300, 80));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(300, 80));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.MongoPirate, Color.Blue, new Vector2(300, 80));
 
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(30, 10));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Blue, new Vector2(20, 10));
@@ -652,13 +668,39 @@ namespace ColorLand
                     mExplosionManager.addExplosion(20, Color.Green, Game1.getInstance().getScreenManager().getContent());
                     mExplosionManager.addExplosion(20, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Balloon, Color.Green, new Vector2(200, 100));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 100));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(200, 430));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(200, 20));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(700, 20));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Rocker, Color.Green, new Vector2(200, 20));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Rocker, Color.Red, new Vector2(200, 20));
+
+                    mManager.setMaxEnemiesPerScreen(2);
+                    mManager.restartTimeInterval(2);
+
+                    //mManager.addEnemy(EnemyManager.EnemiesTypes.Balloon, Color.Green, new Vector2(200, 100));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(50, 100));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(50, 100));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(50, 100));
+
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Rocker, Color.Green, new Vector2(100, 20));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Rocker, Color.Red, new Vector2(800, 210));
+
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(50, 100));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(50, 100));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(50, 100));
+
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(0, 430));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(-80, 430));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(-120, 430));
+
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Red, new Vector2(0, 430));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Red, new Vector2(-80, 430));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Red, new Vector2(-120, 430));
+
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Blue, new Vector2(90, 430));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Blue, new Vector2(100, 430));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Blue, new Vector2(110, 430));
+
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(50, 100));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(50, 100));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(50, 100));
+
+                    
                     /*mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 100));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 200));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 300));
@@ -819,8 +861,7 @@ namespace ColorLand
                 {
                     mFade = new Fade(this, "fades\\blackfade", Fade.SPEED.MEDIUM);
                     executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-                    mFadeParam = FADE_PARAM.NEXT_STAGE;
-                    
+                    mFadeParam = FADE_PARAM.NEXT_STAGE;                    
                 }
 
                 if (mTimerStageFinishExplosions.getTimeAndLock(1.5))
@@ -989,7 +1030,7 @@ namespace ColorLand
 
                             if (be is Balloon)
                             {
-                                RockManager.getInstance().createObject(be.getCenter(), Vector2.Zero, be.getColor(), game.Rock.ITEM.HEART_BLUE);
+                                //RockManager.getInstance().createObject(be.getCenter(), Vector2.Zero, be.getColor(), game.Rock.ITEM.HEART_BLUE);
                             }
 
                             mExplosionManager.getNextOfColor(be.getColor()).explode(be.getCenter());
@@ -1326,6 +1367,7 @@ namespace ColorLand
                                     //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
                                     //mFadeParam = FADE_PARAM.GAME_OVER;
                                     mShowGameoverContent = true;
+                                    SoundManager.PlaySound(cSOUND_GAMEOVER);
                                 }
                             }
                             /*
@@ -1805,6 +1847,16 @@ namespace ColorLand
             if (progress < numberEnemies)
                 progress += 1;
 
+            if (mDestroyedEnemies == 1)
+            {
+                SoundManager.PlaySound(cSOUND_LETSPAINT);
+            }
+            if (mDestroyedEnemies % 4 == 0)
+            {
+                SoundManager.PlaySound(cSOUND_VERYGOOD);
+            }
+
+
             porcentagemRestante = ExtraFunctions.valueToPercent(progress, numberEnemies);
 
             HUD.getInstance(this).setBarLevel(porcentagemRestante);
@@ -2153,12 +2205,14 @@ namespace ColorLand
             {
                 //play positive sound
                 ///SoundManager.
+                SoundManager.PlaySound(cSOUND_YES);
                 executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
                 mFadeParam = FADE_PARAM.RESTART_STAGE;
             }
             if (button == mGameOverButtonTryLater)
             {
                 //play okays... sound
+                SoundManager.PlaySound(cSOUND_WETRYLATER);
                 executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
                 mFadeParam = FADE_PARAM.QUIT_TO_MAIN_MENU;
 

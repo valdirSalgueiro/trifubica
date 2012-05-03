@@ -97,7 +97,7 @@ namespace ColorLand
                     enemy = new Rocker(c, location);
                     break;
                 case EnemiesTypes.Balloon:
-                    enemy = new Balloon(c, location);
+                    //enemy = new Balloon(c, location);
                     break;
             }
 
