@@ -8,19 +8,19 @@ using Microsoft.Xna.Framework.Content;
 
 namespace ColorLand
 {
-    class Balloon : BaseEnemy
+    public class Balloon : GameObject
     {
         //INDEXES
-        public const int sSTATE_FLYING = 0;
+        public const int sSTATE_FLYING_RED = 0;
+        public const int sSTATE_FLYING_GREEN = 1;
+        public const int sSTATE_FLYING_BLUE = 2;
  
-
-        //SPRITES
-        private Sprite mSpriteFlying;
+                //SPRITES
+        private Sprite mSpriteRed;
+        private Sprite mSpriteGreen;
+        private Sprite mSpriteBlue;
  
-        //Specific
-        private int mType;
-        private int mInitX;
-        private int mInitY;
+        
         private const int cHORIZONTAL_MARGIN = 40;
 
         private float mSinComplement = 5.0f;
@@ -30,6 +30,7 @@ namespace ColorLand
 
         Texture2D bubble;
 
+        private MTimer mTimerChangeColor;
 
         float elapsedTime;
 
@@ -41,22 +42,47 @@ namespace ColorLand
         
         //TODO Construir mecanismo de chamar um delegate method when finish animation
 
-        public Balloon(Color color) : this (color, new Vector2(0,0))
+        private BTYPE mType;
+
+        public enum BTYPE
+        {
+            INSTANT_BALLOON,
+            HEART
+        }
+
+        public Balloon(Color color) : this (color, new Vector2(0,0),BTYPE.INSTANT_BALLOON)
         {
             
         }
 
-        public Balloon(Color color, Vector2 origin)
-            : base(color, origin)
+        public Balloon(Color color, Vector2 origin, BTYPE type)
+            : base()
         {
-            enemyColor = color;
-            dic[Color.Red]=new Sprite(ExtraFunctions.fillArrayWithImages2(1,12, "enemies\\balloon\\red\\red"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, 100, 100, false, false);
-            dic[Color.Blue] = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 12, "enemies\\balloon\\blue\\blue"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, 100, 100, false, false);
-            dic[Color.Green] = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 12, "enemies\\balloon\\green\\green"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, 100, 100, false, false);
-            mSpriteFlying = dic[enemyColor];
-            addSprite(mSpriteFlying, sSTATE_FLYING);
 
-            changeToSprite(sSTATE_FLYING);
+            mType = type;
+
+            mTimerChangeColor = new MTimer(true);
+
+            enemyColor = color;
+
+            if (mType == BTYPE.INSTANT_BALLOON)
+            {
+                mSpriteRed = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 12, "enemies\\balloon\\red\\red"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, 100, 100, false, false);
+                mSpriteGreen = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 12, "enemies\\balloon\\green\\green"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, 100, 100, false, false);
+                mSpriteBlue = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 12, "enemies\\balloon\\blue\\blue"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, 100, 100, false, false);
+            }else
+            if (mType == BTYPE.HEART)
+            {
+                /*hmSpriteRed = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 12, "enemies\\balloon\\red\\red"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, 100, 100, false, false);
+                mSpriteGreen = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 12, "enemies\\balloon\\green\\green"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, 100, 100, false, false);
+                mSpriteBlue = new Sprite(ExtraFunctions.fillArrayWithImages2(1, 12, "enemies\\balloon\\blue\\blue"), new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }, 1, 100, 100, false, false);*/
+            }
+                        
+            addSprite(mSpriteRed,   sSTATE_FLYING_RED);
+            addSprite(mSpriteGreen, sSTATE_FLYING_GREEN);
+            addSprite(mSpriteBlue,  sSTATE_FLYING_BLUE);
+
+            changeToSprite(sSTATE_FLYING_RED);
 
             setCollisionRect(15,15, 70, 70);
             setLocation(origin);
@@ -97,37 +123,30 @@ namespace ColorLand
             float sinMov = 2*(float)Math.Sin(x);
             mY += sinMov;
 
-            elapsedTime += (float)(gameTime.ElapsedGameTime.Milliseconds);
-
-            if (elapsedTime > 3000)
+            if (mTimerChangeColor != null)
             {
-                elapsedTime = 0;
-                Color oldColor;
-                do
+                mTimerChangeColor.update(gameTime);
+
+                if (mTimerChangeColor.getTimeAndLock(1))
                 {
-                    int random = rand.Next(0, 2);
-                    oldColor = enemyColor;
-                    switch (random)
-                    {
-                        case 0:
-                            enemyColor = Color.Red;
-                            break;
-                        case 1:
-                            enemyColor = Color.Blue;
-                            break;
-                        case 2:
-                            enemyColor = Color.Green;
-                            break;
-                    }
-                } while (enemyColor == oldColor);
+                    if (getState() == sSTATE_FLYING_RED) changeState(sSTATE_FLYING_GREEN);
+                    if (getState() == sSTATE_FLYING_GREEN) changeState(sSTATE_FLYING_BLUE);
+                    if (getState() == sSTATE_FLYING_BLUE) changeState(sSTATE_FLYING_RED);
+                }
             }
+
         }
 
         public override void draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(bubble, new Rectangle((int)(mX), (int)(mY), 100, 100), Color.White);
-            mSpriteFlying = dic[enemyColor];
+            mSpriteRed = dic[enemyColor];
             base.draw(spriteBatch);
+        }
+
+        public Color getColor()
+        {
+            return enemyColor;
         }
 
         public void changeState(int state)
@@ -135,9 +154,17 @@ namespace ColorLand
 
             switch (state)
             {
-                case sSTATE_FLYING:
-                    setState(sSTATE_FLYING);
-                    changeToSprite(sSTATE_FLYING);
+                case sSTATE_FLYING_RED:
+                    setState(sSTATE_FLYING_RED);
+                    changeToSprite(sSTATE_FLYING_RED);
+                    break;
+                case sSTATE_FLYING_GREEN:
+                    setState(sSTATE_FLYING_GREEN);
+                    changeToSprite(sSTATE_FLYING_GREEN);
+                    break;
+                case sSTATE_FLYING_BLUE:
+                    setState(sSTATE_FLYING_BLUE);
+                    changeToSprite(sSTATE_FLYING_BLUE);
                     break;
     
             }

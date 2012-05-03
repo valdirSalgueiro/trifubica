@@ -21,7 +21,6 @@ namespace ColorLand
 
         private BaseScreen mCurrentScreen;
         
-
         private SpriteBatch mSpriteBatch;
         
         private SpriteFont mFont;
