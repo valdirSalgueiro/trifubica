@@ -404,7 +404,7 @@ namespace ColorLand
             mGroupButtons.loadContent(Game1.getInstance().getScreenManager().getContent());
             
             //TODO debug
-            //mCurrentStage = 1;
+            mCurrentStage = 4;
 
             switch (mCurrentStage)
             {
@@ -695,6 +695,8 @@ namespace ColorLand
                     mExplosionManager.addExplosion(20, Color.Green, Game1.getInstance().getScreenManager().getContent());
                     mExplosionManager.addExplosion(20, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Balloon, Color.Green, new Vector2(200, 100));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 100));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(200, 430));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(200, 20));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(700, 20));

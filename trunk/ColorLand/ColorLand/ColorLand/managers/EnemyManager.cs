@@ -38,7 +38,8 @@ namespace ColorLand
             Bako,
             Kaktos,
             Lizardo,
-            Rocker
+            Rocker,
+            Balloon
         }
 
         public EnemyManager()
@@ -94,6 +95,9 @@ namespace ColorLand
                     break;
                 case EnemiesTypes.Rocker:
                     enemy = new Rocker(c, location);
+                    break;
+                case EnemiesTypes.Balloon:
+                    enemy = new Balloon(c, location);
                     break;
             }
 
