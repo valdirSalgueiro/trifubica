@@ -119,7 +119,6 @@ namespace ColorLand
                 destAngle = Math.Atan2(playerPosition.Y - pos.Y, playerPosition.X - pos.X);
                 //altere "1.0f" para fazer com que ele se desloque mais rapidamente
                 mX += 1.0f * (float)Math.Cos(destAngle);
-                mY += 1.0f * (float)Math.Sin(destAngle);
 
                 changeState(sSTATE_WALKING);
             }
