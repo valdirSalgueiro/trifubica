@@ -15,9 +15,12 @@ namespace ColorLand
         Kakto middle;
         Kakto down;
 
-        private Kakto mCollided;     
+        private Kakto mCollided;
 
 
+        int count = 0;
+
+        bool appearing = false;
 
         //TODO Construir mecanismo de chamar um delegate method when finish animation
 
@@ -115,6 +118,24 @@ namespace ColorLand
             up.update(gameTime);
             middle.update(gameTime);
             down.update(gameTime);
+
+
+            if (appearing)
+            {
+                appearing = false;
+                if (!up.mGrowUp)
+                {
+                    up.appear();
+                }
+                if (!down.mGrowUp)
+                {
+                    down.appear();
+                }
+                if (!middle.mGrowUp)
+                {
+                    middle.appear();
+                }
+            }
             
         }
 
@@ -128,10 +149,7 @@ namespace ColorLand
 
         public override void appear()
         {
-            base.appear();
-            up.appear();
-            middle.appear();
-            down.appear();
+            appearing = true;
         }
 
         public bool isEmpty()

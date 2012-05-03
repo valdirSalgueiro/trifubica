@@ -122,8 +122,6 @@ namespace ColorLand
 
         }
 
-
-
         public override void loadContent(ContentManager content)
         {
             base.loadContent(content);

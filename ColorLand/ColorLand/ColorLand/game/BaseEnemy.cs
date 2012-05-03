@@ -11,7 +11,7 @@ namespace ColorLand
     public class BaseEnemy : GameObject {
 
         public float mAlpha = 0;
-        private bool mGrowUp;
+        public bool mGrowUp;
 
         public const int sTYPE_SIMPLE_FLYING_RED = 0;
         public const int sTYPE_SIMPLE_FLYING_GREEN = 1;
