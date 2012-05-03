@@ -986,6 +986,12 @@ namespace ColorLand
                         {
                             int x = (int)be.getX();
                             int y = (int)be.getY();
+
+                            if (be is Balloon)
+                            {
+                                RockManager.getInstance().createObject(be.getCenter(), Vector2.Zero, be.getColor(), game.Rock.ITEM.HEART_BLUE);
+                            }
+
                             mExplosionManager.getNextOfColor(be.getColor()).explode(be.getCenter());
                             be.destroy();
                             incrementProgress();
@@ -1760,6 +1766,18 @@ namespace ColorLand
         public void setPauseGame(bool paused)
         {
             mPaused = paused;
+        }
+
+        public void heal()
+        {
+            energy += 10;
+            if (energy > 100)
+                energy = 100;
+
+            porcentagemRestante = ExtraFunctions.valueToPercent(energy, 100);
+
+            HUD.getInstance(this).setPlayerBarLevel(porcentagemRestante);
+            mMainCharacter.hurt();
         }
 
         public void damage()

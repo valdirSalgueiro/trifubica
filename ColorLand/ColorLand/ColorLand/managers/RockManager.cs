@@ -26,9 +26,9 @@ namespace ColorLand.managers
             instance = null;
         }
 
-        public void createObject(Vector2 position, Vector2 vel, Color rockType)
+        public void createObject(Vector2 position, Vector2 vel, Color rockType, Rock.ITEM item)
         {
-            Rock rock = new Rock(vel, rockType);
+            Rock rock = new Rock(vel, rockType, item);
             rock.loadContent(Game1.getInstance().getScreenManager().getContent());
             rock.pos = position;
             rock.type = rockType;
@@ -37,8 +37,14 @@ namespace ColorLand.managers
 
         public void createObject(Vector2 position)
         {
-            createObject(position,new Vector2(0,0), Color.White);
+            createObject(position,new Vector2(0,0), Color.White, Rock.ITEM.NONE);
         }
+
+        public void createObject(Vector2 position, Vector2 vel, Color rockType)
+        {
+            createObject(position, vel, rockType, Rock.ITEM.NONE);
+        }
+
 
         public void addObject(Rock enemy)
         {
@@ -64,12 +70,19 @@ namespace ColorLand.managers
 
                 if (rock.collisionRect.Intersects(((GamePlayScreen)currentScreen).getPlayer().getCollisionRect()))
                 {
-                    ((GamePlayScreen)currentScreen).damage();
+                    if (rock.item == Rock.ITEM.NONE)
+                    {
+                        ((GamePlayScreen)currentScreen).damage();
+                    }
+                    else
+                    {
+                        ((GamePlayScreen)currentScreen).heal();
+                    }
                     rock.notifyCollision();
                 }
 
                 Cursor cursor=((GamePlayScreen)currentScreen).getCursor();
-                if (!cursor.isInnofensive() && rock.type==cursor.getColor() && rock.collisionRect.Intersects(cursor.getCollisionRect()))
+                if (!cursor.isInnofensive() && rock.item == Rock.ITEM.NONE && rock.type==cursor.getColor() && rock.collisionRect.Intersects(cursor.getCollisionRect()))
                 {
                     em.getNextOfColor(rock.type).explode(rock.pos);
                     removeObject(rock);
