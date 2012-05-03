@@ -28,6 +28,9 @@ namespace ColorLand
         private bool tempMove;
         private float x;
 
+        Texture2D bubble;
+
+        
         //TODO Construir mecanismo de chamar um delegate method when finish animation
 
         public Balloon(Color color) : this (color, new Vector2(0,0))
@@ -62,6 +65,7 @@ namespace ColorLand
         public override void loadContent(ContentManager content)
         {
             base.loadContent(content);
+            bubble = content.Load<Texture2D>("enemies\\balloon\\bolha\\Bolha_01"); 
         }
 
         public override void update(GameTime gameTime)
@@ -96,6 +100,8 @@ namespace ColorLand
 
         public override void draw(SpriteBatch spriteBatch)
         {
+            //spriteBatch.Draw(bubble, new Rectangle((int)(mX - 50),(int) (mY - 50), 100, 100),Color.White);
+            spriteBatch.Draw(bubble, new Rectangle((int)(mX), (int)(mY), 100, 100), Color.White);
             base.draw(spriteBatch);
         }
 
