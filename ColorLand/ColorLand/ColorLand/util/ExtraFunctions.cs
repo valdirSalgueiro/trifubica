@@ -105,7 +105,15 @@ namespace ColorLand
 
         public static ProgressObject loadProgress()
         {
-            return ObjectSerialization.Load<ProgressObject>(Game1.sPROGRESS_FILE_NAME);
+            ProgressObject o;
+            try
+            {
+                o = ObjectSerialization.Load<ProgressObject>(Game1.sPROGRESS_FILE_NAME);
+            }
+            catch (Exception e) {
+                o=new ProgressObject(1, ProgressObject.PlayerColor.BLUE);
+            }
+            return o;
         }
 
         public static Color convertSavedColorToColor()
