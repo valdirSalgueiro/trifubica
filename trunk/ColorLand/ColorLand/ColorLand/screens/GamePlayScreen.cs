@@ -415,10 +415,10 @@ namespace ColorLand
             SoundManager.SetMusicVolume(0.8f);
 
             //TODO debug
-            mCurrentStage = 4;
+            /*mCurrentStage = 4;
             mMainCharacter = new MainCharacter(Color.Red);
             mMainCharacter.loadContent(Game1.getInstance().getScreenManager().getContent());
-            mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 434);
+            mMainCharacter.setCenter(Game1.sSCREEN_RESOLUTION_WIDTH / 2, 434);*/
             
 
             switch (mCurrentStage)

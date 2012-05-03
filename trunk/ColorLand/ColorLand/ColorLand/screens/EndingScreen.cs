@@ -66,6 +66,8 @@ namespace ColorLand
 
         private void goToMainMenu()
         {
+            ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setCurrentStage(1));
+
             if (mTimer != null)
             {
                 mTimer.stop();

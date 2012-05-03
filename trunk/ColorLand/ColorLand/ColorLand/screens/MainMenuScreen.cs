@@ -440,6 +440,7 @@ namespace ColorLand
             {
                 if (!oldstateKeyboard.IsKeyDown(Keys.F1))
                 {
+                    SoundManager.StopMusic();
                     ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setStageAndColor(1, ProgressObject.PlayerColor.BLUE));
                     Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, true,true);
                 }
@@ -448,6 +449,7 @@ namespace ColorLand
             {
                 if (!oldstateKeyboard.IsKeyDown(Keys.F2))
                 {
+                    SoundManager.StopMusic();
                     ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setStageAndColor(2, ProgressObject.PlayerColor.BLUE));
                     Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, true, true);
                 }
@@ -456,6 +458,7 @@ namespace ColorLand
             {
                 if (!oldstateKeyboard.IsKeyDown(Keys.F3))
                 {
+                    SoundManager.StopMusic();
                     ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setStageAndColor(3, ProgressObject.PlayerColor.BLUE));
                     Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, true, true);
                 }
@@ -464,11 +467,19 @@ namespace ColorLand
             {
                 if (!oldstateKeyboard.IsKeyDown(Keys.F4))
                 {
+                    SoundManager.StopMusic();
                     ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setStageAndColor(4, ProgressObject.PlayerColor.BLUE));
                     Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, true, true);
                 }
             }
-
+            if (newState.IsKeyDown(Keys.F5))
+            {
+                if (!oldstateKeyboard.IsKeyDown(Keys.F5))
+                {
+                    SoundManager.StopMusic();
+                    Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_ENDING_SCREEN, true, true);
+                }
+            }
 
             
 

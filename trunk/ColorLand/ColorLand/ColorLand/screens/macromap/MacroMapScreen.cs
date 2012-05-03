@@ -115,12 +115,10 @@ namespace ColorLand
             //    Game1.print("AGAIN 1");
               //  setMacroMapState(MacroMapState.FirstStage);
                 SoundManager.LoadSound(cSOUND_FALLING);
-                Game1.print("Stage 1");
                 setMacroMapState(MacroMapState.FirstStage);
             }
             if (ExtraFunctions.loadProgress().getCurrentStage() == 2)
             {
-                Game1.print("Stage 2");
                 setMacroMapState(MacroMapState.SecondStage); 
             }
             if (ExtraFunctions.loadProgress().getCurrentStage() == 3)
@@ -134,7 +132,6 @@ namespace ColorLand
             if (ExtraFunctions.loadProgress().getCurrentStage() == 5)
             {
                 setMacroMapState(MacroMapState.Finish);
-                ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setCurrentStage(1));
             }
 
             //setMacroMapState(MacroMapState.Finish);
