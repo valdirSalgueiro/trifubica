@@ -28,7 +28,7 @@ namespace ColorLand.managers
 
         public void createObject(Vector2 position, Vector2 vel, Color rockType)
         {
-            Rock rock = new Rock(vel);
+            Rock rock = new Rock(vel, rockType);
             rock.loadContent(Game1.getInstance().getScreenManager().getContent());
             rock.pos = position;
             rock.type = rockType;
