@@ -114,7 +114,7 @@ namespace ColorLand
                 moveDown(4);
                 if (mSinComplement < 18)
                 {
-                    mSinComplement += 2;
+                    mSinComplement += 0.5f;
                 }
             }
 
@@ -129,7 +129,7 @@ namespace ColorLand
                 moveDown(4);
                 if (mSinComplement < 18)
                 {
-                    mSinComplement += 2;
+                    mSinComplement += 0.5f;
                 }
             }
 

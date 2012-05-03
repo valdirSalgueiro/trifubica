@@ -56,7 +56,7 @@ namespace ColorLand
             //* Frame rate is 30 fps by default for Windows Phone.
             TargetElapsedTime = TimeSpan.FromTicks(333333);
             
-            graphics.IsFullScreen = true;
+            graphics.IsFullScreen = false;
 
             mScreenManager = new ScreenManager(this);
 
