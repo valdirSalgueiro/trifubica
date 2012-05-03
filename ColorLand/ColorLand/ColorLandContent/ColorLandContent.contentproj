@@ -37,6 +37,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="gameplay\collectable\heart\blue\" />
+    <Folder Include="gameplay\collectable\heart\green\" />
+    <Folder Include="gameplay\collectable\heart\red\" />
     <Folder Include="gameplay\maincharacter\blue\stopped\" />
     <Folder Include="gameplay\maincharacter\red\stopped\" />
     <Folder Include="test\" />
