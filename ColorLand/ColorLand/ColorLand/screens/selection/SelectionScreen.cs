@@ -13,7 +13,8 @@ namespace ColorLand
     public class SelectionScreen : BaseScreen
     {
         
-        //private const String cSOUND_HIGHLIGHT = "sound\\fx\\highlight8bit";
+       
+
         private SpriteBatch mSpriteBatch;
 
         //Lista dos backgrounds
@@ -62,7 +63,12 @@ namespace ColorLand
             {
                 SoundManager.PlayMusic("sound\\music\\theme");
             }
-            
+            else
+            {
+                SoundManager.StopMusic();
+                SoundManager.PlayMusic("sound\\music\\theme");
+            }
+
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
             mBackgroundImage = new Background("gameplay\\selection\\Nuvens_pos");

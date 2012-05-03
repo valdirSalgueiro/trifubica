@@ -92,7 +92,7 @@ namespace ColorLand
         {
             if (!SoundManager.isPlaying())
             {
-                //SoundManager.PlayMusic("sound\\music\\theme");
+                SoundManager.PlayMusic("sound\\music\\theme");
             }
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
@@ -546,9 +546,9 @@ namespace ColorLand
                     }
                     else
                     {
-                        SoundManager.stopMusic();
+                        //SoundManager.stopMusic();
 
-                        ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setCurrentStage(1));
+                        ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setStageAndColor(1, ProgressObject.PlayerColor.BLUE));
                         executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
                         mFadeParam = FADE_PARAM.START_GAME;
                     }
@@ -564,8 +564,8 @@ namespace ColorLand
                     //SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                     //mFade = new Fade(this, "fades\\blackfade");
                     //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-                    SoundManager.stopMusic();
-                    Game1.print("<<CONTINUE BUTTON>>");
+
+                    SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                     executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
                     mFadeParam = FADE_PARAM.CONTINUE_GAME;
 
@@ -576,10 +576,9 @@ namespace ColorLand
                         //SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                         //mFade = new Fade(this, "fades\\blackfade");
                         //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
-                        Game1.print("<<NEW GAME BUTTON>>");
-                        SoundManager.stopMusic();
+                        SoundManager.PlaySound(cSOUND_HIGHLIGHT);
 
-                        ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setCurrentStage(1));
+                        ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setStageAndColor(1,ProgressObject.PlayerColor.BLUE));
                         executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
                         mFadeParam = FADE_PARAM.START_GAME;
 
@@ -630,15 +629,18 @@ namespace ColorLand
                 {
                     //Game1.progressObject.setCurrentStage(1);
                     //ExtraFunctions.saveProgress(Game1.progressObject);
+                    SoundManager.stopMusic();
                     Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_HISTORY, false);
                 }
                 if (mFadeParam == FADE_PARAM.CONTINUE_GAME)
                 {
-                    ExtraFunctions.saveProgress(Game1.progressObject);
+                    SoundManager.stopMusic();
+                    //ExtraFunctions.saveProgress(Game1.progressObject);
                     Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MACROMAP, false);
                 }
                 if (mFadeParam == FADE_PARAM.EXIT_GAME)
                 {
+                    SoundManager.stopMusic();
                     Game1.getInstance().Exit();
                 }
             }

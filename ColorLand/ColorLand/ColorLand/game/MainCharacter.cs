@@ -530,6 +530,11 @@ namespace ColorLand
             }
         }
 
+        public Color getColor()
+        {
+            return mColor;
+        }
+
         public bool isHurt()
         {
             return mHurt;

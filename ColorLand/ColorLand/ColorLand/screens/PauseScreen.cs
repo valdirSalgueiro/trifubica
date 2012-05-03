@@ -242,6 +242,7 @@ namespace ColorLand
                 //SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                 //mFade = new Fade(this, "fades\\blackfade");
                 //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                 mOwner.setPauseGame(false);
 
             }
@@ -250,11 +251,14 @@ namespace ColorLand
                 //SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                 //mFade = new Fade(this, "fades\\blackfade");
                 //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                SoundManager.PlaySound(cSOUND_HIGHLIGHT);
+                SoundManager.StopMusic();
                 Game1.getInstance().getScreenManager().changeScreen(ScreenManager.SCREEN_ID_MAIN_MENU, true,true);
             }
 
             if (button == mButtonHelp)
             {
+                SoundManager.PlaySound(cSOUND_HIGHLIGHT);
                 helpScreen = new HelpScreen(this);
                 bHelpScreen = true;
             }

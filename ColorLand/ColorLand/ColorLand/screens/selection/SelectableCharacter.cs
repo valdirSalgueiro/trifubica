@@ -10,7 +10,11 @@ namespace ColorLand
 {
     class SelectableCharacter : GameObject
     {
-        
+
+        private const String cSOUND_ROZ_THE_RED = "sound\\fx\\charsounds\\roz_red";
+        private const String cSOUND_GRAHAM_THE_GREEN = "sound\\fx\\charsounds\\grahan_green";
+        private const String cSOUND_BILLY_THE_BLUE = "sound\\fx\\charsounds\\billy_blue";
+
         private const String cSOUND_HIGHLIGHT = "sound\\fx\\colorswap8bit";
         private const String cSOUND_SELECT    = "sound\\fx\\charselect-8bit";//
         public const String  cSOUND_SELECTION = "sound\\fx\\charselected-8bits";
@@ -108,6 +112,10 @@ namespace ColorLand
         {
             base.loadContent(content);
 
+            SoundManager.LoadSound(cSOUND_ROZ_THE_RED);
+            SoundManager.LoadSound(cSOUND_GRAHAM_THE_GREEN);
+            SoundManager.LoadSound(cSOUND_BILLY_THE_BLUE);
+
             SoundManager.LoadSound(cSOUND_HIGHLIGHT);
             SoundManager.LoadSound(cSOUND_SELECT);
             SoundManager.LoadSound(cSOUND_SELECTION);
@@ -170,7 +178,18 @@ namespace ColorLand
             if (getCurrentSprite() == mSpriteSelected && mSpriteSelected.getAnimationEnded())
             {
                 changeState(sSTATE_EXPLOSION);
-                Game1.print("PRIU");
+                if (mColor == Color.Red)
+                {
+                    SoundManager.PlaySound(cSOUND_ROZ_THE_RED);
+                }
+                if (mColor == Color.Green)
+                {
+                    SoundManager.PlaySound(cSOUND_GRAHAM_THE_GREEN);
+                }
+                if (mColor == Color.Blue)
+                {
+                    SoundManager.PlaySound(cSOUND_BILLY_THE_BLUE);
+                }
             }
 
                       
