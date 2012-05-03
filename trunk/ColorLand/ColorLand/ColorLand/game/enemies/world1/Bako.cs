@@ -105,8 +105,8 @@ namespace ColorLand
                 }
 
                 //altere "1.0f" para fazer com que ele se desloque mais rapidamente
-                pos.X += 2.0f * (float)Math.Cos(destAngle);
-                pos.Y += 2.0f * (float)Math.Sin(destAngle);
+                pos.X += 1.2f * (float)Math.Cos(destAngle);
+                pos.Y += 1.2f * (float)Math.Sin(destAngle);
 
                 Vector2 direction = playerPosition - oldPosition;
 
