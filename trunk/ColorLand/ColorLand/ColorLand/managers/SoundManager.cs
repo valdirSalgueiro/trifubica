@@ -138,6 +138,8 @@ namespace ColorLand
         }
         public static void stopMusic()
         {
+
+
             if (isPlaying())
             {
                 MediaPlayer.Stop();

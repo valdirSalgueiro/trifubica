@@ -32,6 +32,16 @@ namespace ColorLand
 
         private PauseScreen mPauseScreen;
 
+        public const String cSOUND_STAGE1_TITLE = "sound\\fx\\charsounds\\sseacoast";
+        public const String cSOUND_STAGE2_TITLE = "sound\\fx\\charsounds\\shighseas";
+        public const String cSOUND_STAGE3_TITLE = "sound\\fx\\charsounds\\sdesert";
+        public const String cSOUND_STAGE4_TITLE = "sound\\fx\\charsounds\\sjungle";
+
+        private const String cSOUND_HIGHLIGHT = "sound\\fx\\highlight8bit";
+        public const String cSOUND_WE_DID_IT = "sound\\fx\\charsounds\\yeah_we_did_it";
+        public const String cSOUND_READY = "sound\\fx\\charsounds\\ready";
+        public const String cSOUND_GO = "sound\\fx\\charsounds\\go";
+        public const String cSOUND_YES = "sound\\fx\\charsounds\\yes";
         public const String cSOUND_EXPLOSION = "sound\\fx\\explosao8bit";
         public const String cSOUND_CHECKPOINT1 = "sound\\fx\\checkpoint1.1-8bit";
         public const String cSOUND_CHECKPOINT2 = "sound\\fx\\checkpoint1.2.2-8bit";
@@ -77,7 +87,7 @@ namespace ColorLand
          *******************/
         public static int sGROUND_WORLD_1_1 = 500;
 
-        int energy = 100;
+        int energy = 100; //100
         int progress = 0;
         int numberEnemies = 40;
         int pulse = 0;
@@ -291,7 +301,7 @@ namespace ColorLand
             mCamera = new Camera();
                         
             mCurrentStage = ExtraFunctions.loadProgress().getCurrentStage();
-            mCurrentStage = 2; //debug
+            //mCurrentStage = 2; //debug
             loadStage(mCurrentStage);
 
             mPauseScreen = new PauseScreen(this);
@@ -316,7 +326,12 @@ namespace ColorLand
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
             //mBlackBackground = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("fades\\blackfade");
             desaturateEffect = Game1.getInstance().getScreenManager().getContent().Load<Effect>("effects\\desaturate");
-            
+
+            SoundManager.LoadSound(cSOUND_READY);
+            SoundManager.LoadSound(cSOUND_GO);
+            SoundManager.LoadSound(cSOUND_YES);
+            SoundManager.LoadSound(cSOUND_HIGHLIGHT);
+            SoundManager.LoadSound(cSOUND_WE_DID_IT);
             SoundManager.LoadSound(cSOUND_EXPLOSION);
             SoundManager.LoadSound(cSOUND_CHECKPOINT1);
             SoundManager.LoadSound(cSOUND_CHECKPOINT2);
@@ -358,7 +373,7 @@ namespace ColorLand
             mCursor.setCenter(20, 20);
             mCursor.changeColor(Color.Blue);
 
-            /*if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.BLUE)
+            if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.BLUE)
             {
                 mMainCharacter = new MainCharacter(Color.Blue);
             }
@@ -369,7 +384,7 @@ namespace ColorLand
             if (Game1.progressObject.getColor() == ProgressObject.PlayerColor.RED)
             {
                 mMainCharacter = new MainCharacter(Color.Red);
-            }*/
+            }
             
             mMainCharacter = new MainCharacter(ExtraFunctions.convertSavedColorToColor());
 
@@ -389,12 +404,14 @@ namespace ColorLand
             mGroupButtons.loadContent(Game1.getInstance().getScreenManager().getContent());
             
             //TODO debug
-            mCurrentStage = 3;
+            //mCurrentStage = 1;
 
             switch (mCurrentStage)
             {
 
                 case sSTAGE_1:
+
+                    SoundManager.LoadSound(cSOUND_STAGE1_TITLE);
 
                     mTextureStageName = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\fase01");
                     mRectStageName = new Rectangle(200, 200, 427, 109);
@@ -485,6 +502,8 @@ namespace ColorLand
                     break;
 
                 case sSTAGE_2:
+
+                    SoundManager.LoadSound(cSOUND_STAGE2_TITLE);
 
                     mTextureStageName = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\fase02");
                     mRectStageName = new Rectangle(200, 200, 423, 109);
@@ -592,6 +611,8 @@ namespace ColorLand
                 //DESERTO
                 case sSTAGE_3:
 
+                    SoundManager.LoadSound(cSOUND_STAGE3_TITLE);
+
                     mTextureStageName = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\fase03");
                     mRectStageName = new Rectangle(230, 200, 333, 109);
 
@@ -620,11 +641,19 @@ namespace ColorLand
 
                     mManager.setMaxEnemiesPerScreen(2);
                     mManager.restartTimeInterval(3);
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Green, new Vector2(0, 340));
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Green, new Vector2(-10, 340));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Green, new Vector2(-50, 340));
-                                       
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Green, new Vector2(-80, 340));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Green, new Vector2(-100, 340));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(300, 100));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(300, 100));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Blue, new Vector2(360, 100));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Kaktos, Color.Green, new Vector2(900, 340));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(360, 100));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(260, 200));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Red, new Vector2(160, 300));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Rocker, Color.Red, new Vector2(900, 90));
                     
+
                     mManager.loadContent(Game1.getInstance().getScreenManager().getContent());
                     mManager.start();
 
@@ -636,6 +665,8 @@ namespace ColorLand
 
                 //FLORESTA
                 case sSTAGE_4:
+
+                    SoundManager.LoadSound(cSOUND_STAGE4_TITLE);
 
                     mTextureStageName = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("texts\\fase04");
                     mRectStageName = new Rectangle(240, 230, 333, 109);
@@ -664,7 +695,11 @@ namespace ColorLand
                     mExplosionManager.addExplosion(20, Color.Green, Game1.getInstance().getScreenManager().getContent());
                     mExplosionManager.addExplosion(20, Color.Blue, Game1.getInstance().getScreenManager().getContent());
 
-                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(200, 412));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Lizardo, Color.Green, new Vector2(200, 430));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Green, new Vector2(200, 20));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Bako, Color.Red, new Vector2(700, 20));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Rocker, Color.Green, new Vector2(200, 20));
+                    mManager.addEnemy(EnemyManager.EnemiesTypes.Rocker, Color.Red, new Vector2(200, 20));
                     /*mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 100));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 200));
                     mManager.addEnemy(EnemyManager.EnemiesTypes.Mongo, Color.Green, new Vector2(200, 300));
@@ -818,6 +853,7 @@ namespace ColorLand
                 if (mTimerStageFinishExplosions.getTimeAndLock(7))
                 {
                     mShowWeDidIt = true;
+                    SoundManager.PlaySound(cSOUND_WE_DID_IT);
                 }
 
                 if (mTimerStageFinishExplosions.getTimeAndLock(12))
@@ -849,6 +885,10 @@ namespace ColorLand
                 if (mTimerStageBegin.getTimeAndLock(4))
                 {
                     mShowTextureStageName = true;
+                    if (mCurrentStage == sSTAGE_1) SoundManager.PlaySound(cSOUND_STAGE1_TITLE);
+                    if (mCurrentStage == sSTAGE_2) SoundManager.PlaySound(cSOUND_STAGE2_TITLE);
+                    if (mCurrentStage == sSTAGE_3) SoundManager.PlaySound(cSOUND_STAGE3_TITLE);
+                    if (mCurrentStage == sSTAGE_4) SoundManager.PlaySound(cSOUND_STAGE4_TITLE);
                 }
                 
                 if (mTimerStageBegin.getTimeAndLock(7))
@@ -860,12 +900,14 @@ namespace ColorLand
                 if (mTimerStageBegin.getTimeAndLock(9))
                 {
                     mShowReady = true;
+                    SoundManager.PlaySound(cSOUND_READY);
                 }
 
                 if (mTimerStageBegin.getTimeAndLock(11))
                 {
                     mShowReady = false;
                     mShowGo = true;
+                    SoundManager.PlaySound(cSOUND_GO);
                 }
 
                 if (mTimerStageBegin.getTimeAndLock(12))
@@ -930,6 +972,11 @@ namespace ColorLand
             if (mTimerFrontalBG != null)
             {
                 mTimerFrontalBG.update(gameTime);
+
+                if (mTimerFrontalBG.getTimeAndLock(1))
+                {
+                    SoundManager.PlaySound(cSOUND_YES);
+                }
 
                 if (mTimerFrontalBG.getTimeAndLock(3.4))
                 {
@@ -996,8 +1043,8 @@ namespace ColorLand
                             //combo code era aqui
                             
                         }
-                        Collectable c = mGroupCollectables.getNext();
-                        c.appear(100, 100);
+                        //Collectable c = mGroupCollectables.getNext();
+                        //c.appear(100, 100);
                     }
                     else
                     {
@@ -1199,11 +1246,9 @@ namespace ColorLand
                         SoundManager.PlaySound(cSOUND_CHECKPOINT3);
                         startStageFinishExplosions();
                         mMustZoomAtFinish = true;
-                        Game1.progressObject.setCurrentStage(mCurrentStage+1);
-                        ExtraFunctions.saveProgress(Game1.progressObject);
-            
-
-
+                        //Game1.progressObject.setCurrentStage(mCurrentStage+1);
+                        ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setCurrentStage(mCurrentStage+1));
+                        
 
                         //SoundManager.PlayMusic(cMUSIC_WIN, false);
                         //mMainCharacter.changeState(MainCharacter.sSTATE_VICTORY);
@@ -1362,6 +1407,13 @@ namespace ColorLand
                             mBackgroundFront.update();
                             mGroupCollectables.update(gameTime);
                             mMainCharacter.update(gameTime);
+
+                            if (mMainCharacter.getState() != MainCharacter.sSTATE_VICTORY &&
+                                mMainCharacter.getState() != MainCharacter.sSTATE_LOSE)
+                            {
+                                updatePlayerBody();
+                            }
+
                             mMainCharacter.setVisible(true);
                             mExplosionManager.update(gameTime);
                             mCursor.update(gameTime);
@@ -1959,12 +2011,13 @@ namespace ColorLand
                     {
                         //instantInk(mCursor.getColor());
 
-                        sCURRENT_STAGE_X += cSPACE_TO_WALK;
+                        /*sCURRENT_STAGE_X += cSPACE_TO_WALK;
                         mWalkCamera = true;
 
                         mTimerFrontalBG = new MTimer(true);
                         mMoveFrontalBG = true;
-                        
+                        */
+                          
                     }
 
                 }
@@ -2029,7 +2082,11 @@ namespace ColorLand
                 {
                     if (!oldState.IsKeyDown(Keys.Escape))
                     {
-                        togglePauseGame();
+                        if (mGameState == GAME_STATE_EM_JOGO)
+                        {
+                            SoundManager.PlaySound(cSOUND_HIGHLIGHT);
+                            togglePauseGame();
+                        }
                     }
                 }
 
@@ -2117,14 +2174,14 @@ namespace ColorLand
         {
             if (button == mGameOverButtonTryAgain)
             {
-                Game1.print("TRY AGAIN");
+                //play positive sound
+                ///SoundManager.
                 executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
                 mFadeParam = FADE_PARAM.RESTART_STAGE;
             }
             if (button == mGameOverButtonTryLater)
             {
-                Game1.print("LATER....");
-
+                //play okays... sound
                 executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
                 mFadeParam = FADE_PARAM.QUIT_TO_MAIN_MENU;
 

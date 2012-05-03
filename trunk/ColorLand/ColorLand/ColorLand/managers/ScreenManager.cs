@@ -40,6 +40,7 @@ namespace ColorLand
         public const int SCREEN_ID_SPLASHSCREEN       = 7;
         //test purposes
         public const int SCREEN_ID_LOADING            = 8;
+        public const int SCREEN_ID_ENDING_SCREEN      = 9;
 
         private BackgroundWorker bw = new BackgroundWorker();
         private BaseScreen mScreenToLoad;
@@ -64,9 +65,10 @@ namespace ColorLand
             mSpriteBatch = new SpriteBatch(GraphicsDevice);
 
             //changeScreen(SCREEN_ID_LOGOS_SCREEN, false);
-            changeScreen(SCREEN_ID_GAMEPLAY, false, true);
-            //changeScreen(SCREEN_ID_MAIN_MENU, false);
+            //changeScreen(SCREEN_ID_GAMEPLAY, false, true);
+            changeScreen(SCREEN_ID_MAIN_MENU, false);
             //changeScreen(SCREEN_ID_MACROMAP, false, false);
+            //changeScreen(SCREEN_ID_ENDING_SCREEN, false, false);
             //changeScreen(SCREEN_ID_CHAR_SELECTION, false, false);
             //changeScreen(SCREEN_ID_MAIN_MENU_SETTINGS_SCREEN, false);
             //changeScreen(SCREEN_ID_MAIN_MENU_HELP, false);
@@ -179,6 +181,10 @@ namespace ColorLand
                 //test purposes
                 case SCREEN_ID_LOADING:
                     baseScreen = new LoadingScreen();
+                    break;
+
+                case SCREEN_ID_ENDING_SCREEN:
+                    baseScreen = new EndingScreen();
                     break;
             }
             return baseScreen;

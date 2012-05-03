@@ -300,7 +300,15 @@ namespace ColorLand
                 }
                 else
                 {
-                    executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
+                    if (owner != null)
+                    {
+                        owner.cSCREEN = MainMenuScreen.SCREENS.MAINMENU_SCREEN;
+                    }
+                    else if (owner2 != null)
+                    {
+                        owner2.bHelpScreen = false;
+                    }
+                    //executeFade(mFade, Fade.sFADE_OUT_EFFECT_GRADATIVE);
                 }
             }
 
