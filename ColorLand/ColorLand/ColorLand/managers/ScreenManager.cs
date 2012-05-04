@@ -46,6 +46,8 @@ namespace ColorLand
 
         private int mScreenID;
 
+        private bool loading = false;
+
         public ScreenManager(Game game)
             : base(game) { 
             
@@ -191,14 +193,18 @@ namespace ColorLand
 
         private void bw_DoWork(object sender, DoWorkEventArgs e)
         {
-            BackgroundWorker worker = sender as BackgroundWorker;
-            mScreenToLoad = returnScreen(mScreenID);
+            if (!loading)
+            {
+                loading = true;
+                BackgroundWorker worker = sender as BackgroundWorker;
+                mScreenToLoad = returnScreen(mScreenID);
+            }
         }
 
         private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e){
             Console.WriteLine("teste completo");
             mCurrentScreen = mScreenToLoad;
-
+            loading = false;
         }
 
         public SpriteBatch getSpriteBatch() {
