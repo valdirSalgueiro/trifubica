@@ -134,6 +134,8 @@ namespace ColorLand
                 setMacroMapState(MacroMapState.Finish);
             }
 
+            setMacroMapState(MacroMapState.SecondStage);
+
             //setMacroMapState(MacroMapState.Finish);
 
             SoundManager.PlayMusic(cMUSIC_MAP);

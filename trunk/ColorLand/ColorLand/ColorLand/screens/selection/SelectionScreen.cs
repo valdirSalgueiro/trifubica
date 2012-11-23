@@ -81,7 +81,8 @@ namespace ColorLand
             mCursor = new Cursor();
             mCursor.loadContent(Game1.getInstance().getScreenManager().getContent());
 
-            mTextureChooseTitle = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\selection\\hero_screen");
+            //mTextureChooseTitle = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\selection\\hero_screen");
+            mTextureChooseTitle = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\selection\\chooseheropt");
 
             mTextureRedNameUnselected   = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\selection\\RedName_unselected");
             mTextureRedNameSelected     = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("gameplay\\selection\\Redname");
@@ -162,7 +163,7 @@ namespace ColorLand
 
             mSpriteBatch.Draw(mTextureChooseTitle, new Rectangle(188, 50, mTextureChooseTitle.Width, mTextureChooseTitle.Height), Color.White);
 
-            if (mCurrentSelectableCharacter == mSelectableCharacterRed)
+            /*if (mCurrentSelectableCharacter == mSelectableCharacterRed)
             {
                 mSpriteBatch.Draw(mTextureRedNameSelected, new Rectangle(120, 430, mTextureRedNameSelected.Width, mTextureRedNameSelected.Height), Color.White * mAlpha);
                 mSpriteBatch.Draw(mTextureGreenNameUnselected, new Rectangle(354, 435, mTextureGreenNameUnselected.Width, mTextureGreenNameUnselected.Height), Color.White * mAlpha);
@@ -188,6 +189,7 @@ namespace ColorLand
                 mSpriteBatch.Draw(mTextureGreenNameUnselected, new Rectangle(354, 435, mTextureGreenNameUnselected.Width, mTextureGreenNameUnselected.Height), Color.White);
                 mSpriteBatch.Draw(mTextureRedNameUnselected, new Rectangle(120, 430, mTextureRedNameUnselected.Width, mTextureRedNameUnselected.Height), Color.White);
             }
+            */
 
             if (mReduceAlpha)
             {

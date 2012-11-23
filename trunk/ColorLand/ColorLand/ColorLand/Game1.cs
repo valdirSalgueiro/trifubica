@@ -19,7 +19,7 @@ namespace ColorLand
     public class Game1 : Microsoft.Xna.Framework.Game
     {
 
-        public static String sPROGRESS_FILE_NAME = "progress.lol";
+        public static String sPROGRESS_FILE_NAME = "progresxxs.lol";
 
         public static int sSCREEN_RESOLUTION_WIDTH = 800;//640;
         public static int sSCREEN_RESOLUTION_HEIGHT = 600;//480;

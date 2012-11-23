@@ -90,6 +90,8 @@ namespace ColorLand
 
         public MainMenuScreen()
         {
+            ObjectSerialization.Save<ProgressObject>(Game1.sPROGRESS_FILE_NAME, Game1.progressObject.setStageAndColor(1, ProgressObject.PlayerColor.BLUE));
+
             if (!SoundManager.isPlaying())
             {
                 SoundManager.PlayMusic("sound\\music\\theme");
@@ -221,10 +223,6 @@ namespace ColorLand
             //SPLASH
             //mGamelogo = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\logo");
             //mTextureClickToStart = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\clicktostart");
-
-            ProgressObject p = ExtraFunctions.loadProgress();
-            Game1.print("INFORMACAO: P--->STAGE: " + p.getCurrentStage());
-            Game1.print("INFORMACAO: P--->COLOR: " + p.getColor());
 
             mList.Add(mBackgroundImage);
 
