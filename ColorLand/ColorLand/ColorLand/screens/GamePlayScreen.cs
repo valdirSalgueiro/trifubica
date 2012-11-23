@@ -92,7 +92,7 @@ namespace ColorLand
          *******************/
         public static int sGROUND_WORLD_1_1 = 500;
 
-        int energy = 1; //100
+        int energy = 100;
         int progress = 0;
         int numberEnemies = 40;
         int pulse = 0;

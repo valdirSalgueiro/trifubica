@@ -39,6 +39,8 @@ namespace ColorLand
         private Fade mFade;
         private Fade mCurrentFade;
 
+        private Button mButtonSkip;
+
         public StoryScreen()
         {
 
@@ -60,6 +62,9 @@ namespace ColorLand
             mTextureClickToStart = Game1.getInstance().getScreenManager().getContent().Load<Texture2D>("mainmenu\\clicktoskip");
 
             mTimerBlinkText = new MTimer(true);
+
+            mButtonSkip = new Button("gameplay\\macromap\\PularSkip2", "gameplay\\macromap\\PularSkip2", "gameplay\\macromap\\PularSkip2", new Rectangle(392, 485, 419, 113));
+            mButtonSkip.loadContent(Game1.getInstance().getScreenManager().getContent());
 
         }
                 
@@ -110,6 +115,8 @@ namespace ColorLand
             updateTimer(gameTime);
             updateTimerBlinkText(gameTime);
 
+            mButtonSkip.update(gameTime);
+
             /*mCamera.update();
             
             if (mAuthorizeUpdate)
@@ -154,7 +161,7 @@ namespace ColorLand
             if (mShowTextClickToStart && !mClicked)
             {
                 mSpriteBatch.Begin();
-                mSpriteBatch.Draw(mTextureClickToStart, new Vector2(280, 520), Color.White);
+               // mSpriteBatch.Draw(mTextureClickToStart, new Vector2(280, 520), Color.White);
                 mSpriteBatch.End();
             }
 
@@ -165,6 +172,8 @@ namespace ColorLand
             {
                 mFade.draw(mSpriteBatch);
             }
+
+            mButtonSkip.draw(mSpriteBatch);
             mSpriteBatch.End();
 
                 /*mSpriteBatch.Begin(
@@ -192,6 +201,8 @@ namespace ColorLand
 
                 mSpriteBatch.End();
          */
+
+            
         }
 
         public override void handleInput(InputState input)
