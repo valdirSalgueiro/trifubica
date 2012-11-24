@@ -30,6 +30,7 @@ namespace ColorLand
         public const int SCREEN_ID_MAIN_MENU          = 1;
         public const int SCREEN_ID_MAIN_MENU_HELP     = 100;
         public const int SCREEN_ID_MAIN_MENU_CREDITS  = 101;
+        public const int SCREEN_ID_MEMORYGAME  = 201;
 
         public const int SCREEN_ID_GAMEPLAY           = 2;
         public const int SCREEN_ID_HISTORY            = 3;
@@ -66,7 +67,7 @@ namespace ColorLand
             mSpriteBatch = new SpriteBatch(GraphicsDevice);
 
             //changeScreen(SCREEN_ID_LOGOS_SCREEN, false);
-            changeScreen(SCREEN_ID_GAMEPLAY, false, true);
+            //changeScreen(SCREEN_ID_GAMEPLAY, false, true);
             //changeScreen(SCREEN_ID_MAIN_MENU, false);
             //changeScreen(SCREEN_ID_MACROMAP, false, false);
             //changeScreen(SCREEN_ID_ENDING_SCREEN, false, false);
@@ -77,6 +78,7 @@ namespace ColorLand
             //changeScreen(SCREEN_ID_GAMEOVER, false, false);
             //changeScreen(SCREEN_ID_SPLASHSCREEN, false, false);
             //changeScreen(SCREEN_ID_LOADING, false, false);
+            changeScreen(SCREEN_ID_MEMORYGAME, false, false);
         }
 
         public void UnloadContent()
@@ -145,6 +147,10 @@ namespace ColorLand
 
                 case SCREEN_ID_LOGOS_SCREEN:
                     baseScreen = new LogosScreen();
+                    break;
+
+                case SCREEN_ID_MEMORYGAME:
+                    baseScreen = new MemoryGameScreen();
                     break;
 
                 case SCREEN_ID_MAIN_MENU:
