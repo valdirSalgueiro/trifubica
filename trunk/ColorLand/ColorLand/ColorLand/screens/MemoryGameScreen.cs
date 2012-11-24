@@ -178,21 +178,22 @@ namespace ColorLand
                                 card.state = CARD_STATE.SELECTED;
                                 if (firstCardSelected)
                                 {
-                                    card2 = cardID;
-                                    firstCardSelected = false;
-
-
-
-                                    if (cards[card1].type == cards[card2].type)
+                                    if (cardID != card1)
                                     {
-                                        newState = CARD_STATE.CORRECT;
+                                        card2 = cardID;
+                                        firstCardSelected = false;
+
+                                        if (cards[card1].type == cards[card2].type)
+                                        {
+                                            newState = CARD_STATE.CORRECT;
+                                        }
+                                        else
+                                        {
+                                            newState = CARD_STATE.WRONG;
+                                        }
+                                        cards[card1].state = newState;
+                                        cards[card2].state = newState;
                                     }
-                                    else
-                                    {
-                                        newState = CARD_STATE.WRONG;
-                                    }
-                                    cards[card1].state = newState;
-                                    cards[card2].state = newState;
                                 }
                                 else
                                 {
