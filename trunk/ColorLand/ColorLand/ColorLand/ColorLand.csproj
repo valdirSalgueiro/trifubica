@@ -120,6 +120,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="screens\BaseScreen.cs" />
     <Compile Include="screens\EndingScreen.cs" />
+    <Compile Include="screens\MemoryGameScreen.cs" />
     <Compile Include="screens\mainmenu\SoundIcon.cs" />
     <Compile Include="screens\SplashScreen.cs" />
     <Compile Include="screens\gameover\GameoverScreen.cs" />
