@@ -187,9 +187,10 @@ namespace ColorLand
                                 firstCardSelected = true;
                             }
                         }
-                        mousePressed = false;
+                        
                     }
                 }
+                mousePressed = false;
             }
         }
 
