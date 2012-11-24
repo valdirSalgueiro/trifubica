@@ -1,20 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Audio;
-using System.IO.IsolatedStorage;
-using System.IO;
 using Microsoft.Xna.Framework.Input;
-//using Microsoft.Xna.Framework.Input.Touch;
-using System.Timers;
-using ColorLand.managers;
-using System.Runtime.InteropServices;
-
 
 namespace ColorLand
 {
@@ -95,16 +83,14 @@ namespace ColorLand
             mSpriteBatch = Game1.getInstance().getScreenManager().getSpriteBatch();
 
             cards = new Card[12];
-            
-            
-            //
+
             for (int i = 0; i < cards.Length; i++)
-            {                
+            {
                 cards[i] = new Card();
-                cards[i].type = (TYPE)(i%6);
+                cards[i].type = (TYPE)(i % 6);
                 cards[i].state = CARD_STATE.NONE;
             }
-            for (int i = 0; i < cards.Length; i++)
+            for (int i = 0; i < cards.Length; i++) //shuffleinggggg
             {
                 int rand = random.Next() % cards.Length;
                 Card tmp = cards[rand];
@@ -132,7 +118,8 @@ namespace ColorLand
                         {
                             cards[i].revealStateTimer += gameTime.ElapsedGameTime.Milliseconds;
                         }
-                        else {
+                        else
+                        {
                             mousePressed = false;
                             newState = CARD_STATE.NONE;
                             cards[i].up = false;
@@ -162,49 +149,42 @@ namespace ColorLand
                     float x = mCursor.mX;
                     float y = mCursor.mY;
 
-                    if (x > 30 && x < 570 && y > 30 && y < 570 && newState!=CARD_STATE.WRONG)
+                    if (x > 30 && x < 570 && y > 30 && y < 570 && newState != CARD_STATE.WRONG)
                     {
                         int cardX = (int)((x - 30) / 135);
                         int cardY = (int)((y - 30) / 180);
                         int cardID = cardX + cardY * 4;
                         Card card = cards[cardID];
 
-                        if (card.state != CARD_STATE.CORRECT)
+                        if (card.state == CARD_STATE.NONE)
                         {
                             cards[cardID].up = true;
 
-                            if (card.state == CARD_STATE.NONE)
-                            {
-                                card.state = CARD_STATE.SELECTED;
-                                if (firstCardSelected)
-                                {
-                                    if (cardID != card1)
-                                    {
-                                        card2 = cardID;
-                                        firstCardSelected = false;
 
-                                        if (cards[card1].type == cards[card2].type)
-                                        {
-                                            newState = CARD_STATE.CORRECT;
-                                        }
-                                        else
-                                        {
-                                            newState = CARD_STATE.WRONG;
-                                        }
-                                        cards[card1].state = newState;
-                                        cards[card2].state = newState;
-                                    }
-                                }
-                                else
+                            card.state = CARD_STATE.SELECTED;
+                            if (firstCardSelected)
+                            {
+                                if (cardID != card1)
                                 {
-                                    card1 = cardID;
-                                    firstCardSelected = true;
+                                    card2 = cardID;
+                                    firstCardSelected = false;
+
+                                    if (cards[card1].type == cards[card2].type)
+                                    {
+                                        newState = CARD_STATE.CORRECT;
+                                    }
+                                    else
+                                    {
+                                        newState = CARD_STATE.WRONG;
+                                    }
+                                    cards[card1].state = newState;
+                                    cards[card2].state = newState;
                                 }
                             }
                             else
                             {
-                                firstCardSelected = false;
-                                card.state = CARD_STATE.NONE;
+                                card1 = cardID;
+                                firstCardSelected = true;
                             }
                         }
                         mousePressed = false;
@@ -273,13 +253,6 @@ namespace ColorLand
             }
             mCursor.draw(mSpriteBatch);
             mSpriteBatch.End();
-
         }
-
-
     }
-
-
-
-
 }
