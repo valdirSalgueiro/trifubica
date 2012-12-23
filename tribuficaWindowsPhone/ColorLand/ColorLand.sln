@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorLandContent", "ColorLand\ColorLandContent\ColorLandContent.contentproj", "{82E9FD01-18F4-40C1-BB5A-5E6592B930D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorLandPhone", "ColorLand\ColorLand\ColorLandPhone.csproj", "{F66844CB-B626-44B2-8E70-69AE7AB4C467}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Windows Phone = Debug|Windows Phone
+		Release|Windows Phone = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82E9FD01-18F4-40C1-BB5A-5E6592B930D1}.Debug|Windows Phone.ActiveCfg = Debug|x86
+		{82E9FD01-18F4-40C1-BB5A-5E6592B930D1}.Release|Windows Phone.ActiveCfg = Release|x86
+		{F66844CB-B626-44B2-8E70-69AE7AB4C467}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{F66844CB-B626-44B2-8E70-69AE7AB4C467}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{F66844CB-B626-44B2-8E70-69AE7AB4C467}.Debug|Windows Phone.Deploy.0 = Debug|Windows Phone
+		{F66844CB-B626-44B2-8E70-69AE7AB4C467}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{F66844CB-B626-44B2-8E70-69AE7AB4C467}.Release|Windows Phone.Build.0 = Release|Windows Phone
+		{F66844CB-B626-44B2-8E70-69AE7AB4C467}.Release|Windows Phone.Deploy.0 = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
